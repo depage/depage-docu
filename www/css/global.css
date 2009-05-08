@@ -28,15 +28,15 @@
     font-weight: bold;
     font-size: 1em;
     padding-top: 2.4em;
-    padding-bottom: 1.2em;
-    line-height: 1.2em;
+    padding-bottom: 0.8em;
+    line-height: 1.6em;
     color: #555555;
 }
 #content p,
 .section ul,
 .section ol {
     font-size: 0.97em;
-    line-height: 1.5em;
+    line-height: 1.6em;
 }
 #content .crop {
     margin: 1em 0em 1em 0em;

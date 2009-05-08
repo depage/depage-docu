@@ -5,7 +5,8 @@
 }
 html {
     height: 100%;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #918e89;
+    background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
 }
 body {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
@@ -90,26 +91,28 @@ body {
 #header {
     height: 6px;
     margin-bottom: 10px;
-    padding-top: 1.5em;
+    padding-top: 3em;
     margin-bottom: 0;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #918e89;
+    background: #000000;
 }
 #header #corner_tl {
     position: absolute;
-    top: 1.5em;
+    top: 3em;
     left: 0;
     width: 16px;
     height: 16px;
     float:left;
+    background: url(../grfx/all/corner_tl.png) no-repeat top left !important;
     background: url(../grfx/all/corner_tl.gif) no-repeat top left;
 }
 #header #corner_tr {
     position: absolute;
-    top: 1.5em;
+    top: 3em;
     right: 0;
     width: 16px;
     height: 16px;
     float:right;
+    background: url(../grfx/all/corner_tr.png) no-repeat top right !important;
     background: url(../grfx/all/corner_tr.gif) no-repeat top right;
 }
 #header #middle {
@@ -128,6 +131,8 @@ body {
     min-height: 100%;
     text-align: left;
     background: #ffffff;
+    border-left: 3em solid #000000;
+    border-right: 3em solid #000000;
 }
 #content {
     padding: 1em 2em 12em 3em;
@@ -145,25 +150,25 @@ body {
     width: 100%;
 }
 #footer {
-    height: 6em;
-    background: url(../grfx/all/back_footer_shadow.gif) repeat-x top left #676562;
+    height: 3em;
+    background: url(../grfx/all/back_footer_shadow.png) repeat-x top left #000000 !important;
+    background: url(../grfx/all/back_footer_shadow.gif) repeat-x top left #000000;
 }
 #footer p {
     float: right;
     font-size: 0.8em;
-    color: #dddddd;
+    color: #555555;
     padding-top: 1em;
-    padding-right: 1em;
 }
 #footer a {
-    color: #ffffff;
+    color: #555555;
 }
 /* }}} */
 /* {{{ navigation */
 #navigation {
     position: absolute;
     float: right;
-    top: 4em;
+    top: 7em;
     right: 0;
     width: 14em;
     padding-left: 2em;
