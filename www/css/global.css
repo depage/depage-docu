@@ -1,0 +1,131 @@
+/* {{{ global */
+.invisible {
+    display: none;
+}
+.hidden {
+    visibility: hidden;
+}
+/* }}} */
+/* {{{ content */
+.section .spacing {
+    margin-top: 1em;
+}
+#content h1 {
+    font-family: Georgia, Times, Times New Roman, Serif;
+    font-weight: normal;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+    padding-right: 4em;
+    color: #555555;
+}
+#content h1 .light {
+    display: block;
+    color: #aeaeae;
+}
+#content h2 {
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 2.4em;
+    padding-bottom: 1.2em;
+    line-height: 1.2em;
+    color: #555555;
+}
+#content p,
+.section ul,
+.section ol {
+    font-size: 0.97em;
+    line-height: 1.5em;
+}
+#content .crop {
+    margin: 1em 0em 1em 0em;
+    width: 38em;
+    overflow: hidden;
+}
+#content .float_left {
+    float: left;
+    margin: 1em 1em 1em 0em;
+}
+#content address {
+    font-size: 0.97em;
+    line-height: 1.5em;
+    font-style: normal;
+    margin-bottom: 1em;
+}
+.section a {
+    color: #E1721B;
+    text-decoration: none;
+}
+.section a:hover {
+    color: #ca0000;
+    text-decoration: underline;
+}
+.section a img {
+    border: none;
+}
+.section ul {
+    padding-left: 1.5em;
+    list-style: disc;
+}
+/* }}} */
+/* {{{ navigation */
+#navigation ul {
+    line-height: 1.35em;
+    padding-bottom: 1em;
+    list-style: none;
+}
+#navigation ul a {
+    font-size: 0.95em;
+}
+#navigation ul a:hover {
+    text-decoration: underline;
+    color: #ff9900;
+}
+#navigation ul ul {
+    margin-left: 1em;
+}
+#navigation ul li a.active {
+    font-weight: bold;
+}
+.navigation_bright a {
+    color: #999999;
+}
+.navigation_bright:hover a {
+    color: #555555;
+}
+/* }}} */
+/* {{{ lists big/nav */
+ul.big {
+    font-family: Georgia, Times, Times New Roman, Serif;
+    font-size: 4em;
+    font-weight: normal;
+    line-height: 1.2em;
+    list-style: none;
+}
+ul a {
+    color: #000000;
+    text-decoration: none;
+}
+ul a:hover {
+    color: #555555;
+}
+ul a:hover .hidden {
+    visibility: visible;
+}
+li.highlighted {
+    margin-top: 0.75em;
+}
+li.highlighted a {
+    color: #ff9900;
+}
+li.highlighted a .hidden {
+    visibility: visible;
+    color: #ffddaa;
+}
+li.highlighted a:hover .hidden {
+    color: #ff9900;
+}
+/* }}} */
+
+/* vim:set ft=css sw=4 sts=4 fdm=marker : */

@@ -1,0 +1,175 @@
+/* {{{ global */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #918e89;
+}
+body {
+    font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+    font-size: 75%;
+    text-align: center;
+    height: 100%;
+}
+.invisible {
+    display: none;
+}
+.hidden {
+    visibility: hidden;
+}
+/* }}} */
+/* {{{ background colors */
+#backcolor_blue {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #0D76C6;
+    position: absolute;
+    left: 0em;
+    top: 96px;
+    width: 100%;
+    height: 140px;
+}
+#backcolor_brightblue {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #4B8EAA;
+    position: absolute;
+    left: 0em;
+    top: 126px;
+    width: 100%;
+    height: 170px;
+}
+#backcolor_green {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #01AA09;
+    position: absolute;
+    left: 0em;
+    top: 156px;
+    width: 100%;
+    height: 200px;
+}
+#backcolor_red {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #ca0000;
+    position: absolute;
+    left: 0em;
+    top: 186px;
+    width: 100%;
+    height: 230px;
+}
+#backcolor_orange {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #ff9900;
+    position: absolute;
+    left: 0em;
+    top: 96px;
+    width: 100%;
+    height: 350px;
+}
+#backcolor_grey1 {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    position: absolute;
+    left: 0em;
+    top: 198px;
+    width: 100%;
+    height: 200px;
+}
+#backcolor_grey2 {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    position: absolute;
+    left: 0em;
+    top: 294px;
+    width: 100%;
+    height: 150px;
+}
+#backcolor_grey3 {
+    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    position: absolute;
+    left: 0em;
+    top: 96px;
+    width: 100%;
+    height: 250px;
+}
+/* }}} */
+/* {{{ round header */
+#header {
+    height: 6px;
+    margin-bottom: 10px;
+    padding-top: 1.5em;
+    margin-bottom: 0;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #918e89;
+}
+#header #corner_tl {
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    float:left;
+    background: url(../grfx/all/corner_tl.gif) no-repeat top left;
+}
+#header #corner_tr {
+    position: absolute;
+    top: 1.5em;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    float:right;
+    background: url(../grfx/all/corner_tr.gif) no-repeat top right;
+}
+#header #middle {
+    margin: 0 6px 0 6px;
+    height: 6px;
+    background: #ffffff;
+}
+/* }}} */
+/* {{{ content */
+#contentcontainer {
+    position: relative;
+    margin: 0 auto;
+    width: 60em;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    text-align: left;
+    background: #ffffff;
+}
+#content {
+    padding: 1em 2em 12em 3em;
+    background: #ffffff;
+}
+.section, .section_start {
+    margin-right: 17em;
+}
+/* }}} */
+/* {{{ footer */
+#footercontainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+#footer {
+    height: 6em;
+    background: url(../grfx/all/back_footer_shadow.gif) repeat-x top left #676562;
+}
+#footer p {
+    float: right;
+    font-size: 0.8em;
+    color: #dddddd;
+    padding-top: 1em;
+    padding-right: 1em;
+}
+#footer a {
+    color: #ffffff;
+}
+/* }}} */
+/* {{{ navigation */
+#navigation {
+    position: absolute;
+    float: right;
+    top: 4em;
+    right: 0;
+    width: 14em;
+    padding-left: 2em;
+    border-left: 1px solid #dfdfdf;
+    height: 50%;
+}
+/* }}} */
+
+/* vim:set ft=css sw=4 sts=4 fdm=marker : */

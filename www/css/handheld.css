@@ -1,0 +1,9 @@
+/* @todo small screen rendering */
+body {
+    font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+    font-size: 75%;
+}
+#navigation {
+}
+
+/* vim:set ft=css sw=4 sts=4 fdm=marker : */
