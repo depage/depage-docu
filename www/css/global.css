@@ -5,13 +5,26 @@
 .hidden {
     visibility: hidden;
 }
+body {
+    font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+    font-size: 75%;
+    text-align: center;
+    height: 100%;
+}
+a img {
+    border: none;
+    color: #000000;
+}
+#content h1,
+ul.big {
+    font-family: Georgia, Times, Times New Roman, Serif;
+}
 /* }}} */
 /* {{{ content */
 .section .spacing {
     margin-top: 1em;
 }
 #content h1 {
-    font-family: Georgia, Times, Times New Roman, Serif;
     font-weight: normal;
     font-size: 2.5em;
     line-height: 1.2em;
@@ -40,7 +53,7 @@
 }
 #content .crop {
     margin: 1em 0em 1em 0em;
-    width: 38em;
+    width: 35em;
     overflow: hidden;
 }
 #content .float_left {
@@ -97,8 +110,7 @@
 /* }}} */
 /* {{{ lists big/nav */
 ul.big {
-    font-family: Georgia, Times, Times New Roman, Serif;
-    font-size: 4em;
+    font-size: 3.8em;
     font-weight: normal;
     line-height: 1.2em;
     list-style: none;

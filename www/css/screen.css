@@ -8,12 +8,6 @@ html {
     background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
     background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
 }
-body {
-    font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
-    font-size: 75%;
-    text-align: center;
-    height: 100%;
-}
 .invisible {
     display: none;
 }
@@ -135,11 +129,14 @@ body {
     border-right: 3em solid #000000;
 }
 #content {
-    padding: 1em 2em 12em 3em;
+    padding: 1.5em 2em 12em 3em;
     background: #ffffff;
 }
 .section, .section_start {
-    margin-right: 17em;
+    margin-right: 19em;
+}
+.section_start {
+    margin-bottom: 10em;
 }
 /* }}} */
 /* {{{ footer */
@@ -148,6 +145,50 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+#footercontainer #teaser {
+    position: absolute;
+    bottom: 5em;
+}
+#content #teaser {
+    position: relative;
+    /*left: -0.5em;*/
+    margin-left: -0.5em;
+    padding-bottom: 3em;
+    width: 60em;
+}
+#teaser .teaser {
+    float: left;
+    height: 4em;
+    width: 15.5em;
+    margin-right: 2.5em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    overflow: hidden;
+}
+#teaser .teaser p {
+    line-height: 1.4em;
+}
+#teaser .teaser:hover {
+    cursor: pointer;
+    background: url(../grfx/all/back_pattern.png) repeat top center #eeeeee !important;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #eeeeee;
+}
+#teaser .teaser .date {
+    font-weight: bold;
+    font-size: 0.85em;
+}
+#teaser .teaser img {
+    float: left;
+    display: block;
+    width: 4em;
+    height: 4em;
+    background: #dddddd;
+    margin-right: 1em;
+}
+#teaser .teaser em {
+    font-style: normal;
+    color: #555555;
 }
 #footer {
     height: 3em;
@@ -170,10 +211,10 @@ body {
     float: right;
     top: 7em;
     right: 0;
-    width: 14em;
+    width: 17em;
     padding-left: 2em;
     border-left: 1px solid #dfdfdf;
-    height: 50%;
+    padding-bottom: 8em;
 }
 /* }}} */
 
