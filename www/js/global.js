@@ -167,6 +167,29 @@ function replaceInteractiveContent() {
     $(".teaser").click( function() {
         document.location = $("a", this)[0].href;
     });
+
+    var zoomRatio = 2;
+
+    // add handlers for zoom images
+    $(".zoom").mouseover( function() {
+        $(this).height($("img", this).height());
+        $("img", this).css("width", $("img", this).width() * zoomRatio);
+    });
+    $(".zoom").mouseout( function() {
+        $("img", this).css("width", $("img", this).width() / zoomRatio);
+        $("img", this).css("marginLeft", 0);
+        $("img", this).css("marginTop", 0);
+    });
+    $(".zoom").mousemove( function(e) {
+        var offsetX = $(this).offset().left - e.pageX;
+        var offsetY = $(this).offset().top - e.pageY;
+        
+        //$("#info").text(e.pageX + "/" + e.pageY + " - " + $(this).offset().left + "/" + $(this).offset().top);
+        //$("#info").text(offsetX + "/" + offsetY);
+
+        $("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
+        $("img", this).css("marginTop", offsetY * (zoomRatio - 1));
+    });
 }
 // }}}
 
