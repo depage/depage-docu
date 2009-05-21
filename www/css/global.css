@@ -113,9 +113,14 @@ ul.big {
     background: url(../grfx/all/corner_tr3.gif) no-repeat top right #eeeeee;
     margin-top: 1.5em;
     margin-left: -3em;
-    padding: 0.01em 2em 3em 3em;
-    margin-left: -6em;
-    border-left: 3em solid #111111;
+    padding: 0.6em 2em 3em 3em;
+    margin-left: -6em !important;
+    border-left: 3em solid #111111 !important;
+    margin-left: -3em;
+    border-left: none;
+}
+.intro h2 {
+    margin-top: 0;
 }
 .article {
     margin-top: 3em;
