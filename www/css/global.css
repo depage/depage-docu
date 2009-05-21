@@ -171,10 +171,9 @@ ul.big {
     font-weight: normal;
     line-height: 1.2em;
     list-style: none;
-    margin-left: -0.78em;
 }
 ul.big a {
-    padding-left: 0.78em;
+    display: inline;
 }
 ul a {
     color: #000000;
@@ -187,22 +186,18 @@ ul a .hidden {
     font-size: 0.23em;
     line-height: 7.3em;
     padding-left: 2em;
-    display: none;
+    visibility: hidden;
+    display: inline;
+    position: absolute;
 }
 ul a:hover .hidden {
     visibility: visible;
-    display: inline;
-    position: absolute;
 }
 li.highlighted {
     margin-top: 0.75em;
 }
 li.highlighted a {
     color: #ff9900;
-}
-li.highlighted a .hidden {
-    visibility: visible;
-    color: #ffddaa;
 }
 li.highlighted a:hover .hidden {
     color: #ff9900;

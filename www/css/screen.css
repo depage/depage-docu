@@ -137,9 +137,6 @@ html {
 }
 /* }}} */
 /* {{{ lists big/nav */
-ul.big li a {
-    display: block;
-}
 ul.big li a:hover {
     /*
     background: url(../grfx/all/back_pattern.png) repeat top center #eeeeee !important;
@@ -247,19 +244,19 @@ ul.big li a:hover {
 #navigation ul {
     padding: 0 2em 0.3em 2em;
     margin-bottom: 1.2em;
-    border-left: 1px solid #ffffff;
-    border-left: 0.3em solid #ffffff;
+    border-left: 0.3em solid #ffffff !important;
+    border-left: none;
 }
 #navigation ul ul {
     padding: 0;
 }
 #navigation ul:hover {
-    border-left: 1px solid #555555;
-    border-left: 0.3em solid #ff9900;
+    border-left: 0.3em solid #ff9900 !important;
+    border-left: none;
 }
 #navigation ul:hover ul {
-    border-left: 1px solid #ffffff;
-    border-left: 0.3em solid #ffffff;
+    border-left: 0.3em solid #ffffff !important;
+    border-left: none;
 }
 /* }}} */
 
