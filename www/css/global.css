@@ -5,6 +5,9 @@
 .hidden {
     visibility: hidden;
 }
+html {
+    overflow-y: scroll;
+}
 body {
     font-size: 75%;
     text-align: center;
@@ -21,6 +24,14 @@ a img {
 #content h1,
 ul.big {
     font-family: Georgia, Times, Times New Roman, Serif;
+}
+/* }}} */
+/* {{{ filetypes */
+a[href$='.pdf']::after {
+    content: " [pdf]";
+}
+a[href$='.zip']::after {
+    content: " [zip]";
 }
 /* }}} */
 /* {{{ colors */
