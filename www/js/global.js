@@ -160,17 +160,19 @@ function replaceFlashContent() {
 // }}}
 // {{{ replaceInteractiveContent()
 function replaceInteractiveContent() {
-    // get language from content tag in header
+    // {{{ get language from content tag in header
     var lang = $("meta[name = 'Content-Language']")[0].content;
-
-    // add click event for teaser
+    // }}}
+    // {{{ add click event for teaser
     $(".teaser").click( function() {
         document.location = $("a", this)[0].href;
     });
-
+    // }}}
+    // {{{ add handlers for zoom images
     var zoomRatio = 2;
+    var hoverText = "(Zum \"Zoomen\" mit der Maus über das Bild fahren)";
 
-    // add handlers for zoom images
+    $(".zoom").before("<p class=\"info\">" + hoverText + "</p>");
     $(".zoom").mouseover( function() {
         $(this).height($("img", this).height());
         $("img", this).css("width", $("img", this).width() * zoomRatio);
@@ -185,11 +187,12 @@ function replaceInteractiveContent() {
         var offsetY = $(this).offset().top - e.pageY;
         
         //$("#info").text(e.pageX + "/" + e.pageY + " - " + $(this).offset().left + "/" + $(this).offset().top);
-        //$("#info").text(offsetX + "/" + offsetY);
+        //$(".info").text(offsetX + "/" + offsetY);
 
         $("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
         $("img", this).css("marginTop", offsetY * (zoomRatio - 1));
     });
+    // }}}
 }
 // }}}
 

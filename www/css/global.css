@@ -122,10 +122,16 @@ a[href$='.zip']::after {
 .section .zoom {
     width: 48em;
     overflow: hidden;
+    cursor: crosshair;
 }
 .section .zoom img {
     display: block;
     width: 48em;
+}
+#content .section .info {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: #888888;
 }
 .intro {
     background: url(../grfx/all/corner_tr3.png) no-repeat top right #eeeeee !important;
