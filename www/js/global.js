@@ -169,16 +169,22 @@ function replaceInteractiveContent() {
     });
     // }}}
     // {{{ add handlers for zoom images
-    var zoomRatio = 2;
+    var zoomRatio;
     var hoverText = "(Zum \"Zoomen\" mit der Maus über das Bild fahren)";
 
     $(".zoom").before("<p class=\"info\">" + hoverText + "</p>");
     $(".zoom").mouseover( function() {
         $(this).height($("img", this).height());
-        $("img", this).css("width", $("img", this).width() * zoomRatio);
+
+        var oldWidth = $("img", this).width();
+
+        $("img", this).css("width", "auto");
+        var newWidth = $("img", this).width();
+
+        zoomRatio = newWidth / oldWidth;
     });
     $(".zoom").mouseout( function() {
-        $("img", this).css("width", $("img", this).width() / zoomRatio);
+        $("img", this).css("width", null);
         $("img", this).css("marginLeft", 0);
         $("img", this).css("marginTop", 0);
     });
@@ -186,9 +192,6 @@ function replaceInteractiveContent() {
         var offsetX = $(this).offset().left - e.pageX;
         var offsetY = $(this).offset().top - e.pageY;
         
-        //$("#info").text(e.pageX + "/" + e.pageY + " - " + $(this).offset().left + "/" + $(this).offset().top);
-        //$(".info").text(offsetX + "/" + offsetY);
-
         $("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
         $("img", this).css("marginTop", offsetY * (zoomRatio - 1));
     });
