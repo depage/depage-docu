@@ -21,7 +21,11 @@
 }
 /* }}} */
 /* {{{ navigation */
+.topnav {
+    display: none;
+}
 #navigation {
+    display: none;
     position: absolute;
     float: right;
     top: 4em;

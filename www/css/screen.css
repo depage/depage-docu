@@ -83,43 +83,35 @@ html {
 /* }}} */
 /* {{{ round header */
 #header {
-    height: 6px;
-    margin-bottom: 10px;
-    padding-top: 3em;
-    margin-bottom: 0;
+    height: 3em;
     background: #000000;
 }
 #header #corner_tl {
     position: absolute;
     top: 3em;
     left: 0;
-    width: 16px;
-    height: 16px;
-    float:left;
-    background: url(../grfx/all/corner_tl.png) no-repeat top left !important;
-    background: url(../grfx/all/corner_tl.gif) no-repeat top left;
+    width: 32px;
+    height: 32px;
+    float: left;
+    background: url(../grfx/all/corner_tl2.png) no-repeat top left !important;
+    background: url(../grfx/all/corner_tl2.gif) no-repeat top left;
 }
 #header #corner_tr {
     position: absolute;
     top: 3em;
     right: 0;
-    width: 16px;
-    height: 16px;
-    float:right;
-    background: url(../grfx/all/corner_tr.png) no-repeat top right !important;
-    background: url(../grfx/all/corner_tr.gif) no-repeat top right;
-}
-#header #middle {
-    margin: 0 6px 0 6px;
-    height: 6px;
-    background: #ffffff;
+    width: 32px;
+    height: 32px;
+    float: right;
+    background: url(../grfx/all/corner_tr2.png) no-repeat top right !important;
+    background: url(../grfx/all/corner_tr2.gif) no-repeat top right;
 }
 /* }}} */
 /* {{{ content */
 #contentcontainer {
     position: relative;
+    width: 76em;
     margin: 0 auto;
-    width: 60em;
     height: auto !important;
     height: 100%;
     min-height: 100%;
@@ -129,14 +121,30 @@ html {
     border-right: 3em solid #000000;
 }
 #content {
-    padding: 1.5em 2em 12em 3em;
+    padding: 2em 2em 12em 3em;
     background: #ffffff;
 }
-.section, .section_start {
-    margin-right: 19em;
+.section,
+.section_start,
+.article {
+    margin-right: 21em;
+}
+.article .section {
+    margin-right: 0;
 }
 .section_start {
     margin-bottom: 10em;
+}
+/* }}} */
+/* {{{ lists big/nav */
+ul.big li a {
+    display: block;
+}
+ul.big li a:hover {
+    /*
+    background: url(../grfx/all/back_pattern.png) repeat top center #eeeeee !important;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #eeeeee;
+    */
 }
 /* }}} */
 /* {{{ footer */
@@ -152,22 +160,30 @@ html {
 }
 #content #teaser {
     position: relative;
-    /*left: -0.5em;*/
     margin-left: -0.5em;
-    padding-bottom: 3em;
-    width: 60em;
+    padding-bottom: 4em;
+    width: 57em;
 }
 #teaser .teaser {
     float: left;
     height: 4em;
-    width: 15.5em;
+    width: 14.5em;
     margin-right: 2.5em;
     margin-bottom: 1em;
     padding: 0.5em;
     overflow: hidden;
 }
 #teaser .teaser p {
-    line-height: 1.4em;
+    font-size: 0.95em;
+    line-height: 1.5em;
+}
+#teaser .teaser a {
+    color: #000000;
+    text-decoration: none;
+}
+#teaser .teaser a:hover {
+    color: #555555;
+    text-decoration: underline;
 }
 #teaser .teaser:hover {
     cursor: pointer;
@@ -182,7 +198,6 @@ html {
     float: left;
     display: block;
     width: 4em;
-    height: 4em;
     background: #dddddd;
     margin-right: 1em;
 }
@@ -192,29 +207,59 @@ html {
 }
 #footer {
     height: 3em;
-    background: url(../grfx/all/back_footer_shadow.png) repeat-x top left #000000 !important;
-    background: url(../grfx/all/back_footer_shadow.gif) repeat-x top left #000000;
+    background: #000000;
+    /** /
+    border-top: 0.3em solid #ff9900;
+    /**/
 }
 #footer p {
     float: right;
     font-size: 0.8em;
     color: #555555;
     padding-top: 1em;
+    padding-right: 1em;
 }
 #footer a {
     color: #555555;
 }
 /* }}} */
 /* {{{ navigation */
+.topnav {
+    display: block;
+    padding-top: 1em;
+    height: 1em;
+}
+.topnav li {
+    float: left;
+    list-style: none;
+    display: block;
+    padding-right: 1.5em;
+}
 #navigation {
     position: absolute;
     float: right;
-    top: 7em;
+    top: 6.5em;
     right: 0;
-    width: 17em;
-    padding-left: 2em;
+    width: 19em;
     border-left: 1px solid #dfdfdf;
     padding-bottom: 8em;
+}
+#navigation ul {
+    padding: 0 2em 0.3em 2em;
+    margin-bottom: 1.2em;
+    border-left: 1px solid #ffffff;
+    border-left: 0.3em solid #ffffff;
+}
+#navigation ul ul {
+    padding: 0;
+}
+#navigation ul:hover {
+    border-left: 1px solid #555555;
+    border-left: 0.3em solid #ff9900;
+}
+#navigation ul:hover ul {
+    border-left: 1px solid #ffffff;
+    border-left: 0.3em solid #ffffff;
 }
 /* }}} */
 
