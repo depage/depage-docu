@@ -120,9 +120,17 @@ a[href$='.zip']::after {
     background-color: #eeeeee;
 }
 .section .zoom {
+    position: relative;
     width: 48em;
+    /*width: 98em;*/
     overflow: hidden;
     cursor: crosshair;
+}
+.section .zoom.zoomed .front,
+.section .zoom.zoomed .back {
+    width: 50%;
+    overflow: hidden;
+    float: left;
 }
 .section .zoom img {
     display: block;

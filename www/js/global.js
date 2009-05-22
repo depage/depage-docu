@@ -173,8 +173,15 @@ function replaceInteractiveContent() {
     var hoverText = "(Zum \"Zoomen\" mit der Maus über das Bild fahren)";
 
     $(".zoom").before("<p class=\"info\">" + hoverText + "</p>");
+    $(".zoom img:eq(0)").wrap("<div class=\"front\"></div>");
+    $(".zoom img:eq(1)").wrap("<div class=\"back\"></div>");
+
     $(".zoom").mouseover( function() {
-        $(this).height($("img", this).height());
+        $(this).addClass("zoomed");
+
+        //$(this).height($("img", this).height());
+        $(".front", this).height($(".front img", this).height());
+        $(".back", this).height($(".back img", this).height());
 
         var oldWidth = $("img", this).width();
 
@@ -184,15 +191,27 @@ function replaceInteractiveContent() {
         zoomRatio = newWidth / oldWidth;
     });
     $(".zoom").mouseout( function() {
+        $(this).removeClass("zoomed");
+
         $("img", this).css("width", null);
-        $("img", this).css("marginLeft", 0);
-        $("img", this).css("marginTop", 0);
+        $("img", this).css("marginLeft", null);
+        $("img", this).css("marginTop", null);
     });
     $(".zoom").mousemove( function(e) {
         var offsetX = $(this).offset().left - e.pageX;
         var offsetY = $(this).offset().top - e.pageY;
         
-        $("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
+        //$("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
+        var m = 1.22;
+        //var m = 1;
+        var offsetX1 = offsetX * (zoomRatio * m - 1);
+        var offsetX2 = offsetX * (- zoomRatio * m + 1) - $("img:eq(1)", this).width() + $(".back", this).width();
+
+        $("img:eq(0)", this).css("marginLeft", offsetX1);
+        $("img:eq(1)", this).css("marginLeft", offsetX2);
+
+        $(".info").text("img1: " + offsetX1  + " - img2: " + offsetX2);
+
         $("img", this).css("marginTop", offsetY * (zoomRatio - 1));
     });
     // }}}
