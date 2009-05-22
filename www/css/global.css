@@ -122,10 +122,6 @@ a[href$='.zip']::after {
 .section .zoom {
     position: relative;
     width: 48em;
-    /*width: 98em;*/
-    /*overflow: hidden;*/
-    cursor: crosshair;
-    cursor: pointer;
 }
 .section .zoom .front,
 .section .zoom .thumb {

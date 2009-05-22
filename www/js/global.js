@@ -192,6 +192,11 @@ function replaceInteractiveContent() {
         }
     });
     $(".zoom").mouseover( function() {
+        if ($(".back img", this).length == 1) {
+            $(".front img", this).css("cursor", "pointer");
+        } else {
+            $(".front img", this).css("cursor", "crosshair");
+        }
         $(this).addClass("zoomed");
 
         $(".front", this).height($(".front img", this).height());
