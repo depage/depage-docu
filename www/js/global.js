@@ -170,22 +170,25 @@ function replaceInteractiveContent() {
     // }}}
     // {{{ add handlers for zoom images
     var zoomRatio;
-    var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren. ";
-    if ($(".back img")[0].src != undefined) {
-        hoverText += "Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
-    }
 
-    $(".zoom").before("<p class=\"info\">(" + hoverText + ")</p>");
-    $(".zoom").append("<span class=\"thumb\"><img src=\"" + $(".zoom .front img")[0].src + "\"></span>");
+    $(".zoom").each( function() {
+        var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren. ";
+        if ($(".back img", this).length == 1) {
+            hoverText += "Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
+        }
+
+        $(this).before("<p class=\"info\">(" + hoverText + ")</p>");
+        $(this).append("<span class=\"thumb\"><img src=\"" + $(".front img", this)[0].src + "\"></span>");
+    });
 
     $(".zoom").click( function() {
-        var frontsrc = $(".front img")[0].src;
-        var backsrc = $(".back img")[0].src;
+        if ($(".back img", this).length == 1) {
+            var frontsrc = $(".front img", this)[0].src;
+            var backsrc = $(".back img", this)[0].src;
 
-        if (backsrc != undefined) {
-            $(".front img")[0].src = backsrc;
-            $(".thumb img")[0].src = backsrc;
-            $(".back img")[0].src = frontsrc;
+            $(".front img", this)[0].src = backsrc;
+            $(".thumb img", this)[0].src = backsrc;
+            $(".back img", this)[0].src = frontsrc;
         }
     });
     $(".zoom").mouseover( function() {
@@ -193,10 +196,10 @@ function replaceInteractiveContent() {
 
         $(".front", this).height($(".front img", this).height());
 
-        var oldWidth = $("img", this).width();
+        var oldWidth = $(".front img", this).width();
 
         $(".front img", this).css("width", "auto");
-        var newWidth = $("img", this).width();
+        var newWidth = $(".front img", this).width();
 
         zoomRatio = newWidth / oldWidth;
     });

@@ -131,7 +131,6 @@ a[href$='.zip']::after {
 .section .zoom .thumb {
     display: block;
     overflow: hidden;
-    border: 1px solid #dfdfdf;
 }
 .section .zoom .front {
     width: 48em;
@@ -146,8 +145,10 @@ a[href$='.zip']::after {
     left: 50em;
     top: 0;
 }
+.section .zoom.zoomed .front,
 .section .zoom.zoomed .thumb {
     display: block;
+    /*border: 1px solid #dfdfdf;*/
 }
 .section .zoom .front img {
     display: block;
