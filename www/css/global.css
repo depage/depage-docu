@@ -123,18 +123,32 @@ a[href$='.zip']::after {
     position: relative;
     width: 48em;
     /*width: 98em;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     cursor: crosshair;
+    cursor: pointer;
 }
-.section .zoom.zoomed .front,
-.section .zoom.zoomed .back {
-    width: 50%;
+.section .zoom .front,
+.section .zoom .back {
+    display: block;
     overflow: hidden;
-    float: left;
+    border: 1px solid #dfdfdf;
 }
-.section .zoom img {
+.section .zoom .front {
+    width: 48em;
+}
+.section .zoom .back {
+    position: absolute;
+    width: 17em;
+    left: 50em;
+    top: 0;
+}
+.section .zoom .front img {
     display: block;
     width: 48em;
+}
+.section .zoom .back img {
+    display: block;
+    width: 17em;
 }
 #content .section .info {
     margin-top: 0.5em;
