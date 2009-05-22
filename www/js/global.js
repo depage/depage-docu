@@ -170,9 +170,13 @@ function replaceInteractiveContent() {
     // }}}
     // {{{ add handlers for zoom images
     var zoomRatio;
-    var hoverText = "(Zum \"Zoomen\" mit der Maus über das Bild fahren)";
+    var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren. ";
+    if ($(".back img")[0].src != undefined) {
+        hoverText += "Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
+    }
 
-    $(".zoom").before("<p class=\"info\">" + hoverText + "</p>");
+    $(".zoom").before("<p class=\"info\">(" + hoverText + ")</p>");
+    $(".zoom").append("<span class=\"thumb\"><img src=\"" + $(".zoom .front img")[0].src + "\"></span>");
 
     $(".zoom").click( function() {
         var frontsrc = $(".front img")[0].src;
@@ -180,19 +184,18 @@ function replaceInteractiveContent() {
 
         if (backsrc != undefined) {
             $(".front img")[0].src = backsrc;
+            $(".thumb img")[0].src = backsrc;
             $(".back img")[0].src = frontsrc;
         }
     });
     $(".zoom").mouseover( function() {
         $(this).addClass("zoomed");
 
-        //$(this).height($("img", this).height());
         $(".front", this).height($(".front img", this).height());
-        $(".back", this).height($(".back img", this).height());
 
         var oldWidth = $("img", this).width();
 
-        $("img", this).css("width", "auto");
+        $(".front img", this).css("width", "auto");
         var newWidth = $("img", this).width();
 
         zoomRatio = newWidth / oldWidth;
@@ -200,25 +203,20 @@ function replaceInteractiveContent() {
     $(".zoom").mouseout( function() {
         $(this).removeClass("zoomed");
 
-        $("img", this).css("width", null);
-        $("img", this).css("marginLeft", null);
-        $("img", this).css("marginTop", null);
+        $(".front img", this).css({
+            "width": null,
+            "marginLeft": null,
+            "marginTop": null
+        });
     });
     $(".zoom").mousemove( function(e) {
         var offsetX = $(this).offset().left - e.pageX;
         var offsetY = $(this).offset().top - e.pageY;
         
-        //$("img", this).css("marginLeft", offsetX * (zoomRatio - 1));
-        var m = 1;
-        var offsetX1 = offsetX * (zoomRatio * m - 1);
-        var offsetX2 = offsetX * (- zoomRatio * m + 1) - $("img:eq(1)", this).width() + $(".back", this).width();
-
-        $("img:eq(0)", this).css("marginLeft", offsetX1);
-        $("img:eq(1)", this).css("marginLeft", offsetX2);
-
-        //$(".info").text("img1: " + offsetX1  + " - img2: " + offsetX2);
-
-        $("img", this).css("marginTop", offsetY * (zoomRatio - 1));
+        $(".front img", this).css({
+            "marginLeft": offsetX * (zoomRatio - 1),
+            "marginTop": offsetY * (zoomRatio - 1)
+        });
     });
     // }}}
 }

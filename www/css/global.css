@@ -128,7 +128,7 @@ a[href$='.zip']::after {
     cursor: pointer;
 }
 .section .zoom .front,
-.section .zoom .back {
+.section .zoom .thumb {
     display: block;
     overflow: hidden;
     border: 1px solid #dfdfdf;
@@ -137,22 +137,29 @@ a[href$='.zip']::after {
     width: 48em;
 }
 .section .zoom .back {
+    display: none;
+}
+.section .zoom .thumb {
+    display: none;
     position: absolute;
     width: 17em;
     left: 50em;
     top: 0;
 }
+.section .zoom.zoomed .thumb {
+    display: block;
+}
 .section .zoom .front img {
     display: block;
     width: 48em;
 }
-.section .zoom .back img {
+.section .zoom.zoomed .thumb img {
     display: block;
     width: 17em;
 }
 #content .section .info {
     margin-top: 0.5em;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #888888;
 }
 .intro {
