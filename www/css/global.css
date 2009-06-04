@@ -129,6 +129,7 @@ a[href$='.zip']::after {
 .section .zoom .thumb {
     display: block;
     overflow: hidden;
+    border: 1px solid #dfdfdf;
 }
 .section .zoom .front {
     width: 48em;
@@ -145,16 +146,20 @@ a[href$='.zip']::after {
 }
 .section .zoom.zoomed .front,
 .section .zoom.zoomed .thumb {
-    display: block;
-    /*border: 1px solid #dfdfdf;*/
 }
 .section .zoom .front img {
     display: block;
     width: 48em;
 }
-.section .zoom.zoomed .thumb img {
+.section .zoom .thumb img {
     display: block;
     width: 17em;
+}
+.section .zoom .thumb .border {
+    position: absolute;
+    border: 1px dotted #aaaaaa;
+    background: #ffffff;
+    opacity: .6;
 }
 #content .section .info {
     margin-top: 0.5em;

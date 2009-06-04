@@ -170,15 +170,16 @@ function replaceInteractiveContent() {
     // }}}
     // {{{ add handlers for zoom images
     var zoomRatio;
+    var thumbMoveRatio;
 
     $(".zoom").each( function() {
-        var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren. ";
+        var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
         if ($(".back img", this).length == 1) {
-            hoverText += "Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
+            hoverText += " Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
         }
 
         $(this).before("<p class=\"info\">(" + hoverText + ")</p>");
-        $(this).append("<span class=\"thumb\"><img src=\"" + $(".front img", this)[0].src + "\"></span>");
+        $(this).append("<span class=\"thumb\"><span class=\"border\"></span><img src=\"" + $(".front img", this)[0].src + "\"></span>");
     });
 
     $(".zoom").click( function() {
@@ -192,21 +193,30 @@ function replaceInteractiveContent() {
         }
     });
     $(".zoom").mouseover( function() {
+        $(this).addClass("zoomed");
+
         if ($(".back img", this).length == 1) {
             $(".front img", this).css("cursor", "pointer");
         } else {
             $(".front img", this).css("cursor", "crosshair");
         }
-        $(this).addClass("zoomed");
 
         $(".front", this).height($(".front img", this).height());
 
         var oldWidth = $(".front img", this).width();
-
         $(".front img", this).css("width", "auto");
         var newWidth = $(".front img", this).width();
 
+        $(".thumb", this).stop();
+        $(".thumb", this).fadeIn(200);
+
         zoomRatio = newWidth / oldWidth;
+        thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
+
+        $(".thumb .border", this).css({
+            width: $(".thumb img", this).width() / zoomRatio,
+            height: $(".thumb img", this).height() / zoomRatio
+        });
     });
     $(".zoom").mouseout( function() {
         $(this).removeClass("zoomed");
@@ -216,14 +226,24 @@ function replaceInteractiveContent() {
             "marginLeft": null,
             "marginTop": null
         });
+
+        $(".thumb", this).stop();
+        $(".thumb", this).css("opacity", 1);
+        $(".thumb", this).fadeOut(200);
     });
     $(".zoom").mousemove( function(e) {
         var offsetX = $(this).offset().left - e.pageX;
         var offsetY = $(this).offset().top - e.pageY;
         
         $(".front img", this).css({
-            "marginLeft": offsetX * (zoomRatio - 1),
-            "marginTop": offsetY * (zoomRatio - 1)
+            marginLeft: offsetX * (zoomRatio - 1),
+            marginTop: offsetY * (zoomRatio - 1)
+        });
+        $(".thumb .border", this).each( function() {
+            $(this).css({
+                left: - (offsetX * thumbMoveRatio),
+                top: - (offsetY * thumbMoveRatio)
+            });
         });
     });
     // }}}
