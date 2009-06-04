@@ -24,16 +24,20 @@
 .topnav {
     display: none;
 }
-#navigation {
+#navigation .nav {
     display: none;
-    position: absolute;
-    float: right;
-    top: 4em;
-    right: 0;
-    width: 14em;
-    padding-left: 2em;
-    border-left: 1px solid #dfdfdf;
-    height: 30em;
+}
+.autolinklist ul {
+    padding-left: 0;
+}
+.autolinklist li::before {
+    content: "http://";
+}
+.autolinklist li::after {
+    content: "";
+}
+.autolinklist li a {
+    color: #000000;
 }
 /* }}} */
 

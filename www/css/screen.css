@@ -238,14 +238,25 @@ ul.big li a:hover {
     top: 6.5em;
     right: 0;
     width: 19em;
-    border-left: 1px solid #dfdfdf;
-    padding-bottom: 8em;
 }
-#navigation ul {
+#navigation .nav {
+    border-left: 1px solid #dfdfdf;
+    /*padding-bottom: 8em;*/
+}
+#navigation ul,
+#navigation .autolinklist ul:hover,
+.autolinklist h3,
+.autolinklist ul {
     padding: 0 2em 0.3em 2em;
     margin-bottom: 1.2em;
     border-left: 0.3em solid #ffffff !important;
     border-left: none;
+}
+.autolinklist h3 {
+    border-left: 0.3em solid #ffffff !important;
+    border-left: none;
+    padding: 0 2em 0.3em 2.2em;
+    margin-bottom: 0;
 }
 #navigation ul ul {
     padding: 0;

@@ -36,10 +36,12 @@ a[href$='.zip']::after {
 /* }}} */
 /* {{{ colors */
 #content .colorcyan a,
+#content .colorcyan a:hover,
 #content .colorcyan h1 {
     color: #00ADEF;
 }
 #content .colormagenta a,
+#content .colormagenta a:hover,
 #content .colormagenta h1 {
     color: #EC008C;
 }
@@ -174,6 +176,7 @@ a[href$='.zip']::after {
     margin-top: 0;
 }
 .article {
+    position: relative;
     margin-top: 3em;
     padding-top: 3em;
     border-top: 1px solid #dfdfdf;
@@ -196,15 +199,22 @@ a[href$='.zip']::after {
     color: #000000;
     text-decoration: underline;
 }
-#navigation ul {
+#navigation ul,
+.autolinklist ul {
     line-height: 1.35em;
     padding-bottom: 1em;
     list-style: none;
 }
-#navigation ul a {
+#navigation ul a,
+#content .autolinklist ul a {
     font-size: 0.95em;
+    color: #aaaaaa;
 }
-#navigation ul a:hover {
+#content .autolinklist ul a {
+    font-size: 0.9em;
+}
+#navigation ul a:hover,
+.autolinklist ul a:hover {
     text-decoration: underline;
     color: #ff9900;
 }
@@ -219,6 +229,26 @@ a[href$='.zip']::after {
 }
 .navigation_bright:hover a {
     color: #555555;
+}
+.autolinklist {
+    padding-top: 4em;
+    border-left: 1px solid #ffffff;
+}
+.autolinklist h3 {
+    font-size: 0.9em;
+    color: #999999;
+}
+.autolinklist li::after {
+    content: " »";
+    color: #555555;
+}
+.article .autolinklist {
+    position: absolute;
+    width: 19em;
+    left: 54em;
+    top: 0;
+    padding-top: 3em;
+    padding-top: 12em;
 }
 /* }}} */
 /* {{{ lists big/nav */
