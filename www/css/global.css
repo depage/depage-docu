@@ -17,6 +17,9 @@ body,
 ul a .hidden {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
+img { 
+    -ms-interpolation-mode: bicubic;
+}
 a img {
     border: none;
     color: #000000;
@@ -124,6 +127,7 @@ a[href$='.zip']::after {
 .section .zoom {
     position: relative;
     width: 48em;
+    margin: 1.7em 0;
 }
 .section .zoom .front,
 .section .zoom .thumb {

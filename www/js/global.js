@@ -178,7 +178,7 @@ function replaceInteractiveContent() {
             hoverText += " Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
         }
 
-        $(this).before("<p class=\"info\">(" + hoverText + ")</p>");
+        $(this).append("<p class=\"info\">(" + hoverText + ")</p>");
         $(this).append("<span class=\"thumb\"><span class=\"border\"></span><img src=\"" + $(".front img", this)[0].src + "\"></span>");
     });
 
@@ -215,7 +215,8 @@ function replaceInteractiveContent() {
 
         $(".thumb .border", this).css({
             width: $(".thumb img", this).width() / zoomRatio,
-            height: $(".thumb img", this).height() / zoomRatio
+            height: $(".thumb img", this).height() / zoomRatio,
+            background: $.browser.msie ? "none": "#ffffff"
         });
     });
     $(".zoom").mouseout( function() {
