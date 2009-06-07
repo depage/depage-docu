@@ -129,6 +129,7 @@ a[href$='.zip']::after {
 }
 .section .full,
 .section .compare,
+.section .slideshow,
 .section .zoom {
     position: relative;
     display: block;
@@ -137,6 +138,7 @@ a[href$='.zip']::after {
 }
 .section .full img,
 .section .compare img,
+.section .slideshow img,
 .section .zoom .front img {
     display: block;
     width: 51em;
@@ -177,6 +179,7 @@ a[href$='.zip']::after {
         margin-top: 0.5em;
         font-size: 0.85em;
         color: #000000;
+        background: #ffffff;
     }
     #content .section .info {
         color: #888888;
@@ -185,16 +188,26 @@ a[href$='.zip']::after {
     /* {{{ compare */
     .section .compare {
         overflow: hidden;
-        margin-right: -20em;
     }
     .section .compare div {
         position: absolute;
+        top: 0;
     }
     .section .compare div.first {
         position: relative;
     }
     .section .compare div img {
         border-left: 2px solid #ffffff;
+    }
+    /* }}} */
+    /* {{{ slideshow */
+    .section .slideshow div {
+        position: absolute;
+        display: none;
+    }
+    .section .slideshow div.first {
+        position: relative;
+        display: block;
     }
     /* }}} */
 .intro {

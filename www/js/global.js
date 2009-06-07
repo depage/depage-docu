@@ -290,6 +290,40 @@ function replaceInteractiveContent() {
         });
     });
     // }}}
+    // {{{ add handlers for slideshow images
+    $(".slideshow").each( function() {
+        var divs = $("div", this);
+        var speed = 3000;
+        var pause = 3000;
+
+        divs.css({
+            top: 0
+        });
+        var fadeIn = function(n) {
+            // wait
+            $(divs[n]).animate({top: 0}, pause, function() {
+                // fade in
+                $(this).fadeIn(speed, function() {
+                    if (n < divs.length - 1) {
+                        // fade in next image
+                        fadeIn(n + 1);
+                    } else {
+                        // hide all images, fade out last
+                        for (var i = 1; i < divs.length - 1; i++) {
+                            $(divs[i]).hide();
+                        }
+                        $(divs[n]).animate({top: 0}, pause, function() {
+                            $(divs[n]).fadeOut(speed, function() {
+                                fadeIn(1);
+                            });
+                        });
+                    }
+                });
+            });
+        }
+        fadeIn(1);
+    });
+    // }}}
 }
 // }}}
 
