@@ -171,8 +171,11 @@ ul.big li a:hover {
     overflow: hidden;
 }
 #teaser .teaser p {
-    font-size: 0.95em;
+    font-size: 0.9em;
     line-height: 1.5em;
+}
+#teaser .teaser span {
+    display: inline-block;
 }
 #teaser .teaser a {
     color: #000000;
@@ -189,13 +192,11 @@ ul.big li a:hover {
 }
 #teaser .teaser .date {
     font-weight: bold;
-    font-size: 0.85em;
 }
 #teaser .teaser img {
     float: left;
     display: block;
     width: 4em;
-    background: #dddddd;
     margin-right: 1em;
 }
 #teaser .teaser em {
