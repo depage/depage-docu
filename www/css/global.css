@@ -28,6 +28,10 @@ a img {
 ul.big {
     font-family: Georgia, Times, Times New Roman, Serif;
 }
+.clear {
+    display: block;
+    clear: both;
+}
 /* }}} */
 /* {{{ filetypes */
 a[href$='.pdf']::after {
@@ -122,54 +126,73 @@ a[href$='.zip']::after {
     margin-right: 2em;
     margin-bottom: 2em;
     float: left;
-    background-color: #eeeeee;
 }
+.section .full,
+.section .compare,
 .section .zoom {
     position: relative;
-    width: 48em;
+    display: block;
+    width: 51em;
     margin: 1.7em 0;
 }
-.section .zoom .front,
-.section .zoom .thumb {
-    display: block;
-    overflow: hidden;
-    border: 1px solid #dfdfdf;
-}
-.section .zoom .front {
-    width: 48em;
-}
-.section .zoom .back {
-    display: none;
-}
-.section .zoom .thumb {
-    display: none;
-    position: absolute;
-    width: 17em;
-    left: 50em;
-    top: 0;
-}
-.section .zoom.zoomed .front,
-.section .zoom.zoomed .thumb {
-}
+.section .full img,
+.section .compare img,
 .section .zoom .front img {
     display: block;
-    width: 48em;
+    width: 51em;
 }
-.section .zoom .thumb img {
-    display: block;
-    width: 17em;
-}
-.section .zoom .thumb .border {
-    position: absolute;
-    border: 1px dotted #aaaaaa;
-    background: #ffffff;
-    opacity: .6;
-}
-#content .section .info {
-    margin-top: 0.5em;
-    font-size: 0.85em;
-    color: #888888;
-}
+    /* {{{ zoom */
+    .section .zoom .front,
+    .section .zoom .thumb {
+        display: block;
+        overflow: hidden;
+        border: 1px solid #dfdfdf;
+    }
+    .section .zoom .front {
+        width: 51em;
+    }
+    .section .zoom .back {
+        display: none;
+    }
+    .section .zoom .thumb {
+        display: none;
+        position: absolute;
+        width: 16em;
+        left: 54em;
+        top: 0;
+    }
+    .section .zoom .thumb img {
+        display: block;
+        width: 16em;
+    }
+    .section .zoom .thumb .border {
+        position: absolute;
+        border: 1px dotted #aaaaaa;
+        background: #ffffff;
+        opacity: .6;
+    }
+    #content .section .caption,
+    #content .section .info {
+        display: block;
+        margin-top: 0.5em;
+        font-size: 0.85em;
+        color: #000000;
+    }
+    #content .section .info {
+        color: #888888;
+    }
+    /* }}} */
+    /* {{{ compare */
+    .section .compare div {
+        overflow: hidden;
+        /*width: 25%;*/
+        float: left;
+        margin-right: -0.3em;
+    }
+    .section .compare div img {
+        border-left: 2px solid #ffffff;
+    }
+    /* }}} */
 .intro {
     background: url(../grfx/all/corner_tr3.png) no-repeat top right #eeeeee !important;
     background: url(../grfx/all/corner_tr3.gif) no-repeat top right #eeeeee;

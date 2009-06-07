@@ -207,7 +207,7 @@ function replaceInteractiveContent() {
         $(".front img", this).css("width", "auto");
         var newWidth = $(".front img", this).width();
 
-        $(".thumb", this).stop();
+        $(".thumb", this).dequeue();
         $(".thumb", this).fadeIn(200);
 
         zoomRatio = newWidth / oldWidth;
@@ -228,7 +228,7 @@ function replaceInteractiveContent() {
             "marginTop": null
         });
 
-        $(".thumb", this).stop();
+        $(".thumb", this).dequeue();
         $(".thumb", this).css("opacity", 1);
         $(".thumb", this).fadeOut(200);
     });
@@ -244,6 +244,40 @@ function replaceInteractiveContent() {
             $(this).css({
                 left: - (offsetX * thumbMoveRatio),
                 top: - (offsetY * thumbMoveRatio)
+            });
+        });
+    });
+    // }}}
+    // {{{ add handlers for compare images
+    $(".compare").each( function() {
+        var divs = $("div", this);
+        var perc = 100 / divs.length;
+        var percZoomed = 40 / (divs.length - 1);
+
+        divs.css({
+            width: perc + "%"
+        });
+        $(this).mouseover( function(e) {
+            var activeDiv = $(e.target).parent()[0];
+
+            if (activeDiv.nodeName == "DIV") {
+                divs.each( function() {
+                    if (this == activeDiv) {
+                        var newPerc = 60;
+                    } else {
+                        var newPerc = percZoomed;
+                    }
+                    $(this).dequeue();
+                    $(this).animate({
+                        width: newPerc + "%"
+                    });
+                });
+            }
+        });
+        $(this).mouseout( function() {
+            divs.dequeue();
+            divs.animate({
+                width: perc + "%"
             });
         });
     });
