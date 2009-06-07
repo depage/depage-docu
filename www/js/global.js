@@ -254,31 +254,39 @@ function replaceInteractiveContent() {
         var perc = 100 / divs.length;
         var percZoomed = 40 / (divs.length - 1);
 
-        divs.css({
-            width: perc + "%"
-        });
+        for (var i = 0; i < divs.length; i++) {
+            $(divs[i]).css({
+                left: i * perc + "%",
+                top: 0
+            });
+        }
         $(this).mouseover( function(e) {
             var activeDiv = $(e.target).parent()[0];
 
             if (activeDiv.nodeName == "DIV") {
-                divs.each( function() {
-                    if (this == activeDiv) {
-                        var newPerc = 60;
-                    } else {
-                        var newPerc = percZoomed;
-                    }
-                    $(this).dequeue();
-                    $(this).animate({
-                        width: newPerc + "%"
+                var xpos = 0;
+
+                for (var i = 0; i < divs.length; i++) {
+                    $(divs[i]).dequeue();
+                    $(divs[i]).animate({
+                        left: xpos + "%"
                     });
-                });
+
+                    if (divs[i] == activeDiv) {
+                        xpos += 60;
+                    } else {
+                        xpos += percZoomed;
+                    }
+                }
             }
         });
         $(this).mouseout( function() {
-            divs.dequeue();
-            divs.animate({
-                width: perc + "%"
-            });
+            for (var i = 0; i < divs.length; i++) {
+                $(divs[i]).dequeue();
+                $(divs[i]).animate({
+                    left: i * perc + "%"
+                });
+            }
         });
     });
     // }}}

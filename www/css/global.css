@@ -183,11 +183,15 @@ a[href$='.zip']::after {
     }
     /* }}} */
     /* {{{ compare */
-    .section .compare div {
+    .section .compare {
         overflow: hidden;
-        /*width: 25%;*/
-        float: left;
-        margin-right: -0.3em;
+        margin-right: -20em;
+    }
+    .section .compare div {
+        position: absolute;
+    }
+    .section .compare div.first {
+        position: relative;
     }
     .section .compare div img {
         border-left: 2px solid #ffffff;
