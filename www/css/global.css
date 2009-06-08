@@ -17,6 +17,9 @@ body,
 ul a .hidden {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
+code {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
+}
 img { 
     -ms-interpolation-mode: bicubic;
 }
@@ -136,6 +139,10 @@ a[href$='.zip']::after {
     width: 51em;
     margin: 1.7em 0;
 }
+.section .compare .full,
+.section .slideshow .full {
+    margin: 0;
+}
 .section .full img,
 .section .compare img,
 .section .slideshow img,
@@ -208,6 +215,31 @@ a[href$='.zip']::after {
     .section .slideshow div.first {
         position: relative;
         display: block;
+    }
+    /* }}} */
+    /* {{{ source */
+    .source {
+        font-size: 1.2em;
+    }
+    .source pre {
+        overflow: auto;
+        overflow-y: hidden;
+        background: #dddddd;
+        margin: 1.2em 0;
+    }
+    .source pre code { 
+        display: block; 
+        margin-left: 6em;
+    }
+    .source pre code ol { 
+        font-size: 1em;
+        line-height: 1.3em;
+        list-style: decimal outside;
+    }
+    .source pre code li { 
+        font-size: 1em;
+        background: #eeeeee;
+        padding-left: 1em;
     }
     /* }}} */
 .intro {
