@@ -44,18 +44,6 @@ a[href$='.zip']::after {
     content: " [zip]";
 }
 /* }}} */
-/* {{{ colors */
-#content .colorcyan a,
-#content .colorcyan a:hover,
-#content .colorcyan h1 {
-    color: #00ADEF;
-}
-#content .colormagenta a,
-#content .colormagenta a:hover,
-#content .colormagenta h1 {
-    color: #EC008C;
-}
-/* }}} */
 /* {{{ content */
 .section .spacing {
     margin-top: 1em;
@@ -67,11 +55,9 @@ a[href$='.zip']::after {
     padding-top: 0.3em;
     padding-bottom: 0.5em;
     padding-right: 2em;
-    color: #555555;
 }
 #content h1 .light {
     display: block;
-    color: #aeaeae;
 }
 #content h2 {
     font-weight: bold;
@@ -79,7 +65,11 @@ a[href$='.zip']::after {
     margin-top: 2.4em;
     margin-bottom: 0.8em;
     line-height: 1.6em;
-    color: #555555;
+}
+#content h3 {
+    font-weight: bold;
+    font-size: 1.05em;
+    line-height: 1.6em;
 }
 #content p,
 .section ul,
@@ -105,11 +95,9 @@ a[href$='.zip']::after {
     margin-bottom: 1em;
 }
 .section a {
-    color: #E1721B;
     text-decoration: none;
 }
 .section a:hover {
-    color: #ca0000;
     text-decoration: underline;
 }
 .section a img {
@@ -121,14 +109,24 @@ a[href$='.zip']::after {
 }
 .section time {
     font-weight: bold;
-    color: #555555;
 }
 .section .thumb {
+    position: relative;
+    display: block;
+    float: left;
+}
+.section .thumb img {
     display: block;
     width: 8em;
     margin-right: 2em;
     margin-bottom: 2em;
-    float: left;
+}
+.section .thumb .marker {
+    position: absolute;
+    display: block;
+    left: -6em;
+    width: 1em;
+    top: 0;
 }
 .section .full,
 .section .compare,
@@ -155,7 +153,6 @@ a[href$='.zip']::after {
     .section .zoom .thumb {
         display: block;
         overflow: hidden;
-        border: 1px solid #dfdfdf;
     }
     .section .zoom .front {
         width: 51em;
@@ -173,11 +170,10 @@ a[href$='.zip']::after {
     .section .zoom .thumb img {
         display: block;
         width: 16em;
+        margin: 0;
     }
     .section .zoom .thumb .border {
         position: absolute;
-        border: 1px dotted #aaaaaa;
-        background: #ffffff;
         opacity: .6;
     }
     #content .section .caption,
@@ -185,11 +181,8 @@ a[href$='.zip']::after {
         display: block;
         margin-top: 0.5em;
         font-size: 0.85em;
-        color: #000000;
-        background: #ffffff;
     }
     #content .section .info {
-        color: #888888;
     }
     /* }}} */
     /* {{{ compare */
@@ -202,9 +195,6 @@ a[href$='.zip']::after {
     }
     .section .compare div.first {
         position: relative;
-    }
-    .section .compare div img {
-        border-left: 2px solid #ffffff;
     }
     /* }}} */
     /* {{{ slideshow */
@@ -224,7 +214,6 @@ a[href$='.zip']::after {
     .source pre {
         overflow: auto;
         overflow-y: hidden;
-        background: #dddddd;
         margin: 1.2em 0;
     }
     .source pre code { 
@@ -238,20 +227,36 @@ a[href$='.zip']::after {
     }
     .source pre code li { 
         font-size: 1em;
-        background: #eeeeee;
         padding-left: 1em;
     }
     /* }}} */
+    /* {{{ cloud */
+    .section ul.cloud {
+        list-style: none;
+        padding: 0 2em;
+    }
+    ul.cloud li {
+        display: inline-block;
+        font-size: 0.95em;
+        color: #555555;
+        padding-right: 0.5em;
+    }
+    ul.cloud i,
+    ul.cloud b {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.4em;
+    }
+    ul.cloud small {
+        font-size: 0.8em;
+    }
+    /* }}} */
 .intro {
-    background: url(../grfx/all/corner_tr3.png) no-repeat top right #eeeeee !important;
-    background: url(../grfx/all/corner_tr3.gif) no-repeat top right #eeeeee;
     margin-top: 1.5em;
     margin-left: -3em;
     padding: 0.6em 2em 3em 3em;
     margin-left: -6em !important;
-    border-left: 3em solid #111111 !important;
     margin-left: -3em;
-    border-left: none;
 }
 .intro h2 {
     margin-top: 0;
@@ -260,7 +265,6 @@ a[href$='.zip']::after {
     position: relative;
     margin-top: 3em;
     padding-top: 3em;
-    border-top: 1px solid #dfdfdf;
 }
 #content .article h1 {
     padding-top: 0.1em;
@@ -270,14 +274,7 @@ a[href$='.zip']::after {
 }
 /* }}} */
 /* {{{ navigation */
-.topnav li a {
-    color: #999999;
-}
-.topnav:hover li a {
-    color: #555555;
-}
 .topnav li a:hover {
-    color: #000000;
     text-decoration: underline;
 }
 #navigation ul,
@@ -289,7 +286,6 @@ a[href$='.zip']::after {
 #navigation ul a,
 #content .autolinklist ul a {
     font-size: 0.95em;
-    color: #aaaaaa;
 }
 #content .autolinklist ul a {
     font-size: 0.9em;
@@ -297,7 +293,6 @@ a[href$='.zip']::after {
 #navigation ul a:hover,
 .autolinklist ul a:hover {
     text-decoration: underline;
-    color: #ff9900;
 }
 #navigation ul ul {
     margin-left: 1em;
@@ -305,23 +300,14 @@ a[href$='.zip']::after {
 #navigation ul li a.active {
     font-weight: bold;
 }
-.navigation_bright a {
-    color: #999999;
-}
-.navigation_bright:hover a {
-    color: #555555;
-}
 .autolinklist {
     padding-top: 4em;
-    border-left: 1px solid #ffffff;
 }
 .autolinklist h3 {
     font-size: 0.9em;
-    color: #999999;
 }
 .autolinklist li::after {
     content: " »";
-    color: #555555;
 }
 .article .autolinklist {
     position: absolute;
@@ -343,11 +329,7 @@ ul.big a {
     display: inline;
 }
 ul a {
-    color: #000000;
     text-decoration: none;
-}
-ul a:hover {
-    color: #555555;
 }
 ul a .hidden {
     font-size: 0.23em;
@@ -362,12 +344,6 @@ ul a:hover .hidden {
 }
 li.highlighted {
     margin-top: 0.75em;
-}
-li.highlighted a {
-    color: #ff9900;
-}
-li.highlighted a:hover .hidden {
-    color: #ff9900;
 }
 /* }}} */
 

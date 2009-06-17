@@ -1,0 +1,208 @@
+html {
+    background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
+}
+#contentcontainer {
+    background: #FFFFFF;
+    border-left: 3em solid #000000;
+    border-right: 3em solid #000000;
+}
+#content {
+    background: #FFFFFF;
+}
+#content h1 {
+    color: #555555;
+}
+#content h1 .light,
+#navigation ul a,
+.topnav li a {
+    color: #AEAEAE;
+}
+#navigation:hover ul a {
+    color: #555555;
+}
+#content h2,
+#content h3,
+.section time,
+#content .section p.info,
+.topnav:hover li a,
+.autolinklist li::after,
+ul a:hover,
+#footer p,
+#footer a,
+#teaser .teaser em,
+.cloud li,
+.cloud li a {
+    color: #555555;
+}
+.section a,
+#navigation ul a:hover,
+.topnav li a:hover,
+.autolinklist ul a:hover,
+li.highlighted a,
+li.highlighted a:hover,
+li.highlighted a:hover .hidden,
+.cloud li a:hover {
+    color: #FF9900;
+}
+.section a:hover {
+    color: #CA0000;
+}
+ul a {
+    color: #000000;
+}
+#content .section .info {
+		color: #000000;
+}
+#content .autolinklist ul a {
+    color: #aaaaaa;
+}
+.autolinklist h3 {
+    color: #999999;
+}
+
+.section .thumb .marker {
+    border-top: 8em solid #151515;
+}
+    .section .zoom .front,
+    .section .zoom .thumb {
+        border: 1px solid #dfdfdf;
+    }
+    .section .zoom .thumb .border {
+        border: 1px dotted #aaaaaa;
+        background: #ffffff;
+    }
+    .section .compare div img {
+        border-left: 2px solid #FFFFFF;
+    }
+.intro {
+    background: url(../grfx/all/corner_tr3.png) no-repeat top right #EEEEEE !important;
+    background: url(../grfx/all/corner_tr3.gif) no-repeat top right #EEEEEE;
+    border-left: 3em solid #151515 !important;
+    border-left: none;
+}
+.article {
+    border-top: 1px solid #dfdfdf;
+}
+.autolinklist {
+    border-left: 1px solid #FFFFFF;
+}
+    #content .section .caption,
+    #content .section .info {
+        background: #FFFFFF;
+    }
+    .source pre {
+        background: #dddddd;
+    }
+    .source pre code li { 
+        background: #EEEEEE;
+    }
+#teaser .teaser a {
+    color: #000000;
+}
+#teaser .teaser a:hover {
+    color: #555555;
+}
+#teaser .teaser:hover {
+    background: url(../grfx/all/back_pattern.png) repeat top center #EEEEEE !important;
+    background: url(../grfx/all/back_pattern.gif) repeat top center #EEEEEE;
+}
+#footer {
+    background: #000000;
+}
+#navigation .nav {
+    border-left: 1px solid #dfdfdf;
+}
+#navigation ul,
+#navigation .autolinklist ul:hover,
+.autolinklist h3,
+.autolinklist ul {
+    border-left: 0.3em solid #FFFFFF !important;
+    border-left: none;
+}
+.autolinklist h3 {
+    border-left: 0.3em solid #FFFFFF !important;
+    border-left: none;
+}
+#navigation ul:hover {
+    border-left: 0.3em solid #FF9900 !important;
+    border-left: none;
+}
+#navigation ul:hover ul {
+    border-left: 0.3em solid #FFFFFF !important;
+    border-left: none;
+}
+	
+/* {{{ color white */
+#content .colorwhite h1 {
+    color: #555555;
+}
+#content .colorwhite a {
+    color: #FF9900;
+}
+#content .colorwhite a:hover {
+    color: #CA0000;
+}
+/* }}} */
+
+/* {{{ color magenta */
+#content .colormagenta h1 {
+    color: #EC008C;
+}
+#content .colormagenta a {
+    color: #EC008C;
+}
+#content .colormagenta a:hover {
+    color: #CC33CC;
+}
+/* }}} */
+
+/* {{{ color cyan */
+#content .colorcyan h1 {
+    color: #00ADEF;
+}
+#content .colorcyan a {
+    color: #00ADEF;
+}
+#content .colorcyan a:hover {
+    color: #0066FF;
+}
+/* }}} */
+
+/* {{{ color orange */
+#content .colororange h1 {
+    color: #FF9900;
+}
+#content .colororange a {
+    color: #FF9900;
+}
+#content .colororange a:hover {
+    color: #FF0000;
+}
+/* }}} */
+
+/* {{{ color green */
+#content .colorgreen h1 {
+    color: #66CC33;
+}
+#content .colorgreen a {
+    color: #66CC33;
+}
+#content .colorgreen a:hover {
+    color: #336633;
+}
+/* }}} */
+
+/* {{{ color beige */
+#content .colorbeige h1 {
+    color: #7F7A73;
+}
+#content .colorbeige a {
+    color: #7F7A73;
+}
+#content .colorbeige a:hover {
+    color: #FF6600;
+}
+/* }}} */
+
+

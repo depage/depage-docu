@@ -5,8 +5,6 @@
 }
 html {
     height: 100%;
-    background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
 }
 .invisible {
     display: none;
@@ -116,13 +114,9 @@ html {
     height: 100%;
     min-height: 100%;
     text-align: left;
-    background: #ffffff;
-    border-left: 3em solid #000000;
-    border-right: 3em solid #000000;
 }
 #content {
     padding: 2em 2em 12em 3em;
-    background: #ffffff;
 }
 .section,
 .section_start,
@@ -178,17 +172,13 @@ ul.big li a:hover {
     display: inline-block;
 }
 #teaser .teaser a {
-    color: #000000;
     text-decoration: none;
 }
 #teaser .teaser a:hover {
-    color: #555555;
     text-decoration: underline;
 }
 #teaser .teaser:hover {
     cursor: pointer;
-    background: url(../grfx/all/back_pattern.png) repeat top center #eeeeee !important;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #eeeeee;
 }
 #teaser .teaser .date {
     font-weight: bold;
@@ -201,11 +191,9 @@ ul.big li a:hover {
 }
 #teaser .teaser em {
     font-style: normal;
-    color: #555555;
 }
 #footer {
     height: 3em;
-    background: #000000;
     /** /
     border-top: 0.3em solid #ff9900;
     /**/
@@ -213,12 +201,8 @@ ul.big li a:hover {
 #footer p {
     float: right;
     font-size: 0.8em;
-    color: #555555;
     padding-top: 1em;
     padding-right: 1em;
-}
-#footer a {
-    color: #555555;
 }
 /* }}} */
 /* {{{ navigation */
@@ -241,7 +225,6 @@ ul.big li a:hover {
     width: 19em;
 }
 #navigation .nav {
-    border-left: 1px solid #dfdfdf;
     /*padding-bottom: 8em;*/
 }
 #navigation ul,
@@ -250,25 +233,13 @@ ul.big li a:hover {
 .autolinklist ul {
     padding: 0 2em 0.3em 2em;
     margin-bottom: 1.2em;
-    border-left: 0.3em solid #ffffff !important;
-    border-left: none;
 }
 .autolinklist h3 {
-    border-left: 0.3em solid #ffffff !important;
-    border-left: none;
     padding: 0 2em 0.3em 2.2em;
     margin-bottom: 0;
 }
 #navigation ul ul {
     padding: 0;
-}
-#navigation ul:hover {
-    border-left: 0.3em solid #ff9900 !important;
-    border-left: none;
-}
-#navigation ul:hover ul {
-    border-left: 0.3em solid #ffffff !important;
-    border-left: none;
 }
 /* }}} */
 
