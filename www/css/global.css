@@ -66,7 +66,7 @@ a[href$='.zip']::after {
     margin-bottom: 0.8em;
     line-height: 1.6em;
 }
-#content h3 {
+#content dt {
     font-weight: bold;
     font-size: 1.05em;
     line-height: 1.6em;
@@ -228,6 +228,58 @@ a[href$='.zip']::after {
     .source pre code li { 
         font-size: 1em;
         padding-left: 1em;
+    }
+    /* }}} */
+    /* {{{ timeline */
+    #content .timeline.interactive {
+        position: relative;
+    }
+    #content .timeline.interactive dl {
+        margin-top: 24em;
+        margin-bottom: 1.7em;
+    }
+    #content .timeline.interactive dt {
+        padding-left: 2.2em;
+        cursor: pointer;
+        font-weight: normal;
+        z-index: 10;
+    }
+    #content .timeline.interactive dt:hover,
+    #content .timeline.interactive dt.active {
+        color: #000000;
+        font-weight: bold;
+    }
+    #content .timeline.interactive dd {
+        position: absolute;
+        margin-top: -22em;
+        top: 0em;
+        left: 0;
+        height: 20em;
+        width: 100%;
+        background: #eeeeee;
+        overflow: hidden;
+    }
+    #content .timeline.interactive .slider {
+        position: absolute;
+        z-index: 8;
+        width: 1.7em;
+        height: 100%;
+        background-color: #eeeeee;
+        top: 0;
+        left: 0;
+    }
+    #content .timeline.interactive .slider div {
+        position: absolute;
+        z-index: 9;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: #aaaaaa;
+    }
+    #content .timeline.interactive .slider,
+    #content .timeline.interactive .slider div {
+        -moz-border-radius: 0.3em 0 0 0.3em;
+        -webkit-border-radius: 0.3em 0 0 0.3em;
     }
     /* }}} */
     /* {{{ cloud */

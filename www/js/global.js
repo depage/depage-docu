@@ -324,6 +324,51 @@ function replaceInteractiveContent() {
         fadeIn(1);
     });
     // }}}
+    // {{{ add handlers timeline
+    $(".timeline").each( function() {
+        var timeline = this;
+        var animTime = 200;
+        var count =  $("dt", timeline).length;
+        var i = 0;
+
+        $(timeline).addClass("interactive");
+
+        $("dl", this).prepend("<div class=\"slider\"><div></div></div>");
+        var slider = $(".slider div", timeline);
+        slider.css({
+            height: (100 / count) + "%",
+            top: "0%"
+        });
+
+        $("dt", timeline).each( function() {
+            this.contentElement = $(this).next("dd")[0];
+            this.timelinePos = i++;
+
+            this.show = function() {
+                $(this).addClass("active");
+                $(this.contentElement).fadeIn(animTime);
+                slider.animate({
+                    top: this.timelinePos * (100 / count) + "%"
+                }, animTime);
+            }
+            this.hide = function() {
+                $(this).removeClass("active");
+                $(this.contentElement).fadeOut(animTime);
+            }
+            $(this).mouseup( function() {
+                // hide others
+                $("dt.active", timeline).not(this).each( function() {
+                    this.hide();
+                });
+                // show content
+                this.show();
+            });
+        });
+
+        $("dd", timeline).hide();
+        $("dt:first", timeline).mouseup();
+    });
+    // }}}
 }
 // }}}
 

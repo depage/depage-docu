@@ -22,7 +22,7 @@ html {
     color: #555555;
 }
 #content h2,
-#content h3,
+#content dt,
 .section time,
 #content .section p.info,
 .topnav:hover li a,
