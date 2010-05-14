@@ -71,6 +71,11 @@ jQuery.extend(jQuery.browser, {
     })
 });
 // }}}
+// {{{ jquery.browser.iphone
+jQuery.browser.iphone = function() {
+    return /iphone/.test(navigator.userAgent.toLowerCase());
+}();
+// }}}
 // {{{ jquery.flash
 jQuery.fn.flash = function(params) {
     var html1 = "";
@@ -108,6 +113,87 @@ jQuery.fn.flash = function(params) {
 
     return $(html1 + html2 + "</object>");
 };
+// }}}
+
+// embedded jquery plugins
+// {{{ jquery pause
+/*
+ * Jonathan Howard
+ *
+ * jQuery Pause
+ * version 0.2
+ *
+ * Requires: jQuery 1.0 (tested with svn as of 7/20/2006)
+ *
+ * Feel free to do whatever you'd like with this, just please give credit where
+ * credit is do.
+ *
+ *
+ *
+ * pause() will hold everything in the queue for a given number of milliseconds,
+ * or 1000 milliseconds if none is given.
+ *
+ *
+ *
+ * unpause() will clear the queue of everything of a given type, or 'fx' if no
+ * type is given.
+ */
+
+$.fn.pause = function(milli,type) {
+	milli = milli || 1000;
+	type = type || "fx";
+	return this.queue(type,function(){
+		var self = this;
+		setTimeout(function(){
+			$.dequeue(self);
+		},milli);
+	});
+};
+
+$.fn.clearQueue = $.fn.unpause = function(type) {
+	return this.each(function(){
+		type = type || "fx";
+		if(this.queue && this.queue[type]) {
+			this.queue[type].length = 0;
+		}
+	});
+};
+// }}}
+// {{{ jquery fx custom
+jQuery.fx.prototype.custom = function(from, to, unit){
+    this.startTime = (new Date()).getTime();
+    this.start = from;
+    this.end = to;
+    this.unit = unit || this.unit || "px";
+    this.now = this.start;
+    this.pos = this.state = 0;
+    this.update();
+
+    var self = this;
+    function t(){
+        return self.step();
+    }
+
+    t.elem = this.elem;
+
+    jQuery.timers.push(t);
+
+    if ( jQuery.timers.length == 1 ) {
+        var timer = setInterval(function(){
+            var timers = jQuery.timers;
+            
+            for ( var i = 0; i < timers.length; i++ ) {
+                if ( !timers[i]() ) {
+                    timers.splice(i--, 1);
+                }
+            }
+
+            if ( !timers.length ) {
+                clearInterval( timer );
+            }
+        }, 75);
+    }
+}
 // }}}
 
 // replace content, depending on reader capabilities
@@ -168,137 +254,30 @@ function replaceInteractiveContent() {
         document.location = $("a", this)[0].href;
     });
     // }}}
-    // {{{ add handlers for zoom images
-    var zoomRatio;
-    var thumbMoveRatio;
-
-    $(".zoom").each( function() {
-        var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
-        if ($(".back img", this).length == 1) {
-            hoverText += " Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
-        }
-
-        $(this).append("<p class=\"info\">(" + hoverText + ")</p>");
-        $(this).append("<span class=\"thumb\"><span class=\"border\"></span><img src=\"" + $(".front img", this)[0].src + "\"></span>");
-    });
-
-    $(".zoom").click( function() {
-        if ($(".back img", this).length == 1) {
-            var frontsrc = $(".front img", this)[0].src;
-            var backsrc = $(".back img", this)[0].src;
-
-            $(".front img", this)[0].src = backsrc;
-            $(".thumb img", this)[0].src = backsrc;
-            $(".back img", this)[0].src = frontsrc;
-        }
-    });
-    $(".zoom").mouseover( function() {
-        $(this).addClass("zoomed");
-
-        if ($(".back img", this).length == 1) {
-            $(".front img", this).css("cursor", "pointer");
-        } else {
-            $(".front img", this).css("cursor", "crosshair");
-        }
-
-        $(".front", this).height($(".front img", this).height());
-
-        var oldWidth = $(".front img", this).width();
-        $(".front img", this).css("width", "auto");
-        var newWidth = $(".front img", this).width();
-
-        $(".thumb", this).dequeue();
-        $(".thumb", this).fadeIn(200);
-
-        zoomRatio = newWidth / oldWidth;
-        thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
-
-        $(".thumb .border", this).css({
-            width: $(".thumb img", this).width() / zoomRatio,
-            height: $(".thumb img", this).height() / zoomRatio,
-            background: $.browser.msie ? "none": "#ffffff"
-        });
-    });
-    $(".zoom").mouseout( function() {
-        $(this).removeClass("zoomed");
-
-        $(".front img", this).css({
-            "width": null,
-            "marginLeft": null,
-            "marginTop": null
-        });
-
-        $(".thumb", this).dequeue();
-        $(".thumb", this).css("opacity", 1);
-        $(".thumb", this).fadeOut(200);
-    });
-    $(".zoom").mousemove( function(e) {
-        var offsetX = $(this).offset().left - e.pageX;
-        var offsetY = $(this).offset().top - e.pageY;
-        
-        $(".front img", this).css({
-            marginLeft: offsetX * (zoomRatio - 1),
-            marginTop: offsetY * (zoomRatio - 1)
-        });
-        $(".thumb .border", this).each( function() {
-            $(this).css({
-                left: - (offsetX * thumbMoveRatio),
-                top: - (offsetY * thumbMoveRatio)
-            });
-        });
-    });
-    // }}}
-    // {{{ add handlers for compare images
-    $(".compare").each( function() {
-        var divs = $("div", this);
-        var perc = 100 / divs.length;
-        var percZoomed = 40 / (divs.length - 1);
-
-        for (var i = 0; i < divs.length; i++) {
-            $(divs[i]).css({
-                left: i * perc + "%",
-                top: 0
-            });
-        }
-        $(this).mouseover( function(e) {
-            var activeDiv = $(e.target).parent()[0];
-
-            if (activeDiv.nodeName == "DIV") {
-                var xpos = 0;
-
-                for (var i = 0; i < divs.length; i++) {
-                    $(divs[i]).dequeue();
-                    $(divs[i]).animate({
-                        left: xpos + "%"
-                    });
-
-                    if (divs[i] == activeDiv) {
-                        xpos += 60;
-                    } else {
-                        xpos += percZoomed;
-                    }
-                }
-            }
-        });
-        $(this).mouseout( function() {
-            for (var i = 0; i < divs.length; i++) {
-                $(divs[i]).dequeue();
-                $(divs[i]).animate({
-                    left: i * perc + "%"
-                });
-            }
-        });
-    });
-    // }}}
     // {{{ add handlers for slideshow images
     $(".slideshow").each( function() {
         var divs = $("div", this);
-        var speed = 3000;
-        var pause = 3000;
+        var speed = Number($(this).attr("data-slideshow-speed"));
+        if (!speed) {
+            var speed = 3000;
+        }
+
+        var pause = Number($(this).attr("data-slideshow-pause"));
+        if (!pause) {
+            var pause = 3000;
+        }
+        if ($.browser.iphone) {
+            speed = 0;
+            pause = 5000;
+        }
 
         divs.css({
             top: 0
         });
+        for (var i = 1; i < divs.length; i++) {
+            $(divs[i]).hide();
+        }
+
         var fadeIn = function(n) {
             // wait
             $(divs[n]).animate({top: 0}, pause, function() {
@@ -324,7 +303,49 @@ function replaceInteractiveContent() {
         fadeIn(1);
     });
     // }}}
-    // {{{ add handlers timeline
+        // {{{ add handlers for compare images
+        $(".compare").each( function() {
+            var divs = $("div", this);
+            var perc = 100 / divs.length;
+            var percZoomed = 40 / (divs.length - 1);
+
+            for (var i = 0; i < divs.length; i++) {
+                $(divs[i]).css({
+                    left: i * perc + "%",
+                    top: 0
+                });
+            }
+            $(this).mouseover( function(e) {
+                var activeDiv = $(e.target).parent()[0];
+
+                if (activeDiv.nodeName == "DIV") {
+                    var xpos = 0;
+
+                    for (var i = 0; i < divs.length; i++) {
+                        $(divs[i]).dequeue();
+                        $(divs[i]).animate({
+                            left: xpos + "%"
+                        });
+
+                        if (divs[i] == activeDiv) {
+                            xpos += 60;
+                        } else {
+                            xpos += percZoomed;
+                        }
+                    }
+                }
+            });
+            $(this).mouseout( function() {
+                for (var i = 0; i < divs.length; i++) {
+                    $(divs[i]).dequeue();
+                    $(divs[i]).animate({
+                        left: i * perc + "%"
+                    });
+                }
+            });
+        });
+        // }}}
+    // {{{ add handlers for timeline
     $(".timeline").each( function() {
         var timeline = this;
         var animTime = 200;
@@ -369,6 +390,113 @@ function replaceInteractiveContent() {
         $("dt:first", timeline).mouseup();
     });
     // }}}
+    // {{{ add handlers for code-listings
+    if (lang == "de") {
+        var text_source_showplain = "Quelltext als reinen Text anzeigen";
+        var text_source_showstyled = "Quelltext formatiert anzeigen";
+    } else {
+        var text_source_showplain = "View this source in Plain Text";
+        var text_source_showstyled = "View this source as Highlighted Code";
+    }
+    $('.source pre').each(function() { //on each code box do
+        $(this)
+            .before('<a href="#" class="codeswitch">' + text_source_showplain + '</a>') //write a code right before the code-box
+            .after('<div><textarea rows="' + ($(this).children().html().split("\n").length-1) + '" cols="50">' + $(this).children().html() + '</textarea></div>'); //write a textarea with the content of the code-box after it
+    });
+
+    $('.codeswitch').toggle(function() { //hide code-box and show textarea
+        $(this)
+            .text(text_source_showstyled) //change text of the link
+            .next().hide().next().show(); //first next is code-box, second is textarea
+        }, function() { //hide textarea and show code box
+        $(this)
+            .text(text_source_showplain)
+            .next().show().next().hide();
+    });
+    // }}}
+
+    if (!$.browser.iphone) {
+        // {{{ add handlers for zoom images
+        var zoomRatio;
+        var thumbMoveRatio;
+
+        $(".zoom").each( function() {
+            var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
+            if ($(".back img", this).length == 1) {
+                hoverText += " Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
+            }
+
+            $(this).append("<p class=\"info\">(" + hoverText + ")</p>");
+            $(this).append("<span class=\"thumb\"><span class=\"border\"></span><img src=\"" + $(".front img", this)[0].src + "\"></span>");
+        });
+
+        $(".zoom").click( function() {
+            if ($(".back img", this).length == 1) {
+                var frontsrc = $(".front img", this)[0].src;
+                var backsrc = $(".back img", this)[0].src;
+
+                $(".front img", this)[0].src = backsrc;
+                $(".thumb img", this)[0].src = backsrc;
+                $(".back img", this)[0].src = frontsrc;
+            }
+        });
+        $(".zoom").mouseover( function() {
+            $(this).addClass("zoomed");
+
+            if ($(".back img", this).length == 1) {
+                $(".front img", this).css("cursor", "pointer");
+            } else {
+                $(".front img", this).css("cursor", "crosshair");
+            }
+
+            $(".front", this).height($(".front img", this).height());
+
+            var oldWidth = $(".front img", this).width();
+            $(".front img", this).css("width", "auto");
+            var newWidth = $(".front img", this).width();
+
+            $(".thumb", this).dequeue();
+            $(".thumb", this).fadeIn(200);
+
+            zoomRatio = newWidth / oldWidth;
+            thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
+
+            $(".thumb .border", this).css({
+                width: $(".thumb img", this).width() / zoomRatio,
+                height: $(".thumb img", this).height() / zoomRatio,
+                background: $.browser.msie ? "none": "#ffffff"
+            });
+        });
+        $(".zoom").mouseout( function() {
+            $(this).removeClass("zoomed");
+
+            $(".front img", this).css({
+                "width": null,
+                "marginLeft": null,
+                "marginTop": null
+            });
+
+            $(".thumb", this).dequeue();
+            $(".thumb", this).css("opacity", 1);
+            $(".thumb", this).fadeOut(200);
+        });
+        $(".zoom").mousemove( function(e) {
+            var offsetX = $(this).offset().left - e.pageX;
+            var offsetY = $(this).offset().top - e.pageY;
+            
+            $(".front img", this).css({
+                marginLeft: offsetX * (zoomRatio - 1),
+                marginTop: offsetY * (zoomRatio - 1)
+            });
+            $(".thumb .border", this).each( function() {
+                $(this).css({
+                    left: - (offsetX * thumbMoveRatio),
+                    top: - (offsetY * thumbMoveRatio)
+                });
+            });
+        });
+        // }}}
+    }
 }
 // }}}
 
@@ -418,6 +546,13 @@ $(document).ready(function() {
     }
     if ($.browser.opera) {
 	fixFlashDisplayOpera(0);
+    }
+
+    // hide urlbar
+    if ($.browser.iphone) {
+        $(window).load(function() {
+            this.scrollTo(0, 1);
+        });
     }
 });
 // }}}

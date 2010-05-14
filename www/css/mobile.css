@@ -1,0 +1,242 @@
+/* {{{ global */
+html {
+    -webkit-text-size-adjust: none;
+}
+body {
+    font-size: 200%;
+}
+html,
+#header,
+#footer {
+    background: none !important;
+    background: none;
+}
+#header #corner_tl,
+#header #corner_tr {
+    display: none;
+}
+#contentcontainer {
+    border-left: none;
+    border-right: none;
+}
+/* }}} */
+/* {{{ back */
+#content .back {
+    width: 33em;
+    top: 12em;
+    left: -0.5em;
+    overflow: hidden;
+    display: none;
+}
+#content .back a {
+    left: 70%;
+    width: 30%;
+}
+#content .back img {
+    width: 53em;
+    margin-left: -20em;
+}
+/* }}} */
+/* {{{ content */
+#contentcontainer {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 30em;
+    height: auto !important;
+    text-align: left;
+    background: #ffffff;
+}
+#content {
+    overflow: hidden;
+    width: 30em;
+    padding: 1em;
+    margin: 0;
+    padding-top: 10em;
+}
+.intro {
+    margin-left: -0.5em;
+    padding-left: 6em;
+    background: #e0e0e0 !important;
+    border-left: none !important;
+    -webkit-border-top-right-radius: 3em;
+}
+.section,
+.section_start,
+.article {
+    margin: 0;
+    font-size: 1.05em;
+}
+#content h1 {
+    font-size: 2.4em;
+    padding-right: 0;
+}
+#content h2 {
+    margin-top: 1.6em;
+}
+.section .thumb img {
+    width: 6em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+.section .full,
+.section .compare,
+.section .slideshow,
+.section .zoom {
+    width: 27.5em;
+}
+.section .full img,
+.section .compare img,
+.section .slideshow img,
+.section .zoom .front img,
+.section .zoom .back img {
+    width: 27.5em;
+}
+#content .float_left,
+#content .float_left img {
+    width: 13.5em;
+}
+#content .crop img {
+    width: 61em;
+}
+#teaser .teaser {
+    float: none;
+    font-size: 1.5em;
+    width: 21.5em;
+    margin: 0;
+}
+.source {
+    font-size: 0.9em;
+}
+/* }}} */
+/* {{{ lists big/nav */
+ul.big {
+    display: none;
+    margin-top: 0em;
+    font-size: 3em;
+}
+ul.big a {
+    display: inline;
+}
+ul a {
+    text-decoration: none;
+}
+ul a .hidden {
+    visibility: visible;
+    display: none;
+    position: static;
+    padding: 0;
+    line-height: 1.7em;
+}
+li.highlighted {
+    margin-top: 0.75em;
+}
+/* }}} */
+/* {{{ footer */
+#footercontainer {
+    margin-top: 3em;
+    position: static;
+}
+#footer {
+    width: 33em;
+    height: 5em;
+    background: #e0e0e0 !important;
+    background: none !important;
+    border-top: 0.3em solid #e0e0e0;
+}
+#footer p {
+    font-size: 1.3em;
+}
+#footer p,
+#footer a {
+    color: #000000;
+}
+/* }}} */
+/* {{{ navigation */
+.bottomnav {
+    width: 25em;
+    font-size: 1.2em;
+    line-height: 2em;
+    margin-top: 6em;
+    margin-bottom: 0em;
+    height: auto;
+}
+.bottomnav:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.bottomnav li {
+    float: right;
+    padding: 0;
+}
+.bottomnav li:first-child {
+    float: left;
+}
+.bottomnav li a {
+    color: #555555;
+    display: block;
+}
+.topnav,
+#crosslinks {
+    display: none;
+}
+#navigation {
+    display: block;
+    position: absolute;
+    float: none;
+    top: 0;
+    left: 0;
+    width: 33em;
+    background: #000000;
+}
+#navigation .nav {
+    padding: 1em 1.5em;
+    margin: 0;
+    line-height: 2.5em;
+}
+#navigation ul li {
+    display: inline;
+    font-size: 1.3em;
+    margin-right: 1em;
+    margin-left: 0;
+}
+#navigation ul ul li {
+    font-size: 1em;
+}
+#navigation ul li a {
+    color: #ffffff;
+}
+#navigation ul ul li a {
+    color: #bbbbbb;
+}
+#navigation:hover ul a {
+    color: #ffffff;
+    text-decoration: none;
+}
+#navigation ul:hover {
+    border-left: none !important;
+}
+#navigation ul:hover ul {
+    border-left: none !important;
+}
+#navigation ul {
+    display: inline;
+    border: none !important;
+    margin: 0;
+    padding: 0;
+}
+.autolinklist {
+    display: none;
+}
+.autolinklist li::after {
+    content: "";
+}
+.autolinklist li a {
+    color: #000000;
+}
+/* }}} */
+
+/* vim:set ft=css sw=4 sts=4 fdm=marker : */
