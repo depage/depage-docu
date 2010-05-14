@@ -82,27 +82,51 @@ html {
 /* {{{ round header */
 #header {
     height: 3em;
-    background: #000000;
 }
-#header #corner_tl {
+#header #corner_tl,
+#header #corner_tr {
     position: absolute;
     top: 3em;
-    left: 0;
     width: 32px;
     height: 32px;
+    z-index: 100;
+}
+#header #corner_tl {
+    left: 0;
     float: left;
     background: url(../grfx/all/corner_tl2.png) no-repeat top left !important;
     background: url(../grfx/all/corner_tl2.gif) no-repeat top left;
 }
 #header #corner_tr {
-    position: absolute;
-    top: 3em;
     right: 0;
-    width: 32px;
-    height: 32px;
     float: right;
     background: url(../grfx/all/corner_tr2.png) no-repeat top right !important;
     background: url(../grfx/all/corner_tr2.gif) no-repeat top right;
+}
+#header #crosslinks {
+    position: absolute;
+    top: 0em;
+    left: 0;
+    width: 100%;
+}
+#header #crosslinks ul {
+    position: absolute;
+    top: 0;
+}
+#header #crosslinks ul.left {
+    right: 18.5em;
+}
+#header #crosslinks ul.right {
+    left: 58.2em;
+}
+#header #crosslinks li {
+    display: inline;
+}
+#header #crosslinks a {
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 1em 1em;
+    height: 1em;
 }
 /* }}} */
 /* {{{ content */
@@ -147,13 +171,14 @@ ul.big li a:hover {
 }
 #footercontainer #teaser {
     position: absolute;
-    bottom: 5em;
+    bottom: 11em;
 }
 #content #teaser {
     position: relative;
     margin-left: -0.5em;
-    padding-bottom: 4em;
+    padding-bottom: 10em;
     width: 57em;
+    z-index: 20;
 }
 #teaser .teaser {
     float: left;
@@ -194,9 +219,6 @@ ul.big li a:hover {
 }
 #footer {
     height: 3em;
-    /** /
-    border-top: 0.3em solid #ff9900;
-    /**/
 }
 #footer p {
     float: right;
@@ -206,12 +228,19 @@ ul.big li a:hover {
 }
 /* }}} */
 /* {{{ navigation */
-.topnav {
+.topnav,
+.bottomnav {
     display: block;
     padding-top: 1em;
     height: 1em;
 }
-.topnav li {
+.bottomnav {
+    margin-top: 6em;
+    padding-top: 2em;
+    width: 52em;
+}
+.topnav li,
+.bottomnav li {
     float: left;
     list-style: none;
     display: block;

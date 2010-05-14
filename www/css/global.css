@@ -6,6 +6,7 @@
     visibility: hidden;
 }
 html {
+    font-size: 16px;
     overflow-y: scroll;
 }
 body {
@@ -14,9 +15,11 @@ body {
     height: 100%;
 }
 body,
-ul a .hidden {
+ul a .hidden,
+#content .depagecms h1 {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
+textarea,
 code {
     font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
 }
@@ -44,7 +47,34 @@ a[href$='.zip']::after {
     content: " [zip]";
 }
 /* }}} */
+/* {{{ back */
+#content .back {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+    top: 3em;
+    left: 0;
+}
+#content .back div {
+    position: absolute;
+}
+#content .back img {
+    display: block;
+    width: 100%;
+}
+#content .back a {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 50em;
+    text-decoration: none;
+}
+/* }}} */
 /* {{{ content */
+.section {
+}
 .section .spacing {
     margin-top: 1em;
 }
@@ -59,12 +89,18 @@ a[href$='.zip']::after {
 #content h1 .light {
     display: block;
 }
+#content .depagecms h1,
 #content h2 {
     font-weight: bold;
     font-size: 1.05em;
-    margin-top: 2.4em;
-    margin-bottom: 0.8em;
+    margin-top: 3.2em;
+    /*margin-bottom: 0.8em;*/
     line-height: 1.6em;
+}
+#content .depagecms h1 {
+    margin-top: 0em;
+    display: inline;
+    padding-left: 1.6em;
 }
 #content dt {
     font-weight: bold;
@@ -75,10 +111,11 @@ a[href$='.zip']::after {
 .section ul,
 .section ol,
 #content address {
-    font-size: 0.97em;
     font-size: 1.05em;
-    line-height: 1.6em;
     line-height: 1.8em;
+}
+#content ul p {
+    font-size: 1em;
 }
 #content .crop {
     margin: 1em 0em 1em 0em;
@@ -107,6 +144,21 @@ a[href$='.zip']::after {
     padding-left: 1.5em;
     list-style: disc;
 }
+.section ul li {
+    position: relative;
+}
+.section ul li span {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    top: 0em;
+    left: -1.7em;
+}
+.section ul li span::before {
+    content: "–";
+    padding-left: 0.2em;
+    padding-right: 0.7em;
+}
 .section time {
     font-weight: bold;
 }
@@ -128,10 +180,14 @@ a[href$='.zip']::after {
     width: 1em;
     top: 0;
 }
+#content .depagecms .thumb .marker {
+    display: none;
+}
 .section .full,
 .section .compare,
 .section .slideshow,
 .section .zoom {
+    clear: both;
     position: relative;
     display: block;
     width: 51em;
@@ -229,6 +285,23 @@ a[href$='.zip']::after {
         font-size: 1em;
         padding-left: 1em;
     }
+    .source .codeswitch {
+        position: absolute;
+        display: block;
+        right: -22em;
+        width: 20em;
+        font-size: 0.7em;
+    }
+    .source div {
+        display: none;
+        border-left: 1.2em solid;
+        margin: 1em 0;
+    }
+    .source textarea {
+        width: 100%;
+        font-size: 0.8em;
+        border: none;
+    }
     /* }}} */
     /* {{{ timeline */
     #content .timeline.interactive {
@@ -305,13 +378,13 @@ a[href$='.zip']::after {
     /* }}} */
 .intro {
     margin-top: 1.5em;
-    margin-left: -3em;
     padding: 0.6em 2em 3em 3em;
     margin-left: -6em !important;
     margin-left: -3em;
 }
 .intro h2 {
     margin-top: 0;
+    margin-bottom: 0.8em;
 }
 .article {
     position: relative;
@@ -355,6 +428,9 @@ a[href$='.zip']::after {
 .autolinklist {
     padding-top: 4em;
 }
+.depagecms .article .autolinklist {
+    padding-top: 3.2em;
+}
 .autolinklist h3 {
     font-size: 0.9em;
 }
@@ -376,6 +452,8 @@ ul.big {
     font-weight: normal;
     line-height: 1.2em;
     list-style: none;
+    z-index: 101;
+    position: relative;
 }
 ul.big a {
     display: inline;

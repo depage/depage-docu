@@ -2,6 +2,22 @@ html {
     background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
     background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
 }
+#header {
+    background: #000000;
+}
+#header #crosslinks a.active,
+#header #crosslinks a:hover {
+    color: #ffffff;
+}
+#header #crosslinks a:hover {
+    background-color: #555555;
+}
+#header #crosslinks a {
+    color: #777777;
+}
+#header #crosslinks a.active:hover {
+    background-color: inherit;
+}
 #contentcontainer {
     background: #FFFFFF;
     border-left: 3em solid #000000;
@@ -10,22 +26,27 @@ html {
 #content {
     background: #FFFFFF;
 }
+.section ul li span::before {
+    background: #FFFFFF;
+}
 #content h1 {
     color: #555555;
 }
 #content h1 .light,
 #navigation ul a,
-.topnav li a {
+.topnav li a,
+.bottomnav li a {
     color: #AEAEAE;
 }
 #navigation:hover ul a {
     color: #555555;
 }
 #content h2,
-#content dt,
 .section time,
 #content .section p.info,
+#content ul,
 .topnav:hover li a,
+.bottomnav:hover li a,
 .autolinklist li::after,
 ul a:hover,
 #footer p,
@@ -38,6 +59,7 @@ ul a:hover,
 .section a,
 #navigation ul a:hover,
 .topnav li a:hover,
+.bottomnav li a:hover,
 .autolinklist ul a:hover,
 li.highlighted a,
 li.highlighted a:hover,
@@ -48,11 +70,10 @@ li.highlighted a:hover .hidden,
 .section a:hover {
     color: #CA0000;
 }
-ul a {
-    color: #000000;
-}
+ul a,
+#content ul li p,
 #content .section .info {
-		color: #000000;
+    color: #000000;
 }
 #content .autolinklist ul a {
     color: #aaaaaa;
@@ -81,7 +102,8 @@ ul a {
     border-left: 3em solid #151515 !important;
     border-left: none;
 }
-.article {
+.article,
+.bottomnav {
     border-top: 1px solid #dfdfdf;
 }
 .autolinklist {
@@ -97,11 +119,19 @@ ul a {
     .source pre code li { 
         background: #EEEEEE;
     }
+    .source div {
+        border-color: #dddddd;
+    }
+    .source textarea { 
+        background: #EEEEEE;
+    }
 #teaser .teaser a {
     color: #000000;
 }
 #teaser .teaser a:hover {
     color: #555555;
+}
+#teaser .teaser {
 }
 #teaser .teaser:hover {
     background: url(../grfx/all/back_pattern.png) repeat top center #EEEEEE !important;
@@ -181,6 +211,18 @@ ul a {
 }
 /* }}} */
 
+/* {{{ color darkred */
+#content .colordarkred h1 {
+    color: #990000;
+}
+#content .colordarkred a {
+    color: #CC0000;
+}
+#content .colordarkred a:hover {
+    color: #990000;
+}
+/* }}} */
+
 /* {{{ color green */
 #content .colorgreen h1 {
     color: #66CC33;
@@ -202,6 +244,18 @@ ul a {
 }
 #content .colorbeige a:hover {
     color: #FF6600;
+}
+/* }}} */
+
+/* {{{ color aubergine */
+#content .coloraubergine h1 {
+    color: #8A0055;
+}
+#content .coloraubergine a {
+    color: #8A0055;
+}
+#content .coloraubergine a:hover {
+    color: #660000;
 }
 /* }}} */
 
