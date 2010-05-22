@@ -168,6 +168,7 @@ ul.big li a:hover {
     bottom: 0;
     left: 0;
     width: 100%;
+    width: 76em;
 }
 #footercontainer #teaser {
     position: absolute;
@@ -176,7 +177,6 @@ ul.big li a:hover {
 #content #teaser {
     position: relative;
     margin-left: -0.5em;
-    padding-bottom: 10em;
     width: 57em;
     z-index: 20;
 }

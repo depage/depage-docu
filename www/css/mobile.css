@@ -179,7 +179,7 @@ html,
 #teaser .teaser {
     float: none;
     font-size: 1.5em;
-    width: 21.5em;
+    width: 20em;
     margin: 0;
 }
 .source {
@@ -213,9 +213,9 @@ li.highlighted {
 #footercontainer {
     margin-top: 3em;
     position: static;
+    width: 33em;
 }
 #footer {
-    width: 33em;
     height: 5em;
     background: none !important;
 }
