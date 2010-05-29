@@ -82,7 +82,7 @@ html {
     -webkit-text-size-adjust: none;
 }
 body {
-    font-size: 200%;
+    font-size: 100%;
 }
 html,
 #header,
@@ -90,35 +90,20 @@ html,
     background: none !important;
     background: none;
 }
-#header #corner_tl,
-#header #corner_tr {
+#header {
     display: none;
-}
-#contentcontainer {
-    border-left: none;
-    border-right: none;
 }
 /* }}} */
 /* {{{ back */
 #content .back {
-    width: 33em;
-    top: 12em;
-    left: -0.5em;
-    overflow: hidden;
     display: none;
-}
-#content .back a {
-    left: 70%;
-    width: 30%;
-}
-#content .back img {
-    width: 53em;
-    margin-left: -20em;
 }
 /* }}} */
 /* {{{ content */
 #contentcontainer {
-    position: relative;
+    border-left: none;
+    border-right: none;
+    position: static;
     padding: 0;
     margin: 0;
     width: 30em;
@@ -127,10 +112,10 @@ html,
 }
 #content {
     overflow: hidden;
-    width: 30em;
+    width: 28em;
     padding: 1em;
     margin: 0;
-    padding-top: 10em;
+    padding-top: 13em;
 }
 .intro {
     margin-left: -0.5em;
@@ -159,15 +144,20 @@ html,
 .section .full,
 .section .compare,
 .section .slideshow,
-.section .zoom {
-    width: 27.5em;
+.section .zoom,
+.section .zoom .front,
+.section .zoom .back,
+.section .crop,
+.section object,
+.section embed {
+    width: 25.5em;
 }
 .section .full img,
 .section .compare img,
 .section .slideshow img,
 .section .zoom .front img,
 .section .zoom .back img {
-    width: 27.5em;
+    width: 25.5em;
 }
 #content .float_left,
 #content .float_left img {
@@ -178,13 +168,21 @@ html,
 }
 #teaser .teaser {
     float: none;
-    font-size: 1.5em;
-    width: 20em;
+    font-size: 1.35em;
+    width: 20.5em;
     margin: 0;
 }
-.source {
-    font-size: 0.9em;
-}
+    .source {
+        font-size: 0.7em;
+    }
+    .source .codeswitch {
+        position: static;
+        display: block;
+        right: 0;
+        width: auto;
+        font-size: 0.7em;
+        margin-top: 1em;
+    }
 /* }}} */
 /* {{{ lists big/nav */
 ul.big {
@@ -213,7 +211,7 @@ li.highlighted {
 #footercontainer {
     margin-top: 3em;
     position: static;
-    width: 33em;
+    width: 30em;
 }
 #footer {
     height: 5em;
@@ -229,7 +227,7 @@ li.highlighted {
     border-top: none;
 }
 .bottomnav {
-    width: 25em;
+    width: 23em;
     font-size: 1.2em;
     line-height: 2em;
     margin-top: 6em;
@@ -249,6 +247,7 @@ li.highlighted {
 }
 .bottomnav li:first-child {
     float: left;
+    margin-right: 1em;
 }
 .bottomnav li a {
     display: block;
@@ -263,16 +262,16 @@ li.highlighted {
     float: none;
     top: 0;
     left: 0;
-    width: 33em;
+    width: 30em;
 }
 #navigation .nav {
-    padding: 1em 1.5em;
+    padding: 1em 1em 1em 1.5em;
     margin: 0;
     line-height: 2.5em;
 }
 #navigation ul li {
     display: inline;
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-right: 1em;
     margin-left: 0;
 }
