@@ -94,14 +94,14 @@ html {
 #header #corner_tl {
     left: 0;
     float: left;
-    background: url(../corner_tl2.png) no-repeat top left !important;
-    background: url(../corner_tl2.gif) no-repeat top left;
+    background: url(../corner_tl2_gray.png) no-repeat top left !important;
+    background: url(../corner_tl2_gray.gif) no-repeat top left;
 }
 #header #corner_tr {
     right: 0;
     float: right;
-    background: url(../corner_tr2.png) no-repeat top right !important;
-    background: url(../corner_tr2.gif) no-repeat top right;
+    background: url(../corner_tr2_gray.png) no-repeat top right !important;
+    background: url(../corner_tr2_gray.gif) no-repeat top right;
 }
 #header #crosslinks {
     position: absolute;

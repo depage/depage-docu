@@ -1,9 +1,9 @@
 html {
-    background: url(../back_pattern.png) repeat top center #000000 !important;
-    background: url(../back_pattern.gif) repeat top center #000000;
+    background: url(../back_pattern.png) repeat top center #CCC8C4 !important;
+    background: url(../back_pattern.gif) repeat top center #CCC8C4;
 }
 #header {
-    background: #000000;
+    background: #CCC8C4;
 }
 #header #crosslinks a.active,
 #header #crosslinks a:hover {
@@ -20,8 +20,8 @@ html {
 }
 #contentcontainer {
     background: #FFFFFF;
-    border-left: 3em solid #000000;
-    border-right: 3em solid #000000;
+    border-left: 3em solid #CCC8C4;
+    border-right: 3em solid #CCC8C4;
 }
 #content {
     background: #FFFFFF;
@@ -138,7 +138,7 @@ ul a,
     background: url(../back_pattern.gif) repeat top center #EEEEEE;
 }
 #footer {
-    background: #000000;
+    background: #CCC8C4;
 }
 #navigation .nav {
     border-left: 1px solid #dfdfdf;
