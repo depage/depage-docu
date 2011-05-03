@@ -3,20 +3,20 @@
     $page_id = "1";
     @header('Content-type: text/html; charset=UTF-8');
 
-    require_once("lib/php/lib_comments.php");
+    require_once("lib/global/php/lib_comments.php");
 ?><!DOCTYPE html >
 <html>
     <!-- {{{ header -->
     <head>
 	<title>depage::cms comments</title>
-	<link rel="stylesheet" type="text/css" href="css/global.css" />
-	<link rel="stylesheet" type="text/css" href="css/colors.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
-	<link rel="stylesheet" type="text/css" media="print" href="css/print.css" />
-        <!--[if !IE]> --><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="css/mobile.css" /><!--<![endif]-->
+	<link rel="stylesheet" type="text/css" href="lib/global/css/global.css" />
+	<link rel="stylesheet" type="text/css" href="lib/global/css/colors.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="lib/global/css/screen.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="lib/global/css/print.css" />
+        <!--[if !IE]> --><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="lib/global/css/mobile.css" /><!--<![endif]-->
 
-	<script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
-	<script type="text/javascript" src="js/global.js"></script>
+	<script type="text/javascript" src="lib/global/js/jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="lib/global/js/global.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="robots" content="index,follow" />

@@ -1,6 +1,6 @@
 html {
-    background: url(../grfx/all/back_pattern.png) repeat top center #000000 !important;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #000000;
+    background: url(../back_pattern.png) repeat top center #000000 !important;
+    background: url(../back_pattern.gif) repeat top center #000000;
 }
 #header {
     background: #000000;
@@ -97,8 +97,8 @@ ul a,
         border-left: 2px solid #FFFFFF;
     }
 .intro {
-    background: url(../grfx/all/corner_tr3.png) no-repeat top right #EEEEEE !important;
-    background: url(../grfx/all/corner_tr3.gif) no-repeat top right #EEEEEE;
+    background: url(../corner_tr3.png) no-repeat top right #EEEEEE !important;
+    background: url(../corner_tr3.gif) no-repeat top right #EEEEEE;
     border-left: 3em solid #151515 !important;
     border-left: none;
 }
@@ -134,8 +134,8 @@ ul a,
 #teaser .teaser {
 }
 #teaser .teaser:hover {
-    background: url(../grfx/all/back_pattern.png) repeat top center #EEEEEE !important;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #EEEEEE;
+    background: url(../back_pattern.png) repeat top center #EEEEEE !important;
+    background: url(../back_pattern.gif) repeat top center #EEEEEE;
 }
 #footer {
     background: #000000;

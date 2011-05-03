@@ -4,20 +4,20 @@ RewriteEngine On
 RewriteRule ^$ index.html
 
 # catch iPhone
-RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
-RewriteRule ^(.*)\.(jpg|JPG|jpeg|JPEG)$ $1.$2.iphone
-RewriteCond %{REQUEST_FILENAME}.iphone   !-s
-RewriteRule ^(.*)\.(jpg|JPG|jpeg|JPEG)\.iphone$ lib/php/getimage.php?src=../../$1.$2&iphone=true [T=image/jpeg]
+#RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
+#RewriteRule ^(.*)\.(jpg|JPG|jpeg|JPEG)$ $1.$2.iphone
+#RewriteCond %{REQUEST_FILENAME}.iphone   !-s
+#RewriteRule ^(.*)\.(jpg|JPG|jpeg|JPEG)\.iphone$ lib/global/php/getimage.php?src=../../../$1.$2&iphone=true [T=image/jpeg]
 
-RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
-RewriteRule ^(.*)\.(gif|GIF)$ $1.$2.iphone
-RewriteCond %{REQUEST_FILENAME}.iphone   !-s
-RewriteRule ^(.*)\.(gif|GIF)\.iphone$ lib/php/getimage.php?src=../../$1.$2&iphone=true [T=image/gif]
+#RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
+#RewriteRule ^(.*)\.(gif|GIF)$ $1.$2.iphone
+#RewriteCond %{REQUEST_FILENAME}.iphone   !-s
+#RewriteRule ^(.*)\.(gif|GIF)\.iphone$ lib/global/php/getimage.php?src=../../../$1.$2&iphone=true [T=image/gif]
 
-RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
-RewriteRule ^(.*)\.(png|PNG)$ $1.$2.iphone
-RewriteCond %{REQUEST_FILENAME}.iphone   !-s
-RewriteRule ^(.*)\.(png|PNG)\.iphone$ lib/php/getimage.php?src=../../$1.$2&iphone=true [T=image/png]
+#RewriteCond %{HTTP_USER_AGENT} .*Mobile.*Safari
+#RewriteRule ^(.*)\.(png|PNG)$ $1.$2.iphone
+#RewriteCond %{REQUEST_FILENAME}.iphone   !-s
+#RewriteRule ^(.*)\.(png|PNG)\.iphone$ lib/global/php/getimage.php?src=../../../$1.$2&iphone=true [T=image/png]
 
 #<ifModule mod_gzip.c>
     #mod_gzip_on Yes

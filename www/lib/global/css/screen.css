@@ -15,7 +15,7 @@ html {
 /* }}} */
 /* {{{ background colors */
 #backcolor_blue {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #0D76C6;
+    background: url(../back_pattern.gif) repeat top center #0D76C6;
     position: absolute;
     left: 0em;
     top: 96px;
@@ -23,7 +23,7 @@ html {
     height: 140px;
 }
 #backcolor_brightblue {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #4B8EAA;
+    background: url(../back_pattern.gif) repeat top center #4B8EAA;
     position: absolute;
     left: 0em;
     top: 126px;
@@ -31,7 +31,7 @@ html {
     height: 170px;
 }
 #backcolor_green {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #01AA09;
+    background: url(../back_pattern.gif) repeat top center #01AA09;
     position: absolute;
     left: 0em;
     top: 156px;
@@ -39,7 +39,7 @@ html {
     height: 200px;
 }
 #backcolor_red {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #ca0000;
+    background: url(../back_pattern.gif) repeat top center #ca0000;
     position: absolute;
     left: 0em;
     top: 186px;
@@ -47,7 +47,7 @@ html {
     height: 230px;
 }
 #backcolor_orange {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #ff9900;
+    background: url(../back_pattern.gif) repeat top center #ff9900;
     position: absolute;
     left: 0em;
     top: 96px;
@@ -55,7 +55,7 @@ html {
     height: 350px;
 }
 #backcolor_grey1 {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
     top: 198px;
@@ -63,7 +63,7 @@ html {
     height: 200px;
 }
 #backcolor_grey2 {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
     top: 294px;
@@ -71,7 +71,7 @@ html {
     height: 150px;
 }
 #backcolor_grey3 {
-    background: url(../grfx/all/back_pattern.gif) repeat top center #aaaaaa;
+    background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
     top: 96px;
@@ -94,14 +94,14 @@ html {
 #header #corner_tl {
     left: 0;
     float: left;
-    background: url(../grfx/all/corner_tl2.png) no-repeat top left !important;
-    background: url(../grfx/all/corner_tl2.gif) no-repeat top left;
+    background: url(../corner_tl2.png) no-repeat top left !important;
+    background: url(../corner_tl2.gif) no-repeat top left;
 }
 #header #corner_tr {
     right: 0;
     float: right;
-    background: url(../grfx/all/corner_tr2.png) no-repeat top right !important;
-    background: url(../grfx/all/corner_tr2.gif) no-repeat top right;
+    background: url(../corner_tr2.png) no-repeat top right !important;
+    background: url(../corner_tr2.gif) no-repeat top right;
 }
 #header #crosslinks {
     position: absolute;
@@ -157,8 +157,8 @@ html {
 /* {{{ lists big/nav */
 ul.big li a:hover {
     /*
-    background: url(../grfx/all/back_pattern.png) repeat top center #eeeeee !important;
-    background: url(../grfx/all/back_pattern.gif) repeat top center #eeeeee;
+    background: url(../back_pattern.png) repeat top center #eeeeee !important;
+    background: url(../back_pattern.gif) repeat top center #eeeeee;
     */
 }
 /* }}} */
