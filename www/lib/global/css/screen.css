@@ -15,6 +15,7 @@ html {
 /* }}} */
 /* {{{ background colors */
 #backcolor_blue {
+    background: url(../back_pattern.png) repeat top center #0D76C6 !important;
     background: url(../back_pattern.gif) repeat top center #0D76C6;
     position: absolute;
     left: 0em;
@@ -23,6 +24,7 @@ html {
     height: 140px;
 }
 #backcolor_brightblue {
+    background: url(../back_pattern.png) repeat top center #4B8EAA !important;
     background: url(../back_pattern.gif) repeat top center #4B8EAA;
     position: absolute;
     left: 0em;
@@ -31,6 +33,7 @@ html {
     height: 170px;
 }
 #backcolor_green {
+    background: url(../back_pattern.png) repeat top center #01AA09 !important;
     background: url(../back_pattern.gif) repeat top center #01AA09;
     position: absolute;
     left: 0em;
@@ -39,6 +42,7 @@ html {
     height: 200px;
 }
 #backcolor_red {
+    background: url(../back_pattern.png) repeat top center #ca0000 !important;
     background: url(../back_pattern.gif) repeat top center #ca0000;
     position: absolute;
     left: 0em;
@@ -47,6 +51,7 @@ html {
     height: 230px;
 }
 #backcolor_orange {
+    background: url(../back_pattern.png) repeat top center #ff9900 !important;
     background: url(../back_pattern.gif) repeat top center #ff9900;
     position: absolute;
     left: 0em;
@@ -55,6 +60,7 @@ html {
     height: 350px;
 }
 #backcolor_grey1 {
+    background: url(../back_pattern.png) repeat top center #aaaaaa !important;
     background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
@@ -63,6 +69,7 @@ html {
     height: 200px;
 }
 #backcolor_grey2 {
+    background: url(../back_pattern.png) repeat top center #aaaaaa !important;
     background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
@@ -71,6 +78,7 @@ html {
     height: 150px;
 }
 #backcolor_grey3 {
+    background: url(../back_pattern.png) repeat top center #aaaaaa !important;
     background: url(../back_pattern.gif) repeat top center #aaaaaa;
     position: absolute;
     left: 0em;
