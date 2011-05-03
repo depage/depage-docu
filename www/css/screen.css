@@ -253,6 +253,10 @@ ul.big li a:hover {
     right: 0;
     width: 19em;
 }
+.home #navigation {
+    z-index: 1000;
+    top: 54em;
+}
 #navigation .nav {
     /*padding-bottom: 8em;*/
 }
@@ -269,6 +273,40 @@ ul.big li a:hover {
 }
 #navigation ul ul {
     padding: 0;
+}
+/* }}} */
+/* {{{ langswitch */
+#langswitch {
+    position: absolute;
+    top: 0;
+    left: -3em;
+    width: 82.5em;
+}
+#langswitch ul {
+    position: absolute;
+    top: 5em;
+    right: 1em;
+    list-style: none;
+    z-index: 2000;
+}
+#langswitch a {
+    font-size: 0.9em;
+    color: #aaaaaa;
+}
+#langswitch .feed {
+    padding-bottom: 0.3em;
+}
+#langswitch a.active {
+    font-weight: bold;
+}
+#langswitch a:hover {
+    color: #ffffff;
+}
+#langswitch a span {
+    visibility: hidden;
+}
+#langswitch a:hover span {
+    visibility: visible;
 }
 /* }}} */
 

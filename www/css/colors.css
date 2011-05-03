@@ -197,6 +197,16 @@ ul a,
 #content .colorcyan a:hover {
     color: #0066FF;
 }
+
+.colorcyan .comments .comment h3 {
+    color: #00ADEF;
+}
+.colorcyan .comments .comment.important,
+#content .colorcyan .comments .comment.important a,
+.colorcyan .comments .comment.important h3 {
+    color: #ffffff;
+    background: #00ADEF;
+}
 /* }}} */
 
 /* {{{ color orange */

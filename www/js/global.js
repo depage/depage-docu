@@ -246,12 +246,36 @@ function replaceFlashContent() {
 // }}}
 // {{{ replaceInteractiveContent()
 function replaceInteractiveContent() {
+    var formnum = 0;
+
     // {{{ get language from content tag in header
     var lang = $("meta[name = 'Content-Language']")[0].content;
     // }}}
     // {{{ add click event for teaser
     $(".teaser").click( function() {
         document.location = $("a", this)[0].href;
+    });
+    // }}}
+    // {{{ replace buttons by textlinks
+    $("form").each(function() {
+        var form = this;
+
+        if (!form.id) {
+            form.id = "textbutton" + formnum++ + "form";
+        }
+        $("input.textbutton", form).each( function() {
+            $(this).hide();
+
+            if (this.type == "submit") {
+                ionclick = "document.forms." + form.id + ".submit(); return false;";
+            } else if (this.type == "reset") {
+                ionclick = "document.forms." + form.id + ".reset(); return false;";
+            } else {
+                ionclick = this.onclick;
+            }
+
+            $(this).after("<a href=\"#\" onclick=\"" + ionclick + "\">" + this.value + "</a>");
+        });
     });
     // }}}
     // {{{ add handlers for slideshow images
@@ -280,7 +304,7 @@ function replaceInteractiveContent() {
 
         var fadeIn = function(n) {
             // wait
-            $(divs[n]).animate({top: 0}, pause, function() {
+            $(divs[n]).animate({top: "2em"}, pause, function() {
                 // fade in
                 $(this).fadeIn(speed, function() {
                     if (n < divs.length - 1) {
