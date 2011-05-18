@@ -2,21 +2,29 @@
 .topnav li a:hover {
     text-decoration: underline;
 }
+#navrow1,
+#navrow2 {
+    float: right;
+    clear: right;
+    width: 19em;
+    /*text-transform: lowercase;*/
+}
+#navrow1 {
+    top: 6.5em;
+    right: 0;
+}
 #navrow1 ul,
-#navrow2 ul,
-.autolinklist ul {
+#navrow2 ul {
     line-height: 1.35em;
     padding-bottom: 1em;
     list-style: none;
 }
 #navrow1 ul a,
-#navrow2 ul a,
-#content .autolinklist ul a {
+#navrow2 ul a {
     font-size: 0.95em;
 }
 #navrow1 ul a:hover,
-#navrow2 ul a:hover,
-.autolinklist ul a:hover {
+#navrow2 ul a:hover {
     text-decoration: underline;
 }
 #navrow1 ul ul,
@@ -28,57 +36,38 @@
     font-weight: bold;
 }
 #navrow1 ul a,
-.topnav li a,
-.bottomnav li a {
+#navrow2 ul a {
     color: #AEAEAE;
 }
-#navrow1:hover ul a {
+#navrow1:hover ul a,
+#navrow2:hover ul a {
     color: #555555;
 }
-.topnav:hover li a,
-.bottomnav:hover li a,
-.section a,
 #navrow1 ul a:hover,
-.topnav li a:hover,
-.bottomnav li a:hover {
+#navrow2 ul a:hover {
     color: #FF9900;
 }
-#navrow1 .tabs {
+#navrow1 .tablist,
+#navrow2 .tablist {
     border-left: 1px solid #dfdfdf;
 }
 #navrow1 ul,
-#navrow1 .autolinklist ul:hover {
+#navrow2 ul {
     border-left: 0.3em solid #FFFFFF !important;
     border-left: none;
 }
-#navrow1 ul:hover {
+#navrow1 ul:hover,
+#navrow2 ul:hover {
     border-left: 0.3em solid #FF9900 !important;
     border-left: none;
 }
-#navrow1 ul:hover ul {
+#navrow1 ul:hover ul,
+#navrow2 ul:hover ul {
     border-left: 0.3em solid #FFFFFF !important;
     border-left: none;
 }
-#navrow1 {
-    position: absolute;
-    float: right;
-    top: 6.5em;
-    right: 0;
-    width: 19em;
-    text-transform: lowercase;
-}
-#navrow2 {
-    float: right;
-    text-transform: lowercase;
-}
-.home #navrow1 {
-    z-index: 1000;
-    top: 54em;
-}
 #navrow1 ul,
-#navrow2 ul,
-#navrow1 .autolinklist ul:hover,
-#navrow2 .autolinklist ul:hover {
+#navrow2 ul {
     padding: 0 2em 0.3em 2em;
     margin-bottom: 1.2em;
 }
@@ -87,7 +76,24 @@
     padding: 0;
 }
 /* }}} */
-
-#content h1 {
-    text-transform: lowercase;
+/* {{{ searchbox */
+#MSearchBox {
+    position: absolute;
+    top: 6em;
+    right: 5em;
 }
+/* }}} */
+/* {{{ content */
+#content .headertitle h1 {
+    text-transform: lowercase;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.dyncontent {
+    width: 100%;
+    max-height: 20em;
+    overflow: scroll;
+}
+/* }}} */
+
+/* vim:set ft=css sw=4 sts=4 fdm=marker : */
