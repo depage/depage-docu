@@ -3,18 +3,6 @@
 
 /* @group Heading Levels */
 
-h1 {
-	font-size: 150%;
-}
-
-h2 {
-	font-size: 120%;
-}
-
-h3 {
-	font-size: 100%;
-}
-
 dt {
 	font-weight: bold;
 }
@@ -612,7 +600,6 @@ table.doxtable th {
 
 div.summary
 {
-	float: right;
 	font-size: 8pt;
 	padding-right: 5px;
 	width: 50%;
@@ -637,19 +624,7 @@ div.ingroups a
 	white-space: nowrap;
 }
 
-div.header
-{
-        background-image:url('nav_h.png');
-        background-repeat:repeat-x;
-	background-color: #F9FAFC;
-	margin:  0px;
-	border-bottom: 1px solid #C4CFE5;
-}
 
-div.headertitle
-{
-	padding: 5px 5px 5px 10px;
-}
 
 dl
 {
@@ -818,10 +793,11 @@ dl.bug
 }
 /* }}} */
 /* {{{ navpath */
-.navpath {
+.navpath ul {
     display: block;
     height: 2em;
     width: 50em;
+    border-bottom: 1px solid #dddddd;
 }
 .navpath .navelem {
     display: inline;
@@ -830,6 +806,8 @@ dl.bug
 .navpath .navelem a {
     display: inline-block;
     padding-right: 0.2em;
+    text-decoration: none;
+    font-weight: normal;
 }
 .navpath .navelem a:after {
     content: " > ";
@@ -852,15 +830,23 @@ dl.bug
 /* }}} */
 
 /* {{{ content */
+div.header {
+    width: 50em;
+}
 #content .headertitle h1 {
     text-transform: lowercase;
     font-size: 1.1em;
     font-weight: bold;
 }
+/* }}} */
+/* {{{ content */
 .dyncontent {
     width: 100%;
     max-height: 20em;
     overflow: scroll;
+}
+.dyncontent img {
+    max-width: 100%;
 }
 /* }}} */
 
