@@ -32,7 +32,8 @@ a img {
     color: #000000;
 }
 #content h1,
-ul.big {
+ul.big,
+.home #content .headertitle {
     font-family: Georgia, Times, Times New Roman, Serif;
 }
 .clear {

@@ -161,12 +161,6 @@ div.groupText {
 }
 
 
-div.contents {
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
 td.indexkey {
 	background-color: #EBEFF6;
 	font-weight: bold;
@@ -598,18 +592,6 @@ table.doxtable th {
 
 
 
-div.summary
-{
-	font-size: 8pt;
-	padding-right: 5px;
-	width: 50%;
-	text-align: right;
-}       
-
-div.summary a
-{
-	white-space: nowrap;
-}
 
 div.ingroups
 {
@@ -723,6 +705,7 @@ dl.bug
     float: right;
     clear: right;
     width: 17em;
+    margin-left: 3em;
     /*text-transform: lowercase;*/
 }
 #navrow1 {
@@ -861,12 +844,28 @@ body iframe#MSearchResults {
 div.header {
     width: 50em;
 }
-#content .headertitle h1 {
+#content .headertitle {
     text-transform: lowercase;
     font-size: 1.1em;
     font-weight: bold;
+    padding-bottom: 3em;
+}
+.home #content .headertitle {
+    font-weight: normal;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+    padding-right: 2em;
 }
 /* }}} */
+div.summary {
+	font-size: 0.9em;
+        padding-bottom: 2em;
+}       
+div.summary a {
+	white-space: nowrap;
+}
 /* {{{ content */
 .dyncontent {
     width: 100%;
