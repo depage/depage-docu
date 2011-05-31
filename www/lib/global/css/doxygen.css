@@ -722,11 +722,11 @@ dl.bug
 #navrow2 {
     float: right;
     clear: right;
-    width: 19em;
+    width: 17em;
     /*text-transform: lowercase;*/
 }
 #navrow1 {
-    top: 6.5em;
+    padding-top: 6.5em;
     right: 0;
 }
 #navrow1 ul,
@@ -822,14 +822,42 @@ dl.bug
 /* }}} */
 
 /* {{{ searchbox */
-#MSearchBox {
+body #MSearchBox {
+    display: block;
     position: absolute;
     top: 6em;
-    right: 5em;
+    right: 3.5em;
+}
+body #MSearchSelectWindow {
+    position: absolute;
+    top: 6em;
+    right: 4em;
+    left: auto !important;
+    width: 12.5em ;
+    background: #CCC8C4;
+    border: none;
+    border-radius: 0.5em;
+}
+body #MSearchSelectWindow a {
+    font-size: 1.0em;
+}
+body #MSearchResultsWindow {
+    position: absolute;
+    top: 8em;
+    right: 4em;
+    width: 25em;
+    left: auto !important;
+    background: #dddddd;
+    border: none;
+    border-radius: 0.5em;
+}
+body iframe#MSearchResults {
+    width: 100%;
+    height: 30em;
 }
 /* }}} */
 
-/* {{{ content */
+/* {{{ header */
 div.header {
     width: 50em;
 }
