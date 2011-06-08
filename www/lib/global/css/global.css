@@ -18,7 +18,8 @@ body,
 ul a .hidden,
 textarea,
 #content .depagecms h1,
-#content .headertitle h1 {
+#content .headertitle h1,
+#content .intro h1 {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
 code {
