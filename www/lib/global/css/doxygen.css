@@ -867,6 +867,14 @@ div.summary a {
 	white-space: nowrap;
 }
 /* {{{ content */
+.contents {
+    width: 51em;
+}
+.contents .intro {
+    padding-top: 3em;
+    line-height: 1.8em;
+    margin-bottom: 3em;
+}
 .contents li {
     margin-left: 1.5em;
 }
