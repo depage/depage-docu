@@ -280,7 +280,7 @@ function replaceInteractiveContent() {
     // }}}
     // {{{ change height of iframe
     $("iframe[seamless]").iframeAutoHeight({
-        heightOffset: 10
+        heightOffset: 30
     });
     // }}}
     // {{{ add handlers for slideshow images
