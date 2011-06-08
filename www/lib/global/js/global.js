@@ -1,7 +1,7 @@
 /**
  * @file    js/global.js
  *
- * copyright (c) 2006-2009 Frank Hellenkamp [jonas@depagecms.net]
+ * copyright (c) 2006-2011 Frank Hellenkamp [jonas@depagecms.net]
  *
  * @author    Frank Hellenkamp [jonas@depagecms.net]
  */
@@ -276,6 +276,11 @@ function replaceInteractiveContent() {
 
             $(this).after("<a href=\"#\" onclick=\"" + ionclick + "\">" + this.value + "</a>");
         });
+    });
+    // }}}
+    // {{{ change height of iframe
+    $("iframe[seamless]").iframeAutoHeight({
+        heightOffset: 10
     });
     // }}}
     // {{{ add handlers for slideshow images
