@@ -111,9 +111,6 @@ a.codeRef {
 
 /* @end */
 
-dl.el {
-	margin-left: -1cm;
-}
 
 .fragment {
 	font-family: monospace, fixed;
@@ -307,10 +304,6 @@ hr.footer {
 
 /* @group Member Descriptions */
 
-table.memberdecls {
-	border-spacing: 0px;
-	padding: 0px;
-}
 
 .mdescLeft, .mdescRight,
 .memItemLeft, .memItemRight,
@@ -875,19 +868,49 @@ div.summary a {
     line-height: 1.8em;
     margin-bottom: 3em;
 }
-.contents li {
+.contents li,
+.contents dd {
     margin-left: 1.5em;
+}
+/* }}} */
+/* {{{ dyncontent */
+.dynheader {
+    cursor: pointer;
+    font-weight: bold;
+    color: #555555;
+}
+.dynheader::before {
+    content: "show";
+}
+.dynheader.active::before {
+    content: "hide";
 }
 .dyncontent {
     width: 100%;
-    max-height: 20em;
+    max-height: 40em;
     overflow: scroll;
+    border: 1px solid #aaaaaa;
 }
 .dyncontent img {
     max-width: 100%;
 }
 /* }}} */
-/* {{{ iframe */
+/* {{{ elements */
+a.el {
+    clear: both;
+}
+dl.el {
+    float: right;
+}
+/* }}} */
+/* {{{ members */
+table.memberdecls {
+    border-spacing: 0;
+    padding: 0;
+    /*width: 100%;*/
+}
+/* }}} */
+/* {{{ examples */
 iframe.example {
     width: 50em;
     height: 20em;

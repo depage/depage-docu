@@ -528,6 +528,19 @@ function replaceInteractiveContent() {
     }
 }
 // }}}
+//
+// {{{ addDoxygenBehaviours()
+function addDoxygenBehaviours() {
+    $(".dynheader").toggle( function() {
+        $(this).addClass("active");
+        $(".dyncontent").show();
+    }, function() {
+        $(this).removeClass("active");
+        $(".dyncontent").hide();
+    });
+    $(".dyncontent").hide();
+}
+// }}}
 
 // fix browser behaviours
 // {{{ fixHeightIE6()
@@ -560,6 +573,7 @@ $(document).ready(function() {
     // replace content
     replaceEmailRefs();
     replaceInteractiveContent();
+    addDoxygenBehaviours();
 
     // add flash content
     if ($.browser.flash("8,0,0")) {
