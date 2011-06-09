@@ -124,6 +124,9 @@ a[href$='.zip']::after {
 #content h1 .light {
     display: block;
 }
+#content h1 .light.noblock {
+    display: inline;
+}
 #content .depagecms h1,
 #content h2 {
     font-weight: bold;
