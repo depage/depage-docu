@@ -4,27 +4,27 @@
     <tab type="mainpage" visible="yes" title="home"/>
     <tab type="pages" visible="no" title="" intro=""/>
     <tab type="modules" visible="yes" title="" intro=""/>
-    <tab type="namespaces" visible="yes" title="">
+    <tab type="namespaces" visible="yes" title="namespaces">
       <tab type="namespaces" visible="yes" title="" intro=""/>
       <tab type="namespacemembers" visible="yes" title="" intro=""/>
     </tab>
     <tab type="classes" visible="yes" title="classes">
-      <tab type="classes" visible="yes" title="" intro=""/>
-      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title=""/> 
-      <tab type="hierarchy" visible="yes" title="" intro=""/>
-      <tab type="classmembers" visible="yes" title="" intro=""/>
+      <tab type="classes" visible="yes" title="classes" intro=""/>
+      <tab type="hierarchy" visible="yes" title="hierarchy" intro=""/>
+      <tab type="classmembers" visible="yes" title="members" intro=""/>
+      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title="index"/> 
     </tab>
-    <tab type="files" visible="yes" title="">
+    <tab type="files" visible="yes" title="files">
       <tab type="files" visible="yes" title="" intro=""/>
       <tab type="globals" visible="yes" title="" intro=""/>
     </tab>
     <tab type="dirs" visible="yes" title="" intro=""/>
-    <tab type="examples" visible="yes" title="" intro=""/>  
+    <tab type="examples" visible="yes" title="examples" intro=""/>  
   </navindex>
 
   <!-- Layout definition for a class page -->
   <class>
-    <briefdescription visible="yes"/>
+    <briefdescription visible="no"/>
     <detaileddescription title=""/>
     <includes visible="$SHOW_INCLUDE_FILES"/>
     <inheritancegraph visible="$CLASS_GRAPH"/>
@@ -78,7 +78,7 @@
 
   <!-- Layout definition for a namespace page -->
   <namespace>
-    <briefdescription visible="yes"/>
+    <briefdescription visible="no"/>
     <detaileddescription title=""/>
     <memberdecl>
       <nestednamespaces visible="yes" title=""/>
@@ -100,7 +100,7 @@
 
   <!-- Layout definition for a file page -->
   <file>
-    <briefdescription visible="yes"/>
+    <briefdescription visible="no"/>
     <detaileddescription title=""/>
     <includes visible="$SHOW_INCLUDE_FILES"/>
     <includegraph visible="$INCLUDE_GRAPH"/>
@@ -128,7 +128,7 @@
 
   <!-- Layout definition for a group page -->
   <group>
-    <briefdescription visible="yes"/>
+    <briefdescription visible="no"/>
     <detaileddescription title=""/>
     <groupgraph visible="$GROUP_GRAPHS"/>
     <memberdecl>
@@ -174,7 +174,7 @@
 
   <!-- Layout definition for a directory page -->
   <directory>
-    <briefdescription visible="yes"/>
+    <briefdescription visible="no"/>
     <detaileddescription title=""/>
     <directorygraph visible="yes"/>
     <memberdecl>
