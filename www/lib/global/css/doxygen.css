@@ -41,10 +41,6 @@ span.legend {
         text-align: center;
 }
 
-h3.version {
-        font-size: 90%;
-        text-align: center;
-}
 
 div.qindex, div.navtab{
 	background-color: #EBEFF6;
@@ -856,9 +852,6 @@ div.summary a {
 .contents {
     width: 51em;
 }
-.contents li {
-    list-style: disc;
-}
 .contents .intro {
     padding-top: 3em;
     line-height: 1.8em;
@@ -870,9 +863,13 @@ div.summary a {
     line-height: 1.6em;
     color: #555555;
 }
+.contents li {
+    list-style: disc;
+}
 .contents li,
 .contents dd {
     margin-left: 1.5em;
+    line-height: 1.8em;
 }
 hr {
     height: 0;
@@ -933,6 +930,14 @@ div.ah {
     padding-top: 0.6em;
     font-weight: bold;
     color: #000000;
+}
+/* }}} */
+
+/* {{{ files */
+h3.version {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #aaaaaa;
 }
 /* }}} */
 
