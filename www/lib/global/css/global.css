@@ -460,6 +460,7 @@ a[href$='.zip']::after {
 #content .article h1 {
     padding-top: 0.1em;
 }
+.section h2,
 .article h2 {
     clear: left;
 }
@@ -513,6 +514,38 @@ a[href$='.zip']::after {
 .comments form .small input {
     width: 100%;
     width: 85%;
+}
+/* }}} */
+/* {{{ depage-icons */
+.section .depage-icons {
+    margin-top: 3em;
+    padding-left: 0;
+    padding-bottom: 2em;
+    height: 8em;
+}
+.section .depage-icons li {
+    list-style: none;
+    float: left;
+    padding-right: 3em;
+}
+.section .depage-icons a {
+    font-weight: bold;
+    color: #555555;
+}
+.section .depage-icons a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+.section .depage-icons img {
+    display: block;
+    width: 10em;
+    height: 10em;
+}
+.section .depage-icons:hover img {
+    opacity: 0.7;
+}
+.section .depage-icons a:hover img {
+    opacity: 1;
 }
 /* }}} */
 
