@@ -741,6 +741,25 @@ dl.bug
 #navrow2 ul ul {
     padding: 0;
 }
+#navrow3,
+#navrow4 {
+    width: 51em;
+}
+#navrow4 {
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    border-bottom: 1px solid #dfdfdf;
+}
+#navrow3 .tablist li,
+#navrow4 .tablist li {
+    display: inline-block;
+    padding-right: 0.3em;
+}
+#navrow3 ul.tablist .current a,
+#navrow4 ul.tablist .current a {
+    font-weight: bold;
+    color: #000000;
+}
 /* }}} */
 /* {{{ navpath */
 .navpath ul {
