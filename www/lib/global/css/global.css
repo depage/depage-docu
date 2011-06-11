@@ -518,9 +518,9 @@ a[href$='.zip']::after {
 /* }}} */
 /* {{{ depage-icons */
 .section .depage-icons {
-    margin-top: 3em;
+    margin-top: 2em;
     padding-left: 0;
-    padding-bottom: 2em;
+    padding-bottom: 4em;
     height: 8em;
 }
 .section .depage-icons li {
