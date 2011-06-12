@@ -521,7 +521,8 @@ a[href$='.zip']::after {
     margin-top: 2em;
     padding-left: 0;
     padding-bottom: 4em;
-    height: 8em;
+    height: 6em;
+    font-size: 1em;
 }
 .section .depage-icons li {
     list-style: none;
@@ -538,8 +539,8 @@ a[href$='.zip']::after {
 }
 .section .depage-icons img {
     display: block;
-    width: 10em;
-    height: 10em;
+    width: 8.3em;
+    height: 8.3em;
 }
 .section .depage-icons:hover img {
     opacity: 0.7;

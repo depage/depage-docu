@@ -761,7 +761,7 @@ dl.bug
 .navpath ul {
     display: block;
     height: 2em;
-    width: 50em;
+    width: 51em;
     border-bottom: 1px solid #dddddd;
 }
 .navpath .navelem {
@@ -773,9 +773,10 @@ dl.bug
     padding-right: 0.2em;
     text-decoration: none;
     font-weight: normal;
+    font-size: 0.9em;
 }
 .navpath .navelem a:after {
-    content: " > ";
+    content: " » ";
     font-weight: normal;
 }
 .navpath .navelem:last-child a {
@@ -790,7 +791,7 @@ dl.bug
 body #MSearchBox {
     display: block;
     position: absolute;
-    top: 6em;
+    top: 3em;
     right: 3.5em;
 }
 body #MSearchSelectWindow {
@@ -822,34 +823,12 @@ body iframe#MSearchResults {
 }
 /* }}} */
 
-/* {{{ header */
-div.header {
-    width: 50em;
-}
-#content .headertitle {
-    text-transform: lowercase;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding-bottom: 3em;
-}
-.home #content .headertitle {
-    font-weight: normal;
-    font-size: 2.5em;
-    line-height: 1.2em;
-    padding-top: 0.3em;
-    padding-bottom: 0.5em;
-    padding-right: 2em;
-}
-/* }}} */
-div.summary {
-	font-size: 0.9em;
-        padding-bottom: 2em;
-}       
-div.summary a {
-	white-space: nowrap;
-}
 /* {{{ content */
+#content {
+    position: relative;
+}
 .contents {
+    margin-top: 3em;
     width: 51em;
 }
 .contents .intro {
@@ -877,6 +856,50 @@ hr {
     border-top: 1px solid #DDDDDD;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+/* }}} */
+/* {{{ header */
+div.header {
+    width: 50em;
+}
+#content .headertitle {
+    margin-top: 0.2em;
+    text-transform: lowercase;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#content .headertitle .title {
+    font-size: 1.3em;
+    line-height: 1.6em;
+    color: #555555;
+}
+.home #content .headertitle {
+    font-weight: normal;
+    padding-top: 0.7em;
+    padding-bottom: 0em;
+    padding-right: 2em;
+    letter-spacing: 0;
+}
+.home #content .headertitle .title {
+    font-size: 2.5em;
+    line-height: 1.0em;
+}
+/* }}} */
+/* {{{ summary */
+div.summary {
+    position: absolute;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    color: #aaaaaa;
+    top: 7.7em;
+}       
+div.summary a {
+    font-size: 0.9em;
+    white-space: nowrap;
+    color: #666666;
+}
+div.summary a:hover {
+    color: #000000;
 }
 /* }}} */
 /* {{{ dyncontent */
