@@ -64,7 +64,7 @@
     </memberdecl>
     <memberdef>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <constructors title=""/>
       <functions title=""/>
       <related title=""/>
@@ -82,16 +82,16 @@
     <detaileddescription title=""/>
     <memberdecl>
       <nestednamespaces visible="yes" title=""/>
-      <classes visible="yes" title=""/>
+      <classes visible="yes" title="Classes"/>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <functions title=""/>
       <variables title=""/>
       <membergroups visible="yes"/>
     </memberdecl>
     <memberdef>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <functions title=""/>
       <variables title=""/>
     </memberdef>
@@ -107,11 +107,11 @@
     <includedbygraph visible="$INCLUDED_BY_GRAPH"/>
     <sourcelink visible="yes"/>
     <memberdecl>
-      <classes visible="yes" title=""/>
+      <classes visible="yes" title="Classes"/>
       <namespaces visible="yes" title=""/>
       <defines title=""/>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <functions title=""/>
       <variables title=""/>
       <membergroups visible="yes"/>
@@ -119,7 +119,7 @@
     <memberdef>
       <defines title=""/>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <functions title=""/>
       <variables title=""/>
     </memberdef>
@@ -132,14 +132,14 @@
     <detaileddescription title=""/>
     <groupgraph visible="$GROUP_GRAPHS"/>
     <memberdecl>
-      <classes visible="yes" title=""/>
+      <classes visible="yes" title="Classes"/>
       <namespaces visible="yes" title=""/>
       <dirs visible="yes" title=""/>
       <nestedgroups visible="yes" title=""/>
       <files visible="yes" title=""/>
       <defines title=""/>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <enumvalues title=""/>
       <functions title=""/>
       <variables title=""/>
@@ -157,7 +157,7 @@
       <inlineclasses title=""/>
       <defines title=""/>
       <typedefs title=""/>
-      <enums title=""/>
+      <enums title="Constants"/>
       <enumvalues title=""/>
       <functions title=""/>
       <variables title=""/>
