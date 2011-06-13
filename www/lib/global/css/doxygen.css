@@ -723,9 +723,13 @@ body iframe#MSearchResults {
     list-style: disc;
 }
 .contents li,
+.contents dt,
+.contents dd {
+    line-height: 1.8em;
+}
+.contents li,
 .contents dd {
     margin-left: 1.5em;
-    line-height: 1.8em;
 }
 hr {
     height: 0;
@@ -912,6 +916,25 @@ pre.fragment {
     word-wrap: break-word;
     font-size:  9pt;
     line-height: 125%;
+}
+/* }}} */
+
+/* {{{ author */
+dl.author {
+    position: relative;
+    font-size: 0.8em;
+    margin: 1em 0;
+    color: #555555;
+    border-top: 1px solid #C4CFE5;
+    background: #F9FAFC;
+}
+dl.author dt {
+    position: absolute;
+    top: 0;
+    left: 1em;
+}
+dl.author dd {
+    margin-left: 10em;
 }
 /* }}} */
 
