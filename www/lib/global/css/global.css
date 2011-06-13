@@ -22,8 +22,9 @@ textarea,
 #content .intro h1 {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
-code {
-    font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
+code,
+.fragment {
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier, monospace, fixed;;
 }
 img { 
     -ms-interpolation-mode: bicubic;
