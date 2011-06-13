@@ -7,13 +7,6 @@ dt {
 	font-weight: bold;
 }
 
-div.multicol {
-	-moz-column-gap: 1em;
-	-webkit-column-gap: 1em;
-	-moz-column-count: 3;
-	-webkit-column-count: 3;
-}
-
 p.startli, p.startdd, p.starttd {
 	margin-top: 2px;
 }
@@ -208,25 +201,6 @@ span.vhdllogic {
 
 /* @end */
 
-/*
-.search {
-	color: #003399;
-	font-weight: bold;
-}
-
-form.search {
-	margin-bottom: 0px;
-	margin-top: 0px;
-}
-
-input.search {
-	font-size: 75%;
-	color: #000080;
-	font-weight: normal;
-	background-color: #e8eef2;
-}
-*/
-
 td.tiny {
 	font-size: 75%;
 }
@@ -370,23 +344,6 @@ th.dirtab {
 	font-size: 11pt;
 }
 
-/*
-The following two styles can be used to replace the root node title
-with an image of your choice.  Simply uncomment the next two styles,
-specify the name of your image and be sure to set 'height' to the
-proper pixel height of your image.
-*/
-
-/*
-.directory h3.swap {
-	height: 61px;
-	background-repeat: no-repeat;
-	background-image: url("yourimage.gif");
-}
-.directory h3.swap span {
-	display: none;
-}
-*/
 
 .directory > h3 {
 	margin-top: 0;
@@ -828,6 +785,7 @@ td.indexvalue {
     padding: 0.2em 1em 0.2em 0;
 }
 
+table.params,
 table.memname {
     margin-top: 0;
 }
