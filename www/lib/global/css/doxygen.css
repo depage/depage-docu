@@ -676,6 +676,9 @@ body iframe#MSearchResults {
     line-height: 1.6em;
     color: #555555;
 }
+.contents .textblock p {
+    margin-bottom: 0.8em;
+}
 .contents li {
     list-style: disc;
 }
@@ -850,6 +853,7 @@ table.memberdecls {
 }
 #content .memdoc p {
     font-size: 1.0em;
+    margin-bottom: 0.8em;
 }
 
 /* }}} */
