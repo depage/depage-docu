@@ -11,7 +11,7 @@
     <tab type="classes" visible="yes" title="classes">
       <tab type="classes" visible="yes" title="classes" intro=""/>
       <tab type="hierarchy" visible="yes" title="hierarchy" intro=""/>
-      <tab type="classmembers" visible="yes" title="members" intro=""/>
+      <tab type="classmembers" visible="no" title="members" intro=""/>
       <tab type="classindex" visible="$ALPHABETICAL_INDEX" title="index"/> 
     </tab>
     <tab type="files" visible="yes" title="files">
