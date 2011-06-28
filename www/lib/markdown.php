@@ -1,5 +1,4 @@
 <?php
-# License: GNU General Publice License version 2 or a later version.
 #
 # Markdown  -  A text-to-HTML conversion tool for web writers
 #
@@ -11,7 +10,6 @@
 # Copyright (c) 2004-2006 John Gruber  
 # <http://daringfireball.net/projects/markdown/>
 #
-# edited by Lion Vollnhals 
 
 
 define( 'MARKDOWN_VERSION',  "1.0.1n" ); # Sat 10 Oct 2009
@@ -28,12 +26,21 @@ define( 'MARKDOWN_VERSION',  "1.0.1n" ); # Sat 10 Oct 2009
 @define( 'MARKDOWN_TAB_WIDTH',     4 );
 
 
+#
+# WordPress settings:
+#
+
+# Change to false to remove Markdown from posts and/or comments.
+@define( 'MARKDOWN_WP_POSTS',      true );
+@define( 'MARKDOWN_WP_COMMENTS',   true );
+
+
 
 ### Standard Function Interface ###
 
 @define( 'MARKDOWN_PARSER_CLASS',  'Markdown_Parser' );
 
-function Markdown($text, $nofollow = '', $gamut_filter = array()) {
+function Markdown($text) {
 #
 # Initialize the parser and return the result of its transform method.
 #
@@ -44,12 +51,137 @@ function Markdown($text, $nofollow = '', $gamut_filter = array()) {
 		$parser = new $parser_class;
 	}
 
-	$parser->nofollow = $nofollow;
-	$parser->gamut_filter = $gamut_filter;
-
 	# Transform text using parser.
 	return $parser->transform($text);
 }
+
+
+### WordPress Plugin Interface ###
+
+/*
+Plugin Name: Markdown
+Plugin URI: http://michelf.com/projects/php-markdown/
+Description: <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a> allows you to write using an easy-to-read, easy-to-write plain text format. Based on the original Perl version by <a href="http://daringfireball.net/">John Gruber</a>. <a href="http://michelf.com/projects/php-markdown/">More...</a>
+Version: 1.0.1n
+Author: Michel Fortin
+Author URI: http://michelf.com/
+*/
+
+if (isset($wp_version)) {
+	# More details about how it works here:
+	# <http://michelf.com/weblog/2005/wordpress-text-flow-vs-markdown/>
+	
+	# Post content and excerpts
+	# - Remove WordPress paragraph generator.
+	# - Run Markdown on excerpt, then remove all tags.
+	# - Add paragraph tag around the excerpt, but remove it for the excerpt rss.
+	if (MARKDOWN_WP_POSTS) {
+		remove_filter('the_content',     'wpautop');
+        remove_filter('the_content_rss', 'wpautop');
+		remove_filter('the_excerpt',     'wpautop');
+		add_filter('the_content',     'Markdown', 6);
+        add_filter('the_content_rss', 'Markdown', 6);
+		add_filter('get_the_excerpt', 'Markdown', 6);
+		add_filter('get_the_excerpt', 'trim', 7);
+		add_filter('the_excerpt',     'mdwp_add_p');
+		add_filter('the_excerpt_rss', 'mdwp_strip_p');
+		
+		remove_filter('content_save_pre',  'balanceTags', 50);
+		remove_filter('excerpt_save_pre',  'balanceTags', 50);
+		add_filter('the_content',  	  'balanceTags', 50);
+		add_filter('get_the_excerpt', 'balanceTags', 9);
+	}
+	
+	# Comments
+	# - Remove WordPress paragraph generator.
+	# - Remove WordPress auto-link generator.
+	# - Scramble important tags before passing them to the kses filter.
+	# - Run Markdown on excerpt then remove paragraph tags.
+	if (MARKDOWN_WP_COMMENTS) {
+		remove_filter('comment_text', 'wpautop', 30);
+		remove_filter('comment_text', 'make_clickable');
+		add_filter('pre_comment_content', 'Markdown', 6);
+		add_filter('pre_comment_content', 'mdwp_hide_tags', 8);
+		add_filter('pre_comment_content', 'mdwp_show_tags', 12);
+		add_filter('get_comment_text',    'Markdown', 6);
+		add_filter('get_comment_excerpt', 'Markdown', 6);
+		add_filter('get_comment_excerpt', 'mdwp_strip_p', 7);
+	
+		global $mdwp_hidden_tags, $mdwp_placeholders;
+		$mdwp_hidden_tags = explode(' ',
+			'<p> </p> <pre> </pre> <ol> </ol> <ul> </ul> <li> </li>');
+		$mdwp_placeholders = explode(' ', str_rot13(
+			'pEj07ZbbBZ U1kqgh4w4p pre2zmeN6K QTi31t9pre ol0MP1jzJR '.
+			'ML5IjmbRol ulANi1NsGY J7zRLJqPul liA8ctl16T K9nhooUHli'));
+	}
+	
+	function mdwp_add_p($text) {
+		if (!preg_match('{^$|^<(p|ul|ol|dl|pre|blockquote)>}i', $text)) {
+			$text = '<p>'.$text.'</p>';
+			$text = preg_replace('{\n{2,}}', "</p>\n\n<p>", $text);
+		}
+		return $text;
+	}
+	
+	function mdwp_strip_p($t) { return preg_replace('{</?p>}i', '', $t); }
+
+	function mdwp_hide_tags($text) {
+		global $mdwp_hidden_tags, $mdwp_placeholders;
+		return str_replace($mdwp_hidden_tags, $mdwp_placeholders, $text);
+	}
+	function mdwp_show_tags($text) {
+		global $mdwp_hidden_tags, $mdwp_placeholders;
+		return str_replace($mdwp_placeholders, $mdwp_hidden_tags, $text);
+	}
+}
+
+
+### bBlog Plugin Info ###
+
+function identify_modifier_markdown() {
+	return array(
+		'name'			=> 'markdown',
+		'type'			=> 'modifier',
+		'nicename'		=> 'Markdown',
+		'description'	=> 'A text-to-HTML conversion tool for web writers',
+		'authors'		=> 'Michel Fortin and John Gruber',
+		'licence'		=> 'BSD-like',
+		'version'		=> MARKDOWN_VERSION,
+		'help'			=> '<a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a> allows you to write using an easy-to-read, easy-to-write plain text format. Based on the original Perl version by <a href="http://daringfireball.net/">John Gruber</a>. <a href="http://michelf.com/projects/php-markdown/">More...</a>'
+	);
+}
+
+
+### Smarty Modifier Interface ###
+
+function smarty_modifier_markdown($text) {
+	return Markdown($text);
+}
+
+
+### Textile Compatibility Mode ###
+
+# Rename this file to "classTextile.php" and it can replace Textile everywhere.
+
+if (strcasecmp(substr(__FILE__, -16), "classTextile.php") == 0) {
+	# Try to include PHP SmartyPants. Should be in the same directory.
+	@include_once 'smartypants.php';
+	# Fake Textile class. It calls Markdown instead.
+	class Textile {
+		function TextileThis($text, $lite='', $encode='') {
+			if ($lite == '' && $encode == '')    $text = Markdown($text);
+			if (function_exists('SmartyPants'))  $text = SmartyPants($text);
+			return $text;
+		}
+		# Fake restricted version: restrictions are not supported for now.
+		function TextileRestricted($text, $lite='', $noimage='') {
+			return $this->TextileThis($text, $lite);
+		}
+		# Workaround to ensure compatibility with TextPattern 4.0.3.
+		function blockLite($text) { return $text; }
+	}
+}
+
 
 
 #
@@ -82,8 +214,6 @@ class Markdown_Parser {
 	var $predef_urls = array();
 	var $predef_titles = array();
 
-	var $nofollow = '';
-	var $gamut_filter = array();
 
 	function Markdown_Parser() {
 	#
@@ -416,7 +546,7 @@ class Markdown_Parser {
 		"doHorizontalRules" => 20,
 		
 		"doLists"           => 40,
-//		"doCodeBlocks"      => 50,
+		"doCodeBlocks"      => 50,
 		"doBlockQuotes"     => 60,
 		);
 
@@ -441,8 +571,7 @@ class Markdown_Parser {
 	# whole-document pass.
 	#
 		foreach ($this->block_gamut as $method => $priority) {
-			if (!in_array($method, $this->gamut_filter))
-				$text = $this->$method($text);
+			$text = $this->$method($text);
 		}
 		
 		# Finally form paragraph and restore hashed blocks.
@@ -481,8 +610,8 @@ class Markdown_Parser {
 
 		# Process anchor and image tags. Images must come first,
 		# because ![foo][f] looks like an anchor.
-//		"doImages"            =>  10,
-//		"doAnchors"           =>  20,
+		"doImages"            =>  10,
+		"doAnchors"           =>  20,
 		
 		# Make links out of things like `<http://example.com/>`
 		# Must come after doAnchors, because you can use < and >
@@ -988,13 +1117,19 @@ class Markdown_Parser {
 
 
 	var $em_relist = array(
-		''  => '(?:(?<!\*)\*(?!\*)|(?<!_)_(?!_)|(?<!/)/(?!/))(?=\S|$)(?![.,:;]\s)',
+		''  => '(?:(?<!\*)\*(?!\*)|(?<!_)_(?!_))(?=\S|$)(?![.,:;]\s)',
 		'*' => '(?<=\S|^)(?<!\*)\*(?!\*)',
 		'_' => '(?<=\S|^)(?<!_)_(?!_)',
-		'/' => '(?<=\S|^)(?<!/)/(?!/)',
 		);
 	var $strong_relist = array(
 		''   => '(?:(?<!\*)\*\*(?!\*)|(?<!_)__(?!_))(?=\S|$)(?![.,:;]\s)',
+		'**' => '(?<=\S|^)(?<!\*)\*\*(?!\*)',
+		'__' => '(?<=\S|^)(?<!_)__(?!_)',
+		);
+	var $em_strong_relist = array(
+		''    => '(?:(?<!\*)\*\*\*(?!\*)|(?<!_)___(?!_))(?=\S|$)(?![.,:;]\s)',
+		'***' => '(?<=\S|^)(?<!\*)\*\*\*(?!\*)',
+		'___' => '(?<=\S|^)(?<!_)___(?!_)',
 		);
 	var $em_strong_prepared_relist;
 	
@@ -1007,6 +1142,9 @@ class Markdown_Parser {
 			foreach ($this->strong_relist as $strong => $strong_re) {
 				# Construct list of allowed token expressions.
 				$token_relist = array();
+				if (isset($this->em_strong_relist["$em$strong"])) {
+					$token_relist[] = $this->em_strong_relist["$em$strong"];
+				}
 				$token_relist[] = $em_re;
 				$token_relist[] = $strong_re;
 				
@@ -1022,6 +1160,7 @@ class Markdown_Parser {
 		$text_stack = array('');
 		$em = '';
 		$strong = '';
+		$tree_char_em = false;
 		
 		while (1) {
 			#
@@ -1038,7 +1177,7 @@ class Markdown_Parser {
 			$text_stack[0] .= $parts[0];
 			$token =& $parts[1];
 			$text =& $parts[2];
-		
+			
 			if (empty($token)) {
 				# Reached end of text span: empty stack without emitting.
 				# any more emphasis.
@@ -1050,31 +1189,89 @@ class Markdown_Parser {
 			}
 			
 			$token_len = strlen($token);
-			# Here $token_len == 1
-			if ($em) {
-				if (strlen($token_stack[0]) == 1) {
-					# Closing emphasis marker:
-					$shifted_token = array_shift($token_stack);
-					$tag = 'em';
-					if ($shifted_token == '*') {
-						$tag = 'strong';
-					} else if ($shifted_token == '_') {
-						$tag = 'u';
-					} else if ($shifted_token == '/') {
-						$tag = 'i';
-					} 
+			if ($tree_char_em) {
+				# Reached closing marker while inside a three-char emphasis.
+				if ($token_len == 3) {
+					# Three-char closing marker, close em and strong.
+					array_shift($token_stack);
 					$span = array_shift($text_stack);
 					$span = $this->runSpanGamut($span);
-					$span = "<$tag>$span</$tag>";
+					$span = "<strong><em>$span</em></strong>";
 					$text_stack[0] .= $this->hashPart($span);
 					$em = '';
+					$strong = '';
 				} else {
-					$text_stack[0] .= $token;
+					# Other closing marker: close one em or strong and
+					# change current token state to match the other
+					$token_stack[0] = str_repeat($token{0}, 3-$token_len);
+					$tag = $token_len == 2 ? "strong" : "em";
+					$span = $text_stack[0];
+					$span = $this->runSpanGamut($span);
+					$span = "<$tag>$span</$tag>";
+					$text_stack[0] = $this->hashPart($span);
+					$$tag = ''; # $$tag stands for $em or $strong
+				}
+				$tree_char_em = false;
+			} else if ($token_len == 3) {
+				if ($em) {
+					# Reached closing marker for both em and strong.
+					# Closing strong marker:
+					for ($i = 0; $i < 2; ++$i) {
+						$shifted_token = array_shift($token_stack);
+						$tag = strlen($shifted_token) == 2 ? "strong" : "em";
+						$span = array_shift($text_stack);
+						$span = $this->runSpanGamut($span);
+						$span = "<$tag>$span</$tag>";
+						$text_stack[0] .= $this->hashPart($span);
+						$$tag = ''; # $$tag stands for $em or $strong
+					}
+				} else {
+					# Reached opening three-char emphasis marker. Push on token 
+					# stack; will be handled by the special condition above.
+					$em = $token{0};
+					$strong = "$em$em";
+					array_unshift($token_stack, $token);
+					array_unshift($text_stack, '');
+					$tree_char_em = true;
+				}
+			} else if ($token_len == 2) {
+				if ($strong) {
+					# Unwind any dangling emphasis marker:
+					if (strlen($token_stack[0]) == 1) {
+						$text_stack[1] .= array_shift($token_stack);
+						$text_stack[0] .= array_shift($text_stack);
+					}
+					# Closing strong marker:
+					array_shift($token_stack);
+					$span = array_shift($text_stack);
+					$span = $this->runSpanGamut($span);
+					$span = "<strong>$span</strong>";
+					$text_stack[0] .= $this->hashPart($span);
+					$strong = '';
+				} else {
+					array_unshift($token_stack, $token);
+					array_unshift($text_stack, '');
+					$strong = $token;
 				}
 			} else {
-				array_unshift($token_stack, $token);
-				array_unshift($text_stack, '');
-				$em = $token;
+				# Here $token_len == 1
+				if ($em) {
+					if (strlen($token_stack[0]) == 1) {
+						# Closing emphasis marker:
+						array_shift($token_stack);
+						$span = array_shift($text_stack);
+						$span = $this->runSpanGamut($span);
+						$span = "<em>$span</em>";
+						$text_stack[0] .= $this->hashPart($span);
+						$em = '';
+					} else {
+						$text_stack[0] .= $token;
+					}
+				} else {
+					array_unshift($token_stack, $token);
+					array_unshift($text_stack, '');
+					$em = $token;
+				}
 			}
 		}
 		return $text_stack[0];
@@ -1220,11 +1417,12 @@ class Markdown_Parser {
 
 
 	function doAutoLinks($text) {
-		$text = preg_replace_callback('{((https?|ftp):[^\'"\s]+)}i', 
+		$text = preg_replace_callback('{<((https?|ftp|dict):[^\'">\s]+)>}i', 
 			array(&$this, '_doAutoLinks_url_callback'), $text);
 
 		# Email addresses: <address@domain.foo>
 		$text = preg_replace_callback('{
+			<
 			(?:mailto:)?
 			(
 				(?:
@@ -1239,14 +1437,15 @@ class Markdown_Parser {
 					\[[\d.a-fA-F:]+\]	# IPv4 & IPv6
 				)
 			)
+			>
 			}xi',
 			array(&$this, '_doAutoLinks_email_callback'), $text);
 
 		return $text;
 	}
 	function _doAutoLinks_url_callback($matches) {
-		$url = $this->encodeAttribute($matches[1]); 
-		$link = "<a {$this->nofollow} href=\"$url\">$url</a>";
+		$url = $this->encodeAttribute($matches[1]);
+		$link = "<a href=\"$url\">$url</a>";
 		return $this->hashPart($link);
 	}
 	function _doAutoLinks_email_callback($matches) {
