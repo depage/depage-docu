@@ -3,19 +3,22 @@
     $page_id = "1";
     @header('Content-type: text/html; charset=UTF-8');
 
-    require_once("lib/global/php/lib_comments.php");
 ?><!DOCTYPE html >
 <html>
     <!-- {{{ header -->
     <head>
 	<title>depage::cms comments</title>
+        <link rel="stylesheet" type="text/css" href="lib/global/htmlform/css/depage-forms.css">
 	<link rel="stylesheet" type="text/css" href="lib/global/css/global.css" />
 	<link rel="stylesheet" type="text/css" href="lib/global/css/colors.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="lib/global/css/screen.css" />
 	<link rel="stylesheet" type="text/css" media="print" href="lib/global/css/print.css" />
         <!--[if !IE]> --><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="lib/global/css/mobile.css" /><!--<![endif]-->
 
-	<script type="text/javascript" src="lib/global/js/jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="lib/global/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="lib/global/htmlform/js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="lib/global/htmlform/js/effect.js"></script>
+        <script type="text/javascript" src="lib/global/comments/js/comments.js"></script>
 	<script type="text/javascript" src="lib/global/js/global.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -63,10 +66,7 @@
                         <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ohne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
 
                     </div>
-                    <?php 
-                        $c = new page_comments();
-                        $c->print_comments(1);
-                    ?>
+                    <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
 		</div>
 		<!-- }}} -->
                 <!-- {{{ blog bottomnav -->
