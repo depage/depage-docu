@@ -19,6 +19,8 @@
         <script type="text/javascript" src="lib/global/htmlform/js/effect.js"></script>
         <script type="text/javascript" src="lib/global/comments/js/comments.js"></script>
 	<script type="text/javascript" src="lib/global/js/global.js"></script>
+	<script type="text/javascript" src="lib/global/js/chili/jquery.chili-2.2.js"></script>
+	<script type="text/javascript" src="lib/global/js/chili/recipes.js"></script>
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><script>!window.html5 && document.write('<script src="../lib/global/js/html5.js"><\/script>')</script><![endif]-->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
