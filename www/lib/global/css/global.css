@@ -1,4 +1,8 @@
 /* {{{ global */
+* {
+  margin: 0;
+  padding: 0; }
+
 .invisible {
   display: none; }
 
@@ -7,7 +11,8 @@
 
 html {
   font-size: 16px;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  height: 100%; }
 
 body {
   font-size: 75%;
@@ -39,18 +44,123 @@ ul.big {
   clear: both; }
 
 /* }}} */
+/* {{{ background colors */
+#backcolor_blue {
+  background: url(../back_pattern.gif) repeat top center #0d76c6;
+  position: absolute;
+  left: 0em;
+  top: 96px;
+  width: 100%;
+  height: 140px; }
+
+#backcolor_brightblue {
+  background: url(../back_pattern.gif) repeat top center #4b8eaa;
+  position: absolute;
+  left: 0em;
+  top: 126px;
+  width: 100%;
+  height: 170px; }
+
+#backcolor_green {
+  background: url(../back_pattern.gif) repeat top center #01aa09;
+  position: absolute;
+  left: 0em;
+  top: 156px;
+  width: 100%;
+  height: 200px; }
+
+#backcolor_red {
+  background: url(../back_pattern.gif) repeat top center #ca0000;
+  position: absolute;
+  left: 0em;
+  top: 186px;
+  width: 100%;
+  height: 230px; }
+
+#backcolor_orange {
+  background: url(../back_pattern.gif) repeat top center #ff9900;
+  position: absolute;
+  left: 0em;
+  top: 96px;
+  width: 100%;
+  height: 350px; }
+
+#backcolor_grey1 {
+  background: url(../back_pattern.gif) repeat top center #aaaaaa;
+  position: absolute;
+  left: 0em;
+  top: 198px;
+  width: 100%;
+  height: 200px; }
+
+#backcolor_grey2 {
+  background: url(../back_pattern.gif) repeat top center #aaaaaa;
+  position: absolute;
+  left: 0em;
+  top: 294px;
+  width: 100%;
+  height: 150px; }
+
+#backcolor_grey3 {
+  background: url(../back_pattern.gif) repeat top center #aaaaaa;
+  position: absolute;
+  left: 0em;
+  top: 96px;
+  width: 100%;
+  height: 250px; }
+
+/* }}} */
 /* {{{ filetypes */
 a[href$='.pdf']::after {
   content: " [pdf]"; }
+  .float_left a[href$='.pdf']::after {
+    content: ""; }
 
 a[href$='.zip']::after {
   content: " [zip]"; }
+  .float_left a[href$='.zip']::after {
+    content: ""; }
 
-.float_left a[href$='.pdf']::after {
-  content: ""; }
-
-.float_left a[href$='.zip']::after {
-  content: ""; }
+/* }}} */
+/* {{{ round header */
+#header {
+  height: 3em; }
+  #header #corner_tl,
+  #header #corner_tr {
+    position: absolute;
+    top: 3em;
+    width: 32px;
+    height: 32px;
+    z-index: 100; }
+  #header #corner_tl {
+    left: 0;
+    float: left;
+    background: url(../corner_tl2.png) no-repeat top left !important;
+    background: url(../corner_tl2.gif) no-repeat top left; }
+  #header #corner_tr {
+    right: 0;
+    float: right;
+    background: url(../corner_tr2.png) no-repeat top right !important;
+    background: url(../corner_tr2.gif) no-repeat top right; }
+  #header #crosslinks {
+    position: absolute;
+    top: 0em;
+    left: 0;
+    width: 100%; }
+    #header #crosslinks ul {
+      position: absolute;
+      top: 0; }
+      #header #crosslinks ul.left {
+        right: 18.5em; }
+      #header #crosslinks ul.right {
+        left: 58.2em; }
+    #header #crosslinks li {
+      display: inline; }
+    #header #crosslinks a {
+      display: inline-block;
+      font-size: 0.9em;
+      padding: 1em 1em;
+      height: 1em; }
 
 /* }}} */
 /* {{{ back */
@@ -60,54 +170,47 @@ a[href$='.zip']::after {
   z-index: 5;
   top: 3em;
   left: 0; }
-
-#content .back div {
-  position: absolute; }
-
-#content .back img {
-  display: block;
-  width: 100%;
-  width: 76em; }
-
-#content .back a {
-  position: relative;
-  display: block;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 50em;
-  text-decoration: none; }
-
-#content .back .marker {
-  z-index: 100000;
-  position: absolute;
-  top: 5em;
-  left: 67em;
-  width: 11em;
-  height: 11em;
-  color: #ffffff;
-  -moz-transform: rotate(10deg);
-  -webkit-transform: rotate(10deg); }
-
-#content .back .marker img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-#content .back .marker span {
-  position: absolute;
-  display: block;
-  top: 33%;
-  left: 2%;
-  width: 94%;
-  text-align: center;
-  font-size: 0.8em; }
-
-#content .back .marker span b {
-  font-size: 1.2em; }
+  #content .back div {
+    position: absolute; }
+  #content .back img {
+    display: block;
+    width: 100%;
+    width: 76em; }
+  #content .back a {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 50em;
+    text-decoration: none; }
+  #content .back .marker {
+    z-index: 100000;
+    position: absolute;
+    top: 5em;
+    left: 67em;
+    width: 11em;
+    height: 11em;
+    color: #ffffff;
+    -moz-transform: rotate(10deg);
+    -webkit-transform: rotate(10deg); }
+    #content .back .marker img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%; }
+    #content .back .marker span {
+      position: absolute;
+      display: block;
+      top: 33%;
+      left: 2%;
+      width: 94%;
+      text-align: center;
+      font-size: 0.8em; }
+      #content .back .marker span b {
+        font-size: 1.2em; }
 
 /* }}} */
 /* {{{ content */
@@ -166,6 +269,29 @@ a[href$='.zip']::after {
   line-height: 1.5em;
   font-style: normal;
   margin-bottom: 1em; }
+
+#contentcontainer {
+  position: relative;
+  width: 76em;
+  margin: 0 auto;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  text-align: left; }
+
+#content {
+  padding: 2em 2em 12em 3em; }
+
+.section,
+.section_start,
+.article {
+  margin-right: 20em; }
+
+.article .section {
+  margin-right: 0; }
+
+.section_start {
+  margin-bottom: 10em; }
 
 /* }}} */
 /* {{{ section */
@@ -562,6 +688,52 @@ ul.cloud small {
   padding-top: 3em;
   padding-top: 12em; }
 
+.topnav,
+.bottomnav {
+  display: block;
+  padding-top: 1em;
+  height: 1em; }
+
+.bottomnav {
+  margin-top: 6em;
+  padding-top: 2em;
+  width: 52em; }
+
+.topnav li,
+.bottomnav li {
+  float: left;
+  list-style: none;
+  display: block;
+  padding-right: 1.5em; }
+
+#navigation {
+  position: absolute;
+  float: right;
+  top: 6.5em;
+  right: 0;
+  width: 19em; }
+
+.home #navigation {
+  z-index: 1000;
+  top: 54em; }
+
+#navigation .nav {
+  /*padding-bottom: 8em;*/ }
+
+#navigation ul,
+#navigation .autolinklist ul:hover,
+.autolinklist h3,
+.autolinklist ul {
+  padding: 0 2em 0.3em 2em;
+  margin-bottom: 1.2em; }
+
+.autolinklist h3 {
+  padding: 0 2em 0.3em 2.2em;
+  margin-bottom: 0; }
+
+#navigation ul ul {
+  padding: 0; }
+
 /* }}} */
 /* {{{ lists big/nav */
 ul.big {
@@ -601,6 +773,105 @@ ul a:hover .hidden {
 
 li.highlighted {
   margin-top: 0.75em; }
+
+/* }}} */
+/* {{{ langswitch */
+#langswitch {
+  position: absolute;
+  top: 0;
+  left: -3em;
+  width: 82.5em; }
+
+#langswitch ul {
+  position: absolute;
+  top: 5em;
+  right: 1em;
+  list-style: none;
+  z-index: 2000; }
+
+#langswitch a {
+  font-size: 0.9em;
+  color: #aaaaaa; }
+
+#langswitch .feed {
+  padding-bottom: 0.3em; }
+
+#langswitch a.active {
+  font-weight: bold; }
+
+#langswitch a:hover {
+  color: #ffffff; }
+
+#langswitch a span {
+  visibility: hidden; }
+
+#langswitch a:hover span {
+  visibility: visible; }
+
+/* }}} */
+/* {{{ footer */
+#footercontainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  width: 76em; }
+
+#footercontainer #teaser {
+  position: absolute;
+  bottom: 11em; }
+
+#content #teaser {
+  position: relative;
+  margin-left: -0.5em;
+  width: 57em;
+  z-index: 20; }
+
+#teaser .teaser {
+  float: left;
+  height: 4em;
+  width: 14.5em;
+  margin-right: 2.5em;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  overflow: hidden; }
+
+#teaser .teaser p {
+  font-size: 0.9em;
+  line-height: 1.5em; }
+
+#teaser .teaser span {
+  display: inline-block; }
+
+#teaser .teaser a {
+  text-decoration: none; }
+
+#teaser .teaser a:hover {
+  text-decoration: underline; }
+
+#teaser .teaser:hover {
+  cursor: pointer; }
+
+#teaser .teaser .date {
+  font-weight: bold; }
+
+#teaser .teaser img {
+  float: left;
+  display: block;
+  width: 4em;
+  margin-right: 1em; }
+
+#teaser .teaser em {
+  font-style: normal; }
+
+#footer {
+  height: 3em; }
+
+#footer p {
+  float: right;
+  font-size: 0.8em;
+  padding-top: 1em;
+  padding-right: 1em; }
 
 /* }}} */
 /* vim:set ft=scss sw=4 sts=4 fdm=marker : */
