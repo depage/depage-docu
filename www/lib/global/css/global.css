@@ -123,40 +123,40 @@ a[href$='.zip']::after {
 
 /* }}} */
 /* {{{ round header */
-#header {
+header {
   height: 3em; }
-  #header #corner_tl,
-  #header #corner_tr {
+  header #corner_tl,
+  header #corner_tr {
     position: absolute;
     top: 3em;
     width: 32px;
     height: 32px;
     z-index: 100; }
-  #header #corner_tl {
+  header #corner_tl {
     left: 0;
     float: left;
     background: url(../corner_tl2.png) no-repeat top left !important;
     background: url(../corner_tl2.gif) no-repeat top left; }
-  #header #corner_tr {
+  header #corner_tr {
     right: 0;
     float: right;
     background: url(../corner_tr2.png) no-repeat top right !important;
     background: url(../corner_tr2.gif) no-repeat top right; }
-  #header #crosslinks {
+  header #crosslinks {
     position: absolute;
     top: 0em;
     left: 0;
     width: 100%; }
-    #header #crosslinks ul {
+    header #crosslinks ul {
       position: absolute;
       top: 0; }
-      #header #crosslinks ul.left {
+      header #crosslinks ul.left {
         right: 18.5em; }
-      #header #crosslinks ul.right {
+      header #crosslinks ul.right {
         left: 58.2em; }
-    #header #crosslinks li {
+    header #crosslinks li {
       display: inline; }
-    #header #crosslinks a {
+    header #crosslinks a {
       display: inline-block;
       font-size: 0.9em;
       padding: 1em 1em;
@@ -250,8 +250,8 @@ a[href$='.zip']::after {
     font-size: 1.05em;
     line-height: 1.6em; }
   #content p,
-  #content .section ul,
-  #content .section ol,
+  #content section ul,
+  #content section ol,
   #content address {
     font-size: 1.05em;
     line-height: 1.8em; }
@@ -271,63 +271,63 @@ a[href$='.zip']::after {
 
 /* }}} */
 /* {{{ section */
-.section,
-.section_start,
-.article {
+section,
+section.start,
+article {
   margin-right: 20em; }
 
-.article .section {
+article section {
   margin-right: 0; }
 
-.article {
+article {
   position: relative;
   margin-top: 3em;
   padding-top: 3em; }
 
-#content .article h1 {
+#content article h1 {
   padding-top: 0.1em; }
 
-.article h2 {
+article h2 {
   clear: left; }
 
-.section_start {
+section.start {
   margin-bottom: 10em; }
 
-.section .spacing {
+section .spacing {
   margin-top: 1em; }
-.section a {
+section a {
   text-decoration: none; }
-.section a:hover {
+section a:hover {
   text-decoration: underline; }
-.section a img {
+section a img {
   border: none; }
-.section ul {
+section ul {
   padding-left: 1.5em;
   list-style: disc; }
-  .section ul li {
+  section ul li {
     position: relative; }
-    .section ul li span {
+    section ul li span {
       position: absolute;
       z-index: 2;
       display: block;
       top: 0em;
       left: -1.7em; }
-      .section ul li span::before {
+      section ul li span::before {
         content: "–";
         padding-left: 0.2em;
         padding-right: 0.7em; }
-.section time {
+section time {
   font-weight: bold; }
-.section .thumb {
+section .thumb {
   position: relative;
   display: block;
   float: left; }
-  .section .thumb img {
+  section .thumb img {
     display: block;
     width: 8em;
     margin-right: 2em;
     margin-bottom: 2em; }
-  .section .thumb .marker {
+  section .thumb .marker {
     position: absolute;
     display: block;
     left: -6em;
@@ -364,80 +364,80 @@ a[href$='.zip']::after {
 
 /* }}} */
 /* {{{ section images */
-.section .full,
-.section .compare,
-.section .slideshow,
-.section .zoom {
+section .full,
+section .compare,
+section .slideshow,
+section .zoom {
   clear: both;
   position: relative;
   display: block;
   width: 51em;
   margin: 1.7em 0; }
 
-.section .compare .full,
-.section .slideshow .full {
+section .compare .full,
+section .slideshow .full {
   margin: 0; }
 
-.section .full img,
-.section .compare img,
-.section .slideshow img,
-.section .zoom .front img {
+section .full img,
+section .compare img,
+section .slideshow img,
+section .zoom .front img {
   display: block;
   width: 51em; }
 
 /* {{{ zoom */
-.section .zoom .front,
-.section .zoom .thumb {
+section .zoom .front,
+section .zoom .thumb {
   display: block;
   overflow: hidden; }
 
-.section .zoom .front {
+section .zoom .front {
   width: 51em; }
 
-.section .zoom .back {
+section .zoom .back {
   display: none; }
 
-.section .zoom .thumb {
+section .zoom .thumb {
   display: none;
   position: absolute;
   width: 16em;
   left: 54em;
   top: 0; }
 
-.section .zoom .thumb img {
+section .zoom .thumb img {
   display: block;
   width: 16em;
   margin: 0; }
 
-.section .zoom .thumb .border {
+section .zoom .thumb .border {
   position: absolute;
   opacity: .6; }
 
-#content .section .caption,
-#content .section .info {
+#content section .caption,
+#content section .info {
   display: block;
   margin-top: 0.5em;
   font-size: 0.85em; }
 
 /* }}} */
 /* {{{ compare */
-.section .compare {
+section .compare {
   overflow: hidden; }
 
-.section .compare div {
+section .compare div {
   position: absolute;
   top: 0; }
 
-.section .compare div.first {
+section .compare div.first {
   position: relative; }
 
 /* }}} */
 /* {{{ slideshow */
-.section .slideshow div {
+section .slideshow div {
   position: absolute;
   display: none; }
 
-.section .slideshow div.first {
+section .slideshow div.first {
   position: relative;
   display: block; }
 
@@ -535,7 +535,7 @@ a[href$='.zip']::after {
 
 /* }}} */
 /* {{{ cloud */
-.section ul.cloud {
+section ul.cloud {
   list-style: none;
   padding: 0 2em; }
 
@@ -570,11 +570,14 @@ ul.cloud small {
 /* {{{ comments */
 .depage-comments article {
   margin-top: 0.5em;
-  border-top: 0.1em solid #dfdfdf; }
+  border-top: 0.1em solid #dfdfdf;
+  margin-right: 0;
+  padding: 0; }
   .depage-comments article footer {
     display: block;
     height: 3.7em;
-    padding-top: 1em; }
+    padding-top: 1em;
+    background: none; }
     .depage-comments article footer a {
       text-decoration: none; }
     .depage-comments article footer .profile-image {
@@ -594,6 +597,14 @@ ul.cloud small {
   padding-top: 0.5em;
   border-top: 0.1em solid #dfdfdf;
   max-width: none; }
+  .depage-comments .depage-form .submit {
+    text-align: right; }
+    .depage-comments .depage-form .submit input {
+      font-size: 1.5em;
+      border: none;
+      background: none; }
+    .depage-comments .depage-form .submit.error input {
+      color: #aaaaaa; }
 
 /* }}} */
 /* {{{ navigation */
@@ -611,12 +622,12 @@ ul.cloud small {
 #navigation ul,
 .autolinklist ul {
   padding: 0 2em 0.3em 2em;
-  margin-bottom: 0;
+  margin-bottom: 1.2em;
   line-height: 1.35em;
   list-style: none; }
   #navigation ul ul,
   .autolinklist ul ul {
-    margin-bottom: 1.2em;
+    margin-bottom: 0;
     margin-left: 1em;
     padding: 0; }
 
@@ -649,7 +660,7 @@ ul.cloud small {
   .autolinklist li::after {
     content: " »"; }
 
-.article .autolinklist {
+article .autolinklist {
   position: absolute;
   width: 19em;
   left: 54em;
@@ -674,31 +685,38 @@ ul.cloud small {
   padding-top: 2em;
   width: 52em; }
 
-.depagecms .article .autolinklist {
+.depagecms article .autolinklist {
   padding-top: 3.2em; }
 
 /* }}} */
 /* {{{ lists big/nav */
-ul.big {
+#content section.start ul.big {
   font-size: 3.8em;
   font-weight: normal;
   line-height: 1.2em;
   list-style: none;
   z-index: 101;
-  position: relative; }
-  ul.big a {
+  position: relative;
+  padding: 0;
+  margin: 0; }
+  #content section.start ul.big a {
     display: inline;
     text-decoration: none; }
-    ul.big a .hidden {
+    #content section.start ul.big a .hidden {
       font-size: 0.23em;
       line-height: 7.3em;
       padding-left: 2em;
       visibility: hidden;
       display: inline;
-      position: absolute; }
-    ul.big a:hover .hidden {
+      position: absolute;
+      top: auto;
+      left: auto; }
+    #content section.start ul.big a:hover .hidden {
       visibility: visible; }
-  ul.big li.highlighted {
+    #content section.start ul.big a span::before {
+      content: none;
+      display: none; }
+  #content section.start ul.big li.highlighted {
     margin-top: 0.75em; }
 
 /* }}} */
@@ -778,14 +796,13 @@ ul.big {
   #footercontainer #teaser {
     position: absolute;
     bottom: 11em; }
-
-#footer {
-  height: 3em; }
-  #footer p {
-    float: right;
-    font-size: 0.8em;
-    padding-top: 1em;
-    padding-right: 1em; }
+  #footercontainer footer {
+    height: 3em; }
+    #footercontainer footer p {
+      float: right;
+      font-size: 0.8em;
+      padding-top: 1em;
+      padding-right: 1em; }
 
 /* }}} */
 /* vim:set ft=scss sw=4 sts=4 fdm=marker : */

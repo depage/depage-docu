@@ -129,7 +129,7 @@ a[href$='.zip']::after {
 /* }}} */
 
 /* {{{ round header */
-#header {
+header {
     height: 3em;
 
     #corner_tl,
@@ -285,8 +285,8 @@ a[href$='.zip']::after {
         line-height: 1.6em;
     }
     p,
-    .section ul,
-    .section ol,
+    section ul,
+    section ol,
     address {
         font-size: 1.05em;
         line-height: 1.8em;
@@ -311,29 +311,29 @@ a[href$='.zip']::after {
 }
 /* }}} */
 /* {{{ section */
-.section,
-.section_start,
-.article {
+section,
+section.start,
+article {
     margin-right: 20em;
 }
-.article .section {
+article section {
     margin-right: 0;
 }
-.article {
+article {
     position: relative;
     margin-top: 3em;
     padding-top: 3em;
 }
-#content .article h1 {
+#content article h1 {
     padding-top: 0.1em;
 }
-.article h2 {
+article h2 {
     clear: left;
 }
-.section_start {
+section.start {
     margin-bottom: 10em;
 }
-.section {
+section {
     .spacing {
         margin-top: 1em;
     }
@@ -433,82 +433,82 @@ a[href$='.zip']::after {
 }
 /* }}} */
 /* {{{ section images */
-.section .full,
-.section .compare,
-.section .slideshow,
-.section .zoom {
+section .full,
+section .compare,
+section .slideshow,
+section .zoom {
     clear: both;
     position: relative;
     display: block;
     width: 51em;
     margin: 1.7em 0;
 }
-.section .compare .full,
-.section .slideshow .full {
+section .compare .full,
+section .slideshow .full {
     margin: 0;
 }
-.section .full img,
-.section .compare img,
-.section .slideshow img,
-.section .zoom .front img {
+section .full img,
+section .compare img,
+section .slideshow img,
+section .zoom .front img {
     display: block;
     width: 51em;
 }
     /* {{{ zoom */
-    .section .zoom .front,
-    .section .zoom .thumb {
+    section .zoom .front,
+    section .zoom .thumb {
         display: block;
         overflow: hidden;
     }
-    .section .zoom .front {
+    section .zoom .front {
         width: 51em;
     }
-    .section .zoom .back {
+    section .zoom .back {
         display: none;
     }
-    .section .zoom .thumb {
+    section .zoom .thumb {
         display: none;
         position: absolute;
         width: 16em;
         left: 54em;
         top: 0;
     }
-    .section .zoom .thumb img {
+    section .zoom .thumb img {
         display: block;
         width: 16em;
         margin: 0;
     }
-    .section .zoom .thumb .border {
+    section .zoom .thumb .border {
         position: absolute;
         opacity: .6;
     }
-    #content .section .caption,
-    #content .section .info {
+    #content section .caption,
+    #content section .info {
         display: block;
         margin-top: 0.5em;
         font-size: 0.85em;
     }
-    #content .section .info {
+    #content section .info {
     }
     /* }}} */
     /* {{{ compare */
-    .section .compare {
+    section .compare {
         overflow: hidden;
     }
-    .section .compare div {
+    section .compare div {
         position: absolute;
         top: 0;
     }
-    .section .compare div.first {
+    section .compare div.first {
         position: relative;
     }
     /* }}} */
     /* {{{ slideshow */
-    .section .slideshow div {
+    section .slideshow div {
         position: absolute;
         display: none;
     }
-    .section .slideshow div.first {
+    section .slideshow div.first {
         position: relative;
         display: block;
     }
@@ -606,7 +606,7 @@ a[href$='.zip']::after {
     }
     /* }}} */
     /* {{{ cloud */
-    .section ul.cloud {
+    section ul.cloud {
         list-style: none;
         padding: 0 2em;
     }
@@ -645,12 +645,15 @@ a[href$='.zip']::after {
     article {
         margin-top: 0.5em;
         border-top: 0.1em solid #dfdfdf;
+        margin-right: 0;
+        padding: 0;
 
         footer {
             $size: 3.2em;
             display: block;
             height: $size + 0.5em;
             padding-top: 1em;
+            background: none;
 
             a {
                 text-decoration: none;
@@ -677,6 +680,19 @@ a[href$='.zip']::after {
         padding-top: 0.5em;
         border-top: 0.1em solid #dfdfdf;
         max-width: none;
+
+        .submit {
+            text-align: right;
+
+            input {
+                font-size: 1.5em;
+                border: none;
+                background: none;
+            }
+            &.error input {
+                color: #aaaaaa;
+            }
+        }
     }
 }
 /* }}} */
@@ -698,12 +714,12 @@ a[href$='.zip']::after {
 .autolinklist {
     ul {
         padding: 0 2em 0.3em 2em;
-        margin-bottom: 0;
+        margin-bottom: 1.2em;
         line-height: 1.35em;
         list-style: none;
 
         ul {
-            margin-bottom: 1.2em;
+            margin-bottom: 0;
             margin-left: 1em;
             padding: 0;
         }
@@ -746,7 +762,7 @@ a[href$='.zip']::after {
         content: " »";
     }
 }
-.article .autolinklist {
+article .autolinklist {
     position: absolute;
     width: 19em;
     left: 54em;
@@ -772,18 +788,20 @@ a[href$='.zip']::after {
     padding-top: 2em;
     width: 52em;
 }
-.depagecms .article .autolinklist {
+.depagecms article .autolinklist {
     padding-top: 3.2em;
 }
 /* }}} */
 /* {{{ lists big/nav */
-ul.big {
+#content section.start ul.big {
     font-size: 3.8em;
     font-weight: normal;
     line-height: 1.2em;
     list-style: none;
     z-index: 101;
     position: relative;
+    padding: 0;
+    margin: 0;
 
     a {
         display: inline;
@@ -796,9 +814,15 @@ ul.big {
             visibility: hidden;
             display: inline;
             position: absolute;
+            top: auto;
+            left: auto;
         }
         &:hover .hidden {
             visibility: visible;
+        }
+        span::before {
+            content: none;
+            display: none;
         }
     }
     li.highlighted {
@@ -908,15 +932,15 @@ ul.big {
         position: absolute;
         bottom: 11em;
     }
-}
-#footer {
-    height: 3em;
+    footer {
+        height: 3em;
 
-    p {
-        float: right;
-        font-size: 0.8em;
-        padding-top: 1em;
-        padding-right: 1em;
+        p {
+            float: right;
+            font-size: 0.8em;
+            padding-top: 1em;
+            padding-right: 1em;
+        }
     }
 }
 /* }}} */

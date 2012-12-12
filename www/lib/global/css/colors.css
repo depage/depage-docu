@@ -2,20 +2,20 @@ html {
     background: url(../back_pattern.png) repeat top center #000000 !important;
     background: url(../back_pattern.gif) repeat top center #000000;
 }
-#header {
+header {
     background: #000000;
 }
-#header #crosslinks a.active,
-#header #crosslinks a:hover {
+header #crosslinks a.active,
+header #crosslinks a:hover {
     color: #ffffff;
 }
-#header #crosslinks a:hover {
+header #crosslinks a:hover {
     background-color: #555555;
 }
-#header #crosslinks a {
+header #crosslinks a {
     color: #777777;
 }
-#header #crosslinks a.active:hover {
+header #crosslinks a.active:hover {
     background-color: inherit;
 }
 #contentcontainer {
@@ -26,7 +26,7 @@ html {
 #content {
     background: #FFFFFF;
 }
-.section ul li span::before {
+section ul li span::before {
     background: #FFFFFF;
 }
 #content h1 {
@@ -42,21 +42,21 @@ html {
     color: #555555;
 }
 #content h2,
-.section time,
-#content .section p.info,
+section time,
+#content section p.info,
 #content ul,
 .topnav:hover li a,
 .bottomnav:hover li a,
 .autolinklist li::after,
 ul a:hover,
-#footer p,
-#footer a,
+footer p,
+footer a,
 #teaser .teaser em,
 .cloud li,
 .cloud li a {
     color: #555555;
 }
-.section a,
+section a,
 #navigation ul a:hover,
 .topnav li a:hover,
 .bottomnav li a:hover,
@@ -67,12 +67,12 @@ li.highlighted a:hover .hidden,
 .cloud li a:hover {
     color: #FF9900;
 }
-.section a:hover {
+section a:hover {
     color: #CA0000;
 }
 ul a,
 #content ul li p,
-#content .section .info {
+#content section .info {
     color: #000000;
 }
 #content .autolinklist ul a {
@@ -82,18 +82,18 @@ ul a,
     color: #999999;
 }
 
-.section .thumb .marker {
+section .thumb .marker {
     border-top: 8em solid #151515;
 }
-    .section .zoom .front,
-    .section .zoom .thumb {
+    section .zoom .front,
+    section .zoom .thumb {
         border: 1px solid #dfdfdf;
     }
-    .section .zoom .thumb .border {
+    section .zoom .thumb .border {
         border: 1px dotted #aaaaaa;
         background: #ffffff;
     }
-    .section .compare div img {
+    section .compare div img {
         border-left: 2px solid #FFFFFF;
     }
 .intro {
@@ -102,15 +102,15 @@ ul a,
     border-left: 3em solid #151515 !important;
     border-left: none;
 }
-.article,
+article,
 .bottomnav {
     border-top: 1px solid #dfdfdf;
 }
 .autolinklist {
     border-left: 1px solid #FFFFFF;
 }
-    #content .section .caption,
-    #content .section .info {
+    #content section .caption,
+    #content section .info {
         background: #FFFFFF;
     }
     .source pre {
@@ -137,7 +137,7 @@ ul a,
     background: url(../back_pattern.png) repeat top center #EEEEEE !important;
     background: url(../back_pattern.gif) repeat top center #EEEEEE;
 }
-#footer {
+footer {
     background: #000000;
 }
 #navigation .nav {

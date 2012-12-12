@@ -38,7 +38,7 @@
     <body>
 	<div id="contentcontainer">
 	    <!-- {{{ header -->
-	    <div id="header">
+	    <header>
 		<div id="corner_tl"></div>
 		<div id="corner_tr"></div>
 		<div id="middle"><a href="#navigation" class="hidden">Zur Navigation springen</a></div>
@@ -50,7 +50,7 @@
                         <li><a href="http://www.depagecms.net">powered by depagecms</a></li>
                     </ul>
                 </div>
-	    </div>
+	    </header>
 	    <!-- }}} -->
 	    <div id="content">
                 <!-- {{{ blog topnav -->
@@ -60,17 +60,17 @@
                 </ul>
                 <!-- }}} -->
 		<!-- {{{ article -->
-		<div class="article colorcyan">
-                    <div class="section">
+		<article class="colorcyan">
+                    <section>
                         <img class="thumb" alt="test">
                         <time datetime="2009-05-09">09. Mai 2009</time>
                         <h1>Pop-Up-The-Bathroom</h1>
                         <h2>Trennung von Inhalten und der Darstellung</h2>
                         <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ohne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
 
-                    </div>
+                    </section>
                     <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
-		</div>
+		</article>
 		<!-- }}} -->
                 <!-- {{{ blog bottomnav -->
                 <ul class="bottomnav">
@@ -113,9 +113,9 @@
 	    </div>
 	    <!-- {{{ footer -->
 	    <div id="footercontainer">
-		<div id="footer">
+		<footer>
                     <p><small>powered by <a href="http://www.depagecms.net">depage::cms</a></small></p>
-		</div>
+		</footer>
 	    </div>
 	    <!-- }}} -->
 	</div>
