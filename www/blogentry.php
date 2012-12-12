@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" href="lib/global/htmlform/css/depage-forms.css">
 	<link rel="stylesheet" type="text/css" href="lib/global/css/global.css" />
 	<link rel="stylesheet" type="text/css" href="lib/global/css/colors.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="lib/global/css/screen.css" />
 	<link rel="stylesheet" type="text/css" media="print" href="lib/global/css/print.css" />
         <!--[if !IE]> --><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="lib/global/css/mobile.css" /><!--<![endif]-->
 
@@ -20,8 +19,10 @@
         <script type="text/javascript" src="lib/global/htmlform/js/effect.js"></script>
         <script type="text/javascript" src="lib/global/comments/js/comments.js"></script>
 	<script type="text/javascript" src="lib/global/js/global.js"></script>
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><script>!window.html5 && document.write('<script src="../lib/global/js/html5.js"><\/script>')</script><![endif]-->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 	<meta name="robots" content="index,follow" />
 	<meta name="revisit-after" content="1 day" />
 
