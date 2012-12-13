@@ -197,33 +197,6 @@ jQuery.fx.prototype.custom = function(from, to, unit){
 // }}}
 
 // replace content, depending on reader capabilities
-// {{{ replaceEmailChars()
-function replaceEmailChars(mail) {
-    mail = unescape(mail);
-    mail = mail.replace(/ \*at\* /g, "@");
-    mail = mail.replace(/ \*dot\* /g, ".");
-    mail = mail.replace(/ \*punkt\* /g, ".");
-    mail = mail.replace(/ \*underscore\* /g, "_");
-    mail = mail.replace(/ \*unterstrich\* /g, "_");
-    mail = mail.replace(/ \*minus\* /g, "-");
-    mail = mail.replace(/mailto: /, "mailto:");
-
-    return mail;
-}
-// }}}
-// {{{ replaceEmailRefs()
-function replaceEmailRefs() {
-    $("a[href*='mailto:']").each(function() {
-        // replace attribute
-        $(this).attr("href", replaceEmailChars($(this).attr("href")));
-        
-        //replace content if necessary
-        if ($(this).text().indexOf(" *at* ") > 0) {
-            $(this).text(replaceEmailChars($(this).text()));
-        }
-    });
-}
-// }}}
 // {{{ replaceFlashContent()
 function replaceFlashContent() {
     $("img.flash_repl").each(function() {
@@ -249,13 +222,28 @@ function replaceInteractiveContent() {
     var formnum = 0;
 
     // {{{ get language from content tag in header
-    var lang = $("meta[name = 'Content-Language']")[0].content;
+    var lang = $("html").attr("lang");
     // }}}
     // {{{ add click event for teaser
     $(".teaser").click( function() {
         document.location = $("a", this)[0].href;
     });
     // }}}
+    // email antispam
+    $("a[href*='mailto:']").depageAntispam();
+    
+    // setup social buttons
+    $(".social").depageSocialButtons({
+        services: [
+            'twitter',
+            'facebookShare',
+            'googleplusShare',
+            'facebookLike',
+            'digg',
+            'reddit',
+            'mail'
+        ]
+    });
     // {{{ replace buttons by textlinks
     $("form").each(function() {
         var form = this;
@@ -279,141 +267,13 @@ function replaceInteractiveContent() {
     });
     // }}}
     // {{{ add handlers for slideshow images
-    $(".slideshow").each( function() {
-        var divs = $("div", this);
-        var speed = Number($(this).attr("data-slideshow-speed"));
-        if (!speed) {
-            var speed = 3000;
-        }
-
-        var pause = Number($(this).attr("data-slideshow-pause"));
-        if (!pause) {
-            var pause = 3000;
-        }
-        if ($.browser.iphone) {
-            speed = 0;
-            pause = 5000;
-        }
-
-        divs.css({
-            top: 0
-        });
-        for (var i = 1; i < divs.length; i++) {
-            $(divs[i]).hide();
-        }
-
-        var fadeIn = function(n) {
-            // wait
-            $(divs[n]).animate({top: "2em"}, pause, function() {
-                // fade in
-                $(this).fadeIn(speed, function() {
-                    if (n < divs.length - 1) {
-                        // fade in next image
-                        fadeIn(n + 1);
-                    } else {
-                        // hide all images, fade out last
-                        for (var i = 1; i < divs.length - 1; i++) {
-                            $(divs[i]).hide();
-                        }
-                        $(divs[n]).animate({top: 0}, pause, function() {
-                            $(divs[n]).fadeOut(speed, function() {
-                                fadeIn(1);
-                            });
-                        });
-                    }
-                });
-            });
-        }
-        fadeIn(1);
+    $(".slideshow").depageSlideshow({
+        elements: "div"
     });
     // }}}
         // {{{ add handlers for compare images
-        $(".compare").each( function() {
-            var divs = $("div", this);
-            var perc = 100 / divs.length;
-            var percZoomed = 40 / (divs.length - 1);
-
-            for (var i = 0; i < divs.length; i++) {
-                $(divs[i]).css({
-                    left: i * perc + "%",
-                    top: 0
-                });
-            }
-            $(this).mouseover( function(e) {
-                var activeDiv = $(e.target).parent()[0];
-
-                if (activeDiv.nodeName == "DIV") {
-                    var xpos = 0;
-
-                    for (var i = 0; i < divs.length; i++) {
-                        $(divs[i]).dequeue();
-                        $(divs[i]).animate({
-                            left: xpos + "%"
-                        });
-
-                        if (divs[i] == activeDiv) {
-                            xpos += 60;
-                        } else {
-                            xpos += percZoomed;
-                        }
-                    }
-                }
-            });
-            $(this).mouseout( function() {
-                for (var i = 0; i < divs.length; i++) {
-                    $(divs[i]).dequeue();
-                    $(divs[i]).animate({
-                        left: i * perc + "%"
-                    });
-                }
-            });
-        });
+        $(".compare").depageCompareImages();
         // }}}
-    // {{{ add handlers for timeline
-    $(".timeline").each( function() {
-        var timeline = this;
-        var animTime = 200;
-        var count =  $("dt", timeline).length;
-        var i = 0;
-
-        $(timeline).addClass("interactive");
-
-        $("dl", this).prepend("<div class=\"slider\"><div></div></div>");
-        var slider = $(".slider div", timeline);
-        slider.css({
-            height: (100 / count) + "%",
-            top: "0%"
-        });
-
-        $("dt", timeline).each( function() {
-            this.contentElement = $(this).next("dd")[0];
-            this.timelinePos = i++;
-
-            this.show = function() {
-                $(this).addClass("active");
-                $(this.contentElement).fadeIn(animTime);
-                slider.animate({
-                    top: this.timelinePos * (100 / count) + "%"
-                }, animTime);
-            }
-            this.hide = function() {
-                $(this).removeClass("active");
-                $(this.contentElement).fadeOut(animTime);
-            }
-            $(this).mouseup( function() {
-                // hide others
-                $("dt.active", timeline).not(this).each( function() {
-                    this.hide();
-                });
-                // show content
-                this.show();
-            });
-        });
-
-        $("dd", timeline).hide();
-        $("dt:first", timeline).mouseup();
-    });
-    // }}}
     // {{{ add handlers for code-listings
     if (lang == "de") {
         var text_source_showplain = "Quelltext als reinen Text anzeigen";
@@ -443,6 +303,8 @@ function replaceInteractiveContent() {
         // {{{ add handlers for zoom images
         var zoomRatio;
         var thumbMoveRatio;
+        var oldWidth;
+        var newWidth;
 
         $(".zoom").each( function() {
             var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
@@ -475,9 +337,9 @@ function replaceInteractiveContent() {
 
             $(".front", this).height($(".front img", this).height());
 
-            var oldWidth = $(".front img", this).width();
+            oldWidth = $(".front img", this).width();
             $(".front img", this).css("width", "auto");
-            var newWidth = $(".front img", this).width();
+            newWidth = $(".front img", this).width();
 
             $(".thumb", this).dequeue();
             $(".thumb", this).fadeIn(200);
@@ -495,9 +357,9 @@ function replaceInteractiveContent() {
             $(this).removeClass("zoomed");
 
             $(".front img", this).css({
-                "width": null,
-                "marginLeft": null,
-                "marginTop": null
+                width: oldWidth,
+                marginLeft: 0,
+                marginTop: 0
             });
 
             $(".thumb", this).dequeue();
@@ -553,7 +415,6 @@ function fixFlashDisplayOpera(numcall) {
 // {{{ register events
 $(document).ready(function() {
     // replace content
-    replaceEmailRefs();
     replaceInteractiveContent();
 
     // add flash content

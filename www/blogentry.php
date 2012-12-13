@@ -4,7 +4,7 @@
     @header('Content-type: text/html; charset=UTF-8');
 
 ?><!DOCTYPE html >
-<html>
+<html lang="de">
     <!-- {{{ header -->
     <head>
 	<title>depage::cms comments</title>
@@ -18,6 +18,9 @@
         <script type="text/javascript" src="lib/global/htmlform/js/jquery.tools.min.js"></script>
         <script type="text/javascript" src="lib/global/htmlform/js/effect.js"></script>
         <script type="text/javascript" src="lib/global/comments/js/comments.js"></script>
+	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-slideshow.js"></script>
+	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-email-antispam.js"></script>
+	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-social.js"></script>
 	<script type="text/javascript" src="lib/global/js/global.js"></script>
 	<script type="text/javascript" src="lib/global/js/chili/jquery.chili-2.2.js"></script>
 	<script type="text/javascript" src="lib/global/js/chili/recipes.js"></script>
