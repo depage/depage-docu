@@ -124,8 +124,8 @@ header {
     -webkit-border-top-right-radius: 3em;
 }
 section,
-section_start,
-.article {
+section.start,
+article {
     margin: 0;
     font-size: 1.05em;
 }
@@ -225,7 +225,7 @@ footer p {
 #langswitch {
     display: none;
 }
-.article,
+article,
 .bottomnav {
     border-top: none;
 }

@@ -1,3 +1,72 @@
+// {{{ mixins
+@mixin debug {
+    border: 0.1em solid #000000;
+}
+@mixin centeredcontainer {
+    position: relative;
+    width: 86em;
+    margin: 0 auto;
+    text-align: left;
+}
+@mixin minheight($height) {
+    height: auto !important;
+    height: $height;
+    min-height: $height;
+}
+@mixin col-minheight($height) {
+    @include minheight($height);
+
+    section {
+        @include minheight($height);
+    }
+}
+@mixin clearfix($direction: both) {
+    display: inline-block;
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: $direction;
+        visibility: hidden;
+    }
+    * html & { height: 0.1em }
+}
+@mixin radius($radius, $vert: "", $horiz: "") {
+    $other: "";
+    $moz: "";
+
+    @if $vert != '' and $horiz != '' {
+        $other: "#{$vert}-#{$horiz}-";
+        $moz: "#{$vert}#{$horiz}-";
+    } @else if $horiz != '' {
+        $other: "#{$horiz}-";
+        $moz: "#{$horiz}-";
+    } @else if $vert != '' {
+        $other: "#{$vert}-";
+        $moz: "#{$vert}-";
+    }
+
+    -webkit-border-#{$other}radius: $radius;
+    -moz-border-#{$moz}radius: $radius;
+    -ms-border-#{$other}radius: $radius;
+    -o-border-#{$other}radius: $radius;
+    border-#{$other}radius: $radius;
+}
+@mixin custom-bullet($character, $indent: 1.5em) {
+    margin-left: $indent;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: - $indent;
+        width: $indent;
+        content: $character;
+    }
+}
+// }}}
+
 /* {{{ global */
 * {
     margin: 0;
@@ -36,7 +105,8 @@ a img {
     color: #000000;
 }
 #content h1,
-ul.big {
+ul.big,
+.depage-comments h2 {
     font-family: Georgia, Times, Times New Roman, Serif;
 }
 .clear {
@@ -642,6 +712,10 @@ section .zoom .front img {
 /* }}} */
 /* {{{ comments */
 .depage-comments {
+    #content & h2 {
+        font-size: 2em;
+        font-weight: normal;
+    }
     article {
         margin-top: 0.5em;
         border-top: 0.1em solid #dfdfdf;
@@ -696,6 +770,121 @@ section .zoom .front img {
             }
             &.error input {
                 color: #aaaaaa;
+            }
+        }
+    }
+}
+/* }}} */
+/* {{{ social */
+article .social {
+    margin-left: 0;
+    width: 100%;
+}
+.social {
+    $buttonW: 2.2em;
+    $buttonH: 2.2em;
+    $distance: 0.2em;
+    $radius: 0.4em;
+    $paddingLeft: 3em;
+
+    @include clearfix;
+    display: block;
+    margin-bottom: 1.5em;
+    width: 6 * ($buttonW + $distance) + $paddingLeft;
+    margin-left: 2.5em;
+    font-size: 0.85em;
+
+    span.over {
+        position: relative;
+        float: left;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: - $buttonW - $distance;
+            width: $buttonW;
+            height: $buttonH;
+            -webkit-opacity: 0;
+            -moz-opacity: 0;
+            -ms-opacity: 0;
+            -o-opacity: 0;
+            opacity: 0;
+        }
+    }
+    a {
+        float: left;
+        position: relative;
+        display: block;
+        width: $buttonW;
+        height: $buttonH;
+        margin-right: $distance;
+        margin-bottom: $distance;
+        line-height: $buttonH - 0.1em;
+        text-decoration: none;
+
+        span,
+        img {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        span {
+            font-size: 1.1em;
+            //font-weight: bold;
+            text-align: center;
+            background: #e6e6e6;
+            color: #555555;
+
+            @include radius($radius / 1.2);
+
+            &.facebooklike {
+                font-weight: normal;
+            }
+            &.twitter,
+            &.facebookshare {
+                font-weight: bold;
+            }
+            &.mail,
+            &.digg,
+            &.reddit,
+            &.xing {
+                font-size: 0.8em;
+                font-weight: normal;
+
+                @include radius($radius * 1.2 / 0.9);
+            }
+        }
+
+        &:hover {
+            span {
+                color: #ffffff;
+
+                &.twitter {
+                    background: #019ad2;
+                }
+                &.facebookshare,
+                &.facebooklike {
+                    background: #3763a1;
+                }
+                &.googleplusshare {
+                    background: #D14836;
+                }
+                &.digg {
+                }
+                &.reddit {
+                }
+                &.linkedin {
+                    background: #045A8B;
+                }
+                &.xing {
+                    background: #066770;
+                }
+                &.mail {
+                    background: #555555;
+                }
             }
         }
     }
