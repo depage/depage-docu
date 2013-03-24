@@ -97,7 +97,8 @@ textarea,
 #content .depagecms h1 {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
-code {
+code,
+.source textarea {
     font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
 }
 img { 
@@ -494,7 +495,7 @@ section .zoom .front img {
     #content section .info {
         display: block;
         margin-top: 0.5em;
-        font-size: 0.85em;
+        font-size: 1.1em;
     }
     #content section .info {
     }
@@ -523,42 +524,45 @@ section .zoom .front img {
     /* }}} */
     /* {{{ source */
     .source {
-        font-size: 1.1em;
-    }
-    .source pre {
-        overflow: auto;
-        overflow-y: hidden;
-        margin: 1.2em 0;
-    }
-    .source pre code { 
-        display: block; 
-        margin-left: 6em;
-    }
-    .source pre code ol { 
         font-size: 1em;
-        line-height: 1.3em;
-        list-style: decimal outside;
-    }
-    .source pre code li { 
-        font-size: 1em;
-        padding-left: 1em;
-    }
-    .source .codeswitch {
-        position: absolute;
-        display: block;
-        right: -22em;
-        width: 20em;
-        font-size: 0.7em;
-    }
-    .source div {
-        display: none;
-        border-left: 1.2em solid;
-        margin: 1em 0;
-    }
-    .source textarea {
-        width: 100%;
-        font-size: 0.8em;
-        border: none;
+
+        pre {
+            overflow: auto;
+            overflow-y: hidden;
+            margin: 1.2em 0;
+
+            code { 
+                display: block; 
+                margin-left: 6em;
+
+                ol { 
+                    font-size: 1em;
+                    line-height: 1.4em !important;
+                    list-style: decimal outside;
+                }
+                li { 
+                    font-size: 1em;
+                    padding-left: 1em;
+                }
+            }
+        }
+        .codeswitch {
+            position: absolute;
+            display: block;
+            right: -22em;
+            width: 20em;
+            font-size: 1em;
+        }
+        div {
+            display: none;
+            border-left: 1.2em solid;
+            margin: 1em 0;
+        }
+        textarea {
+            width: 100%;
+            font-size: 1.3em;
+            border: none;
+        }
     }
     /* }}} */
     /* {{{ timeline */
@@ -720,8 +724,8 @@ article .social {
     width: 100%;
 }
 .social {
-    $buttonW: 2.2em;
-    $buttonH: 2.2em;
+    $buttonW: 2.6em;
+    $buttonH: 2.6em;
     $distance: 0.2em;
     $radius: 0.4em;
     $paddingLeft: 3em;
@@ -867,10 +871,10 @@ iframe#twitter-widget-o {
     font-size: 1.1em;
 }
 #content .autolinklist ul li {
-    line-height: 1.3em;
+    line-height: 1.5em;
 
     a {
-        font-size: 0.9em;
+        font-size: 1em;
     }
 }
 #navigation {
@@ -889,8 +893,8 @@ iframe#twitter-widget-o {
     padding-top: 4em;
 
     h3 {
-        font-size: 0.9em;
-        padding: 0 2em 0.3em 2.2em;
+        font-size: 1em;
+        padding: 0 2em 0.3em 2em;
         margin-bottom: 0;
     }
     li::after {
@@ -917,11 +921,13 @@ article .autolinklist {
         display: block;
         padding-right: 1.5em;
     }
+    a {
+        font-size: 1.2em;
+    }
 }
 .bottomnav {
     margin-top: 6em;
     padding-top: 2em;
-    width: 52em;
 }
 .depagecms article .autolinklist {
     padding-top: 3.2em;
