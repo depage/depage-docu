@@ -1,4 +1,6 @@
 $ttc_back: #CCC8C4;
+//$ttc_back: #ddd9d5;
+$ttc_border: #CCC8C4;
 $ttc_bg: #ffffff;
 $ttc_header_link_active: #aeaeae;
 $ttc_header_link_back: #777777;
@@ -14,12 +16,13 @@ $ttc_intro_bg: #e3e3e3;
 html {
     background: url(../back_pattern.png) repeat top center $ttc_back !important; //<xsl:value-of select="$ttc_back" /> !important;
     background: url(../back_pattern.gif) repeat top center $ttc_back; //<xsl:value-of select="$ttc_back" />;
+    //background-image: none !important;
 }
 #contentcontainer {
-    background: $ttc_back; //<xsl:value-of select="$ttc_back" />;
+    background: $ttc_border; //<xsl:value-of select="$ttc_border" />;
 }
 header {
-    background: $ttc_back; //<xsl:value-of select="$ttc_back" />;
+    background: $ttc_border; //<xsl:value-of select="$ttc_border" />;
 }
 header #crosslinks a.active,
 header #crosslinks a:hover {
@@ -146,7 +149,7 @@ article,
     background: url(../back_pattern.gif) repeat top center $ttc_intro_bg; //<xsl:value-of select="$ttc_intro_bg" />;
 }
 footer {
-    background: $ttc_back; //<xsl:value-of select="$ttc_back" />;
+    background: $ttc_border; //<xsl:value-of select="$ttc_border" />;
 }
 #navigation .nav {
     border-left: 1px solid #dfdfdf;
