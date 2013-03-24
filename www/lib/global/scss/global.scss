@@ -1,6 +1,7 @@
 $baseWidth: 84.4em;
 $basePadding: 3.6em;
-$contentWidth: ($baseWidth / 3 * 2 + $basePadding / 2);
+$asideWidth: ($baseWidth / 3 - 2 * $basePadding);
+$contentWidth: ($baseWidth / 3 * 2 + $basePadding);
 
 // {{{ mixins
 @mixin debug {
@@ -156,10 +157,10 @@ header {
             top: 0;
 
             &.left {
-                right: 18.5em;
+                right: $asideWidth + $basePadding;
             }
             &.right {
-                left: 58.2em;
+                left: $contentWidth + 2 * $basePadding;
             }
         }
         li {
@@ -325,7 +326,7 @@ header {
 /* {{{ section */
 section,
 article {
-    margin-right: 20em;
+    margin-right: $asideWidth;
 }
 article section {
     margin-right: 0;
@@ -553,8 +554,8 @@ section .zoom .front img {
         .codeswitch {
             position: absolute;
             display: block;
-            right: -22em;
-            width: 20em;
+            right: -$asideWidth - $basePadding;
+            width: $asideWidth;
             font-size: 1em;
         }
         div {
@@ -888,7 +889,7 @@ iframe#twitter-widget-o {
     float: right;
     padding-top: 2em;
     margin-right: -$basePadding;
-    width: 19em;
+    width: $asideWidth;
 
     ul li a.active {
         font-weight: bold;
@@ -908,8 +909,8 @@ iframe#twitter-widget-o {
 }
 article .autolinklist {
     position: absolute;
-    width: 19em;
-    left: 54em;
+    width: $asideWidth;
+    right: -$basePadding;
     top: 0;
     padding-top: 3em;
     padding-top: 12em;
