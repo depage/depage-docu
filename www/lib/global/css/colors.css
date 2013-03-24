@@ -95,10 +95,7 @@ section .thumb .marker {
         border-left: 2px solid #FFFFFF;
     }
 .intro {
-    background: url(../corner_tr3.png) no-repeat top right #EEEEEE !important;
-    background: url(../corner_tr3.gif) no-repeat top right #EEEEEE;
-    border-left: 3em solid #151515 !important;
-    border-left: none;
+    background: #EEEEEE;
 }
 article,
 .bottomnav {

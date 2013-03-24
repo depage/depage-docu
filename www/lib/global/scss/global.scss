@@ -1,5 +1,6 @@
 $baseWidth: 84.4em;
 $basePadding: 3.6em;
+$contentWidth: ($baseWidth / 3 * 2 + $basePadding / 2);
 
 // {{{ mixins
 @mixin debug {
@@ -175,6 +176,8 @@ header {
 }
 /* }}} */
 
+@import "../htmlform/sass/depage-forms.scss";
+
 /* {{{ rounded corners */
 #content,
 #content .back div {
@@ -305,7 +308,7 @@ header {
     }
     .crop {
         margin: 1em 0em 1em 0em;
-        width: 51em;
+        width: $contentWidth;
         overflow: hidden;
     }
     .float_left {
@@ -379,6 +382,7 @@ section {
     }
     time {
         font-weight: bold;
+        font-size: 1.1em;
     }
     .thumb {
         position: relative;
@@ -449,7 +453,7 @@ section .zoom {
     clear: both;
     position: relative;
     display: block;
-    width: 51em;
+    width: $contentWidth;
     margin: 1.7em 0;
 }
 section .compare .full,
@@ -461,7 +465,7 @@ section .compare img,
 section .slideshow img,
 section .zoom .front img {
     display: block;
-    width: 51em;
+    width: $contentWidth;
 }
     /* {{{ zoom */
     section .zoom .front,
@@ -470,7 +474,7 @@ section .zoom .front img {
         overflow: hidden;
     }
     section .zoom .front {
-        width: 51em;
+        width: $contentWidth;
     }
     section .zoom .back {
         display: none;
@@ -641,10 +645,10 @@ section .zoom .front img {
 /* }}} */
 /* {{{ intro */
 .intro {
+    padding: 0.6em 2em $basePadding 2 * $basePadding;
     margin-top: 1.5em;
-    padding: 0.6em 2em 3em 3em;
-    margin-left: -6em !important;
-    margin-left: -3em;
+    margin-bottom: $basePadding;
+    margin-left: - 2 * $basePadding;
 
     h2 {
         margin-top: 0;
@@ -720,8 +724,9 @@ section .zoom .front img {
 /* }}} */
 /* {{{ social */
 article .social {
-    margin-left: 0;
+    margin: $basePadding 0;
     width: 100%;
+    font-size: 1em;
 }
 .social {
     $buttonW: 2.6em;
@@ -835,7 +840,7 @@ article .social {
 /* }}} */
 /* {{{ twitter */
 iframe#twitter-widget-o {
-    width: 51em;
+    width: $contentWidth;
 }
 /* }}} */
 
@@ -914,6 +919,7 @@ article .autolinklist {
     display: block;
     padding-top: 1em;
     height: 1em;
+    width: $contentWidth;
 
     li {
         float: left;
