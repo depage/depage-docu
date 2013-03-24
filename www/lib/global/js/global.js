@@ -9,21 +9,22 @@
 // global helpers
 // {{{ getHexColorFromString()
 function getHexColorFromString(colorString) {
+    var hexCode;
     if (colorString == "transparent") {
-	var hexCode = "000000";
+        hexCode = "000000";
     } else if (colorString.substr(0, 3) == "rgb") {
         var components = colorString.match(/[0-9]+/g);
-        var r = parseInt(components[0]).toString(16);
-        var g = parseInt(components[1]).toString(16);
-        var b = parseInt(components[2]).toString(16);
+        var r = parseInt(components[0], 10).toString(16);
+        var g = parseInt(components[1], 10).toString(16);
+        var b = parseInt(components[2], 10).toString(16);
 
         if (r.length < 2) r = "0" + r;
         if (g.length < 2) g = "0" + g;
         if (b.length < 2) b = "0" + b;
 
-        var hexCode = r + g + b;
+        hexCode = r + g + b;
     } else if (colorString.charAt(0) == "#") {
-        var hexCode = colorString.substring(1);
+        hexCode = colorString.substring(1);
     }
 
     return "0x" + hexCode;
@@ -35,45 +36,45 @@ function getHexColorFromString(colorString) {
 jQuery.extend(jQuery.browser, {
     flash: (function (neededVersion) {
         var found = false;
-	var version = "0,0,0";
+        var version = "0,0,0";
 
-	try {
-	    // get ActiveX Object for Internet Explorer
-	    version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
-	} catch(e) {
-	    // check plugins for Firefox, Safari, Opera etc.
-	    try {
-		if (navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
-		    version = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
-		}
-	    } catch(e) {
-		return false;
-	    }		
-	}
+        try {
+            // get ActiveX Object for Internet Explorer
+            version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
+        } catch(e) {
+            // check plugins for Firefox, Safari, Opera etc.
+            try {
+                if (navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
+                    version = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
+                }
+            } catch(e) {
+                return false;
+            }           
+        }
 
-	var pv = version.match(/\d+/g);
-	var rv = neededVersion.match(/\d+/g);
+        var pv = version.match(/\d+/g);
+        var rv = neededVersion.match(/\d+/g);
 
-	for (var i = 0; i < 3; i++) {
-	    pv[i] = parseInt(pv[i] || 0);
-	    rv[i] = parseInt(rv[i] || 0);
+        for (var i = 0; i < 3; i++) {
+            pv[i] = parseInt(pv[i] || 0, 10);
+            rv[i] = parseInt(rv[i] || 0, 10);
 
-	    if (pv[i] < rv[i]) {
-		// player is less than required
-	       	return false;
-	    } else if (pv[i] > rv[i]) {
-		// player is greater than required
-		return true;
-	    }
-	}
-	// major version, minor version and revision match exactly
-	return true;
+            if (pv[i] < rv[i]) {
+                // player is less than required
+                return false;
+            } else if (pv[i] > rv[i]) {
+                // player is greater than required
+                return true;
+            }
+        }
+        // major version, minor version and revision match exactly
+        return true;
     })
 });
 // }}}
 // {{{ jquery.browser.iphone
 jQuery.browser.iphone = function() {
-    return /iphone/.test(navigator.userAgent.toLowerCase());
+    return (/iphone/).test(navigator.userAgent.toLowerCase());
 }();
 // }}}
 // {{{ jquery.flash
@@ -83,31 +84,31 @@ jQuery.fn.flash = function(params) {
     var flashParam = [];
 
     for (var p in params.params) {
-	flashParam.push(p + "=" + encodeURI(params.params[p]));
+        flashParam.push(p + "=" + encodeURI(params.params[p]));
     }
 
     //object part
     html1 += "<object type=\"application/x-shockwave-flash\" ";
     html1 += "data=\"" + params.src + "?" + flashParam.join("&amp;") + "\" ";
     if (params.width !== undefined) {
-	html1 += "width=\"" + params.width + "\" ";
+        html1 += "width=\"" + params.width + "\" ";
     }
     if (params.height !== undefined) {
-	html1 += "height=\"" + params.height + "\" ";
+        html1 += "height=\"" + params.height + "\" ";
     }
     if (params.className !== undefined) {
-	html1 += "class=\"" + params.className + "\" ";
+        html1 += "class=\"" + params.className + "\" ";
     }
     if (params.id !== undefined) {
-	html1 += "id=\"" + params.id + "\" ";
+        html1 += "id=\"" + params.id + "\" ";
     }
 
     //param part
     html2 += "<param name=\"movie\" value=\"" + params.src + "?" + flashParam.join("&amp;") + "\" />";
 
     if (params.transparent === true) {
-	html1 += "mwmode=\"transparent\"";
-	html2 += "<param name=\"wmode\" value=\"transparent\" />";
+        html1 += "mwmode=\"transparent\"";
+        html2 += "<param name=\"wmode\" value=\"transparent\" />";
     }
     html1 += ">";
 
@@ -140,23 +141,23 @@ jQuery.fn.flash = function(params) {
  */
 
 $.fn.pause = function(milli,type) {
-	milli = milli || 1000;
-	type = type || "fx";
-	return this.queue(type,function(){
-		var self = this;
-		setTimeout(function(){
-			$.dequeue(self);
-		},milli);
-	});
+        milli = milli || 1000;
+        type = type || "fx";
+        return this.queue(type,function(){
+                var self = this;
+                setTimeout(function(){
+                        $.dequeue(self);
+                },milli);
+        });
 };
 
 $.fn.clearQueue = $.fn.unpause = function(type) {
-	return this.each(function(){
-		type = type || "fx";
-		if(this.queue && this.queue[type]) {
-			this.queue[type].length = 0;
-		}
-	});
+        return this.each(function(){
+                type = type || "fx";
+                if(this.queue && this.queue[type]) {
+                        this.queue[type].length = 0;
+                }
+        });
 };
 // }}}
 // {{{ jquery fx custom
@@ -193,27 +194,28 @@ jQuery.fx.prototype.custom = function(from, to, unit){
             }
         }, 75);
     }
-}
+};
 // }}}
 
 // replace content, depending on reader capabilities
 // {{{ replaceFlashContent()
 function replaceFlashContent() {
     $("img.flash_repl").each(function() {
-	var parent = $(this).parent().prepend( 
-	    $().flash({
-		src:		this.src.replace(/\.jpg|\.gif|\.png/, ".swf").replace(/\&/, "&amp;"),
-		width:		this.width,
-		height:		this.height,
-		className:	"flash",
-		id:		this.id ? this.id + "_flash" : null,
-		transparent:    $(this).hasClass("trans")
-	    }) 
-	);
-	if (parent[0].nodeName == "A") {
-	    // deactivate link for surrounding a-node in safari
-	    parent[0].href = "javascript:return false;";
-	}
+        var parent = $(this).parent().prepend( 
+            $().flash({
+                src:            this.src.replace(/\.jpg|\.gif|\.png/, ".swf").replace(/\&/, "&amp;"),
+                width:          this.width,
+                height:         this.height,
+                className:      "flash",
+                id:             this.id ? this.id + "_flash" : null,
+                transparent:    $(this).hasClass("trans")
+            }) 
+        );
+        if (parent[0].nodeName == "A") {
+            parent.click(function() {
+                return false;
+            });
+        }
     });
 }
 // }}}
@@ -238,7 +240,6 @@ function replaceInteractiveContent() {
             'twitter',
             'facebookShare',
             'googleplusShare',
-            'facebookLike',
             'digg',
             'reddit',
             'mail'
@@ -275,12 +276,14 @@ function replaceInteractiveContent() {
         $(".compare").depageCompareImages();
         // }}}
     // {{{ add handlers for code-listings
+    var text_source_showplain;
+    var text_source_showstyled;
     if (lang == "de") {
-        var text_source_showplain = "Quelltext als reinen Text anzeigen";
-        var text_source_showstyled = "Quelltext formatiert anzeigen";
+        text_source_showplain = "Quelltext als reinen Text anzeigen";
+        text_source_showstyled = "Quelltext formatiert anzeigen";
     } else {
-        var text_source_showplain = "View this source in Plain Text";
-        var text_source_showstyled = "View this source as Highlighted Code";
+        text_source_showplain = "View this source in Plain Text";
+        text_source_showstyled = "View this source as Highlighted Code";
     }
     $('.source pre').each(function() { //on each code box do
         $(this)
@@ -393,7 +396,7 @@ function fixHeightIE6() {
     var content = $("content");
 
     if (body.height() > content.height()) {
-	content.height(body.height());
+        content.height(body.height());
     }
 }
 // }}}
@@ -401,13 +404,13 @@ function fixHeightIE6() {
 function fixFlashDisplayOpera(numcall) {
     numcall++;
     if (numcall < 20) {
-	setTimeout("fixFlashDisplayOpera(" + numcall + ")", 200);
+        setTimeout("fixFlashDisplayOpera(" + numcall + ")", 200);
     }
 
-    if (numcall % 2 == 0) {
-	$("object").css({ border: "0px solid" });
+    if (numcall % 2 === 0) {
+        $("object").css({ border: "0px solid" });
     } else {
-	$("object").css({ border: "none" });
+        $("object").css({ border: "none" });
     }
 }
 // }}}
@@ -421,16 +424,16 @@ $(document).ready(function() {
     if ($.browser.flash("8,0,0")) {
         replaceFlashContent();
 
-	$("body").addClass("flash");
+        $("body").addClass("flash");
     }
 
     // fix browser bugs
     if ($.browser.msie) {
-	fixHeightIE6();
-	$(window).resize( fixHeightIE6 );
+        fixHeightIE6();
+        $(window).resize( fixHeightIE6 );
     }
     if ($.browser.opera) {
-	fixFlashDisplayOpera(0);
+        fixFlashDisplayOpera(0);
     }
 
     // hide urlbar
