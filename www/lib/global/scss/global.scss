@@ -209,30 +209,31 @@ header {
     }
     a.marker {
         z-index: 100000;
-        top: 5em;
-        right: - $basePadding;
-        width: 11em;
-        height: 11em;
+        top: 8em;
+        right: -$basePadding + 1em;
+        width: 13.5em;
+        height: 13.5em;
         color: #ffffff;
         -moz-transform: rotate(10deg);
         -webkit-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+        transform: rotate(10deg);
 
         img {
-            position: absolute;
-            top: 0;
-            left: 0;
             display: block;
             width: 100%;
             height: 100%;
+            margin-bottom: -100%;
         }
         span {
-            position: absolute;
-            display: block;
-            top: 33%;
-            left: 2%;
-            width: 94%;
+            display: table-cell;
+            vertical-align: middle;
+            width: 13.5em;
+            height: 11.5em;
+            padding: 0.4em;
+            line-height: 1.5em;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
 
             b {
                 font-size: 1.1em;
@@ -770,7 +771,7 @@ article .social {
             height: 100%;
         }
         span {
-            font-size: 1.1em;
+            font-size: 1.3em;
             //font-weight: bold;
             text-align: center;
             background: #e6e6e6;
@@ -968,18 +969,17 @@ article .autolinklist {
 #langswitch {
     position: absolute;
     top: 0;
-    left: -3em;
-    width: 82.5em;
+    right: -3em;
 
     ul {
         position: absolute;
-        top: 5em;
-        right: 1em;
+        top: 3em;
+        right: 0em;
         list-style: none;
         z-index: 2000;
     }
     a {
-        font-size: 0.9em;
+        font-size: 1.1em;
         color: #aaaaaa;
         text-decoration: none;
 
@@ -988,12 +988,6 @@ article .autolinklist {
         }
         &:hover {
             color: #ffffff;
-        }
-        span {
-            visibility: hidden;
-        }
-        &:hover span {
-            visibility: visible;
         }
     }
     .feed {
@@ -1070,8 +1064,8 @@ article .autolinklist {
 
         p {
             float: right;
-            font-size: 0.8em;
-            padding-top: 1em;
+            font-size: 1.2em;
+            padding-top: 0.5em;
             padding-right: 1em;
         }
     }

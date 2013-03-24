@@ -20,10 +20,6 @@ header #crosslinks a.active:hover {
 }
 #contentcontainer {
     background: #000000;
-    /*
-    border-left: 3em solid #000000;
-    border-right: 3em solid #000000;
-    */
 }
 #content {
     background: #FFFFFF;
