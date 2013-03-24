@@ -79,12 +79,12 @@
     visibility: hidden;
 }
 html {
-    font-size: 16px;
+    font-size: 12pt;
     overflow-y: scroll;
     height: 100%;
 }
 body {
-    font-size: 75%;
+    font-size: 62.5%;
     text-align: center;
     height: 100%;
 }
@@ -198,30 +198,14 @@ a[href$='.zip']::after {
 }
 /* }}} */
 
-/* {{{ round header */
+/* {{{ header */
 header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 3em;
 
-    #corner_tl,
-    #corner_tr {
-        position: absolute;
-        top: 3em;
-        width: 32px;
-        height: 32px;
-        z-index: 100;
-    }
-    #corner_tl {
-        left: 0;
-        float: left;
-        background: url(../corner_tl2.png) no-repeat top left !important;
-        background: url(../corner_tl2.gif) no-repeat top left;
-    }
-    #corner_tr {
-        right: 0;
-        float: right;
-        background: url(../corner_tr2.png) no-repeat top right !important;
-        background: url(../corner_tr2.gif) no-repeat top right;
-    }
     #crosslinks {
         position: absolute;
         top: 0em;
@@ -252,16 +236,26 @@ header {
     }
 }
 /* }}} */
+
+/* {{{ rounded corners */
+#content,
+#content .back div {
+    @include radius(3em, "top", "left");
+    @include radius(3em, "top", "right");
+}
+/* }}} */
 /* {{{ back */
 #content .back {
     position: absolute;
     width: 100%;
     z-index: 5;
-    top: 3em;
+    top: 0;
     left: 0;
 
     div {
+        overflow: hidden;
         position: absolute;
+        width: 100%;
     }
     img {
         display: block;
@@ -312,18 +306,26 @@ header {
     }
 }
 /* }}} */
-/* {{{ content */
+/* {{{ contentcontainer */
 #contentcontainer {
     position: relative;
-    width: 76em;
     margin: 0 auto;
     height: auto !important;
     height: 100%;
     min-height: 100%;
     text-align: left;
+    width: 76em - 2 * 3em;
+    padding: 3em;
+    overflow: hidden;
 }
+/* }}} */
+/* {{{ content */
 #content {
-    padding: 2em 2em 12em 3em;
+    position: relative;
+    padding: 2em 3em 1000em 3em;
+    margin-bottom: -1000em + 2em;
+    width: 70em - 2 * 3em;
+    @include clearfix();
 
     h1 {
         font-weight: normal;
@@ -712,6 +714,7 @@ section .zoom .front img {
 /* }}} */
 /* {{{ comments */
 .depage-comments {
+    clear: all; 
     #content & h2 {
         font-size: 2em;
         font-weight: normal;
@@ -890,6 +893,11 @@ article .social {
     }
 }
 /* }}} */
+/* {{{ twitter */
+iframe#twitter-widget-o {
+    width: 51em;
+}
+/* }}} */
 
 /* {{{ navigation */
 #navigation,
@@ -930,7 +938,8 @@ article .social {
     }
 }
 #navigation {
-    position: absolute;
+    //position: absolute;
+    z-index: 20;
     float: right;
     top: 6.5em;
     right: 0;
@@ -1139,7 +1148,7 @@ article .autolinklist {
 }
 /* }}} */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:767px) {
 /* {{{ depage iphone colors */
 #contentcontainer {
     background: #ffffff;
@@ -1447,6 +1456,5 @@ article,
 }
 /* }}} */
 }
-
 
 /* vim:set ft=scss sw=4 sts=4 fdm=marker : */

@@ -1,6 +1,6 @@
 html {
-    background: url(../back_pattern.png) repeat top center #000000 !important;
-    background: url(../back_pattern.gif) repeat top center #000000;
+    background: url(../back_pattern.png) repeat top center #555555 !important;
+    background: url(../back_pattern.gif) repeat top center #555555;
 }
 header {
     background: #000000;
@@ -19,9 +19,11 @@ header #crosslinks a.active:hover {
     background-color: inherit;
 }
 #contentcontainer {
-    background: #FFFFFF;
+    background: #000000;
+    /*
     border-left: 3em solid #000000;
     border-right: 3em solid #000000;
+    */
 }
 #content {
     background: #FFFFFF;
