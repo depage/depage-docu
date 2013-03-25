@@ -419,6 +419,7 @@ function fixFlashDisplayOpera(numcall) {
 $(document).ready(function() {
     // replace content
     replaceInteractiveContent();
+    prettyPrint();
 
     // add flash content
     if ($.browser.flash("8,0,0")) {

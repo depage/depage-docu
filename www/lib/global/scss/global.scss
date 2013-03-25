@@ -98,10 +98,16 @@ ul a .hidden,
 textarea,
 #content .depagecms h1 {
     font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+    //font-family: Lucida Grande, Lucida Sans, Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
 }
 code,
 .source textarea {
     font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
+}
+#content h1,
+ul.big,
+.depage-comments h2 {
+    font-family: Georgia, Times, Times New Roman, Serif;
 }
 img { 
     -ms-interpolation-mode: bicubic;
@@ -109,11 +115,6 @@ img {
 a img {
     border: none;
     color: #000000;
-}
-#content h1,
-ul.big,
-.depage-comments h2 {
-    font-family: Georgia, Times, Times New Roman, Serif;
 }
 .clear {
     display: block;
@@ -259,6 +260,9 @@ header {
     padding: $basePadding;
     overflow: hidden;
 
+    @media screen and (min-width:1200px) {
+        //width: $baseWidth + $asideWidth;
+    }
     @media screen and (max-width:916px) {
         width: $contentWidth;
     }
@@ -270,6 +274,7 @@ header {
     padding: 2em $basePadding 1000em $basePadding;
     margin-bottom: -1000em + 2em;
     width: $baseWidth - 2 * $basePadding;
+    //width: $contentWidth;
     @include clearfix();
 
     @media screen and (max-width:916px) {
@@ -318,7 +323,7 @@ header {
     .crop {
         margin: 1em 0em 1em 0em;
         overflow: hidden;
-        width: $contentWidth;
+        width: $contentWidth - $basePadding;
         
         @media screen and (max-width:916px) {
             width: $contentWidth - 2 * $basePadding;
@@ -339,6 +344,7 @@ header {
 section,
 article {
     margin-right: $asideWidth;
+    //margin-right: 0;
 
     @media screen and (max-width:916px) {
         margin-right: 0;
@@ -552,6 +558,82 @@ section .zoom .front img {
     }
     /* }}} */
     /* {{{ source */
+    pre.prettyprint {
+        border-radius: 0.5em;
+        padding: 0.2em;
+
+        .pln {
+            color: #000000;
+        }
+        .str {
+            color: #009900;
+        }
+        .kwd {
+            color: #000099;
+        }
+        .com {
+            color: #990000;
+        }
+        .typ {
+            color: #990099;
+        }
+        .lit {
+            color: #009999;
+        }
+        .pun, .opn, .clo {
+            color: #999900;
+        }
+        .tag {
+            color: #000099;
+        }
+        .atn {
+            color: #990099;
+        }
+        .atv {
+            color: #009900;
+        }
+        .dec, .var {
+            color: #990099;
+        }
+        .fun {
+            color: red;
+        }
+        .str {
+            color: #009900;
+        }
+        .kwd {
+            color: #000099;
+            font-weight: bold;
+        }
+        .com {
+            color: #990000;
+            font-style: italic;
+        }
+        .typ {
+            color: #660066;
+            font-weight: bold;
+        }
+        .lit {
+            color: #006666;
+        }
+        .pun, .opn, .clo {
+            color: #666600;
+        }
+        .tag {
+            color: #000099;
+            font-weight: bold;
+        }
+        .atn {
+            color: #660066;
+        }
+        .atv {
+            color: #009900;
+        }
+        ol.linenums {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    }
     .source {
         font-size: 1em;
 
@@ -562,17 +644,17 @@ section .zoom .front img {
 
             code { 
                 display: block; 
-                margin-left: 6em;
-
-                ol { 
-                    font-size: 1em;
-                    line-height: 1.4em !important;
-                    list-style: decimal outside;
-                }
-                li { 
-                    font-size: 1em;
-                    padding-left: 1em;
-                }
+                min-height: 1.2em;
+            }
+            ol { 
+                font-size: 1em;
+                line-height: 1.4em !important;
+                list-style: decimal outside;
+            }
+            li { 
+                font-size: 1em;
+                padding-left: 1em;
+                margin-left: $basePadding;
             }
         }
         .codeswitch {
@@ -670,10 +752,11 @@ section .zoom .front img {
 /* }}} */
 /* {{{ intro */
 .intro {
-    padding: 0.6em 2em $basePadding 2 * $basePadding;
+    padding: 0.6em 2em $basePadding $basePadding;
     margin-top: 1.5em;
     margin-bottom: $basePadding;
-    margin-left: - 2 * $basePadding;
+    margin-left: - $basePadding;
+    @include radius(3em, "top", "right");
 
     h2 {
         margin-top: 0;
@@ -919,6 +1002,13 @@ iframe#twitter-widget-o {
     margin-right: -$basePadding;
     width: $asideWidth;
 
+    @media screen and (min-width:916px) {
+        //margin-right: -$basePadding - $asideWidth;
+    }
+    @media screen and (min-width:1200px) {
+        //margin-right: -$basePadding - $asideWidth;
+    }
+
     ul li a.active {
         font-weight: bold;
     }
@@ -1116,6 +1206,8 @@ article .autolinklist {
     }
 }
 /* }}} */
+
+
 
 @media screen and (max-width:680px) {
 /* {{{ depage iphone colors */
