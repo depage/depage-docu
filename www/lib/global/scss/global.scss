@@ -161,7 +161,8 @@ header {
                 right: $asideWidth + $basePadding;
             }
             &.right {
-                left: $contentWidth + 2 * $basePadding;
+                width: $asideWidth;
+                right: $basePadding;
             }
         }
         li {
@@ -182,6 +183,7 @@ header {
 
 /* {{{ rounded corners */
 #content,
+#content .back img,
 #content .back div {
     @include radius(3em, "top", "left");
     @include radius(3em, "top", "right");
@@ -260,11 +262,8 @@ header {
     padding: $basePadding;
     overflow: hidden;
 
-    @media screen and (min-width:1200px) {
-        //width: $baseWidth + $asideWidth;
-    }
-    @media screen and (max-width:916px) {
-        width: $contentWidth;
+    @media screen and (max-width:930px) {
+        width: auto;
     }
 }
 /* }}} */
@@ -274,20 +273,23 @@ header {
     padding: 2em $basePadding 1000em $basePadding;
     margin-bottom: -1000em + 2em;
     width: $baseWidth - 2 * $basePadding;
-    //width: $contentWidth;
     @include clearfix();
 
-    @media screen and (max-width:916px) {
-        width: $contentWidth - 2 * $basePadding;
+    @media screen and (max-width:930px) {
+        width: auto;
     }
 
     h1 {
         font-weight: normal;
-        font-size: 3.2em;
+        font-size: 2.8em;
         line-height: 1.2em;
         padding-top: 0.3em;
         padding-bottom: 0.5em;
         padding-right: 2em;
+
+        @media screen and (max-width:930px) {
+            font-size: 2.2em;
+        }
 
         .light {
             display: block;
@@ -324,9 +326,15 @@ header {
         margin: 1em 0em 1em 0em;
         overflow: hidden;
         width: $contentWidth - $basePadding;
+        max-width: $contentWidth - $basePadding;
         
-        @media screen and (max-width:916px) {
-            width: $contentWidth - 2 * $basePadding;
+        @media screen and (max-width:930px) {
+            width: auto;
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
         }
     }
     .float_left {
@@ -344,9 +352,8 @@ header {
 section,
 article {
     margin-right: $asideWidth;
-    //margin-right: 0;
 
-    @media screen and (max-width:916px) {
+    @media screen and (max-width:930px) {
         margin-right: 0;
     }
 }
@@ -417,6 +424,12 @@ section {
             width: 8em;
             margin-right: 2em;
             margin-bottom: 2em;
+
+            @media screen and (max-width:930px) {
+                width: 6em;
+                margin-right: 1em;
+                margin-bottom: 1em;
+            }
         }
         .marker {
             position: absolute;
@@ -477,7 +490,12 @@ section .zoom {
     position: relative;
     display: block;
     width: $contentWidth;
+    max-width: $contentWidth;
     margin: 1.7em 0;
+
+    @media screen and (max-width:930px) {
+        width: auto;
+    }
 }
 section .compare .full,
 section .slideshow .full {
@@ -489,9 +507,10 @@ section .slideshow img,
 section .zoom .front img {
     display: block;
     width: $contentWidth;
+    max-width: $contentWidth;
 
-    @media screen and (max-width:916px) {
-        width: $contentWidth - 2 * $basePadding;
+    @media screen and (max-width:930px) {
+        width: 100%;
     }
 }
     /* {{{ zoom */
@@ -502,9 +521,10 @@ section .zoom .front img {
     }
     section .zoom .front {
         width: $contentWidth;
+        max-width: $contentWidth;
 
-        @media screen and (max-width:916px) {
-            width: $contentWidth - 2 * $basePadding;
+        @media screen and (max-width:930px) {
+            width: auto;
         }
     }
     section .zoom .back {
@@ -644,17 +664,34 @@ section .zoom .front img {
 
             code { 
                 display: block; 
-                min-height: 1.2em;
+                min-height: 1.4em;
             }
             ol { 
                 font-size: 1em;
                 line-height: 1.4em !important;
-                list-style: decimal outside;
+
+                list-style-type: none;
+                margin-left: $basePadding;
+
+                *list-style: decimal outside;
+
+                & > li {
+                    counter-increment: linecounter;
+                }
+                & > li:before {
+                    text-align: right;
+                    content: counter(linecounter) " ";
+                    font-weight: bold;
+                    float: left;
+                    width: $basePadding;
+                    margin-left: -$basePadding;
+                }
+                &:first-child {
+                    counter-reset: linecounter;
+                }
             }
             li { 
                 font-size: 1em;
-                padding-left: 1em;
-                margin-left: $basePadding;
             }
         }
         .codeswitch {
@@ -663,6 +700,10 @@ section .zoom .front img {
             right: -$asideWidth - $basePadding;
             width: $asideWidth;
             font-size: 1em;
+
+            @media screen and (max-width:930px) {
+                display: none;
+            }
         }
         div {
             display: none;
@@ -764,6 +805,18 @@ section .zoom .front img {
     }
 }
 /* }}} */
+/* {{{ example */
+.example {
+    border: 1px solid #dddddd;
+    width: $contentWidth - $basePadding;
+    max-width: $contentWidth - $basePadding;
+
+    @media screen and (max-width:930px) {
+        width: 100%;
+    }
+}
+/* }}} */
+
 /* {{{ comments */
 .depage-comments {
     clear: all; 
@@ -949,9 +1002,10 @@ article .social {
 /* {{{ twitter */
 iframe#twitter-widget-o {
     width: $contentWidth;
+    max-width: $contentWidth;
 
-    @media screen and (max-width:916px) {
-        width: $contentWidth - 2 * $basePadding;
+    @media screen and (max-width:930px) {
+        width: auto;
     }
 }
 /* }}} */
@@ -995,14 +1049,15 @@ iframe#twitter-widget-o {
     }
 }
 #navigation {
-    //position: absolute;
-    z-index: 20;
+    position: relative;
+    z-index: 21;
     float: right;
     padding-top: 2em;
     margin-right: -$basePadding;
+    margin-left: $basePadding;
     width: $asideWidth;
 
-    @media screen and (min-width:916px) {
+    @media screen and (min-width:930px) {
         //margin-right: -$basePadding - $asideWidth;
     }
     @media screen and (min-width:1200px) {
@@ -1015,6 +1070,10 @@ iframe#twitter-widget-o {
 }
 .autolinklist {
     padding-top: 4em;
+
+    @media screen and (max-width:930px) {
+        display: none;
+    }
 
     h3 {
         font-size: 1em;
@@ -1039,9 +1098,10 @@ article .autolinklist {
     padding-top: 1em;
     height: 1em;
     width: $contentWidth;
+    max-width: $contentWidth;
 
-    @media screen and (max-width:916px) {
-        width: $contentWidth - 2 * $basePadding;
+    @media screen and (max-width:930px) {
+        width: auto;
     }
 
     li {
@@ -1072,6 +1132,10 @@ article .autolinklist {
     position: relative;
     padding: 0;
     margin: 0;
+
+    @media screen and (max-width:830px) {
+        font-size: 4em;
+    }
 
     a {
         display: inline;
@@ -1134,12 +1198,13 @@ article .autolinklist {
 #content #teaser {
     position: relative;
     margin-left: -0.5em;
+    margin-right: $asideWidth - $basePadding;
     z-index: 20;
 
     .teaser {
         float: left;
         height: 4.8em;
-        width: 18.5em;
+        width: 16.5em;
         margin-right: 0.5em;
         margin-bottom: 0.5em;
         padding: 0.5em;
@@ -1188,13 +1253,18 @@ article .autolinklist {
     bottom: 0;
     left: 0;
     width: $baseWidth;
-    padding: 0 $basePadding;
+    max-width: $baseWidth;
+
+    @media screen and (max-width:930px) {
+        width: 100%;
+    }
 
     #teaser {
         position: absolute;
         bottom: 11em;
     }
     footer {
+        padding: 0 $basePadding;
         height: 3em;
 
         p {
@@ -1207,9 +1277,7 @@ article .autolinklist {
 }
 /* }}} */
 
-
-
-@media screen and (max-width:680px) {
+@media screen and (max-width:580px) {
 /* {{{ depage iphone colors */
 #contentcontainer {
     background: #ffffff;

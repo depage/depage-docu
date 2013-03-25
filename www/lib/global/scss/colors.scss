@@ -128,7 +128,7 @@ article,
 .source pre {
         background: #dddddd;
 }
-.source pre code li { 
+.source pre code { 
         background: $ttc_intro_bg; //<xsl:value-of select="$ttc_intro_bg" />;
 }
 .source div {
