@@ -1252,8 +1252,8 @@ article .autolinklist {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: $baseWidth;
-    max-width: $baseWidth;
+    width: $baseWidth + 2 * $basePadding;
+    max-width: $baseWidth + 2 * $basePadding;
 
     @media screen and (max-width:930px) {
         width: 100%;
