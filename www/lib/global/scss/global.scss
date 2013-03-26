@@ -265,6 +265,9 @@ header {
     @media screen and (max-width:930px) {
         width: auto;
     }
+    @media screen and (min-width:1300px) {
+        width: $baseWidth + $asideWidth;
+    }
 }
 /* }}} */
 /* {{{ content */
@@ -277,6 +280,9 @@ header {
 
     @media screen and (max-width:930px) {
         width: auto;
+    }
+    @media screen and (min-width:1300px) {
+        width: $baseWidth + $asideWidth - 2 * $basePadding;
     }
 
     h1 {
@@ -336,6 +342,10 @@ header {
                 width: 100%;
             }
         }
+        @media screen and (min-width:1300px) {
+            width: $contentWidth - $basePadding + $asideWidth;
+            max-width: $contentWidth - $basePadding + $asideWidth;
+        }
     }
     .float_left {
         float: left;
@@ -355,6 +365,9 @@ article {
 
     @media screen and (max-width:930px) {
         margin-right: 0;
+    }
+    @media screen and (min-width:1300px) {
+        margin-right: 2 * $asideWidth;
     }
 }
 article section {
@@ -434,9 +447,11 @@ section {
         .marker {
             position: absolute;
             display: block;
-            left: -6em;
+            left: - $basePadding - 1em;
             width: 1em;
             top: 0;
+            border-top-width: 9em;
+            border-top-style: solid;
         }
     }
 }
@@ -792,15 +807,26 @@ section .zoom .front img {
     /* }}} */
 /* }}} */
 /* {{{ intro */
-.intro {
-    padding: 0.6em 2em $basePadding $basePadding;
+#content .intro {
+    padding: $basePadding;
+    padding-right: 2em;
     margin-top: 1.5em;
     margin-bottom: $basePadding;
     margin-left: - $basePadding;
     @include radius(3em, "top", "right");
 
+    @media screen and (min-width:1300px) {
+        margin-right: - 3 * $basePadding;
+        padding-right: 3 * $basePadding;
+
+        h2,
+        p {
+            //font-size: 1.5em;
+        }
+    }
+
     h2 {
-        margin-top: 0;
+        margin-top: 0em;
         margin-bottom: 0.8em;
     }
 }
@@ -1052,19 +1078,16 @@ iframe#twitter-widget-o {
     position: relative;
     z-index: 21;
     float: right;
-    padding-top: 2em;
+    padding-top: $basePadding - 2em;
     margin-right: -$basePadding;
     margin-left: $basePadding;
     width: $asideWidth;
+
     @media screen and (max-width:930px) {
         background: #ffffff;
     }
-
-    @media screen and (min-width:930px) {
-        //margin-right: -$basePadding - $asideWidth;
-    }
-    @media screen and (min-width:1200px) {
-        //margin-right: -$basePadding - $asideWidth;
+    @media screen and (min-width:1300px) {
+        padding-top: 2 * $basePadding - 2em;
     }
 
     ul li a.active {
@@ -1090,7 +1113,7 @@ iframe#twitter-widget-o {
 article .autolinklist {
     position: absolute;
     width: $asideWidth;
-    right: -$basePadding;
+    right: -$basePadding - $asideWidth;
     top: 0;
     padding-top: 3em;
     padding-top: 12em;
@@ -1281,6 +1304,10 @@ article .autolinklist {
 
     @media screen and (max-width:930px) {
         width: 100%;
+    }
+    @media screen and (min-width:1300px) {
+        width: $baseWidth + $asideWidth + 2 * $basePadding;
+        max-width: $baseWidth + $asideWidth + 2 * $basePadding;
     }
 
     #teaser {

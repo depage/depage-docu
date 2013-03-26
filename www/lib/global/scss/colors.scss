@@ -1,6 +1,6 @@
 $ttc_back: #CCC8C4;
-//$ttc_back: #ddd9d5;
 $ttc_border: #CCC8C4;
+//$ttc_border: #d1cdc9;
 $ttc_bg: #ffffff;
 $ttc_header_link_active: #aeaeae;
 $ttc_header_link_back: #777777;
@@ -98,7 +98,7 @@ ul a,
 }
 
 section .thumb .marker {
-    border-top: 8em solid #151515;
+    border-top-color: #ffffff;
 }
 section .zoom .front,
 section .zoom .thumb {
