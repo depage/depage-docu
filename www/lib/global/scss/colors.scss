@@ -173,6 +173,15 @@ footer {
     border-left: 0.3em solid $ttc_bg !important; //<xsl:value-of select="$ttc_bg" /> !important;
     border-left: none;
 }
+@media screen and (max-width:580px) {
+    #navigation .nav,
+    #navigation ul,
+    #navigation ul:hover,
+    #navigation ul:hover ul {
+        border-left: none !important;
+        border-left: none;
+    }
+}
 	
 /* {{{ color white */
 #content .colorwhite h1 {

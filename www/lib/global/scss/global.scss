@@ -1354,7 +1354,7 @@ article .autolinklist {
 /* }}} */
 
 @media screen and (max-width:580px) {
-/* {{{ depage iphone colors */
+/* {{{ depagecms iphone colors */
 #contentcontainer {
     background: #ffffff;
 }
@@ -1372,61 +1372,22 @@ footer a {
     color: #555555;
 }
 #navigation {
-    background: #000000;
+    background: #CCC8C4;
 }
 #navigation ul li a {
-    color: #ffffff;
+    color: #000000;
 }
 #navigation ul ul li a {
-    color: #bbbbbb;
+    color: #424242;
 }
 #navigation:hover ul a {
-    color: #ffffff;
+    color: #000000;
 }
 .autolinklist li a {
     color: #000000;
 }
-#navigation .nav > ul:first-of-type > li:first-child > a {
-    visibility: hidden;
-    margin-right: -3em;
-}
 #navigation .nav > ul:first-of-type > li:first-child > a:before {
     content: "depage.net "; 
-    font-weight: bold;
-    visibility: visible;
-}
-/* }}} */
-/* {{{ depagecms iphone colors */
-.depagecms #contentcontainer {
-    background: #ffffff;
-}
-.depagecms .intro {
-    background: #e0e0e0 !important;
-}
-.depagecms footer {
-    border-top: 0.3em solid #e0e0e0;
-}
-.depagecms footer p,
-.depagecms footer a {
-    color: #000000;
-}
-.depagecms .bottomnav li a {
-    color: #555555;
-}
-.depagecms #navigation {
-    background: #CCC8C4;
-}
-.depagecms #navigation ul li a {
-    color: #000000;
-}
-.depagecms #navigation ul ul li a {
-    color: #424242;
-}
-.depagecms #navigation:hover ul a {
-    color: #000000;
-}
-.depagecms .autolinklist li a {
-    color: #000000;
 }
 .depagecms #navigation .nav > ul:first-of-type > li:first-child > a:before {
     content: "depagecms.net "; 
@@ -1467,6 +1428,7 @@ header {
     overflow: hidden;
     //width: 28em;
     width: auto;
+    max-width: 95%;
     padding: 1em;
     margin: 0;
 }
@@ -1481,6 +1443,9 @@ section.start,
 article {
     margin: 0;
     font-size: 1.05em;
+}
+section.start {
+    display: none;
 }
 #content h1 {
     font-size: 2.4em;
@@ -1519,8 +1484,11 @@ section .zoom .back img {
 #content .crop img {
     width: 61em;
 }
+.home #content #teaser,
 #content #teaser {
     margin-right: 2em;
+}
+#content #teaser {
     .teaser {
         float: none;
         font-size: 1.2em;
@@ -1574,24 +1542,27 @@ article,
     margin-top: 6em;
     margin-bottom: 0em;
     height: auto;
-}
-.bottomnav:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-.bottomnav li {
-    float: right;
-    padding: 0;
-}
-.bottomnav li:first-child {
-    float: left;
-    margin-right: 1em;
-}
-.bottomnav li a {
-    display: block;
+
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    li {
+        float: right;
+        padding: 0;
+
+        &:first-child {
+            float: left;
+            margin-right: 1em;
+        }
+        a {
+            display: block;
+        }
+    }
 }
 .topnav,
 #crosslinks {
@@ -1605,40 +1576,50 @@ article,
     margin-bottom: 3em;
     float: none;
     width: 100%;
-}
-#navigation .nav {
-    margin: 0;
-    line-height: 2.5em;
-}
-#navigation ul li {
-    display: inline;
-    font-size: 1.2em;
-    margin-right: 1em;
-    margin-left: 0;
-}
-#navigation ul ul li {
-    font-size: 1em;
-}
-#navigation:hover ul a {
-    text-decoration: none;
-}
-#navigation ul:hover {
-    border-left: none !important;
-}
-#navigation ul:hover ul {
-    border-left: none !important;
-}
-#navigation ul {
-    display: inline;
-    border: none !important;
-    margin: 0;
-    padding: 0;
+    
+    .social {
+        display: none;
+    }
+
+    .nav {
+        margin: 0;
+        line-height: 2.5em;
+    }
+    ul {
+        border-left: none !important;
+
+        li {
+            display: inline;
+            font-size: 1.2em;
+            margin-right: 1em;
+            margin-left: 0;
+        }
+        ul li {
+            font-size: 1em;
+        }
+    }
+    &:hover ul a {
+        text-decoration: none;
+    }
+    ul:hover {
+        &,
+        ul {
+            border-left: none !important;
+        }
+    }
+    ul {
+        display: inline;
+        border: none !important;
+        margin: 0;
+        padding: 0;
+    }
 }
 .autolinklist {
     display: none;
-}
-.autolinklist li::after {
-    content: "";
+
+    li::after {
+        content: "";
+    }
 }
 /* }}} */
 }
