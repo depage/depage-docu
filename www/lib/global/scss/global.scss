@@ -1064,9 +1064,6 @@ iframe#twitter-widget-o {
         }
     }
 }
-#navigation ul a {
-    font-size: 1.1em;
-}
 #content .autolinklist ul li {
     line-height: 1.8em;
 
@@ -1078,20 +1075,25 @@ iframe#twitter-widget-o {
     position: relative;
     z-index: 21;
     float: right;
-    padding-top: $basePadding - 2em;
+    margin-top: $basePadding - 2em;
     margin-right: -$basePadding;
     margin-left: $basePadding;
     width: $asideWidth;
+    background: #ffffff;
 
-    @media screen and (max-width:1024px) {
-        background: #ffffff;
-    }
     @media screen and (min-width:1300px) {
-        padding-top: 2 * $basePadding - 2em;
+        margin-top: 2 * $basePadding - 2em;
     }
 
     ul li a.active {
         font-weight: bold;
+    }
+    ul a {
+        font-size: 1.1em;
+
+        @media screen and (min-width:1300px) {
+            font-size: 1.2em;
+        }
     }
 }
 .autolinklist {
@@ -1252,6 +1254,7 @@ article .autolinklist {
         float: left;
         height: 4.8em;
         width: 16.5em;
+        width: ($contentWidth / 3) - 3em;
         margin-right: 0.5em;
         margin-bottom: 0.5em;
         padding: 0.5em;
