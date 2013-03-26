@@ -262,7 +262,7 @@ header {
     padding: $basePadding;
     overflow: hidden;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: auto;
     }
     @media screen and (min-width:1300px) {
@@ -278,7 +278,7 @@ header {
     width: $baseWidth - 2 * $basePadding;
     @include clearfix();
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: auto;
     }
     @media screen and (min-width:1300px) {
@@ -293,7 +293,7 @@ header {
         padding-bottom: 0.5em;
         padding-right: 2em;
 
-        @media screen and (max-width:1024px) {
+        @media screen and (max-width:1023px) {
             font-size: 2.2em;
         }
 
@@ -334,7 +334,7 @@ header {
         width: $contentWidth - $basePadding;
         max-width: $contentWidth - $basePadding;
         
-        @media screen and (max-width:1024px) {
+        @media screen and (max-width:1023px) {
             width: auto;
             width: 100%;
 
@@ -363,7 +363,7 @@ section,
 article {
     margin-right: $asideWidth;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         margin-right: 0;
     }
     @media screen and (min-width:1300px) {
@@ -438,7 +438,7 @@ section {
             margin-right: 2em;
             margin-bottom: 2em;
 
-            @media screen and (max-width:1024px) {
+            @media screen and (max-width:1023px) {
                 width: 6em;
                 margin-right: 1em;
                 margin-bottom: 1em;
@@ -508,7 +508,7 @@ section .zoom {
     max-width: $contentWidth;
     margin: 1.7em 0;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: auto;
     }
 }
@@ -524,7 +524,7 @@ section .zoom .front img {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: 100%;
     }
 }
@@ -538,7 +538,7 @@ section .zoom .front img {
         width: $contentWidth;
         max-width: $contentWidth;
 
-        @media screen and (max-width:1024px) {
+        @media screen and (max-width:1023px) {
             width: auto;
         }
     }
@@ -716,7 +716,7 @@ section .zoom .front img {
             width: $asideWidth;
             font-size: 1em;
 
-            @media screen and (max-width:1024px) {
+            @media screen and (max-width:1023px) {
                 display: none;
             }
         }
@@ -837,7 +837,7 @@ section .zoom .front img {
     width: $contentWidth - $basePadding;
     max-width: $contentWidth - $basePadding;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: 100%;
     }
 }
@@ -1030,7 +1030,7 @@ iframe#twitter-widget-o {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: auto;
     }
 }
@@ -1071,6 +1071,9 @@ iframe#twitter-widget-o {
         font-size: 1em;
     }
 }
+.home #navigation {
+    margin-left: 0;
+}
 #navigation {
     position: relative;
     z-index: 21;
@@ -1099,7 +1102,7 @@ iframe#twitter-widget-o {
 .autolinklist {
     padding-top: 4em;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         display: none;
     }
 
@@ -1128,7 +1131,7 @@ article .autolinklist {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: auto;
     }
 
@@ -1247,7 +1250,7 @@ article .autolinklist {
  /* {{{ teaser */
 .home #content #teaser {
     padding-top: 1em;
-    margin-right: $asideWidth - $basePadding;
+    margin-right: $asideWidth + 0 * $basePadding;
 }
 #content #teaser {
     margin-top: 1 * $basePadding;
@@ -1260,7 +1263,6 @@ article .autolinklist {
     .teaser {
         float: left;
         height: 4.8em;
-        width: 16.5em;
         width: ($contentWidth / 3) - 3em;
         margin-right: 0.5em;
         margin-bottom: 0.5em;
@@ -1313,7 +1315,7 @@ article .autolinklist {
         width: 2 * $asideWidth;
         max-width: 2 * $asideWidth;
     }
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         display: none;
     }
 }
@@ -1327,7 +1329,7 @@ article .autolinklist {
     width: $baseWidth + 2 * $basePadding;
     max-width: $baseWidth + 2 * $basePadding;
 
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width:1023px) {
         width: 100%;
     }
     @media screen and (min-width:1300px) {
@@ -1436,7 +1438,7 @@ header {
     margin-left: -0.5em;
     padding-left: 6em;
     border-left: none !important;
-    -webkit-border-top-right-radius: 3em;
+    margin-right: ($basePadding / 2);
 }
 section,
 section.start,
@@ -1568,10 +1570,13 @@ article,
 #crosslinks {
     display: none;
 }
+#navigation,
+.home #navigation {
+    margin: -1em;
+}
 #navigation {
     position: static;
     display: block;
-    margin: -1em;
     padding: 1em;
     margin-bottom: 3em;
     float: none;
