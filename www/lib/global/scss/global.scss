@@ -1,5 +1,5 @@
 $basePadding: 3.6em;
-$baseWidth: 84.4em + 2 * $basePadding;
+$baseWidth: 102.4em - 2 * $basePadding;
 $asideWidth: ($baseWidth / 3 - 2 * $basePadding);
 $contentWidth: ($baseWidth / 3 * 2 + $basePadding);
 
@@ -262,7 +262,7 @@ header {
     padding: $basePadding;
     overflow: hidden;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: auto;
     }
     @media screen and (min-width:1300px) {
@@ -278,7 +278,7 @@ header {
     width: $baseWidth - 2 * $basePadding;
     @include clearfix();
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: auto;
     }
     @media screen and (min-width:1300px) {
@@ -293,7 +293,7 @@ header {
         padding-bottom: 0.5em;
         padding-right: 2em;
 
-        @media screen and (max-width:930px) {
+        @media screen and (max-width:1024px) {
             font-size: 2.2em;
         }
 
@@ -334,7 +334,7 @@ header {
         width: $contentWidth - $basePadding;
         max-width: $contentWidth - $basePadding;
         
-        @media screen and (max-width:930px) {
+        @media screen and (max-width:1024px) {
             width: auto;
             width: 100%;
 
@@ -363,7 +363,7 @@ section,
 article {
     margin-right: $asideWidth;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         margin-right: 0;
     }
     @media screen and (min-width:1300px) {
@@ -438,7 +438,7 @@ section {
             margin-right: 2em;
             margin-bottom: 2em;
 
-            @media screen and (max-width:930px) {
+            @media screen and (max-width:1024px) {
                 width: 6em;
                 margin-right: 1em;
                 margin-bottom: 1em;
@@ -508,7 +508,7 @@ section .zoom {
     max-width: $contentWidth;
     margin: 1.7em 0;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: auto;
     }
 }
@@ -524,7 +524,7 @@ section .zoom .front img {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: 100%;
     }
 }
@@ -538,7 +538,7 @@ section .zoom .front img {
         width: $contentWidth;
         max-width: $contentWidth;
 
-        @media screen and (max-width:930px) {
+        @media screen and (max-width:1024px) {
             width: auto;
         }
     }
@@ -716,7 +716,7 @@ section .zoom .front img {
             width: $asideWidth;
             font-size: 1em;
 
-            @media screen and (max-width:930px) {
+            @media screen and (max-width:1024px) {
                 display: none;
             }
         }
@@ -837,7 +837,7 @@ section .zoom .front img {
     width: $contentWidth - $basePadding;
     max-width: $contentWidth - $basePadding;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: 100%;
     }
 }
@@ -1030,7 +1030,7 @@ iframe#twitter-widget-o {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: auto;
     }
 }
@@ -1083,7 +1083,7 @@ iframe#twitter-widget-o {
     margin-left: $basePadding;
     width: $asideWidth;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         background: #ffffff;
     }
     @media screen and (min-width:1300px) {
@@ -1097,7 +1097,7 @@ iframe#twitter-widget-o {
 .autolinklist {
     padding-top: 4em;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         display: none;
     }
 
@@ -1126,7 +1126,7 @@ article .autolinklist {
     width: $contentWidth;
     max-width: $contentWidth;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: auto;
     }
 
@@ -1302,7 +1302,7 @@ article .autolinklist {
     width: $baseWidth + 2 * $basePadding;
     max-width: $baseWidth + 2 * $basePadding;
 
-    @media screen and (max-width:930px) {
+    @media screen and (max-width:1024px) {
         width: 100%;
     }
     @media screen and (min-width:1300px) {
