@@ -1145,6 +1145,7 @@ article .autolinklist {
 .bottomnav {
     margin-top: 6em;
     padding-top: 2em;
+    padding-bottom: 2em;
 }
 .depagecms article .autolinklist {
     padding-top: 3.2em;
@@ -1244,10 +1245,16 @@ article .autolinklist {
 }
 /* }}} */
  /* {{{ teaser */
+.home #content #teaser {
+    padding-top: 1em;
+    margin-right: $asideWidth - $basePadding;
+}
 #content #teaser {
+    margin-top: 1 * $basePadding;
+    clear: left;
     position: relative;
     margin-left: -0.5em;
-    margin-right: $asideWidth - $basePadding;
+    margin-right: 0;
     z-index: 20;
 
     .teaser {
@@ -1293,6 +1300,21 @@ article .autolinklist {
             width: 4.8em;
             margin-right: 1em;
         }
+    }
+}
+#content article #teaser {
+    margin-right: - $asideWidth - $basePadding;
+    width: $asideWidth;
+    max-width: $asideWidth;
+    float: right;
+
+    @media screen and (min-width:1300px) {
+        margin-right: - 2 * ($asideWidth + $basePadding);
+        width: 2 * $asideWidth;
+        max-width: 2 * $asideWidth;
+    }
+    @media screen and (max-width:1024px) {
+        display: none;
     }
 }
 /* }}} */
