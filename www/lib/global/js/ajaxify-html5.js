@@ -164,7 +164,11 @@
 					});
 
 					// Complete the change
-					if ( $body.ScrollTo||false ) { $body.ScrollTo(scrollOptions); } /* http://balupton.com/projects/jquery-scrollto */
+					if ( $body.ScrollTo||false ) { 
+                                            $body.ScrollTo(scrollOptions);  /* http://balupton.com/projects/jquery-scrollto */
+                                        } else {
+                                            window.scrollTo(0, 1);
+                                        }
 					$body.attr('class', $dataBody.attr("class"));
 					$body.removeClass('document-body');
 					$window.trigger(completedEventName);
