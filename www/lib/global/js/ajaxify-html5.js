@@ -147,7 +147,8 @@
 
 					// Update the content
 					$content.stop(true,true);
-					$content.html(contentHtml).ajaxify().css('opacity',100).show(); /* you could fade in here if you'd like */
+					$content.html(contentHtml).ajaxify().css('opacity',1).show(); /* you could fade in here if you'd like */
+					//$content.html(contentHtml).ajaxify().animate({opacity:1},800);
 
 					// Update the title
 					document.title = $data.find('.document-title:first').text();
