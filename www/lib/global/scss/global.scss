@@ -501,32 +501,30 @@ section .full,
 section .compare,
 section .slideshow,
 section .zoom {
-    clear: both;
+    //clear: both;
     position: relative;
     display: block;
-    width: $contentWidth;
-    max-width: $contentWidth;
     margin: 1.7em 0;
+
+    &,
+    img {
+        width: $contentWidth - $basePadding;
+        max-width: $contentWidth - $basePadding;
+    }
+    img {
+        display: block;
+    }
 
     @media screen and (max-width:1023px) {
         width: auto;
+        img {
+            width: 100%;
+        }
     }
 }
 section .compare .full,
 section .slideshow .full {
     margin: 0;
-}
-section .full img,
-section .compare img,
-section .slideshow img,
-section .zoom .front img {
-    display: block;
-    width: $contentWidth;
-    max-width: $contentWidth;
-
-    @media screen and (max-width:1023px) {
-        width: 100%;
-    }
 }
     /* {{{ zoom */
     section .zoom .front,
@@ -592,6 +590,7 @@ section .zoom .front img {
         display: block;
     }
     /* }}} */
+
     /* {{{ source */
     pre.prettyprint {
         border-radius: 0.5em;
