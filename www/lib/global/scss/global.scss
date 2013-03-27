@@ -1061,12 +1061,12 @@ article .social {
 }
 /* }}} */
 /* {{{ twitter */
-iframe#twitter-widget-o {
+iframe#twitter-widget-0 {
     width: $contentWidth;
     max-width: $contentWidth;
 
     @media screen and (max-width:1023px) {
-        width: auto;
+        width: 100%;
     }
 }
 /* }}} */
