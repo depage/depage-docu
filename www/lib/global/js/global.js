@@ -240,8 +240,8 @@ function replaceInteractiveContent() {
             'twitter',
             'facebookShare',
             'googleplusShare',
-            'digg',
-            'reddit',
+            //'digg',
+            //'reddit',
             'mail'
         ]
     });
@@ -392,12 +392,25 @@ function replaceInteractiveContent() {
 }
 // }}}
 
+    // {{{ onDocumentScroll()
+    function onDocumentScroll() {
+        var scrollTop = window.pageYOffset || $(window).scrollTop();
+        var windowHeight = $(window).height();
+        $(".articlefooter").each(function() {
+            var $el = $(this);
+            $el.toggleClass("in-view", $el.offset().top - windowHeight / 3 * 2 < scrollTop);
+        });
+    }
+    // }}}
+
 // {{{ register events
 $(document).ready(function() {
     // replace content
     replaceInteractiveContent();
 
-    $(window).bind("statechangecomplete", replaceInteractiveContent);
+    $(window).on("statechangecomplete", replaceInteractiveContent);
+    $(window).on("scroll resize", onDocumentScroll);
+    onDocumentScroll();
 
     // add flash content
     if ($.browser.flash("8,0,0")) {

@@ -18,12 +18,15 @@
         <script type="text/javascript" src="lib/global/htmlform/js/jquery.tools.min.js"></script>
         <script type="text/javascript" src="lib/global/htmlform/js/effect.js"></script>
         <script type="text/javascript" src="lib/global/comments/js/comments.js"></script>
-	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-slideshow.js"></script>
 	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-email-antispam.js"></script>
 	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-social.js"></script>
+	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-slideshow.js"></script>
+	<script type="text/javascript" src="lib/global/depage-jquery-plugins/depage-compare-images.js"></script>
+        <script type="text/javascript" src="lib/global/js/prettify/prettify.js"></script>
+        <script type="text/javascript" src="lib/global/js/jquery.history.js"></script>
+        <script type="text/javascript" src="lib/global/js/ajaxify-html5.js"></script>  
 	<script type="text/javascript" src="lib/global/js/global.js"></script>
-	<script type="text/javascript" src="lib/global/js/chili/jquery.chili-2.2.js"></script>
-	<script type="text/javascript" src="lib/global/js/chili/recipes.js"></script>
+
         <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><script>!window.html5 && document.write('<script src="../lib/global/js/html5.js"><\/script>')</script><![endif]-->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -104,7 +107,10 @@
                         <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ohne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
 
                     </section>
-                    <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
+                    <div class="articlefooter">
+                        <div class="social"></div>
+                        <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
+                    </div>
 		</article>
 		<!-- }}} -->
                 <!-- {{{ blog bottomnav -->
