@@ -172,6 +172,7 @@
                                         }
 					$body.attr('class', $dataBody.attr("class"));
 					$body.removeClass('document-body');
+					$body.removeClass('loading');
 					$window.trigger(completedEventName);
 	
 					// Inform Google Analytics of the change

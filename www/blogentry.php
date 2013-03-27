@@ -104,7 +104,7 @@
                         <time datetime="2009-05-09">09. Mai 2009</time>
                         <h1>Pop-Up-The-Bathroom</h1>
                         <h2>Trennung von Inhalten und der Darstellung</h2>
-                        <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ohne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
+                        <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ojhne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
 
                     </section>
                     <div class="articlefooter">

@@ -87,6 +87,15 @@ $contentWidth: ($baseWidth / 3 * 2 + $basePadding);
     -o-transition-property: $property;
     transition-property: $property;
 }
+@mixin gradient($c1, $c2){
+    background: $c1; // Old browsers
+    background: -moz-linear-gradient(top,  $c1 0%, $c2 100%); // FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$c1), color-stop(100%,$c2)); // Chrome,Safari4+
+    background: -webkit-linear-gradient(top,  $c1 0%, $c2 100%); // Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top,  $c1 0%, $c2 100%); // Opera 11.10+
+    background: -ms-linear-gradient(top,  $c1 0%, $c2 100%); // IE10+
+    background: linear-gradient(to bottom,  $c1 0%, $c2 100%); // W3C
+}
 // }}}
 
 /* {{{ global */
@@ -285,6 +294,27 @@ header {
     @media screen and (min-width:1300px) {
         width: $baseWidth + $asideWidth;
     }
+}
+.loading header:after {
+    $fsize: 1.3;
+    $padding: ($basePadding / $fsize);
+    display: block;
+    content: "loading content...";
+
+    @include radius($padding, "top", "left");
+    @include radius($padding, "top", "right");
+    @include gradient(#ffffff, rgba(255, 255, 255, 0));
+
+    color: #CCC8C4;
+    width: auto;
+    height: (50em / $fsize);
+    font-size: $fsize * 1em;
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    right: $padding;
+    padding-top: $padding - 0.5em;
+    padding-left: $padding;
 }
 /* }}} */
 /* {{{ content */
