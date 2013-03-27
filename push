@@ -7,6 +7,17 @@ rsync \
     --exclude '.DS_Store' \
     --exclude '.git' \
     www/lib/global/ www-data@cms.depagecms.net:/var/www/net.depagecms.cms/projects/depage/lib/global/
+rsync \
+    -k -r -v -c \
+    --exclude '.DS_Store' \
+    --exclude '.git' \
+    www/lib/projects/ www-data@cms.depagecms.net:/var/www/net.depagecms.cms/projects/depage/lib/projects/
+rsync \
+    -k -r -v -c \
+    --exclude '.DS_Store' \
+    --exclude '.git' \
+    www/lib/referenzen/ www-data@cms.depagecms.net:/var/www/net.depagecms.cms/projects/depage/lib/referenzen/
+
 
 rsync \
     -k -r -v -c \

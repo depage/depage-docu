@@ -15,7 +15,6 @@
 	"www/lib/global/depage-jquery-plugins/depage-compare-images.js",
 	"www/lib/global/depage-jquery-plugins/depage-email-antispam.js",
 	"www/lib/global/depage-jquery-plugins/depage-social.js",
-        //"www/lib/global/js/jquery.scrollto.min.js",
         "www/lib/global/js/jquery.history.js",
         "www/lib/global/js/ajaxify-html5.js",
 	"www/lib/global/js/global.js",
