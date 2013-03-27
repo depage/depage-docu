@@ -61,6 +61,7 @@
 			// Prepare
 			var result = String(html)
 				.replace(/<\!DOCTYPE[^>]*>/i, '')
+				.replace(/<(body)[\s]class="([^"]*)"([\s\>])/gi,'<div class="document-$1 $2"$3')
 				.replace(/<(html|head|body|title|meta|script)([\s\>])/gi,'<div class="document-$1"$2')
 				.replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
 			;
@@ -164,7 +165,8 @@
 
 					// Complete the change
 					if ( $body.ScrollTo||false ) { $body.ScrollTo(scrollOptions); } /* http://balupton.com/projects/jquery-scrollto */
-					$body.removeClass('loading');
+					$body.attr('class', $dataBody.attr("class"));
+					$body.removeClass('document-body');
 					$window.trigger(completedEventName);
 	
 					// Inform Google Analytics of the change

@@ -403,7 +403,7 @@ $(document).ready(function() {
     if ($.browser.flash("8,0,0")) {
         replaceFlashContent();
 
-        $("body").addClass("flash");
+        $("html").addClass("flash");
     }
 
     // hide urlbar
