@@ -297,6 +297,16 @@ header {
 
     @media screen and (max-width:1023px) {
         width: auto;
+
+        &:before {
+            position: relative;
+            top: -20em;
+            display:block;
+            width: 100%;
+            height: .001em;
+            content: "Interface Design, Web Development, iPhone und iPad Optimierung, Concept, Design, Development, Media, Animation, Visualization, CMS framework, templates . interface design / depage.net";
+            visibility: hidden;
+        }
     }
     @media screen and (min-width:1300px) {
         width: $baseWidth + $asideWidth - 2 * $basePadding;
@@ -867,6 +877,9 @@ section .slideshow .full {
 
 /* {{{ social */
 article .social {
+    margin: $basePadding 0;
+}
+.articlefooter .social {
     margin: 3 * $basePadding 0 ($basePadding / 2) 0;
     width: 100%;
     font-size: 1.1em;
@@ -1464,8 +1477,9 @@ header {
 }
 #content {
     overflow: hidden;
-    //width: 28em;
     width: auto;
+    left: 0;
+    right: 0;
     max-width: 95%;
     padding: 1em;
     margin: 0;

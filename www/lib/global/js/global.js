@@ -410,7 +410,6 @@ $(document).ready(function() {
 
     $(window).on("statechangecomplete", replaceInteractiveContent);
     $(window).on("scroll resize", onDocumentScroll);
-    onDocumentScroll();
 
     // add flash content
     if ($.browser.flash("8,0,0")) {
