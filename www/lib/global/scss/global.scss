@@ -501,7 +501,6 @@ section .full,
 section .compare,
 section .slideshow,
 section .zoom {
-    //clear: both;
     position: relative;
     display: block;
     margin: 1.7em 0;
@@ -532,27 +531,23 @@ section .slideshow .full {
         display: block;
         overflow: hidden;
     }
-    section .zoom .front {
-        width: $contentWidth;
-        max-width: $contentWidth;
-
-        @media screen and (max-width:1023px) {
-            width: auto;
-        }
-    }
     section .zoom .back {
         display: none;
     }
     section .zoom .thumb {
         display: none;
         position: absolute;
-        width: 16em;
-        left: 54em;
+        width: $asideWidth - $basePadding;
+        right: - $asideWidth;
         top: 0;
+
+        @media screen and (max-width:1023px) {
+            display: none !important;
+        }
     }
     section .zoom .thumb img {
         display: block;
-        width: 16em;
+        width: 100%;
         margin: 0;
     }
     section .zoom .thumb .border {

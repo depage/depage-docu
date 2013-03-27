@@ -344,11 +344,13 @@ function replaceInteractiveContent() {
             $(".front", this).height($(".front img", this).height());
 
             oldWidth = $(".front img", this).width();
-            $(".front img", this).css("width", "auto");
+            $(".front img", this).css({
+                width: "auto",
+                maxWidth: "none"
+            });
             newWidth = $(".front img", this).width();
 
-            $(".thumb", this).dequeue();
-            $(".thumb", this).fadeIn(200);
+            $(".thumb", this).stop().fadeIn(200);
 
             zoomRatio = newWidth / oldWidth;
             thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
@@ -368,9 +370,7 @@ function replaceInteractiveContent() {
                 marginTop: 0
             });
 
-            $(".thumb", this).dequeue();
-            $(".thumb", this).css("opacity", 1);
-            $(".thumb", this).fadeOut(200);
+            $(".thumb", this).stop().css("opacity", 1).fadeOut(200);
         });
         $(".zoom").mousemove( function(e) {
             var offsetX = $(this).offset().left - e.pageX;
