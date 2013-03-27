@@ -1344,12 +1344,12 @@ article .autolinklist {
     }
     footer {
         padding: 0 $basePadding;
-        height: 3em;
+        height: $basePadding;
 
         p {
             float: right;
             font-size: 1.2em;
-            padding-top: 0.5em;
+            padding-top: 0.7em;
             padding-right: 1em;
         }
     }
