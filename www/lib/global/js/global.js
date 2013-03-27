@@ -300,6 +300,9 @@ function replaceInteractiveContent() {
             .text(text_source_showplain)
             .next().show().next().hide();
     });
+    
+    // style source code
+    prettyPrint();
     // }}}
 
     if (!$.browser.iphone) {
@@ -389,52 +392,18 @@ function replaceInteractiveContent() {
 }
 // }}}
 
-// fix browser behaviours
-// {{{ fixHeightIE6()
-function fixHeightIE6() {
-    var body = $("body");
-    var content = $("content");
-
-    if (body.height() > content.height()) {
-        content.height(body.height());
-    }
-}
-// }}}
-// {{{ fixFlashDisplayOpera()
-function fixFlashDisplayOpera(numcall) {
-    numcall++;
-    if (numcall < 20) {
-        setTimeout("fixFlashDisplayOpera(" + numcall + ")", 200);
-    }
-
-    if (numcall % 2 === 0) {
-        $("object").css({ border: "0px solid" });
-    } else {
-        $("object").css({ border: "none" });
-    }
-}
-// }}}
-
 // {{{ register events
 $(document).ready(function() {
     // replace content
     replaceInteractiveContent();
-    prettyPrint();
+
+    $(window).bind("statechangecomplete", replaceInteractiveContent);
 
     // add flash content
     if ($.browser.flash("8,0,0")) {
         replaceFlashContent();
 
         $("body").addClass("flash");
-    }
-
-    // fix browser bugs
-    if ($.browser.msie) {
-        fixHeightIE6();
-        $(window).resize( fixHeightIE6 );
-    }
-    if ($.browser.opera) {
-        fixFlashDisplayOpera(0);
     }
 
     // hide urlbar
