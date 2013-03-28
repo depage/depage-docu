@@ -148,6 +148,8 @@ ul.big,
 }
 #content .back a.marker b {
     font-family: "Neue Helvetica", Helvetica, Arial, Sans-Serif;
+    //font-family: Georgia, Times, Times New Roman, Serif;
+    //font-weight: normal;
 }
 img { 
     -ms-interpolation-mode: bicubic;
@@ -266,19 +268,16 @@ header {
         height: auto;
         color: #ffffff;
         color: #333333;
-        background: #ffffff;
+        //background: rgba(255, 255, 255, 0.7);
         @include radius($basePadding, "top", "left");
         @include radius($basePadding, "bottom", "right");
-        opacity: 0.7;
 
         img {
             display: none;
         }
         span {
-            display: table-cell;
-            vertical-align: middle;
-            height: auto;
-            padding: 0.4em;
+            opacity: 0.7;
+            display: block;
             line-height: 1.5em;
             font-size: 1em;
 
@@ -286,10 +285,34 @@ header {
                 display: block;
                 padding-top: 0.2em;
                 font-size: 3.5em;
-                //font-weight: normal;
                 line-height: 1.2em;
                 letter-spacing: 0.02em;
             }
+        }
+    }
+    a.marker span {
+        width: 200%;
+        font-size: 2em;
+        @include transition(500ms);
+        @include transform-origin(top left);
+        @include transform(
+            scale(0.5)
+        );
+    }
+    &:hover a.marker {
+        span {
+            opacity: 1;
+            $scale: 0.7;
+            @include transform(
+                perspective(180em)
+                rotateX(-8deg) 
+                rotateY(25deg) 
+                rotateZ(-7deg) 
+                translateY($basePadding)
+                scaleX($scale) 
+                scaleY($scale) 
+                scaleZ($scale)
+            );
         }
     }
 }
@@ -924,26 +947,6 @@ section .slideshow .full {
 /* }}} */
 
 /* {{{ 3d-transforms */
-@mixin hover3d($scale: 1.2) {
-    @include transform(
-        perspective(180em)
-        rotateX(-5deg) 
-        rotateY(15deg) 
-        rotateZ(-2deg) 
-        scaleX($scale) 
-        scaleY($scale) 
-        scaleZ($scale)
-    );
-}
-.home .back {
-    img {
-        @include transition(500ms);
-    }
-    &:hover img {
-        @include transform-origin(center center);
-        @include hover3d(1.15);
-    }
-}
 .teaser {
     img {
         @include transition(500ms);
