@@ -77,6 +77,35 @@ jQuery.browser.iphone = function() {
     return (/iphone/).test(navigator.userAgent.toLowerCase());
 }();
 // }}}
+// {{{ jquery.browser.has3d
+jQuery.extend(jQuery.browser, {
+    has3d: (function () {
+        var el = document.createElement('p'), 
+            has3d,
+            transforms = {
+                'webkitTransform':'-webkit-transform',
+                'OTransform':'-o-transform',
+                'msTransform':'-ms-transform',
+                'MozTransform':'-moz-transform',
+                'transform':'transform'
+            };
+
+        // Add it to the body to get the computed style.
+        document.body.insertBefore(el, null);
+
+        for (var t in transforms) {
+            if (el.style[t] !== undefined) {
+                el.style[t] = "translate3d(1px,1px,1px)";
+                has3d = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+            }
+        }
+
+        document.body.removeChild(el);
+
+        return (has3d !== undefined && has3d.length > 0 && has3d !== "none");
+    })
+});
+// }}}
 // {{{ jquery.flash
 jQuery.fn.flash = function(params) {
     var html1 = "";
@@ -410,6 +439,11 @@ $(document).ready(function() {
 
     $(window).on("statechangecomplete", replaceInteractiveContent);
     $(window).on("scroll resize", onDocumentScroll);
+
+    // add 3d flag
+    if ($.browser.has3d()) {
+        $("html").addClass("css-3dtransform");
+    }
 
     // add flash content
     if ($.browser.flash("8,0,0")) {
