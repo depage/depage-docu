@@ -108,6 +108,7 @@
 
                     </section>
                     <div class="articlefooter">
+                        <div class="social" data-share-title="Testtitle" data-share-url="http://www.depage.net/en/blog/2011/09/ideenkonserve.html"></div>
                         <div class="social"></div>
                         <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
                     </div>

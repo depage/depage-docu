@@ -148,8 +148,6 @@ ul.big,
 }
 #content .back a.marker b {
     font-family: "Neue Helvetica", Helvetica, Arial, Sans-Serif;
-    //font-family: Georgia, Times, Times New Roman, Serif;
-    //font-weight: normal;
 }
 img { 
     -ms-interpolation-mode: bicubic;
@@ -522,7 +520,7 @@ article h2 {
     clear: left;
 }
 section.start {
-    margin-right: 10em;
+    margin-right: $asideWidth;
     margin-bottom: 10em;
 }
 section {
@@ -1036,6 +1034,7 @@ article .social {
     display: block;
     margin-bottom: 1.5em;
     width: 6 * ($buttonW + $distance) + $paddingLeft;
+    width: auto;
     margin-left: 2.5em;
     font-size: 0.85em;
 
