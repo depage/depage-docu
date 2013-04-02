@@ -58,7 +58,12 @@
                 </div>
 	    </header>
 	    <!-- }}} -->
-	    <div id="content">
+	    <div id="content" class="has-back">
+		<!-- {{{ back slideshow -->
+                <div class="back slideshow">
+                    <div><img src="lib/projects/alw-cd/start_alw-cd-face.jpg" alt="test"></div>
+                </div>
+                <!-- }}} -->
 		<!-- {{{ navigation -->
 		<div id="navigation" class="navigation_bright">
                     <div class="nav">
@@ -98,18 +103,19 @@
                 </ul>
                 <!-- }}} -->
 		<!-- {{{ article -->
-		<article class="colorcyan">
+		<article class="colorcyan has-back">
                     <section>
-                        <img class="thumb" alt="test">
-                        <time datetime="2009-05-09">09. Mai 2009</time>
-                        <h1>Pop-Up-The-Bathroom</h1>
+                        <div class="header">
+                            <img class="thumb" alt="test">
+                            <time datetime="2009-05-09">09. Mai 2009</time>
+                            <h1>Pop-Up-The-Bathroom</h1>
+                        </div>
                         <h2>Trennung von Inhalten und der Darstellung</h2>
                         <p>Zur Erstellung der Inhalte auf einer Seite wird eine Anzahl von Eingabeelementen vorbereitet, die den Redakteuren zur Eingabe der Inhalte zur Verfügung stehen. Dies können ein oder auch mehrsprachige Felder für Text sein, in denen Funktionen zur Auszeichnung  und Formatierung zur Verfügung stehen. Dies können reine Textfelder ojhne Auszeichnungen für Überschriften sein, oder Elemente zur Auswahl und Einbettung von Bildern und Multimediaelementen. Diese zusätzlichen Elemente wie Bilder, Animationen oder PDFs werden komfortabel in einer eigenen Dateibibliothek verwaltet.</p>
 
                     </section>
                     <div class="articlefooter">
                         <div class="social" data-share-title="Testtitle" data-share-url="http://www.depage.net/en/blog/2011/09/ideenkonserve.html"></div>
-                        <div class="social"></div>
                         <div class="depage-comments" data-comments-url="lib/global/commentproxy.php?pageId=<?php echo($page_id); ?>&lang=<?php echo($tt_lang); ?>"></div>
                     </div>
 		</article>

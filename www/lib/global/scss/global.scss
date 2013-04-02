@@ -507,20 +507,22 @@ article {
 article section {
     margin-right: 0;
 }
-article {
+#content article {
     position: relative;
     margin-top: 3em;
     padding-top: 3em;
+
+    h1 {
+        padding-top: 0.1em;
+    }
+    h2 {
+        clear: left;
+    }
 }
-#content article h1 {
-    padding-top: 0.1em;
-}
-article h2 {
-    clear: left;
-}
-section.start {
-    margin-right: $asideWidth;
-    margin-bottom: 10em;
+#content.has-back {
+    .header {
+        margin-bottom: 50em;
+    }
 }
 section {
     .spacing {
