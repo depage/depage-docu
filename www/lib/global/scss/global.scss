@@ -520,8 +520,50 @@ article section {
     }
 }
 #content.has-back {
+    $height: 58em;
+
+    .back {
+        position: relative;
+        height: $height;
+        width: auto;
+        overflow: hidden;
+        margin-top: -2em;
+        margin-right: -$basePadding;
+        margin-bottom: -$height;
+        margin-left: -$basePadding;
+    }
     .header {
-        margin-bottom: 50em;
+        margin-bottom: $height - 11em;
+    }
+    @media screen and (max-width:1023px) {
+        $scaling: 0.85;
+        .back {
+            height: $height * $scaling;
+            margin-bottom: -$height * $scaling;
+        }
+        .header {
+            margin-bottom: $height * $scaling - 11em;
+        }
+    }
+    @media screen and (max-width:900px) {
+        $scaling: 0.7;
+        .back {
+            height: $height * $scaling;
+            margin-bottom: -$height * $scaling;
+        }
+        .header {
+            margin-bottom: $height * $scaling - 11em;
+        }
+    }
+    @media screen and (max-width:700px) {
+        $scaling: 0.55;
+        .back {
+            height: $height * $scaling;
+            margin-bottom: -$height * $scaling;
+        }
+        .header {
+            margin-bottom: $height * $scaling - 11em;
+        }
     }
 }
 section {
@@ -1354,10 +1396,19 @@ article .autolinklist {
     @media screen and (max-height:600px) {
         min-height: $height - 10em;
     }
-    @media screen and (min-height:800px) {
+    @media screen and (max-width:900px) {
+        min-height: $height - 10em;
+    }
+    @media screen and (min-height:800px) and (min-width:1023px) {
         min-height: $height + 10em;
     }
-    @media screen and (min-height:1000px) {
+    @media screen and (min-height:1000px) and (min-width:1023px) {
+        min-height: $height + 20em;
+    }
+    @media screen and (max-height:1000px) and (min-width:1300px) {
+        min-height: $height + 10em;
+    }
+    @media screen and (min-height:1000px) and (min-width:1300px) {
         min-height: $height + 20em;
     }
 
