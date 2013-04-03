@@ -1307,6 +1307,9 @@ iframe#twitter-widget-0 {
     @media screen and (min-width:1300px) {
         margin-top: 2 * $basePadding - 2em;
     }
+    @media screen and (max-width:1023px) {
+        margin-top: 2 * $basePadding;
+    }
 
     ul {
         @include transition(500ms);
