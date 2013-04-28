@@ -869,6 +869,9 @@ iframe.example {
 .fragment {
     width: 50em;
 }
+.memdoc .fragment {
+    width: 46em;
+}
 pre.fragment {
     border: 1px solid #C4CFE5;
     background-color: #FBFCFD;
