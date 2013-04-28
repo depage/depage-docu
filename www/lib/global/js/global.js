@@ -1,7 +1,7 @@
 /**
  * @file    js/global.js
  *
- * copyright (c) 2006-2011 Frank Hellenkamp [jonas@depagecms.net]
+ * copyright (c) 2006-2009 Frank Hellenkamp [jonas@depagecms.net]
  *
  * @author    Frank Hellenkamp [jonas@depagecms.net]
  */
@@ -9,21 +9,22 @@
 // global helpers
 // {{{ getHexColorFromString()
 function getHexColorFromString(colorString) {
+    var hexCode;
     if (colorString == "transparent") {
-	var hexCode = "000000";
+        hexCode = "000000";
     } else if (colorString.substr(0, 3) == "rgb") {
         var components = colorString.match(/[0-9]+/g);
-        var r = parseInt(components[0]).toString(16);
-        var g = parseInt(components[1]).toString(16);
-        var b = parseInt(components[2]).toString(16);
+        var r = parseInt(components[0], 10).toString(16);
+        var g = parseInt(components[1], 10).toString(16);
+        var b = parseInt(components[2], 10).toString(16);
 
         if (r.length < 2) r = "0" + r;
         if (g.length < 2) g = "0" + g;
         if (b.length < 2) b = "0" + b;
 
-        var hexCode = r + g + b;
+        hexCode = r + g + b;
     } else if (colorString.charAt(0) == "#") {
-        var hexCode = colorString.substring(1);
+        hexCode = colorString.substring(1);
     }
 
     return "0x" + hexCode;
@@ -35,46 +36,75 @@ function getHexColorFromString(colorString) {
 jQuery.extend(jQuery.browser, {
     flash: (function (neededVersion) {
         var found = false;
-	var version = "0,0,0";
+        var version = "0,0,0";
 
-	try {
-	    // get ActiveX Object for Internet Explorer
-	    version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
-	} catch(e) {
-	    // check plugins for Firefox, Safari, Opera etc.
-	    try {
-		if (navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
-		    version = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
-		}
-	    } catch(e) {
-		return false;
-	    }		
-	}
+        try {
+            // get ActiveX Object for Internet Explorer
+            version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
+        } catch(e) {
+            // check plugins for Firefox, Safari, Opera etc.
+            try {
+                if (navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
+                    version = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
+                }
+            } catch(e) {
+                return false;
+            }           
+        }
 
-	var pv = version.match(/\d+/g);
-	var rv = neededVersion.match(/\d+/g);
+        var pv = version.match(/\d+/g);
+        var rv = neededVersion.match(/\d+/g);
 
-	for (var i = 0; i < 3; i++) {
-	    pv[i] = parseInt(pv[i] || 0);
-	    rv[i] = parseInt(rv[i] || 0);
+        for (var i = 0; i < 3; i++) {
+            pv[i] = parseInt(pv[i] || 0, 10);
+            rv[i] = parseInt(rv[i] || 0, 10);
 
-	    if (pv[i] < rv[i]) {
-		// player is less than required
-	       	return false;
-	    } else if (pv[i] > rv[i]) {
-		// player is greater than required
-		return true;
-	    }
-	}
-	// major version, minor version and revision match exactly
-	return true;
+            if (pv[i] < rv[i]) {
+                // player is less than required
+                return false;
+            } else if (pv[i] > rv[i]) {
+                // player is greater than required
+                return true;
+            }
+        }
+        // major version, minor version and revision match exactly
+        return true;
     })
 });
 // }}}
 // {{{ jquery.browser.iphone
 jQuery.browser.iphone = function() {
-    return /iphone/.test(navigator.userAgent.toLowerCase());
+    return (/iphone/).test(navigator.userAgent.toLowerCase());
 }();
+// }}}
+// {{{ jquery.browser.has3d
+jQuery.extend(jQuery.browser, {
+    has3d: (function () {
+        var el = document.createElement('p'), 
+            has3d,
+            transforms = {
+                'webkitTransform':'-webkit-transform',
+                'OTransform':'-o-transform',
+                'msTransform':'-ms-transform',
+                'MozTransform':'-moz-transform',
+                'transform':'transform'
+            };
+
+        // Add it to the body to get the computed style.
+        document.body.insertBefore(el, null);
+
+        for (var t in transforms) {
+            if (el.style[t] !== undefined) {
+                el.style[t] = "translate3d(1px,1px,1px)";
+                has3d = window.getComputedStyle(el).getPropertyValue(transforms[t]);
+            }
+        }
+
+        document.body.removeChild(el);
+
+        return (has3d !== undefined && has3d.length > 0 && has3d !== "none");
+    })
+});
 // }}}
 // {{{ jquery.flash
 jQuery.fn.flash = function(params) {
@@ -83,31 +113,31 @@ jQuery.fn.flash = function(params) {
     var flashParam = [];
 
     for (var p in params.params) {
-	flashParam.push(p + "=" + encodeURI(params.params[p]));
+        flashParam.push(p + "=" + encodeURI(params.params[p]));
     }
 
     //object part
     html1 += "<object type=\"application/x-shockwave-flash\" ";
     html1 += "data=\"" + params.src + "?" + flashParam.join("&amp;") + "\" ";
     if (params.width !== undefined) {
-	html1 += "width=\"" + params.width + "\" ";
+        html1 += "width=\"" + params.width + "\" ";
     }
     if (params.height !== undefined) {
-	html1 += "height=\"" + params.height + "\" ";
+        html1 += "height=\"" + params.height + "\" ";
     }
     if (params.className !== undefined) {
-	html1 += "class=\"" + params.className + "\" ";
+        html1 += "class=\"" + params.className + "\" ";
     }
     if (params.id !== undefined) {
-	html1 += "id=\"" + params.id + "\" ";
+        html1 += "id=\"" + params.id + "\" ";
     }
 
     //param part
     html2 += "<param name=\"movie\" value=\"" + params.src + "?" + flashParam.join("&amp;") + "\" />";
 
     if (params.transparent === true) {
-	html1 += "mwmode=\"transparent\"";
-	html2 += "<param name=\"wmode\" value=\"transparent\" />";
+        html1 += "mwmode=\"transparent\"";
+        html2 += "<param name=\"wmode\" value=\"transparent\" />";
     }
     html1 += ">";
 
@@ -140,23 +170,23 @@ jQuery.fn.flash = function(params) {
  */
 
 $.fn.pause = function(milli,type) {
-	milli = milli || 1000;
-	type = type || "fx";
-	return this.queue(type,function(){
-		var self = this;
-		setTimeout(function(){
-			$.dequeue(self);
-		},milli);
-	});
+        milli = milli || 1000;
+        type = type || "fx";
+        return this.queue(type,function(){
+                var self = this;
+                setTimeout(function(){
+                        $.dequeue(self);
+                },milli);
+        });
 };
 
 $.fn.clearQueue = $.fn.unpause = function(type) {
-	return this.each(function(){
-		type = type || "fx";
-		if(this.queue && this.queue[type]) {
-			this.queue[type].length = 0;
-		}
-	});
+        return this.each(function(){
+                type = type || "fx";
+                if(this.queue && this.queue[type]) {
+                        this.queue[type].length = 0;
+                }
+        });
 };
 // }}}
 // {{{ jquery fx custom
@@ -193,54 +223,28 @@ jQuery.fx.prototype.custom = function(from, to, unit){
             }
         }, 75);
     }
-}
+};
 // }}}
 
 // replace content, depending on reader capabilities
-// {{{ replaceEmailChars()
-function replaceEmailChars(mail) {
-    mail = unescape(mail);
-    mail = mail.replace(/ \*at\* /g, "@");
-    mail = mail.replace(/ \*dot\* /g, ".");
-    mail = mail.replace(/ \*punkt\* /g, ".");
-    mail = mail.replace(/ \*underscore\* /g, "_");
-    mail = mail.replace(/ \*unterstrich\* /g, "_");
-    mail = mail.replace(/ \*minus\* /g, "-");
-    mail = mail.replace(/mailto: /, "mailto:");
-
-    return mail;
-}
-// }}}
-// {{{ replaceEmailRefs()
-function replaceEmailRefs() {
-    $("a[href*='mailto:']").each(function() {
-        // replace attribute
-        $(this).attr("href", replaceEmailChars($(this).attr("href")));
-        
-        //replace content if necessary
-        if ($(this).text().indexOf(" *at* ") > 0) {
-            $(this).text(replaceEmailChars($(this).text()));
-        }
-    });
-}
-// }}}
 // {{{ replaceFlashContent()
 function replaceFlashContent() {
     $("img.flash_repl").each(function() {
-	var parent = $(this).parent().prepend( 
-	    $().flash({
-		src:		this.src.replace(/\.jpg|\.gif|\.png/, ".swf").replace(/\&/, "&amp;"),
-		width:		this.width,
-		height:		this.height,
-		className:	"flash",
-		id:		this.id ? this.id + "_flash" : null,
-		transparent:    $(this).hasClass("trans")
-	    }) 
-	);
-	if (parent[0].nodeName == "A") {
-	    // deactivate link for surrounding a-node in safari
-	    parent[0].href = "javascript:return false;";
-	}
+        var parent = $(this).parent().prepend( 
+            $().flash({
+                src:            this.src.replace(/\.jpg|\.gif|\.png/, ".swf").replace(/\&/, "&amp;"),
+                width:          this.width,
+                height:         this.height,
+                className:      "flash",
+                id:             this.id ? this.id + "_flash" : null,
+                transparent:    $(this).hasClass("trans")
+            }) 
+        );
+        if (parent[0].nodeName == "A") {
+            parent.click(function() {
+                return false;
+            });
+        }
     });
 }
 // }}}
@@ -249,13 +253,27 @@ function replaceInteractiveContent() {
     var formnum = 0;
 
     // {{{ get language from content tag in header
-    var lang = $("meta[name = 'Content-Language']")[0].content;
+    var lang = $("html").attr("lang");
     // }}}
     // {{{ add click event for teaser
     $(".teaser").click( function() {
         document.location = $("a", this)[0].href;
     });
     // }}}
+    // email antispam
+    $("a[href*='mailto:']").depageAntispam();
+    
+    // setup social buttons
+    $(".social").depageSocialButtons({
+        services: [
+            'twitter',
+            'facebookShare',
+            'googleplusShare',
+            //'digg',
+            //'reddit',
+            'mail'
+        ]
+    });
     // {{{ replace buttons by textlinks
     $("form").each(function() {
         var form = this;
@@ -278,154 +296,23 @@ function replaceInteractiveContent() {
         });
     });
     // }}}
-    // {{{ change height of iframe
-    $("iframe[seamless]").iframeAutoHeight({
-        heightOffset: 30
-    });
-    // }}}
     // {{{ add handlers for slideshow images
-    $(".slideshow").each( function() {
-        var divs = $("div", this);
-        var speed = Number($(this).attr("data-slideshow-speed"));
-        if (!speed) {
-            var speed = 3000;
-        }
-
-        var pause = Number($(this).attr("data-slideshow-pause"));
-        if (!pause) {
-            var pause = 3000;
-        }
-        if ($.browser.iphone) {
-            speed = 0;
-            pause = 5000;
-        }
-
-        divs.css({
-            top: 0
-        });
-        for (var i = 1; i < divs.length; i++) {
-            $(divs[i]).hide();
-        }
-
-        var fadeIn = function(n) {
-            // wait
-            $(divs[n]).animate({top: "2em"}, pause, function() {
-                // fade in
-                $(this).fadeIn(speed, function() {
-                    if (n < divs.length - 1) {
-                        // fade in next image
-                        fadeIn(n + 1);
-                    } else {
-                        // hide all images, fade out last
-                        for (var i = 1; i < divs.length - 1; i++) {
-                            $(divs[i]).hide();
-                        }
-                        $(divs[n]).animate({top: 0}, pause, function() {
-                            $(divs[n]).fadeOut(speed, function() {
-                                fadeIn(1);
-                            });
-                        });
-                    }
-                });
-            });
-        }
-        fadeIn(1);
+    $(".slideshow").depageSlideshow({
+        elements: "div"
     });
     // }}}
         // {{{ add handlers for compare images
-        $(".compare").each( function() {
-            var divs = $("div", this);
-            var perc = 100 / divs.length;
-            var percZoomed = 40 / (divs.length - 1);
-
-            for (var i = 0; i < divs.length; i++) {
-                $(divs[i]).css({
-                    left: i * perc + "%",
-                    top: 0
-                });
-            }
-            $(this).mouseover( function(e) {
-                var activeDiv = $(e.target).parent()[0];
-
-                if (activeDiv.nodeName == "DIV") {
-                    var xpos = 0;
-
-                    for (var i = 0; i < divs.length; i++) {
-                        $(divs[i]).dequeue();
-                        $(divs[i]).animate({
-                            left: xpos + "%"
-                        });
-
-                        if (divs[i] == activeDiv) {
-                            xpos += 60;
-                        } else {
-                            xpos += percZoomed;
-                        }
-                    }
-                }
-            });
-            $(this).mouseout( function() {
-                for (var i = 0; i < divs.length; i++) {
-                    $(divs[i]).dequeue();
-                    $(divs[i]).animate({
-                        left: i * perc + "%"
-                    });
-                }
-            });
-        });
+        $(".compare").depageCompareImages();
         // }}}
-    // {{{ add handlers for timeline
-    $(".timeline").each( function() {
-        var timeline = this;
-        var animTime = 200;
-        var count =  $("dt", timeline).length;
-        var i = 0;
-
-        $(timeline).addClass("interactive");
-
-        $("dl", this).prepend("<div class=\"slider\"><div></div></div>");
-        var slider = $(".slider div", timeline);
-        slider.css({
-            height: (100 / count) + "%",
-            top: "0%"
-        });
-
-        $("dt", timeline).each( function() {
-            this.contentElement = $(this).next("dd")[0];
-            this.timelinePos = i++;
-
-            this.show = function() {
-                $(this).addClass("active");
-                $(this.contentElement).fadeIn(animTime);
-                slider.animate({
-                    top: this.timelinePos * (100 / count) + "%"
-                }, animTime);
-            }
-            this.hide = function() {
-                $(this).removeClass("active");
-                $(this.contentElement).fadeOut(animTime);
-            }
-            $(this).mouseup( function() {
-                // hide others
-                $("dt.active", timeline).not(this).each( function() {
-                    this.hide();
-                });
-                // show content
-                this.show();
-            });
-        });
-
-        $("dd", timeline).hide();
-        $("dt:first", timeline).mouseup();
-    });
-    // }}}
     // {{{ add handlers for code-listings
+    var text_source_showplain;
+    var text_source_showstyled;
     if (lang == "de") {
-        var text_source_showplain = "Quelltext als reinen Text anzeigen";
-        var text_source_showstyled = "Quelltext formatiert anzeigen";
+        text_source_showplain = "Quelltext als reinen Text anzeigen";
+        text_source_showstyled = "Quelltext formatiert anzeigen";
     } else {
-        var text_source_showplain = "View this source in Plain Text";
-        var text_source_showstyled = "View this source as Highlighted Code";
+        text_source_showplain = "View this source in Plain Text";
+        text_source_showstyled = "View this source as Highlighted Code";
     }
     $('.source pre').each(function() { //on each code box do
         $(this)
@@ -442,12 +329,17 @@ function replaceInteractiveContent() {
             .text(text_source_showplain)
             .next().show().next().hide();
     });
+    
+    // style source code
+    prettyPrint();
     // }}}
 
     if (!$.browser.iphone) {
         // {{{ add handlers for zoom images
         var zoomRatio;
         var thumbMoveRatio;
+        var oldWidth;
+        var newWidth;
 
         $(".zoom").each( function() {
             var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
@@ -480,12 +372,14 @@ function replaceInteractiveContent() {
 
             $(".front", this).height($(".front img", this).height());
 
-            var oldWidth = $(".front img", this).width();
-            $(".front img", this).css("width", "auto");
-            var newWidth = $(".front img", this).width();
+            oldWidth = $(".front img", this).width();
+            $(".front img", this).css({
+                width: "auto",
+                maxWidth: "none"
+            });
+            newWidth = $(".front img", this).width();
 
-            $(".thumb", this).dequeue();
-            $(".thumb", this).fadeIn(200);
+            $(".thumb", this).stop().fadeIn(200);
 
             zoomRatio = newWidth / oldWidth;
             thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
@@ -500,14 +394,12 @@ function replaceInteractiveContent() {
             $(this).removeClass("zoomed");
 
             $(".front img", this).css({
-                "width": null,
-                "marginLeft": null,
-                "marginTop": null
+                width: oldWidth,
+                marginLeft: 0,
+                marginTop: 0
             });
 
-            $(".thumb", this).dequeue();
-            $(".thumb", this).css("opacity", 1);
-            $(".thumb", this).fadeOut(200);
+            $(".thumb", this).stop().css("opacity", 1).fadeOut(200);
         });
         $(".zoom").mousemove( function(e) {
             var offsetX = $(this).offset().left - e.pageX;
@@ -528,67 +420,38 @@ function replaceInteractiveContent() {
     }
 }
 // }}}
-//
-// {{{ addDoxygenBehaviours()
-function addDoxygenBehaviours() {
-    $(".dynheader").toggle( function() {
-        $(this).addClass("active");
-        $(".dyncontent").show();
-    }, function() {
-        $(this).removeClass("active");
-        $(".dyncontent").hide();
-    });
-    $(".dyncontent").hide();
-}
-// }}}
 
-// fix browser behaviours
-// {{{ fixHeightIE6()
-function fixHeightIE6() {
-    var body = $("body");
-    var content = $("content");
-
-    if (body.height() > content.height()) {
-	content.height(body.height());
+    // {{{ onDocumentScroll()
+    function onDocumentScroll() {
+        var scrollTop = window.pageYOffset || $(window).scrollTop();
+        var windowHeight = $(window).height();
+        $(".articlefooter").each(function() {
+            var $el = $(this);
+            $el.toggleClass("in-view", $el.offset().top - windowHeight / 3 * 2 < scrollTop);
+        });
     }
-}
-// }}}
-// {{{ fixFlashDisplayOpera()
-function fixFlashDisplayOpera(numcall) {
-    numcall++;
-    if (numcall < 20) {
-	setTimeout("fixFlashDisplayOpera(" + numcall + ")", 200);
-    }
-
-    if (numcall % 2 == 0) {
-	$("object").css({ border: "0px solid" });
-    } else {
-	$("object").css({ border: "none" });
-    }
-}
-// }}}
+    // }}}
 
 // {{{ register events
 $(document).ready(function() {
     // replace content
-    replaceEmailRefs();
     replaceInteractiveContent();
-    addDoxygenBehaviours();
+
+    $(window).on("statechangecomplete", replaceInteractiveContent);
+    $(window).on("scroll resize", onDocumentScroll);
+
+    new FastClick(document.body);
+
+    // add 3d flag
+    if ($.browser.has3d()) {
+        $("html").addClass("css-3dtransform");
+    }
 
     // add flash content
     if ($.browser.flash("8,0,0")) {
         replaceFlashContent();
 
-	$("body").addClass("flash");
-    }
-
-    // fix browser bugs
-    if ($.browser.msie) {
-	fixHeightIE6();
-	$(window).resize( fixHeightIE6 );
-    }
-    if ($.browser.opera) {
-	fixFlashDisplayOpera(0);
+        $("html").addClass("flash");
     }
 
     // hide urlbar
@@ -601,4 +464,3 @@ $(document).ready(function() {
 // }}}
     
 /* vim:set ft=javascript sw=4 sts=4 fdm=marker : */
-

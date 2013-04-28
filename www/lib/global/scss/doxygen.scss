@@ -1,0 +1,919 @@
+/* {{{ doxygen original */
+/* The standard CSS for doxygen */
+
+/* @group Heading Levels */
+
+dt {
+	font-weight: bold;
+}
+
+p.startli, p.startdd, p.starttd {
+	margin-top: 2px;
+}
+
+p.endli {
+	margin-bottom: 0px;
+}
+
+p.enddd {
+	margin-bottom: 4px;
+}
+
+p.endtd {
+	margin-bottom: 2px;
+}
+
+/* @end */
+
+caption {
+	font-weight: bold;
+}
+
+span.legend {
+        font-size: 70%;
+        text-align: center;
+}
+
+
+div.qindex, div.navtab{
+	background-color: #EBEFF6;
+	border: 1px solid #A3B4D7;
+	text-align: center;
+	margin: 2px;
+	padding: 2px;
+}
+
+div.qindex, div.navpath {
+	width: 100%;
+	line-height: 140%;
+}
+
+div.navtab {
+	margin-right: 15px;
+}
+
+/* @group Link Styling */
+
+a {
+	color: #3D578C;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.contents a:visited {
+	color: #4665A2;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.qindex {
+	font-weight: bold;
+}
+
+a.qindexHL {
+	font-weight: bold;
+	background-color: #9CAFD4;
+	color: #ffffff;
+	border: 1px double #869DCA;
+}
+
+.contents a.qindexHL:visited {
+        color: #ffffff;
+}
+
+a.el {
+	font-weight: bold;
+}
+
+a.elRef {
+}
+
+a.code {
+	color: #4665A2;
+}
+
+a.codeRef {
+	color: #4665A2;
+}
+
+/* @end */
+
+
+
+
+div.groupHeader {
+	margin-left: 16px;
+	margin-top: 12px;
+	font-weight: bold;
+}
+
+div.groupText {
+	margin-left: 16px;
+	font-style: italic;
+}
+
+
+
+tr.memlist {
+	background-color: #EEF1F7;
+}
+
+p.formulaDsp {
+	text-align: center;
+}
+
+img.formulaDsp {
+	
+}
+
+img.formulaInl {
+	vertical-align: middle;
+}
+
+div.center {
+	text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px;
+}
+
+div.center img {
+	border: 0px;
+}
+
+address.footer {
+	text-align: right;
+	padding-right: 12px;
+}
+
+img.footer {
+	border: 0px;
+	vertical-align: middle;
+}
+
+/* @group Code Colorization */
+
+span.keyword {
+	color: #008000
+}
+
+span.keywordtype {
+	color: #604020
+}
+
+span.keywordflow {
+	color: #e08000
+}
+
+span.comment {
+	color: #800000
+}
+
+span.preprocessor {
+	color: #806020
+}
+
+span.stringliteral {
+	color: #002080
+}
+
+span.charliteral {
+	color: #008080
+}
+
+span.vhdldigit { 
+	color: #ff00ff 
+}
+
+span.vhdlchar { 
+	color: #000000 
+}
+
+span.vhdlkeyword { 
+	color: #700070 
+}
+
+span.vhdllogic { 
+	color: #ff0000 
+}
+
+/* @end */
+
+td.tiny {
+	font-size: 75%;
+}
+
+.dirtab {
+	padding: 4px;
+	border-collapse: collapse;
+	border: 1px solid #A3B4D7;
+}
+
+th.dirtab {
+	background: #EBEFF6;
+	font-weight: bold;
+}
+
+
+/* @group Member Descriptions */
+
+
+.mdescLeft, .mdescRight,
+.memItemLeft, .memItemRight,
+.memTemplItemLeft, .memTemplItemRight, .memTemplParams {
+	background-color: #F9FAFC;
+	border: none;
+	margin: 4px;
+	padding: 1px 0 0 8px;
+}
+
+.mdescLeft, .mdescRight {
+	padding: 0px 8px 4px 8px;
+	color: #555;
+}
+
+.memItemLeft, .memItemRight, .memTemplParams {
+	border-top: 1px solid #C4CFE5;
+}
+
+.memItemLeft, .memTemplItemLeft {
+        white-space: nowrap;
+}
+
+.memTemplParams {
+	color: #4665A2;
+        white-space: nowrap;
+}
+
+/* @end */
+
+/* @group Member Details */
+
+/* Styles for detailed member documentation */
+
+.memtemplate {
+	font-size: 80%;
+	color: #4665A2;
+	font-weight: normal;
+	margin-left: 9px;
+}
+
+.memnav {
+	background-color: #EBEFF6;
+	border: 1px solid #A3B4D7;
+	text-align: center;
+	margin: 2px;
+	margin-right: 15px;
+	padding: 2px;
+}
+
+.memitem {
+	padding: 0;
+	margin-bottom: 10px;
+}
+
+.memname {
+        white-space: nowrap;
+        font-weight: bold;
+        margin-left: 6px;
+}
+
+
+.paramkey {
+	text-align: right;
+}
+
+.paramtype {
+	white-space: nowrap;
+}
+
+.paramname {
+	color: #602020;
+	white-space: nowrap;
+}
+.paramname em {
+	font-style: normal;
+}
+
+.params, .retval, .exception, .tparams {
+        border-spacing: 6px 2px;
+}       
+
+.params .paramname, .retval .paramname {
+        font-weight: bold;
+        vertical-align: top;
+}
+        
+.params .paramtype {
+        font-style: italic;
+        vertical-align: top;
+}       
+        
+.params .paramdir {
+        font-family: "courier new",courier,monospace;
+        vertical-align: top;
+}
+
+
+
+
+/* @end */
+
+/* @group Directory (tree) */
+
+/* for the tree view */
+
+.ftvtree {
+	font-family: sans-serif;
+	margin: 0px;
+}
+
+/* these are for tree view when used as main index */
+
+.directory {
+	font-size: 9pt;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.directory h3 {
+	margin: 0px;
+	margin-top: 1em;
+	font-size: 11pt;
+}
+
+
+.directory > h3 {
+	margin-top: 0;
+}
+
+.directory p {
+	margin: 0px;
+	white-space: nowrap;
+}
+
+.directory div {
+	display: none;
+	margin: 0px;
+}
+
+.directory img {
+	vertical-align: -30%;
+}
+
+/* these are for tree view when not used as main index */
+
+.directory-alt {
+	font-size: 100%;
+	font-weight: bold;
+}
+
+.directory-alt h3 {
+	margin: 0px;
+	margin-top: 1em;
+	font-size: 11pt;
+}
+
+.directory-alt > h3 {
+	margin-top: 0;
+}
+
+.directory-alt p {
+	margin: 0px;
+	white-space: nowrap;
+}
+
+.directory-alt div {
+	display: none;
+	margin: 0px;
+}
+
+.directory-alt img {
+	vertical-align: -30%;
+}
+
+/* @end */
+
+div.dynheader {
+        margin-top: 8px;
+}
+
+address {
+	font-style: normal;
+	color: #2A3D61;
+}
+
+table.doxtable {
+	border-collapse:collapse;
+}
+
+table.doxtable td, table.doxtable th {
+	border: 1px solid #2D4068;
+	padding: 3px 7px 2px;
+}
+
+table.doxtable th {
+	background-color: #374F7F;
+	color: #FFFFFF;
+	font-size: 110%;
+	padding-bottom: 4px;
+	padding-top: 5px;
+	text-align:left;
+}
+
+.tabsearch {
+	top: 0px;
+	left: 10px;
+	height: 36px;
+	background-image: url('tab_b.png');
+	z-index: 101;
+	overflow: hidden;
+	font-size: 13px;
+}
+
+
+
+
+div.ingroups
+{
+	font-size: 8pt;
+	padding-left: 5px;
+	width: 50%;
+	text-align: left;
+}
+
+div.ingroups a
+{
+	white-space: nowrap;
+}
+
+
+
+
+dl.note, dl.warning, dl.attention, dl.pre, dl.post, dl.invariant, dl.deprecated, dl.todo, dl.test, dl.bug
+{
+        border-left: 0.3em solid;
+        padding: 0 0 0 1.6em;
+        margin: 0.6em 0;
+}
+
+dl.note
+{
+        border-color: #D0D000;
+}
+
+dl.warning, dl.attention
+{
+        border-color: #FF0000;
+}
+
+dl.pre, dl.post, dl.invariant
+{
+        border-color: #00D000;
+}
+
+dl.deprecated
+{
+        border-color: #505050;
+}
+
+dl.todo
+{
+        border-color: #FF9900;
+}
+
+dl.test
+{
+        border-color: #3030E0;
+}
+
+dl.bug
+{
+        border-color: #C08050;
+}
+
+/* }}} */
+
+/* {{{ navigation */
+.topnav li a:hover {
+    text-decoration: underline;
+}
+#navrow1,
+#navrow2 {
+    float: right;
+    clear: right;
+    width: 17em;
+    margin-left: 3em;
+    /*text-transform: lowercase;*/
+}
+#navrow1 {
+    padding-top: 6.5em;
+    right: 0;
+}
+#navrow1 ul,
+#navrow2 ul {
+    line-height: 1.35em;
+    list-style: none;
+}
+#navrow1 ul a,
+#navrow2 ul a {
+    font-size: 0.95em;
+}
+#navrow1 ul a:hover,
+#navrow2 ul a:hover {
+    text-decoration: underline;
+}
+#navrow1 ul ul,
+#navrow2 ul ul {
+    margin-left: 1em;
+}
+#navrow1 ul li.current a,
+#navrow2 ul li.current a {
+    font-weight: bold;
+}
+#navrow1 ul a,
+#navrow2 ul a {
+    color: #AEAEAE;
+}
+#navrow1:hover ul a,
+#navrow2:hover ul a {
+    color: #555555;
+}
+#navrow1 ul a:hover,
+#navrow2 ul a:hover {
+    color: #FF9900;
+}
+#navrow1 .tablist,
+#navrow2 .tablist {
+    border-left: 1px solid #dfdfdf;
+    padding-bottom: 1.6em;
+}
+#navrow1 ul,
+#navrow2 ul {
+    padding: 0 2em 0em 2.5em;
+    /*margin-bottom: 1.2em;*/
+}
+#navrow1 ul:hover,
+#navrow2 ul:hover {
+    border-left: 0.3em solid #FF9900 !important;
+    border-left: none;
+    padding-left: 2.3em;
+}
+#navrow1 ul:hover ul,
+#navrow2 ul:hover ul {
+    border-left: 0.3em solid #FFFFFF !important;
+    border-left: none;
+}
+#navrow1 ul ul,
+#navrow2 ul ul {
+    padding: 0;
+}
+#navrow3,
+#navrow4 {
+    width: 50em;
+}
+#navrow4 {
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    border-bottom: 1px solid #dfdfdf;
+}
+#navrow3 .tablist li,
+#navrow4 .tablist li {
+    display: inline-block;
+    padding-right: 0.3em;
+}
+#navrow3 ul.tablist .current a,
+#navrow4 ul.tablist .current a {
+    font-weight: bold;
+    color: #000000;
+}
+/* }}} */
+/* {{{ navpath */
+.navpath ul {
+    display: block;
+    height: 2em;
+    width: 50em;
+    border-bottom: 1px solid #dddddd;
+}
+.navpath .navelem {
+    display: inline;
+    list-style: none;
+}
+.navpath .navelem a {
+    display: inline-block;
+    padding-right: 0.2em;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+.navpath .navelem a:after {
+    content: " » ";
+    font-weight: normal;
+}
+.navpath .navelem:last-child a {
+    font-weight: bold;
+}
+.navpath .navelem:last-child a:after {
+    content: "";
+}
+/* }}} */
+
+/* {{{ searchbox */
+.tablist #searchli {
+    height: auto;
+    width: auto;
+}
+body #MSearchBox {
+    display: block;
+    position: absolute;
+    top: 6.3em;
+    right: 3.5em;
+}
+body #MSearchSelectWindow {
+    position: absolute;
+    top: 6em;
+    right: 4em;
+    left: auto !important;
+    width: 12.5em ;
+    background: #CCC8C4;
+    border: none;
+    border-radius: 0.5em;
+}
+body #MSearchSelectWindow a {
+    font-size: 1.0em;
+}
+body #MSearchResultsWindow {
+    position: absolute;
+    top: 8em;
+    right: 4em;
+    width: 25em;
+    left: auto !important;
+    background: #dddddd;
+    border: none;
+    border-radius: 0.5em;
+}
+body iframe#MSearchResults {
+    width: 100%;
+    height: 30em;
+}
+/* }}} */
+
+/* {{{ content */
+.contents {
+    margin-top: 3em;
+    width: 50em;
+}
+.contents .intro {
+    padding-top: 3em;
+    line-height: 1.8em;
+    margin-bottom: 3em;
+}
+#content .intro h1 {
+    font-size: 1.05em;
+    font-weight: bold;
+    line-height: 1.6em;
+    color: #555555;
+}
+.contents .textblock p {
+    margin-bottom: 0.8em;
+}
+.contents li {
+    list-style: disc;
+}
+.contents li,
+.contents dt,
+.contents dd {
+    line-height: 1.8em;
+}
+.contents li,
+.contents dd {
+    margin-left: 1.5em;
+}
+hr {
+    height: 0;
+    border: none;
+    border-top: 1px solid #DDDDDD;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+/* }}} */
+/* {{{ header */
+div.header {
+    width: 50em;
+    position: relative;
+}
+#content .headertitle {
+    margin-top: 0.2em;
+    text-transform: lowercase;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#content .headertitle .title {
+    font-size: 1.3em;
+    line-height: 1.6em;
+    color: #555555;
+}
+.home #content .headertitle {
+    font-weight: normal;
+    padding-top: 0.7em;
+    padding-bottom: 0em;
+    padding-right: 2em;
+    letter-spacing: 0;
+}
+.home #content .headertitle .title {
+    font-size: 2.5em;
+    line-height: 1.0em;
+}
+/* }}} */
+/* {{{ summary */
+div.summary {
+    position: absolute;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    color: #aaaaaa;
+    top: 3.6em;
+}       
+div.summary a {
+    font-size: 0.9em;
+    white-space: nowrap;
+    color: #666666;
+}
+div.summary a:hover {
+    color: #000000;
+}
+/* }}} */
+/* {{{ dyncontent */
+.dynheader {
+    cursor: pointer;
+    font-weight: bold;
+    color: #555555;
+}
+.dynheader::before {
+    content: "show";
+}
+.dynheader.active::before {
+    content: "hide";
+}
+.dyncontent {
+    width: 100%;
+    max-height: 40em;
+    overflow: scroll;
+    border: 1px solid #aaaaaa;
+}
+.dyncontent img {
+    max-width: 100%;
+}
+/* }}} */
+/* {{{ tables */
+table {
+    margin-top: 1.6em;
+    border-collapse: collapse;
+    line-height: 1.3em;
+}
+table td {
+    vertical-align: top;
+}
+td.indexkey {
+    font-weight: bold;
+    border-top: 1px solid #C4CFE5;
+    border-bottom: 1px solid #C4CFE5;
+    padding: 0.2em 1em 0.2em 0;
+}
+
+td.indexvalue {
+    border-top: 1px solid #C4CFE5;
+    border-bottom: 1px solid #C4CFE5;
+    padding: 0.2em 1em 0.2em 0;
+}
+
+table.params,
+table.memname {
+    margin-top: 0;
+}
+/* }}} */
+/* {{{ elements */
+a.el {
+    clear: both;
+}
+dl.el {
+    float: right;
+}
+/* }}} */
+/* {{{ members */
+table.memberdecls {
+    border-spacing: 0;
+    padding: 0;
+}
+.memproto,
+.memdoc {
+    box-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0.3em 0.3em 0.3em;
+    -webkit-box-shadow: 0.3em 0.3em 0.3em rgba(0, 0, 0, 0.15);
+}
+.memproto {
+    margin-top: 0.5em;
+    border-top: 1px solid #CCC8C4;
+    border-left: 1px solid #CCC8C4;
+    border-right: 1px solid #CCC8C4;
+    padding: 0.5em;
+    color: #253555;
+    font-weight: bold;
+    /* opera specific markup */
+    border-top-right-radius: 0.6em;
+    border-top-left-radius: 0.6em;
+    /* firefox specific markup */
+    -moz-border-radius-topright: 0.6em;
+    -moz-border-radius-topleft: 0.6em;
+    /* webkit specific markup */
+    -webkit-border-top-right-radius: 0.6em;
+    -webkit-border-top-left-radius: 0.6em;
+    background-color: #ebe9e7;
+
+}
+.memdoc {
+    border-bottom: 1px solid #CCC8C4;      
+    border-left: 1px solid #CCC8C4;      
+    border-right: 1px solid #CCC8C4; 
+    padding: 0.5em 1em;
+    background-color: #FBFCFD;
+    border-top-width: 0;
+    /* opera specific markup */
+    border-bottom-left-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+    /* firefox specific markup */
+    -moz-border-radius-bottomleft: 0.6em;
+    -moz-border-radius-bottomright: 0.6em;
+    background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 60%, #F7F8FB 95%, #EEF1F7);
+    /* webkit specific markup */
+    -webkit-border-bottom-left-radius: 0.6em;
+    -webkit-border-bottom-right-radius: 0.6em;
+    background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.6,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.95,#F7F8FB), to(#EEF1F7));
+}
+#content .memdoc p {
+    font-size: 1.0em;
+    margin-bottom: 0.8em;
+}
+
+/* }}} */
+
+/* {{{ examples */
+iframe.example {
+    width: 50em;
+    height: 20em;
+    border: 1px solid #aaaaaa;
+}
+/* }}} */
+/* {{{ source (fragment) */
+.fragment {
+    width: 50em;
+}
+pre.fragment {
+    border: 1px solid #C4CFE5;
+    background-color: #FBFCFD;
+    padding: 4px 6px;
+    margin: 4px 8px 4px 2px;
+    overflow: auto;
+    word-wrap: break-word;
+    font-size:  9pt;
+    line-height: 125%;
+}
+/* }}} */
+
+/* {{{ author */
+dl.author {
+    position: relative;
+    font-size: 0.8em;
+    margin: 1em 0;
+    color: #555555;
+    border-top: 1px solid #C4CFE5;
+    background: #F9FAFC;
+}
+dl.author dt {
+    position: absolute;
+    top: 0;
+    left: 1em;
+}
+dl.author dd {
+    margin-left: 10em;
+}
+/* }}} */
+
+/* {{{ alphabetical index */
+div.ah {
+    margin-left: -0.7em;
+    font-weight: bold;
+    color: #000000;
+}
+/* }}} */
+
+/* {{{ files */
+h3.version {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #aaaaaa;
+}
+/* }}} */
+
+/* vim:set ft=scss sw=4 sts=4 fdm=marker : */
