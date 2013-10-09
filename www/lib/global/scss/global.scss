@@ -138,7 +138,8 @@ textarea,
     font-family: Verdana, "Bitstream Vera Sans", Tahoma, Arial, Helvetica, Sans-Serif;
 }
 code,
-.source textarea {
+.source textarea,
+.fragment .line {
     font-family: "Consolas", "Bitstream Vera Sans Mono", "Lucida Console", "Courier New", Courier;
 }
 #content h1,
@@ -451,14 +452,18 @@ header {
         line-height: 1.6em;
     }
     p,
+    li,
     section ul,
     section ol,
     address {
         font-size: 1.3em;
         line-height: 1.8em;
     }
-    ul p {
-        font-size: 1em;
+    li {
+        p,
+        li {
+            font-size: 1em;
+        }
     }
     .crop {
         margin: 1em 0em 1em 0em;
@@ -1005,7 +1010,9 @@ section .slideshow .full {
         }
     }
 
+    h1,
     h2 {
+        font-size: 1.3em;
         margin-top: 0em;
         margin-bottom: 0.8em;
     }

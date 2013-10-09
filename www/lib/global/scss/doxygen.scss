@@ -1,3 +1,8 @@
+$basePadding: 3.6em;
+$baseWidth: 102.4em - 2 * $basePadding;
+$asideWidth: ($baseWidth / 3 - 2 * $basePadding);
+$contentWidth: ($baseWidth / 3 * 2 + $basePadding);
+
 /* {{{ doxygen original */
 /* The standard CSS for doxygen */
 
@@ -663,7 +668,14 @@ body iframe#MSearchResults {
 /* {{{ content */
 .contents {
     margin-top: 3em;
-    width: 50em;
+    width: $contentWidth;
+
+    @media screen and (max-width:1023px) {
+        width: auto;
+    }
+    @media screen and (min-width:1300px) {
+        width: $contentWidth + $asideWidth;
+    }
 }
 .contents .intro {
     padding-top: 3em;
@@ -868,8 +880,12 @@ iframe.example {
 /* {{{ source (fragment) */
 .fragment {
     width: 50em;
+
+    .line {
+        white-space: pre;
+    }
 }
-pre.fragment {
+.fragment {
     border: 1px solid #C4CFE5;
     background-color: #FBFCFD;
     padding: 4px 6px;
