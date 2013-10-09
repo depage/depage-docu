@@ -111,7 +111,10 @@ section .zoom .thumb .border {
 section .compare div img {
 	     /*border-left: 2px solid <xsl:value-of select="$ttc_bg" />;*/
 }
-.intro {
+.box,
+.intro,
+.box ul li span::before,
+.intro ul li span::before {
 	background: $ttc_intro_bg; //<xsl:value-of select="$ttc_intro_bg" />;
 }
 article,
