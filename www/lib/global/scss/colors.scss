@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 $ttc_back: #CCC8C4;
 $ttc_border: #CCC8C4;
 //$ttc_border: #d1cdc9;
@@ -59,7 +61,6 @@ section ul li span::before {
 #content h2,
 section time,
 #content .section p.info,
-#content ul,
 .topnav:hover li a,
 .bottomnav:hover li a,
 .autolinklist li::after,

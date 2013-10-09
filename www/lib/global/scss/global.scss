@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 $basePadding: 3.6em;
 $baseWidth: 102.4em - 2 * $basePadding;
 $asideWidth: ($baseWidth / 3 - 2 * $basePadding);
@@ -134,7 +136,8 @@ body {
 body,
 ul a .hidden,
 textarea,
-#content .depagecms h1 {
+#content .depagecms h1,
+#content .intro h1 {
     font-family: Verdana, "Bitstream Vera Sans", Tahoma, Arial, Helvetica, Sans-Serif;
 }
 code,
@@ -396,8 +399,9 @@ header {
 /* {{{ content */
 #content {
     position: relative;
-    padding: 2em $basePadding 1000em $basePadding;
-    margin-bottom: -1000em + 2em;
+    padding: 2em $basePadding;
+    //padding: 2em $basePadding 1000em $basePadding;
+    //margin-bottom: -1000em + 2em;
     width: $baseWidth - 2 * $basePadding;
     @include clearfix();
 

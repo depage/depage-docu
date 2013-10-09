@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 $basePadding: 3.6em;
 $baseWidth: 102.4em - 2 * $basePadding;
 $asideWidth: ($baseWidth / 3 - 2 * $basePadding);
@@ -519,12 +521,16 @@ dl.bug
 }
 #navrow1 ul,
 #navrow2 ul {
-    line-height: 1.35em;
+    line-height: auto;
     list-style: none;
+
+    li {
+        line-height: 1.35em;
+    }
 }
 #navrow1 ul a,
 #navrow2 ul a {
-    font-size: 0.95em;
+    font-size: 0.8em;
 }
 #navrow1 ul a:hover,
 #navrow2 ul a:hover {
@@ -634,6 +640,7 @@ body #MSearchBox {
     display: block;
     position: absolute;
     top: 6.3em;
+    top: $basePadding;
     right: 3.5em;
 }
 body #MSearchSelectWindow {
@@ -675,6 +682,10 @@ body iframe#MSearchResults {
     }
     @media screen and (min-width:1300px) {
         width: $contentWidth + $asideWidth;
+    }
+
+    table.memberdecls {
+        width: 90%;
     }
 }
 .contents .intro {
@@ -769,7 +780,7 @@ div.summary a:hover {
     content: "hide";
 }
 .dyncontent {
-    width: 100%;
+    width: 90%;
     max-height: 40em;
     overflow: scroll;
     border: 1px solid #aaaaaa;
@@ -803,6 +814,33 @@ td.indexvalue {
 table.params,
 table.memname {
     margin-top: 0;
+}
+/* }}} */
+/* {{{ textblock */
+#content .textblock {
+    font-size: 1.3em;
+    margin-bottom: $basePadding * 0.25;
+
+    .intro {
+        font-size: (1em / 1.3);
+
+        h1,
+        h2,
+        li,
+        p {
+            font-size: 1.3em;
+        }
+        li li {
+            font-size: 1em;
+        }
+    }
+    ul,
+    li,
+    h1,
+    h2,
+    p {
+        font-size: 1em;
+    }
 }
 /* }}} */
 /* {{{ elements */
@@ -869,31 +907,38 @@ table.memberdecls {
 }
 
 /* }}} */
+/* {{{ ttc */
+.ttc {
+    margin: $basePadding * 0.25;
+    
+    div {
+        font-size: 0.9em;
+    }
+}
+/* }}} */
 
 /* {{{ examples */
 iframe.example {
-    width: 50em;
+    width: 90%;
     height: 20em;
     border: 1px solid #aaaaaa;
 }
 /* }}} */
 /* {{{ source (fragment) */
 .fragment {
-    width: 50em;
-
-    .line {
-        white-space: pre;
-    }
-}
-.fragment {
     border: 1px solid #C4CFE5;
     background-color: #FBFCFD;
     padding: 4px 6px;
     margin: 4px 8px 4px 2px;
-    overflow: auto;
     word-wrap: break-word;
     font-size:  9pt;
     line-height: 125%;
+    width: 90%;
+    overflow: scroll;
+
+    .line {
+        white-space: pre;
+    }
 }
 /* }}} */
 

@@ -32,46 +32,6 @@ function getHexColorFromString(colorString) {
 /* }}} */
 
 // javascript flash detection
-// {{{ jquery.browser.flash
-jQuery.extend(jQuery.browser, {
-    flash: (function (neededVersion) {
-        var found = false;
-        var version = "0,0,0";
-
-        try {
-            // get ActiveX Object for Internet Explorer
-            version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
-        } catch(e) {
-            // check plugins for Firefox, Safari, Opera etc.
-            try {
-                if (navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) {
-                    version = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
-                }
-            } catch(e) {
-                return false;
-            }           
-        }
-
-        var pv = version.match(/\d+/g);
-        var rv = neededVersion.match(/\d+/g);
-
-        for (var i = 0; i < 3; i++) {
-            pv[i] = parseInt(pv[i] || 0, 10);
-            rv[i] = parseInt(rv[i] || 0, 10);
-
-            if (pv[i] < rv[i]) {
-                // player is less than required
-                return false;
-            } else if (pv[i] > rv[i]) {
-                // player is greater than required
-                return true;
-            }
-        }
-        // major version, minor version and revision match exactly
-        return true;
-    })
-});
-// }}}
 // {{{ jquery.browser.iphone
 jQuery.browser.iphone = function() {
     return (/iphone/).test(navigator.userAgent.toLowerCase());
@@ -227,27 +187,6 @@ jQuery.fx.prototype.custom = function(from, to, unit){
 // }}}
 
 // replace content, depending on reader capabilities
-// {{{ replaceFlashContent()
-function replaceFlashContent() {
-    $("img.flash_repl").each(function() {
-        var parent = $(this).parent().prepend( 
-            $().flash({
-                src:            this.src.replace(/\.jpg|\.gif|\.png/, ".swf").replace(/\&/, "&amp;"),
-                width:          this.width,
-                height:         this.height,
-                className:      "flash",
-                id:             this.id ? this.id + "_flash" : null,
-                transparent:    $(this).hasClass("trans")
-            }) 
-        );
-        if (parent[0].nodeName == "A") {
-            parent.click(function() {
-                return false;
-            });
-        }
-    });
-}
-// }}}
 // {{{ replaceInteractiveContent()
 function replaceInteractiveContent() {
     var formnum = 0;
@@ -282,14 +221,6 @@ function replaceInteractiveContent() {
         });
     });
     // }}}
-    // {{{ add handlers for slideshow images
-    $(".slideshow").depageSlideshow({
-        elements: "div"
-    });
-    // }}}
-        // {{{ add handlers for compare images
-        $(".compare").depageCompareImages();
-        // }}}
     // {{{ add handlers for code-listings
     var text_source_showplain;
     var text_source_showstyled;
@@ -317,96 +248,28 @@ function replaceInteractiveContent() {
     });
     
     // style source code
-    prettyPrint();
+    //prettyPrint();
     // }}}
-
-    if (!$.browser.iphone) {
-        // {{{ add handlers for zoom images
-        var zoomRatio;
-        var thumbMoveRatio;
-        var oldWidth;
-        var newWidth;
-
-        $(".zoom").each( function() {
-            var hoverText = "Zum \"Zoomen\" mit der Maus über das Bild fahren.";
-            if ($(".back img", this).length == 1) {
-                hoverText += " Klicken, um zwischen Vorder- und Rückseite zu wechseln.";
-            }
-
-            $(this).append("<p class=\"info\">(" + hoverText + ")</p>");
-            $(this).append("<span class=\"thumb\"><span class=\"border\"></span><img src=\"" + $(".front img", this)[0].src + "\"></span>");
-        });
-
-        $(".zoom").click( function() {
-            if ($(".back img", this).length == 1) {
-                var frontsrc = $(".front img", this)[0].src;
-                var backsrc = $(".back img", this)[0].src;
-
-                $(".front img", this)[0].src = backsrc;
-                $(".thumb img", this)[0].src = backsrc;
-                $(".back img", this)[0].src = frontsrc;
-            }
-        });
-        $(".zoom").mouseover( function() {
-            $(this).addClass("zoomed");
-
-            if ($(".back img", this).length == 1) {
-                $(".front img", this).css("cursor", "pointer");
-            } else {
-                $(".front img", this).css("cursor", "crosshair");
-            }
-
-            $(".front", this).height($(".front img", this).height());
-
-            oldWidth = $(".front img", this).width();
-            $(".front img", this).css({
-                width: "auto",
-                maxWidth: "none"
-            });
-            newWidth = $(".front img", this).width();
-
-            $(".thumb", this).stop().fadeIn(200);
-
-            zoomRatio = newWidth / oldWidth;
-            thumbMoveRatio = ($(".thumb img", this).width() - $(".thumb img", this).width() / zoomRatio) / oldWidth;
-
-            $(".thumb .border", this).css({
-                width: $(".thumb img", this).width() / zoomRatio,
-                height: $(".thumb img", this).height() / zoomRatio,
-                background: $.browser.msie ? "none": "#ffffff"
-            });
-        });
-        $(".zoom").mouseout( function() {
-            $(this).removeClass("zoomed");
-
-            $(".front img", this).css({
-                width: oldWidth,
-                marginLeft: 0,
-                marginTop: 0
-            });
-
-            $(".thumb", this).stop().css("opacity", 1).fadeOut(200);
-        });
-        $(".zoom").mousemove( function(e) {
-            var offsetX = $(this).offset().left - e.pageX;
-            var offsetY = $(this).offset().top - e.pageY;
-            
-            $(".front img", this).css({
-                marginLeft: offsetX * (zoomRatio - 1),
-                marginTop: offsetY * (zoomRatio - 1)
-            });
-            $(".thumb .border", this).each( function() {
-                $(this).css({
-                    left: - (offsetX * thumbMoveRatio),
-                    top: - (offsetY * thumbMoveRatio)
-                });
-            });
-        });
-        // }}}
-    }
+     // {{{ change height of iframe
+    $("iframe[seamless]").iframeAutoHeight({
+        heightOffset: 30
+    });
+    // }}}
 }
 // }}}
 
+// {{{ addDoxygenBehaviours()
+function addDoxygenBehaviours() {
+    $(".dynheader").toggle( function() {
+        $(this).addClass("active");
+        $(".dyncontent").show();
+    }, function() {
+        $(this).removeClass("active");
+        $(".dyncontent").hide();
+    });
+    $(".dyncontent").hide();
+}
+// }}}
     // {{{ onDocumentScroll()
     function onDocumentScroll() {
         var scrollTop = window.pageYOffset || $(window).scrollTop();
@@ -422,6 +285,7 @@ function replaceInteractiveContent() {
 $(document).ready(function() {
     // replace content
     replaceInteractiveContent();
+    addDoxygenBehaviours();
 
     $(window).on("statechangecomplete", replaceInteractiveContent);
     $(window).on("scroll resize", onDocumentScroll);
@@ -429,13 +293,6 @@ $(document).ready(function() {
     // add 3d flag
     if ($.browser.has3d()) {
         $("html").addClass("css-3dtransform");
-    }
-
-    // add flash content
-    if ($.browser.flash("8,0,0")) {
-        replaceFlashContent();
-
-        $("html").addClass("flash");
     }
 
     // hide urlbar
