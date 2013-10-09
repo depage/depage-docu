@@ -135,7 +135,7 @@ body,
 ul a .hidden,
 textarea,
 #content .depagecms h1 {
-    font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+    font-family: Verdana, "Bitstream Vera Sans", Tahoma, Arial, Helvetica, Sans-Serif;
 }
 code,
 .source textarea {
@@ -1011,6 +1011,39 @@ section .slideshow .full {
     }
 }
 /* }}} */
+/* {{{ box */
+#content .box {
+    padding: $basePadding * 0.5;
+    padding-left: $basePadding;
+    padding-right: 2em;
+    margin-top: 1.5em;
+    margin-bottom: $basePadding;
+    margin-left: - $basePadding;
+    @include radius(1.5em, "top", "right");
+    @include radius(1.5em, "bottom", "right");
+
+    @media screen and (min-width:1300px) {
+        margin-right: - 3 * $basePadding;
+        padding-right: 3 * $basePadding;
+
+        h2,
+        p {
+            //font-size: 1.5em;
+        }
+    }
+
+    h2,
+    p {
+        margin-top: 0em;
+        margin-bottom: 0em;
+
+        a {
+            color: #000000;
+            text-decoration: underline;
+        }
+    }
+}
+/* }}} */
 /* {{{ example */
 .example {
     border: 1px solid #dddddd;
@@ -1316,7 +1349,7 @@ iframe#twitter-widget-0 {
         margin-top: 2 * $basePadding - 2em;
     }
     @media screen and (max-width:1023px) {
-        margin-top: 2 * $basePadding + 2em;
+        margin-top: 2 * $basePadding;
     }
 
     ul {

@@ -440,8 +440,6 @@ $(document).ready(function() {
     $(window).on("statechangecomplete", replaceInteractiveContent);
     $(window).on("scroll resize", onDocumentScroll);
 
-    new FastClick(document.body);
-
     // add 3d flag
     if ($.browser.has3d()) {
         $("html").addClass("css-3dtransform");
