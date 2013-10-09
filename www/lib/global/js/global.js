@@ -260,20 +260,6 @@ function replaceInteractiveContent() {
         document.location = $("a", this)[0].href;
     });
     // }}}
-    // email antispam
-    $("a[href*='mailto:']").depageAntispam();
-    
-    // setup social buttons
-    $(".social").depageSocialButtons({
-        services: [
-            'twitter',
-            'facebookShare',
-            'googleplusShare',
-            //'digg',
-            //'reddit',
-            'mail'
-        ]
-    });
     // {{{ replace buttons by textlinks
     $("form").each(function() {
         var form = this;
