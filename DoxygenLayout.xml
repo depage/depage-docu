@@ -4,9 +4,12 @@
     <tab type="mainpage" visible="yes" title="home"/>
 
     <tab type="user" url="#" title="  "/><!-- spacer -->
-    <tab type="user" url="@ref depage::htmlform::htmlform" title="htmlform Class"/>
-    <tab type="user" url="@ref depage::htmlform::elements" title="List of all Elements"/>
-    <tab type="user" url="@ref depage::htmlform::elements" title="List of input Parameters"/>
+    <tab type="user" url="@ref depage::htmlform::htmlform" title="Htmlform Class"/>
+    <tab type="user" url="@ref depage::htmlform::elements" title="List of all Input Elements"/>
+    <tab type="user" url="@ref depage::htmlform::elements" title="List of Input Parameters"/>
+    <tab type="user" url="#" title="  "/><!-- spacer -->
+
+    <tab type="user" url="@ref developer" title="Developers"/>
     <tab type="user" url="#" title="  "/><!-- spacer -->
 
     <tab type="pages" visible="no" title="" intro=""/>

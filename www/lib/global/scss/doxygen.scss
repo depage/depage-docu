@@ -931,13 +931,14 @@ iframe.example {
     padding: 4px 6px;
     margin: 4px 8px 4px 2px;
     word-wrap: break-word;
-    font-size:  9pt;
-    line-height: 125%;
+    font-size: 0.9em;
+    line-height: 1.3em;
     width: 90%;
     overflow: scroll;
 
     .line {
         white-space: pre;
+        height: 1.3em;
     }
 }
 /* }}} */
