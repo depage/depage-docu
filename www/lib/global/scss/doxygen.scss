@@ -5,6 +5,113 @@ $baseWidth: 102.4em - 2 * $basePadding;
 $asideWidth: ($baseWidth / 3 - 2 * $basePadding);
 $contentWidth: ($baseWidth / 3 * 2 + $basePadding);
 
+// {{{ mixins
+@mixin debug {
+    border: 0.1em solid #000000;
+}
+@mixin centeredcontainer {
+    position: relative;
+    width: 86em;
+    margin: 0 auto;
+    text-align: left;
+}
+@mixin minheight($height) {
+    height: auto !important;
+    height: $height;
+    min-height: $height;
+}
+@mixin col-minheight($height) {
+    @include minheight($height);
+
+    section {
+        @include minheight($height);
+    }
+}
+@mixin clearfix($direction: both) {
+    display: inline-block;
+    &:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: $direction;
+        visibility: hidden;
+    }
+    * html & { height: 0.1em }
+}
+@mixin radius($radius, $vert: "", $horiz: "") {
+    $other: "";
+    $moz: "";
+
+    @if $vert != '' and $horiz != '' {
+        $other: "#{$vert}-#{$horiz}-";
+        $moz: "#{$vert}#{$horiz}-";
+    } @else if $horiz != '' {
+        $other: "#{$horiz}-";
+        $moz: "#{$horiz}-";
+    } @else if $vert != '' {
+        $other: "#{$vert}-";
+        $moz: "#{$vert}-";
+    }
+
+    -webkit-border-#{$other}radius: $radius;
+    -moz-border-#{$moz}radius: $radius;
+    -ms-border-#{$other}radius: $radius;
+    -o-border-#{$other}radius: $radius;
+    border-#{$other}radius: $radius;
+}
+@mixin custom-bullet($character, $indent: 1.5em) {
+    margin-left: $indent;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: - $indent;
+        width: $indent;
+        content: $character;
+    }
+}
+@mixin transition($speed: 500ms){
+    // property duration timing-function delay
+    $property: background, color, border, opacity, transform;
+    $value: $speed ease-out;
+
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+
+    -webkit-transition-property: $property;
+    -moz-transition-property: $property;
+    -ms-transition-property: $property;
+    -o-transition-property: $property;
+    transition-property: $property;
+}
+@mixin transform($value){
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
+@mixin transform-origin($value){
+    -webkit-transform-origin: $value;
+    -moz-transform-origin: $value;
+    -ms-transform-origin: $value;
+    transform-origin: $value;
+}
+@mixin gradient($c1, $c2){
+    background: $c1; // Old browsers
+    background: -moz-linear-gradient(top,  $c1 0%, $c2 100%); // FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$c1), color-stop(100%,$c2)); // Chrome,Safari4+
+    background: -webkit-linear-gradient(top,  $c1 0%, $c2 100%); // Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top,  $c1 0%, $c2 100%); // Opera 11.10+
+    background: -ms-linear-gradient(top,  $c1 0%, $c2 100%); // IE10+
+    background: linear-gradient(to bottom,  $c1 0%, $c2 100%); // W3C
+}
+// }}}
+
 /* {{{ doxygen original */
 /* The standard CSS for doxygen */
 
@@ -429,6 +536,9 @@ table.doxtable th {
 	padding-top: 5px;
 	text-align:left;
 }
+table td {
+    padding-right: 0.75em;
+}
 
 .tabsearch {
 	top: 0px;
@@ -639,13 +749,12 @@ dl.bug
 body #MSearchBox {
     display: block;
     position: absolute;
-    top: 6.3em;
-    top: $basePadding;
+    top: $basePadding * 0.5;
     right: 3.5em;
 }
 body #MSearchSelectWindow {
     position: absolute;
-    top: 6em;
+    top: $basePadding * 0.5 + 1em;
     right: 4em;
     left: auto !important;
     width: 12.5em ;
@@ -658,6 +767,7 @@ body #MSearchSelectWindow a {
 }
 body #MSearchResultsWindow {
     position: absolute;
+    margin-top: -3em;
     top: 8em;
     right: 4em;
     width: 25em;
@@ -665,6 +775,7 @@ body #MSearchResultsWindow {
     background: #dddddd;
     border: none;
     border-radius: 0.5em;
+    z-index: 1000;
 }
 body iframe#MSearchResults {
     width: 100%;
@@ -686,6 +797,10 @@ body iframe#MSearchResults {
 
     table.memberdecls {
         width: 90%;
+        font-size: 1.2em;
+    }
+    ul li {
+        @include custom-bullet("-");
     }
 }
 .contents .intro {
@@ -815,6 +930,12 @@ table.params,
 table.memname {
     margin-top: 0;
 }
+table.memname {
+    th,
+    td {
+        padding-right: 0 !important;
+    }
+}
 /* }}} */
 /* {{{ textblock */
 #content .textblock {
@@ -901,6 +1022,9 @@ table.memberdecls {
     -webkit-border-bottom-right-radius: 0.6em;
     background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.6,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.95,#F7F8FB), to(#EEF1F7));
 }
+.memitem {
+    font-size: 1.2em;
+}
 #content .memdoc p {
     font-size: 1.0em;
     margin-bottom: 0.8em;
@@ -925,13 +1049,14 @@ iframe.example {
 }
 /* }}} */
 /* {{{ source (fragment) */
+pre,
 .fragment {
     border: 1px solid #C4CFE5;
     background-color: #FBFCFD;
     padding: 4px 6px;
     margin: 4px 8px 4px 2px;
     word-wrap: break-word;
-    font-size: 0.9em;
+    font-size: 1.2em;
     line-height: 1.3em;
     width: 90%;
     overflow: scroll;
@@ -939,6 +1064,12 @@ iframe.example {
     .line {
         white-space: pre;
         height: 1.3em;
+    }
+}
+.textblock {
+    pre,
+    .fragment {
+        font-size: 0.9em;
     }
 }
 /* }}} */

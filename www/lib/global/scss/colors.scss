@@ -40,11 +40,9 @@ header #crosslinks a {
     color: $ttc_header_link; //<xsl:value-of select="$ttc_header_link" />;
 }
 #content,
-section ul li span::before {
+section ul li span::before,
+.contents ul li::before {
     background: $ttc_bg; //<xsl:value-of select="$ttc_bg" />;
-}
-section ul li span::before {
-    background:  $ttc_bg; //<xsl:value-of select="$ttc_bg" />;
 }
 #content h1 {
     color: $ttc_text_headline; //<xsl:value-of select="$ttc_text_headline" />;
@@ -114,8 +112,8 @@ section .compare div img {
 }
 .box,
 .intro,
-.box ul li span::before,
-.intro ul li span::before {
+.box ul li::before,
+.intro ul li::before {
 	background: $ttc_intro_bg; //<xsl:value-of select="$ttc_intro_bg" />;
 }
 article,

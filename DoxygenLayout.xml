@@ -6,14 +6,15 @@
     <tab type="user" url="#" title="  "/><!-- spacer -->
     <tab type="user" url="@ref depage::htmlform::htmlform" title="Htmlform Class"/>
     <tab type="user" url="@ref depage::htmlform::elements" title="List of all Input Elements"/>
-    <tab type="user" url="@ref depage::htmlform::elements" title="List of Input Parameters"/>
+    <tab type="user" url="@ref htmlformInputDefaults" title="List of Input Parameters"/>
     <tab type="user" url="#" title="  "/><!-- spacer -->
 
+    <tab type="user" url="@ref usage" title="Usage" visible="no" />
     <tab type="user" url="@ref developer" title="Developers"/>
     <tab type="user" url="#" title="  "/><!-- spacer -->
 
     <tab type="pages" visible="no" title="" intro=""/>
-    <tab type="modules" visible="yes" title="" intro=""/>
+    <tab type="modules" visible="no" title="" intro=""/>
     <tab type="namespaces" visible="yes" title="Namespaces">
       <tab type="namespaces" visible="yes" title="" intro=""/>
       <tab type="namespacemembers" visible="yes" title="" intro=""/>
