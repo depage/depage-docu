@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+$basePadding: 3.6em !global;
+$baseWidth: 102.4em - 2 * $basePadding !global;
+$asideWidth: ($baseWidth / 3 - 2 * $basePadding) !global;
+$contentWidth: ($baseWidth / 3 * 2 + $basePadding) !global;
+
+@import "mixins/_base";
+@import "modules/_doxygen";
+
+
+/* vim:set ft=scss sw=4 sts=4 fdm=marker : */

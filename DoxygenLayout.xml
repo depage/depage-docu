@@ -4,32 +4,33 @@
     <tab type="mainpage" visible="yes" title="home"/>
 
     <tab type="user" url="#" title="  "/><!-- spacer -->
-    <tab type="user" url="@ref depage::htmlform::htmlform" title="Htmlform Class"/>
-    <tab type="user" url="@ref depage::htmlform::elements" title="List of all Input Elements"/>
+    <tab type="user" url="@ref Depage::HtmlForm::HtmlForm" title="Htmlform Class"/>
+    <tab type="user" url="@ref Depage::HtmlForm::Elements" title="List of all Input Elements"/>
     <tab type="user" url="@ref htmlformInputDefaults" title="List of Input Parameters"/>
     <tab type="user" url="#" title="  "/><!-- spacer -->
 
     <tab type="user" url="@ref usage" title="Usage" visible="no" />
     <tab type="user" url="@ref developer" title="Developers"/>
     <tab type="user" url="#" title="  "/><!-- spacer -->
+    <tab type="examples" visible="yes" title="Examples" intro=""/>
+    <tab type="user" url="#" title="  "/><!-- spacer -->
 
+    <tab type="classes" visible="yes" title="Classes">
+      <tab type="classes" visible="no" title="Classes" intro=""/>
+      <tab type="hierarchy" visible="no" title="Hierarchy" intro=""/>
+      <tab type="classmembers" visible="no" title="Members" intro=""/>
+      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title="index"/>
+    </tab>
+    <tab type="namespaces" visible="yes" title="Namespaces">
+      <tab type="namespaces" visible="no" title="" intro=""/>
+      <tab type="namespacemembers" visible="no" title="" intro=""/>
+    </tab>
+    <tab type="files" visible="no" title="Files">
+      <tab type="files" visible="no" title="" intro=""/>
+      <tab type="globals" visible="no" title="" intro=""/>
+    </tab>
     <tab type="pages" visible="no" title="" intro=""/>
     <tab type="modules" visible="no" title="" intro=""/>
-    <tab type="namespaces" visible="yes" title="Namespaces">
-      <tab type="namespaces" visible="yes" title="" intro=""/>
-      <tab type="namespacemembers" visible="yes" title="" intro=""/>
-    </tab>
-    <tab type="classes" visible="yes" title="Classes">
-      <tab type="classes" visible="yes" title="Classes" intro=""/>
-      <tab type="hierarchy" visible="yes" title="Hierarchy" intro=""/>
-      <tab type="classmembers" visible="no" title="Members" intro=""/>
-      <tab type="classindex" visible="$ALPHABETICAL_INDEX" title="index"/> 
-    </tab>
-    <tab type="files" visible="yes" title="Files">
-      <tab type="files" visible="yes" title="" intro=""/>
-      <tab type="globals" visible="yes" title="" intro=""/>
-    </tab>
-    <tab type="examples" visible="yes" title="Examples" intro=""/>  
   </navindex>
 
   <!-- Layout definition for a class page -->

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-./minimize --dp-path "$(pwd)"
