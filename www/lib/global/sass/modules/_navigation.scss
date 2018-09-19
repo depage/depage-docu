@@ -1,12 +1,61 @@
+body > header {
+    display: none;
+    //position: fixed;
+    top: 0;
+}
+div.headertitle {
+    margin-top: 4 * $grid;
+}
+div#top {
+    height: 0;
+}
+div#main-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2 * $grid;
+    background: #ffffff;
+    border-bottom: 1px solid $linkColor;
+    z-index: 100;
+
+    ul#main-menu {
+        //display: none;
+        li {
+            display: inline-block;
+            padding: $grid * 0.25;
+
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+}
 div.header {
+    position: relative;
     background: none;
     border-bottom: 1px solid $linkColor;
+    border-bottom: none;
+    margin-top: $grid * 2;
+}
+div#nav-path {
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: $grid * 4;
+
+    ul {
+        border: none;
+        background: none;
+    }
 }
 div.summary {
-    position: static;
+    position: absolute;
+    bottom: - $grid;
+    left: 50%;
+    right: 0;
     float: none;
-    width: 100%;
-    text-align: center;
+    text-align: right;
     padding: 0;
 }
 

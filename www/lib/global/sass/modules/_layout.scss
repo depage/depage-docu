@@ -4,7 +4,8 @@ main {
 }
 // }}}
 // {{{ .contents
-div.contents {
+div.contents,
+div.headertitle {
     @include centeredcontainer($contentWidth);
 
     padding: $grid;

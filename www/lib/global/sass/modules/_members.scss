@@ -19,25 +19,6 @@ div.memproto {
         }
     }
 }
-div.memdoc {
-    dl {
-        dt {
-            font-weight: 600;
-            font-size: $fSizeS * 1em / $fSizeM;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            color: $linkColor;
-
-        }
-        dd {
-            font-weight: 300;
-            padding-left: $grid / $fSizeM;
-        }
-    }
-    p + dl {
-        margin-top: ($grid / $fSizeM);
-    }
-}
 p.definition {
     font-size: 1em * $fSizeXS;
     margin-top: ($grid / $fSizeXS);

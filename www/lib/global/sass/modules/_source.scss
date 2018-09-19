@@ -1,12 +1,17 @@
 pre.fragment,
 div.line {
     font-size: $fSizeSource * 1em;
+    line-height: 1.8em / $fSizeSource;
 }
 pre.fragment,
 div.fragment,
 iframe {
     margin: $grid 0;
     border: 1px solid $borderColor;
+}
+pre.fragment,
+div.fragment {
+    padding: $grid * 0.25;
 }
 iframe {
     width: 100%;

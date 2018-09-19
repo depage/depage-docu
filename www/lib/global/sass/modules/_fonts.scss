@@ -21,7 +21,8 @@ table,
 table.directory,
 #powerTip div,
 p.definition,
-div.memdoc > * {
+div.memdoc > *,
+dl dt {
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 0.05em;
     font-weight: 300;
