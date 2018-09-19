@@ -1,14 +1,15 @@
 $grid: 2.9em !global;
 $contentWidth: 96em !global;
+$sidebarWidth: $contentWidth * 0.25 !global;
 
-$fSizeSource: 1.5;
-$fSizeXS: 1.1;
-$fSizeS: 1.2;
-$fSizeM: 1.6;
-$fSizeMplus: 1.8;
-$fSizeL: 2.2;
-$fSizeXL: 3;
-$fSizeXXL: 4;
+$fSizeSource: 1.5 !global;
+$fSizeXS: 1.1 !global;
+$fSizeS: 1.2 !global;
+$fSizeM: 1.6 !global;
+$fSizeMplus: 1.8 !global;
+$fSizeL: 2.2 !global;
+$fSizeXL: 3 !global;
+$fSizeXXL: 4 !global;
 
 $baseColor: #ccc8c4 !global;
 $backgroundColor: lighten($baseColor, 5%) !global;
