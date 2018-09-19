@@ -1,7 +1,32 @@
+$width: $grid * 2;
+
 body > header {
-    display: none;
-    //position: fixed;
+    position: absolute;
     top: 0;
+    height: $width;
+    z-index: 1000;
+
+    .logo {
+        font-weight: 600;
+        line-height: $width;
+
+        &::before {
+            content: " ";
+            display: inline-block;
+            width: $width;
+            height: $width;
+            background-image: url(../icon-depagecms.svg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        a {
+            display: inline-block;
+            height: $width;
+            font-size: 1em * $fSizeS;
+            line-height: $width / $fSizeS;
+        }
+    }
 }
 div.headertitle {
     margin-top: 4 * $grid;
@@ -30,7 +55,6 @@ div#main-nav {
         }
     }
     @media screen and (max-width: 1000px) {
-        $width: $grid * 2;
         &:after {
             position: absolute;
             display: block;
