@@ -1,0 +1,15 @@
+pre.fragment,
+div.line {
+    font-size: $fSizeSource * 1em;
+}
+pre.fragment,
+div.fragment,
+iframe {
+    margin: $grid 0;
+    border: 1px solid $borderColor;
+}
+iframe {
+    width: 100%;
+}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :

@@ -1,0 +1,14 @@
+// {{{ main
+main {
+    //@include centeredcontainer($contentWidth);
+}
+// }}}
+// {{{ .contents
+div.contents {
+    @include centeredcontainer($contentWidth);
+
+    padding: $grid;
+}
+// }}}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :

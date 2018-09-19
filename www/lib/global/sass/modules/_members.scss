@@ -1,0 +1,46 @@
+h2.memtitle {
+    display: none;
+}
+table.memberdecls {
+    td.memItemLeft,
+    td.memItemRight {
+        font-size: 1em * $fSizeSource;
+        line-height: $grid / $fSizeSource;
+    }
+    td.mdescLeft,
+    td.mdescRight {
+        font-size: 1em * $fSizeS;
+    }
+}
+div.memproto {
+    table.memname {
+        td {
+            font-size: 1em * $fSizeSource;
+        }
+    }
+}
+div.memdoc {
+    dl {
+        dt {
+            font-weight: 600;
+            font-size: $fSizeS * 1em / $fSizeM;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: $linkColor;
+
+        }
+        dd {
+            font-weight: 300;
+            padding-left: $grid / $fSizeM;
+        }
+    }
+    p + dl {
+        margin-top: ($grid / $fSizeM);
+    }
+}
+p.definition {
+    font-size: 1em * $fSizeXS;
+    margin-top: ($grid / $fSizeXS);
+}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :

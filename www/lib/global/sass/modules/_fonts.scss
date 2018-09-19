@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro:300,700|Source+Serif+Pro&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif|Source+Code+Pro:400,700|Source+Sans+Pro:300,600&subset=latin-ext');
+
+body,
+div,
+p,
+dl,
+p.reference,
+p.definition {
+    font-family: 'Source Serif Pro', serif;
+    letter-spacing: 0.02em;
+}
+h1,
+h2,
+h2.groupheader,
+h3,
+h4,
+.title,
+table,
+.navpath li.navelem a,
+table.directory,
+#powerTip div,
+p.definition,
+div.memdoc > * {
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
+pre.fragment,
+div.line,
+.overload,
+.params .paramdir,
+table.memname,
+table.memberdecls td.memItemLeft,
+table.memberdecls td.memItemRight,
+td.paramname {
+    font-family: 'Source Code Pro', monospace;
+}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :

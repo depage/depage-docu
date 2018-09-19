@@ -1,0 +1,72 @@
+p,
+ul,
+dl {
+    font-size: $fSizeM * 1em;
+    line-height: $grid / $fSizeM;
+
+    p,
+    li,
+    dt,
+    dd,
+    dl,
+    ul {
+        font-size: 1em;
+    }
+}
+.textblock {
+    p,
+    ul,
+    dl {
+        font-size: $fSizeMplus * 1em;
+        line-height: $grid / $fSizeMplus;
+
+        p,
+        li,
+        dt,
+        dd,
+        dl,
+        ul {
+            font-size: 1em;
+        }
+    }
+}
+h1,
+table {
+    font-weight: 300;
+}
+.title {
+    font-size: $fSizeXL * 1em;
+    line-height: 1.2em;
+    font-weight: 300;
+}
+h2,
+h3,
+h4,
+.navpath li.navelem a,
+table.directory,
+#powerTip div {
+    font-weight: 600;
+}
+h2 {
+    font-size: $fSizeL * 1em;
+    margin-top: $grid / $fSizeL;
+    color: $linkColor;
+}
+h2,
+h2.groupheader {
+    font-weight: 600;
+    font-size: $fSizeS * 1em;
+    line-height: $grid / $fSizeS;
+    margin-top: $grid / $fSizeS;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: $linkColor;
+}
+.contents ul li {
+    @include custom-bullet("–", $grid * 0.75 / $fSizeM);
+}
+a {
+    color: $linkColor;
+}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :

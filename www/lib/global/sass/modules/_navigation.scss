@@ -1,0 +1,13 @@
+div.header {
+    background: none;
+    border-bottom: 1px solid $linkColor;
+}
+div.summary {
+    position: static;
+    float: none;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+// vim:set ft=scss sw=4 sts=4 fdm=marker :
