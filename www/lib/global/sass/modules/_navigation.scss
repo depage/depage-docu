@@ -1,30 +1,34 @@
-$width: $grid * 2;
-
 body > header {
-    position: absolute;
+    position: fixed;
     top: 0;
-    height: $width;
+    height: $headerHeight;
     z-index: 1000;
 
     .logo {
         font-weight: 600;
-        line-height: $width;
+        line-height: $headerHeight;
+        padding-left: $headerHeight;
 
         &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
             content: " ";
-            display: inline-block;
-            width: $width;
-            height: $width;
+            display: block;
+            width: $headerHeight;
+            height: $headerHeight;
             background-image: url(../icon-depagecms.svg);
             background-position: center;
-            background-size: 100%;
+            background-size: 75%;
             background-repeat: no-repeat;
         }
         a {
             display: inline-block;
-            height: $width;
-            font-size: 1em * $fSizeS;
-            line-height: $width / $fSizeS;
+            height: $headerHeight;
+            font-size: 1em * $fSizeNav;
+            line-height: $headerHeight / $fSizeNav;
+            color: $textBaseColor;
+            font-weight: 600;
         }
     }
 }
@@ -38,19 +42,28 @@ div#main-nav {
     position: fixed;
     top: 0;
     left: 0;
+    padding-left: $headerHeight + 15em;
     right: 0;
-    height: 2 * $grid;
+    height: $headerHeight;
     background: #ffffff;
     border-bottom: 1px solid $linkColor;
     z-index: 100;
 
     ul#main-menu {
+        font-size: 1em;
+
         li {
             display: inline-block;
-            padding: $grid * 0.25;
+            padding: 0 $grid * 0.25;
+            line-height: $headerHeight;
 
             &:last-child {
                 display: none;
+            }
+
+            a {
+                font-size: 1em * $fSizeNav;
+                font-weight: 600;
             }
         }
     }
@@ -61,11 +74,11 @@ div#main-nav {
             content: " ";
             top: 0;
             right: 0;
-            width: $width;
-            height: $width;
+            width: $headerHeight;
+            height: $headerHeight;
             z-index: -1;
             $svg: '<?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 640 640" preserveAspectRatio="none"><path d="M512 288h-384c-17.664 0-32 14.336-32 32s14.336 32 32 32h384c17.696 0 32-14.336 32-32s-14.304-32-32-32zM128 224h384c17.696 0 32-14.336 32-32s-14.304-32-32-32h-384c-17.664 0-32 14.336-32 32s14.336 32 32 32zM512 416h-384c-17.664 0-32 14.304-32 32s14.336 32 32 32h384c17.696 0 32-14.304 32-32s-14.304-32-32-32z" fill="#000000"></path></svg>';
-            background: url('data:image/svg+xml;charset=utf-8;base64,' + base64_encode($svg)) no-repeat scroll center center / ($width * 0.75) ($width * 0.75) transparent;
+            background: url('data:image/svg+xml;charset=utf-8;base64,' + base64_encode($svg)) no-repeat scroll center center / ($headerHeight * 0.75) ($headerHeight * 0.75) transparent;
             @include transition(200ms, "transform");
         }
         &.active:after {
@@ -74,7 +87,8 @@ div#main-nav {
         ul#main-menu {
             display: none;
             position: absolute;
-            top: $grid;
+            top: $headerHeight;
+            margin-top: -1px;
             right: 0;
             width: $sidebarWidth;
             background: $backgroundLighterColor;
@@ -113,22 +127,51 @@ div.header {
 div#nav-path {
     position: absolute;
     left: 0;
-    right: 50%;
-    top: $grid * 4;
+    right: 70%;
+    top: $headerHeight;
+    padding: 0 $grid * 0.5;
 
     ul {
         border: none;
         background: none;
+        font-size: 1em;
+
+        li {
+            padding: 0;
+        }
+        a {
+            font-size: 1em * $fSizeXS;
+            font-weight: 600;
+            margin-right: 0.5 * $grid / $fSizeXS;
+            color: $textLighterColor;
+            text-transform: uppercase;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        display: none;
     }
 }
 div.summary {
     position: absolute;
-    bottom: - $grid;
-    left: 50%;
+    //bottom: - $grid;
+    top: 0 - 2 * $grid;
+    left: 30%;
     right: 0;
+    width: auto;
     float: none;
     text-align: right;
     padding: 0;
+    color: #ffffff;
+    padding: 0 $grid * 0.5;
+
+
+    a {
+        font-size: 1em * $fSizeXS;
+        font-weight: 600;
+        margin-right: 0.5 * $grid / $fSizeXS * 0.5;
+        color: $textLighterColor;
+        text-transform: uppercase;
+    }
 }
 
 // vim:set ft=scss sw=4 sts=4 fdm=marker :

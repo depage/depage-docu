@@ -1,19 +1,15 @@
 <doxygenlayout version="1.0">
   <!-- Navigation index tabs for HTML output -->
   <navindex>
-    <tab type="mainpage" visible="yes" title="home"/>
+    <tab type="mainpage" visible="no" title="home"/>
 
-    <tab type="user" url="#" title="  "/><!-- spacer -->
     <tab type="user" url="@ref Depage::HtmlForm::HtmlForm" title="Htmlform Class"/>
-    <tab type="user" url="@ref Depage::HtmlForm::Elements" title="List of all Input Elements"/>
-    <tab type="user" url="@ref htmlformInputDefaults" title="List of Input Parameters"/>
-    <tab type="user" url="#" title="  "/><!-- spacer -->
+    <tab type="user" url="@ref Depage::HtmlForm::Elements" title="Input Elements"/>
+    <tab type="user" url="@ref htmlformInputDefaults" title="Input Parameters"/>
 
-    <tab type="user" url="@ref usage" title="Usage" visible="no" />
+    <tab type="user" url="@ref usage" title="Usage" visible="yes" />
     <tab type="user" url="@ref developer" title="Developers"/>
-    <tab type="user" url="#" title="  "/><!-- spacer -->
     <tab type="examples" visible="yes" title="Examples" intro=""/>
-    <tab type="user" url="#" title="  "/><!-- spacer -->
 
     <tab type="classes" visible="yes" title="Classes">
       <tab type="classes" visible="no" title="Classes" intro=""/>
