@@ -115,16 +115,19 @@ function addDoxygenBehaviours() {
     $(".dyncontent").hide();
 }
 // }}}
-    // {{{ onDocumentScroll()
-    function onDocumentScroll() {
-        var scrollTop = window.pageYOffset || $(window).scrollTop();
-        var windowHeight = $(window).height();
-        $(".articlefooter").each(function() {
-            var $el = $(this);
-            $el.toggleClass("in-view", $el.offset().top - windowHeight / 3 * 2 < scrollTop);
-        });
-    }
-    // }}}
+// {{{ onDocumentScroll()
+function onDocumentScroll() {
+    var scrollTop = window.pageYOffset || $(window).scrollTop();
+    var windowHeight = $(window).height();
+    $(".articlefooter").each(function() {
+        var $el = $(this);
+        $el.toggleClass("in-view", $el.offset().top - windowHeight / 3 * 2 < scrollTop);
+    });
+}
+// }}}
+
+// add workaround for not included smart menus plugin
+$.fn.smartmenus = function() {};
 
 // {{{ register events
 $(document).ready(function() {

@@ -15,6 +15,7 @@ min: sassc $(JSDIR)global.min.js
 
 $(JSDIR)global.min.js: \
     $(JSDIR)jquery-1.12.3.min.js \
+    $(JSDIR)dynsections.js \
     $(JSDIR)global.js
 	$(JSMIN) --dp-path . --target=$@ $^
 

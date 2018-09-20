@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>$title</title>
-    <link rel="stylesheet" type="text/css" href="lib/global/css/global.css">
+    <!--BEGIN PROJECT_NAME--><title>$projectname: $title</title><!--END PROJECT_NAME-->
+    <!--BEGIN !PROJECT_NAME--><title>$title</title><!--END !PROJECT_NAME-->
+    <link rel="stylesheet" type="text/css" href="$relpath^lib/global/css/global.css">
 
-    <script type="text/javascript" src="lib/global/js/global.min.js"></script>
-    <!--
-    <script type="text/javascript" src="dynsections.js"></script>
-    <script type="text/javascript" src="search/search.js"></script>
-    -->
+    <script type="text/javascript" src="$relpath^lib/global/js/global.min.js"></script>
+    $treeview
+    $search
+    $mathjax
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="robots" content="index,follow">
@@ -38,7 +38,10 @@
 <body class="">
     <header>
         <div class="logo">
+            <a href="$relpath^index.html">depage-docs</a>
+            <!--
             <a href="https://docs.depage.net">depage-docs</a>
+            -->
         </div>
     </header>
     <!-- }}} -->
