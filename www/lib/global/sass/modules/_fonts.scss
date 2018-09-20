@@ -4,8 +4,7 @@ body,
 div,
 p,
 dl,
-p.reference,
-p.definition {
+p.reference {
     font-family: 'Source Serif Pro', serif;
     letter-spacing: 0.02em;
 }
@@ -24,7 +23,8 @@ div.memdoc > *,
 dl dt,
 div#main-nav,
 div.summary,
-.logo {
+.logo,
+body > footer > * {
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 0.05em;
     font-weight: 300;
