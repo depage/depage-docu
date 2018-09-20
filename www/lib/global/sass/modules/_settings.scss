@@ -17,7 +17,7 @@ $baseColor: #ccc8c4 !global;
 $backgroundColor: lighten($baseColor, 5%) !global;
 $backgroundDarkColor: transparentize(darken($baseColor, 65%), 0.12) !global;
 $backgroundLighterColor: lighten($backgroundColor, 10%) !global;
-$backgroundBrightColor: lighten($backgroundColor, 12%) !global;
+$backgroundBrightColor: lighten($backgroundColor, 14%) !global;
 $backgroundDisabledColor: #cccccc;
 $backgroundMenu: $backgroundDarkColor;
 $borderColor: darken($baseColor, 5%) !global;

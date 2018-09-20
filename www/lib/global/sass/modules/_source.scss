@@ -11,7 +11,9 @@ iframe {
 }
 pre.fragment,
 div.fragment {
+    background: $backgroundBrightColor;
     padding: $grid * 0.25;
+    @include radius($cornerRadius);
 }
 iframe {
     width: 100%;
