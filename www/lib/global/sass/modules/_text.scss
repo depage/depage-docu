@@ -1,6 +1,7 @@
 p,
 ul,
-dl {
+dl,
+ol {
     font-size: $fSizeM * 1em;
     line-height: $grid / $fSizeM;
 
@@ -9,7 +10,8 @@ dl {
     dt,
     dd,
     dl,
-    ul {
+    ul,
+    ol {
         font-size: 1em;
     }
 }
@@ -17,6 +19,7 @@ dl {
     @media screen and (min-width: 1000px) {
         p,
         ul,
+        ol,
         dl {
             font-size: $fSizeMplus * 1em;
             line-height: $grid / $fSizeMplus;
@@ -26,7 +29,8 @@ dl {
             dt,
             dd,
             dl,
-            ul {
+            ul,
+            ol {
                 font-size: 1em;
             }
         }
@@ -71,6 +75,9 @@ h2.groupheader {
 }
 .contents ul li {
     @include custom-bullet("–", $grid * 0.75 / $fSizeM);
+}
+.contents ol {
+    padding-left: $grid * 0.75 / $fSizeM;
 }
 a {
     color: $linkColor;
