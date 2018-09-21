@@ -16,6 +16,7 @@ div.fragment {
     @include radius($cornerRadius);
 }
 iframe {
+    @include radius($cornerRadius);
     width: 100%;
 }
 

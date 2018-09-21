@@ -53,14 +53,17 @@ h2.groupheader {
     ol {
         font-size: 1em;
     }
-    .fragment {
+    a.el {
+        font-weight: inherit;
+    }
+    div.fragment {
         font-size: 1em / $fSizeM;
+    }
+    pre.fragment {
+        font-size: 1em * $fSizeSource / $fSizeM;
     }
     p.definition {
         font-size: 1em * $fSizeXS / $fSizeM;
-    }
-    a.el {
-        font-weight: inherit;
     }
     h2,
     h2.groupheader {
@@ -71,8 +74,18 @@ h2.groupheader {
         font-size: $fSizeMplus * 1em;
         line-height: $grid / $fSizeMplus;
 
-        .fragment {
+        div.fragment {
             font-size: 1em / $fSizeMplus;
+        }
+        pre.fragment {
+            font-size: 1em * $fSizeSource / $fSizeMplus;
+        }
+        p.definition {
+            font-size: 1em * $fSizeXS / $fSizeMplus;
+        }
+        h2,
+        h2.groupheader {
+            font-size: $fSizeS * 1em / $fSizeMplus;
         }
     }
 }
