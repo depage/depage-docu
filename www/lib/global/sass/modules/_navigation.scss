@@ -23,10 +23,6 @@ div#main-nav {
             padding: 0 $grid * 0.25;
             line-height: $headerHeight;
 
-            &:last-child {
-                display: none;
-            }
-
             a {
                 font-size: 1em * $fSizeNav;
                 font-weight: 600;
