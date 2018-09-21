@@ -15,27 +15,6 @@ ol {
         font-size: 1em;
     }
 }
-.textblock {
-    @media screen and (min-width: 1000px) {
-        p,
-        ul,
-        ol,
-        dl {
-            font-size: $fSizeMplus * 1em;
-            line-height: $grid / $fSizeMplus;
-
-            p,
-            li,
-            dt,
-            dd,
-            dl,
-            ul,
-            ol {
-                font-size: 1em;
-            }
-        }
-    }
-}
 h1,
 table {
     font-weight: 300;
@@ -62,6 +41,40 @@ h2.groupheader {
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: $linkColor;
+}
+.textblock {
+    font-size: $fSizeM * 1em;
+    line-height: $grid / $fSizeM;
+
+    p,
+    li,
+    dl,
+    ul,
+    ol {
+        font-size: 1em;
+    }
+    .fragment {
+        font-size: 1em / $fSizeM;
+    }
+    p.definition {
+        font-size: 1em * $fSizeXS / $fSizeM;
+    }
+    a.el {
+        font-weight: inherit;
+    }
+    h2,
+    h2.groupheader {
+        font-size: $fSizeS * 1em / $fSizeM;
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: $fSizeMplus * 1em;
+        line-height: $grid / $fSizeMplus;
+
+        .fragment {
+            font-size: 1em / $fSizeMplus;
+        }
+    }
 }
 .title {
     font-size: $fSizeXL * 1em;

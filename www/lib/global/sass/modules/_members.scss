@@ -37,5 +37,8 @@ p.definition {
     font-size: 1em * $fSizeXS;
     margin-top: ($grid / $fSizeXS);
 }
+tr.inherit_header td img {
+    display: inline-block;
+}
 
 // vim:set ft=scss sw=4 sts=4 fdm=marker :

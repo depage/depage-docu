@@ -19,6 +19,7 @@ div#main-nav {
         font-size: 1em;
 
         li {
+            position: relative;
             display: inline-block;
             padding: 0 $grid * 0.25;
             line-height: $headerHeight;
@@ -26,6 +27,21 @@ div#main-nav {
             a {
                 font-size: 1em * $fSizeNav;
                 font-weight: 600;
+                white-space: nowrap;
+                display: block;
+            }
+            ul {
+                position: absolute;
+                left: 0;
+                top: $headerHeight;
+                margin-top: -1px;
+                display: none;
+                background: $backgroundLighterColor;
+                border: 1px solid $borderColor;
+                border-top: none;
+            }
+            &:hover ul {
+                display: block;
             }
         }
     }
@@ -67,6 +83,9 @@ div#main-nav {
                     display: block;
                     border-bottom: none;
                     background: $backgroundLighterColor;
+                }
+                &:hover ul {
+                    display: none;
                 }
             }
         }

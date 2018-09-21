@@ -3,7 +3,6 @@
 body,
 div,
 p,
-dl,
 p.reference {
     font-family: 'Source Serif Pro', serif;
     letter-spacing: 0.02em;
@@ -19,8 +18,8 @@ table,
 table.directory,
 #powerTip div,
 p.definition,
-div.memdoc > *,
 dl dt,
+dl dd,
 div#main-nav,
 div.summary,
 .logo,
