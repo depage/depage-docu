@@ -672,7 +672,7 @@ FILE_VERSION_FILTER    = "/bin/sh -c 'git log --pretty=\"format:%ci, commit:%h\"
 # DoxygenLayout.xml, doxygen will parse it automatically even if the LAYOUT_FILE
 # tag is left empty.
 
-LAYOUT_FILE            = Documentation/depage-docu/DoxygenLayout.xml
+LAYOUT_FILE            = Documentation/DoxygenLayout.xml
 
 # The CITE_BIB_FILES tag can be used to specify one or more bib files containing
 # the reference definitions. This must be a list of .bib files. The .bib
@@ -861,12 +861,6 @@ EXCLUDE_PATTERNS       = */tests/* \
 # exclude all test directories use the pattern */test/*
 
 EXCLUDE_SYMBOLS        =
-
-# The EXAMPLE_PATH tag can be used to specify one or more files or directories
-# that contain example code fragments that are included (see the \include
-# command).
-
-EXAMPLE_PATH           = examples/
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
