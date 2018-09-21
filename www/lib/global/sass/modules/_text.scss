@@ -27,12 +27,13 @@ table.directory,
 #powerTip div {
     font-weight: 600;
 }
-h2 {
+h2,
+h3 {
     font-size: $fSizeL * 1em;
     margin-top: $grid / $fSizeL;
-    color: $linkColor;
 }
 h2,
+h3,
 h2.groupheader {
     font-weight: 600;
     font-size: $fSizeS * 1em;
@@ -41,6 +42,9 @@ h2.groupheader {
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: $linkColor;
+}
+h3 {
+    color: $textDisabledColor;
 }
 .textblock {
     font-size: $fSizeM * 1em;
@@ -65,7 +69,12 @@ h2.groupheader {
     p.definition {
         font-size: 1em * $fSizeXS / $fSizeM;
     }
+    h1 {
+        margin-top: $grid * 1 / $fSizeL;
+        margin-bottom: $grid * 0.25 / $fSizeL;
+    }
     h2,
+    h3,
     h2.groupheader {
         font-size: $fSizeS * 1em / $fSizeM;
     }
@@ -84,6 +93,7 @@ h2.groupheader {
             font-size: 1em * $fSizeXS / $fSizeMplus;
         }
         h2,
+        h3,
         h2.groupheader {
             font-size: $fSizeS * 1em / $fSizeMplus;
         }
