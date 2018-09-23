@@ -1,3 +1,16 @@
+// {{{ body
+body {
+    @include flexbox();
+    @include flex-direction(column);
+    min-height: 100vh;
+}
+main {
+    position: relative;
+    @include flex(1 0 0);
+}
+// }}}
+
+// }}}
 // {{{ .contents
 div.contents,
 div.headertitle {
