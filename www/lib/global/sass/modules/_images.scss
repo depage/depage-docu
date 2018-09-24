@@ -1,11 +1,12 @@
 // {{{ .image
 .textblock .image {
     width: 100%;
-    margin: $grid 0;
+    padding: $grid 0;
 
     img {
         display: block;
         max-width: 100%;
+        border: 1px solid $borderLightColor;
     }
 }
 // }}}
