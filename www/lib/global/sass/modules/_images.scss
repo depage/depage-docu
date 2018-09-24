@@ -1,0 +1,12 @@
+// {{{ .image
+.textblock .image {
+    width: 100%;
+    margin: $grid 0;
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+// }}}
+// vim:set ft=scss sw=4 sts=4 fdm=marker :
