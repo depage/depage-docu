@@ -119,9 +119,10 @@ function addDoxygenBehaviours() {
 function onPageLoad() {
     $(".image img").each(function() {
         var $img = $(this);
-        console.log(this.naturalWidth);
+        var $caption = $("<span class=\"caption\"></span");
 
         $img.css({ width: (this.naturalWidth / 2) + "px"});
+        $caption.insertAfter($img).text($img.attr("title"));
     });
 }
 // }}}
