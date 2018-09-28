@@ -115,8 +115,12 @@ h3 {
 .contents ol {
     padding-left: $grid * 0.75 / $fSizeM;
 }
-a {
-    color: $linkColor;
+a,
+.contents a {
+    &,
+    &:visited {
+        color: $linkColor;
+    }
 }
 dl {
     dt {

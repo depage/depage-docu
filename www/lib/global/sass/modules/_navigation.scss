@@ -1,6 +1,9 @@
+// {{{ headertitle
 div.headertitle {
     margin-top: 4 * $grid;
 }
+// }}}
+// {{{ main-nav
 div#top {
     height: 0;
 }
@@ -98,6 +101,8 @@ div#main-nav {
         }
     }
 }
+// }}}
+// {{{ header
 div.header {
     position: relative;
     background: none;
@@ -105,6 +110,8 @@ div.header {
     border-bottom: none;
     margin-top: $grid * 2;
 }
+// }}}
+// {{{ nav-path
 div#nav-path {
     position: absolute;
     left: 0;
@@ -132,6 +139,8 @@ div#nav-path {
         display: none;
     }
 }
+// }}}
+// {{{ summary
 div.summary {
     position: absolute;
     //bottom: - $grid;
@@ -158,5 +167,50 @@ div.summary {
         text-transform: uppercase;
     }
 }
+// }}}
+// {{{ toc
+div.toc {
+    background: $backgroundBrightColor;
+    border: none;
+    float: none;
+    width: 100%;
+    max-width: $contentWidth / 2;
+    padding: $grid * 0.5;
+    margin: $grid 0;
+
+    @media screen and (min-width: 1500px) {
+        position: fixed;
+        top: $grid * 9;
+        right: 0;
+        max-width: $contentWidth / 4;
+    }
+
+    h3 {
+        display: none;
+    }
+    > ul {
+        a {
+            font-size: 1em * $fSizeS;
+        }
+        > li > a {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1em * $fSizeXS;
+        }
+        li {
+            padding: 0 !important;
+            margin: 0 !important;
+            line-height: 1.8em;
+
+            &:before {
+                display: none !important;
+            }
+            &.level2 {
+                margin-left: 0;
+            }
+        }
+    }
+}
+// }}}
 
 // vim:set ft=scss sw=4 sts=4 fdm=marker :
