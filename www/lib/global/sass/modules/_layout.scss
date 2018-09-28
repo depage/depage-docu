@@ -54,6 +54,16 @@ body > header {
     }
 }
 // }}}
+// {{{ body.embedded
+body.embedded {
+    > header .logo {
+        display: none;
+    }
+    div#main-nav {
+        padding-left: $headerHeight * 0.5 !important;
+    }
+}
+// }}}
 // {{{ footer
 body > footer {
     margin-top: 4 * $grid;

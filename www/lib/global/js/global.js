@@ -132,6 +132,10 @@ $.fn.smartmenus = function() {};
 
 // {{{ register events
 $(document).ready(function() {
+    if (window.frameElement) {
+        $("body").addClass("embedded");
+    }
+
     // replace content
     replaceInteractiveContent();
     addDoxygenBehaviours();
