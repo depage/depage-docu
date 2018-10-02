@@ -70,8 +70,28 @@ h3 {
         font-size: 1em * $fSizeXS / $fSizeM;
     }
     h1 {
-        margin-top: $grid * 1 / $fSizeL;
-        margin-bottom: $grid * 0.25 / $fSizeL;
+        font-weight: 600;
+        font-size: $fSizeS * 1em / $fSizeM;
+        line-height: $grid / $fSizeS;
+        margin-top: 3 * $grid / $fSizeS;
+        margin-bottom: 1 * $grid / $fSizeS;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: $borderColor;
+        text-align: center;
+
+        &::before {
+            content: " ";
+            display: block;
+            left: 0;
+            top: 0;
+            width: 50%;
+            width: 10em;
+
+            margin: 0 auto;
+            border-top: 1px solid $borderColor;
+            //border-bottom: 1px solid $borderLightColor;
+        }
     }
     h2,
     h3,
@@ -91,6 +111,9 @@ h3 {
         }
         p.definition {
             font-size: 1em * $fSizeXS / $fSizeMplus;
+        }
+        h1 {
+            font-size: $fSizeS * 1em / $fSizeMplus;
         }
         h2,
         h3,

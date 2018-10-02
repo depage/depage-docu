@@ -72,7 +72,7 @@ div#main-nav {
             margin-top: -1px;
             right: 0;
             width: $sidebarWidth;
-            background: $backgroundLighterColor;
+            background: $backgroundMenu;
             max-width: 75%;
             @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
             @include transition(200ms, "transform");
@@ -81,11 +81,14 @@ div#main-nav {
             li {
                 display: block;
                 width: 100%;
+                padding: 0;
 
                 a {
                     display: block;
                     border-bottom: none;
-                    background: $backgroundLighterColor;
+                    background: transparent;
+                    color: $textBrightColor;
+                    padding: 0 $grid * 0.25;
                 }
                 &:hover ul {
                     display: none;
@@ -170,15 +173,20 @@ div.summary {
 // }}}
 // {{{ toc
 div.toc {
-    background: $backgroundBrightColor;
+    background: $backgroundMenu;
     border: none;
     float: none;
     width: 100%;
     max-width: $contentWidth / 2;
     padding: $grid * 0.5;
     margin: $grid 0;
+    display: none;
+    @include radius(0);
+    @include radius($cornerRadius, "top", "left");
+    @include radius($cornerRadius, "bottom", "left");
 
     @media screen and (min-width: 1500px) {
+        display: block;
         position: fixed;
         top: $grid * 9;
         right: 0;
@@ -191,6 +199,11 @@ div.toc {
     > ul {
         a {
             font-size: 1em * $fSizeS;
+
+            &,
+            &:visited {
+                color: $textBrightColor;
+            }
         }
         > li > a {
             text-transform: uppercase;
@@ -198,12 +211,19 @@ div.toc {
             font-size: 1em * $fSizeXS;
         }
         li {
-            padding: 0 !important;
-            margin: 0 !important;
+            padding: 0;
+            margin: 0;
             line-height: 1.8em;
 
             &:before {
                 display: none !important;
+            }
+            &.level1 {
+                margin-top: 0.5 * $grid;
+
+                &:first-child {
+                    margin-top: 0;
+                }
             }
             &.level2 {
                 margin-left: 0;
