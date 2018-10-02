@@ -44,77 +44,43 @@ function replaceInteractiveContent() {
         document.location = $("a", this)[0].href;
     });
     // }}}
-    // {{{ replace buttons by textlinks
-    $("form").each(function() {
-        var form = this;
-
-        if (!form.id) {
-            form.id = "textbutton" + formnum++ + "form";
-        }
-        $("input.textbutton", form).each( function() {
-            $(this).hide();
-
-            if (this.type == "submit") {
-                ionclick = "document.forms." + form.id + ".submit(); return false;";
-            } else if (this.type == "reset") {
-                ionclick = "document.forms." + form.id + ".reset(); return false;";
-            } else {
-                ionclick = this.onclick;
-            }
-
-            $(this).after("<a href=\"#\" onclick=\"" + ionclick + "\">" + this.value + "</a>");
-        });
-    });
-    // }}}
-    // {{{ add handlers for code-listings
-    var text_source_showplain;
-    var text_source_showstyled;
-    if (lang == "de") {
-        text_source_showplain = "Quelltext als reinen Text anzeigen";
-        text_source_showstyled = "Quelltext formatiert anzeigen";
-    } else {
-        text_source_showplain = "View this source in Plain Text";
-        text_source_showstyled = "View this source as Highlighted Code";
-    }
-    $('.source pre').each(function() { //on each code box do
-        $(this)
-            .before('<a href="#" class="codeswitch">' + text_source_showplain + '</a>') //write a code right before the code-box
-            .after('<div><textarea rows="' + ($(this).children().html().split("\n").length-1) + '" cols="50">' + $(this).children().html() + '</textarea></div>'); //write a textarea with the content of the code-box after it
-    });
-
-    $('.codeswitch').toggle(function() { //hide code-box and show textarea
-        $(this)
-            .text(text_source_showstyled) //change text of the link
-            .next().hide().next().show(); //first next is code-box, second is textarea
-        }, function() { //hide textarea and show code box
-        $(this)
-            .text(text_source_showplain)
-            .next().show().next().hide();
-    });
-
-    // style source code
-    //prettyPrint();
-    // }}}
     // {{{ add burger menu
     $("#main-nav").on("click", function() {
         $(this).toggleClass("active");
     });
     // }}}
+    // {{{ add toc scrolling
+    var $links = $(".toc a");
+    $links.on("click", function() {
+        var url = $(this).attr('href') || '';
+        var base = window.location.href.replace(/#.*/, '');
+
+        if (url.substring(0, base.length) === base || url.indexOf(':') === -1) {
+            var id = this.hash;
+            var $target = $(id);
+
+            if ($target.length > 0) {
+                var offset = $target.offset().top - 100;
+
+                $(this).blur();
+
+                $('html, body').animate({
+                    scrollTop: offset
+                }, {
+                    duration: 400,
+                    easing: "swing"
+                });
+
+                history.pushState({}, "", url);
+
+                return false;
+            }
+        }
+    });
+    // }}}
 }
 // }}}
 
-// {{{ addDoxygenBehaviours()
-function addDoxygenBehaviours() {
-    $(".dynheader").toggle( function() {
-        $(this).addClass("active");
-        $(".dyncontent").show();
-    }, function() {
-        $(this).removeClass("active");
-        $(".dyncontent").hide();
-    });
-    $(".dyncontent").hide();
-}
-// }}}
 // {{{ onPageLoad()
 function onPageLoad() {
     $(".image img").each(function() {
@@ -138,7 +104,6 @@ $(document).ready(function() {
 
     // replace content
     replaceInteractiveContent();
-    addDoxygenBehaviours();
 
     $(window).on("statechangecomplete", replaceInteractiveContent);
     $(window).on("load", onPageLoad);
