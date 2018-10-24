@@ -185,7 +185,7 @@ div.toc {
     @include radius($cornerRadius, "top", "left");
     @include radius($cornerRadius, "bottom", "left");
 
-    @media screen and (min-width: 1500px) {
+    @media screen and (min-width: 1024px) {
         display: block;
         position: fixed;
         top: $grid * 9;

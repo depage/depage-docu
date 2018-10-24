@@ -13,7 +13,19 @@ main {
 // {{{ .contents
 div.contents,
 div.headertitle {
-    @include centeredcontainer($contentWidth);
+    //max-width: 75%;
+    max-width: $contentWidth;
+    margin: 0;
+
+    @media screen and (max-width: 1000px) {
+        max-width: 100%;
+    }
+    @media screen and (max-width: 1200px) {
+        max-width: $contentWidth / 4 * 3;
+    }
+    @media screen and (min-width: 1500px) {
+        @include centeredcontainer($contentWidth);
+    }
 
     padding: $grid;
 }
