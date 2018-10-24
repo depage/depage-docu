@@ -83,6 +83,9 @@ body > footer {
     background: $backgroundDarkColor;
     color: $textBrightColor;
 
+    p {
+        font-size: 1em * $fSizeNav;
+    }
     a {
         color: $insertMarkerBackground;
     }

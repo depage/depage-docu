@@ -198,7 +198,7 @@ div.toc {
     }
     > ul {
         a {
-            font-size: 1em * $fSizeS;
+            font-size: 1em * $fSizeNav;
 
             &,
             &:visited {
@@ -208,7 +208,7 @@ div.toc {
         > li > a {
             text-transform: uppercase;
             font-weight: 600;
-            font-size: 1em * $fSizeXS;
+            font-size: 1em * $fSizeS;
         }
         li {
             padding: 0;

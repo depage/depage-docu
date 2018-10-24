@@ -7,26 +7,32 @@ p.reference {
     font-family: 'Source Serif Pro', serif;
     letter-spacing: 0.02em;
 }
-h1,
+.title,
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+}
 h2,
 h2.groupheader,
 h3,
 h4,
-.title,
 table,
 .navpath li.navelem a,
 table.directory,
 #powerTip div,
+div#main-nav,
+.logo,
 p.definition,
 dl dt,
 dl dd,
-div#main-nav,
 div.summary,
-.logo,
+div.toc,
+div.toc li,
 .image .caption,
 body > footer > * {
-    font-family: 'Source Sans Pro', sans-serif;
-    letter-spacing: 0.05em;
+    @include font(-apple-system-body, SFUI, system, system-ui , 'Helvetica Neue', 'Segoe UI', 'Source Sans Pro', 'Oxygen', Tahoma, Arial, Geneva, sans-serif);
+    letter-spacing: 0.08em;
     font-weight: 300;
 }
 pre.fragment,
