@@ -30,8 +30,10 @@ div.summary,
 div.toc,
 div.toc li,
 .image .caption,
-.textblock b,
-.textblock a,
+.textblock p > b,
+.textblock p > a,
+.textblock li > b,
+.textblock li > a,
 body > footer > * {
     @include font(-apple-system-body, SFUI, system, system-ui , 'Helvetica Neue', 'Segoe UI', 'Source Sans Pro', 'Oxygen', Tahoma, Arial, Geneva, sans-serif);
     letter-spacing: 0.08em;
