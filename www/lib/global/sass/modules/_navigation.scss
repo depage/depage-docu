@@ -24,8 +24,9 @@ div#main-nav {
         li {
             position: relative;
             display: inline-block;
-            padding: 0 $grid * 0.25;
+            padding: 0 $grid * 0.375;
             line-height: $headerHeight;
+            height: calc(#{$headerHeight} - 1px);
 
             a {
                 font-size: 1em * $fSizeNav;
@@ -39,9 +40,25 @@ div#main-nav {
                 top: $headerHeight;
                 margin-top: -1px;
                 display: none;
-                background: $backgroundLighterColor;
-                border: 1px solid $borderColor;
+                background: $backgroundMenu;
                 border-top: none;
+                @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+                @include radius($cornerRadius, "bottom", "left");
+                @include radius($cornerRadius, "bottom", "right");
+
+                li {
+                    display: block;
+                }
+                a {
+                    color: $textBrightColor;
+                }
+            }
+            &:hover {
+                background: $backgroundLighterColor;
+
+                li:hover {
+                    background: $selectionBackgroundColor;
+                }
             }
             &:hover ul {
                 display: block;
@@ -73,7 +90,9 @@ div#main-nav {
             right: 0;
             width: $sidebarWidth;
             background: $backgroundMenu;
+            max-height: 90vh;
             max-width: 75%;
+            overflow-y: auto;
             @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
             @include transition(200ms, "transform");
             @include transform(translateX(120%));
@@ -82,6 +101,11 @@ div#main-nav {
                 display: block;
                 width: 100%;
                 padding: 0;
+                height: auto;
+
+                &:hover {
+                    background: transparent;
+                }
 
                 a {
                     display: block;
@@ -90,8 +114,16 @@ div#main-nav {
                     color: $textBrightColor;
                     padding: 0 $grid * 0.25;
                 }
-                &:hover ul {
-                    display: none;
+                ul {
+                    display: block;
+                    position: static;
+                    background: transparent;
+                    border: none;
+                    @include box-shadow(none);
+
+                    li {
+                        padding-left: 0.5 * $grid;
+                    }
                 }
             }
         }
