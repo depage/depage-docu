@@ -83,7 +83,7 @@ function replaceInteractiveContent() {
 
 // {{{ onPageLoad()
 function onPageLoad() {
-    $(".image img").each(function() {
+    $(".image img, .image object").each(function() {
         var $img = $(this);
         var $caption = $("<span class=\"caption\"></span");
 
