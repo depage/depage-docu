@@ -52,6 +52,39 @@ h3 {
     ol {
         font-size: 1em;
     }
+    p {
+        margin-bottom: 0.5 * $grid / $fSizeM;
+    }
+    > blockquote {
+        position: relative;
+        margin: 0;
+        margin-top: $grid / $fSizeM;
+        margin-bottom: $grid / $fSizeM;
+        padding: 0;
+        padding-left:  $grid / $fSizeM;
+        border: none;
+        background: transparent;
+
+        &::before {
+            position: absolute;
+            top: -0em;
+            left: -0em;
+            width: 1em;
+            height: 1em;
+            content: " ";
+            color: $linkColor;
+            background-image: url(../icon-tree-closed.svg);
+            background-size: 200% 200%;
+            background-position: center center;
+        }
+
+        p {
+            font-size: 1em / $fSizeM * $fSizeXS;
+            margin: 0;
+            font-weight: bold !important;
+            text-transform: uppercase;
+        }
+    }
     a.el {
         font-weight: inherit;
     }
