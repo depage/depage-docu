@@ -11,7 +11,7 @@ div#main-nav {
     position: fixed;
     top: 0;
     left: 0;
-    padding-left: $headerHeight + 15em;
+    padding-left: $headerHeight + $logoWidth;
     right: 0;
     height: $headerHeight;
     background: #ffffff;
@@ -211,7 +211,7 @@ div.toc {
     width: 100%;
     max-width: $contentWidth / 2;
     padding: $grid * 0.5;
-    margin: $grid 0;
+    margin: 0;
     display: none;
     @include radius(0);
     @include radius($cornerRadius, "top", "left");
@@ -221,8 +221,15 @@ div.toc {
         display: block;
         position: fixed;
         top: $grid * 9;
+        top: $grid * 5;
         right: 0;
         max-width: $contentWidth / 4;
+    }
+    @media screen and (min-width: 1024px) and (max-height: 700px) {
+        top: $headerHeight;
+        bottom: 0;
+        overflow-y: auto;
+        @include radius(0);
     }
 
     h3 {

@@ -88,7 +88,7 @@ function onPageLoad() {
         var $caption = $("<span class=\"caption\"></span");
 
         $img.css({ width: (this.naturalWidth / 2) + "px"});
-        $caption.insertAfter($img).text($img.attr("title"));
+        $caption.insertAfter($img).text($img.attr("alt"));
     });
 }
 // }}}
