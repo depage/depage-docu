@@ -50,7 +50,7 @@ function replaceInteractiveContent() {
     });
     // }}}
     // {{{ add toc scrolling
-    var $links = $(".toc a");
+    var $links = $("a");
     $links.on("click", function() {
         var url = $(this).attr('href') || '';
         var base = window.location.href.replace(/#.*/, '');
