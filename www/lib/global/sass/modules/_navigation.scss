@@ -92,7 +92,10 @@ div#main-nav {
             background: $backgroundMenu;
             max-height: 90vh;
             max-width: 75%;
-            overflow-y: auto;
+            overflow: hidden;
+            &:hover {
+                overflow-y: auto;
+            }
             @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
             @include transition(200ms, "transform");
             @include transform(translateX(120%));
@@ -213,6 +216,10 @@ div.toc {
     padding: $grid * 0.5;
     margin: 0;
     display: none;
+    overflow: hidden;
+    &:hover {
+        overflow-y: auto;
+    }
     @include radius(0);
     @include radius($cornerRadius, "top", "left");
     @include radius($cornerRadius, "bottom", "left");
@@ -228,7 +235,6 @@ div.toc {
     @media screen and (min-width: 1024px) and (max-height: 700px) {
         top: $headerHeight;
         bottom: 0;
-        overflow-y: auto;
         @include radius(0);
     }
 
