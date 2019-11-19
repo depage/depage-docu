@@ -1,9 +1,10 @@
 // {{{ .image
-.textblock .image {
-    width: 100%;
-    margin: 0.75 * $grid 0;
-    text-align: left;
-
+.textblock {
+    .image {
+        width: 100%;
+        margin: 0.75 * $grid 0;
+        text-align: left;
+    }
     img,
     object {
         display: block;
