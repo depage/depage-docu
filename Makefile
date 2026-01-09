@@ -18,11 +18,10 @@ all: min
 
 min: sass
 
-$(JSDIR)global.min.js: \
-    $(JSDIR)jquery-1.12.3.min.js \
-    $(JSDIR)dynsections.js \
-    $(JSDIR)global.js
-	$(JSMIN) --dp-path . --target=$@ $^
+$(CSSDIR)depage-docu.js: \
+    $(DOXYAWESOME_DIR)doxygen-awesome-darkmode-toggle.js \
+    $(JSDIR)depage-docu-init.js
+	cat $^ > $@
 
 locale:
 	cd www/lib/ ; $(I18N)
@@ -30,7 +29,9 @@ locale:
 $(DOXYAWESOME_DIR)doxygen-awesome.css: 
 	git submodule update --init --recursive
 
-sass: \
+sass: $(CSSDIR)depage-docu.js
+
+$(CSSDIR)depage-docu.css: \
     $(SASSDIR)*.scss \
     $(DOXYAWESOME_DIR)doxygen-awesome.css \
     $(DOXYAWESOME_DIR)doxygen-awesome-sidebar-only.css \
