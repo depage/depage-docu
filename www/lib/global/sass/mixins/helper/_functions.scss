@@ -1,4 +1,0 @@
-@function svg-encode($string) {
-    @return url("data:image/svg+xml;charset=utf-8;base64," + base64-encode($string) + "");
-}
-// vim:set ft=scss sw=4 sts=4 fdm=marker :
