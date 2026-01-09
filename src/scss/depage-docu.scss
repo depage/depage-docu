@@ -1,3 +1,10 @@
 @use "../../doxygen-awesome-css/doxygen-awesome.css";
 @use "../../doxygen-awesome-css/doxygen-awesome-sidebar-only.css";
 @use "../../doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css";
+
+html {
+    --page-font-size: 17px;
+    --navigation-font-size: 15px;
+    --content-line-height: 28px;
+    background-color: #ff9900 !important;
+}

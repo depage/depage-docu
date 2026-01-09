@@ -12,7 +12,6 @@ DOXYAWESOME_DIR = doxygen-awesome-css/
 
 doc: min
 	( cat DoxyfileDocu ; echo "PROJECT_NUMBER=$(VERSION)" ) | doxygen -
-	cp -r www/lib Docs/html/
 
 all: min
 
@@ -29,7 +28,7 @@ locale:
 $(DOXYAWESOME_DIR)doxygen-awesome.css: 
 	git submodule update --init --recursive
 
-sass: $(CSSDIR)depage-docu.js
+sass: $(CSSDIR)depage-docu.css
 
 $(CSSDIR)depage-docu.css: \
     $(SASSDIR)*.scss \
