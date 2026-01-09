@@ -39,4 +39,4 @@ $(CSSDIR)depage-docu.css: \
 	sass --update $(SASSDIR):$(CSSDIR) --style=compressed --no-source-map
 
 clean:
-	rm -r Docs/html/
+	rm -rf Docs/html/
