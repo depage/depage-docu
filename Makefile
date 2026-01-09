@@ -9,6 +9,11 @@ JSDIR = www/lib/global/js/
 
 .PHONY: all min minjs locale locale-php sass sassc push pushdev pushlive
 
+doc:
+	( cat DoxyfileDocu ; echo "PROJECT_NUMBER=$(VERSION)" ) | doxygen -
+	cp -r www/lib Docs/html/
+
+
 all: sassc min
 
 min: sassc $(JSDIR)global.min.js
