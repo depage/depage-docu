@@ -34,3 +34,6 @@ sassc: $(patsubst %.scss,$(CSSDIR)%.css, $(notdir $(wildcard $(SASSDIR)*.scss)))
 
 sass:
 	sass --update $(SASSDIR):$(CSSDIR) -r ./$(SASSDIR)mixins/helper/functions.rb --style compressed --sourcemap=none
+
+clean:
+	rm -r Docs/html/
