@@ -15,4 +15,5 @@ Developer/Entwickler Manual
 - [depage-forms Developer Manual](https://docs.depage.net/depage-forms/)
 - [depage-fs Developer Manual](https://docs.depage.net/depage-fs/)
 - [depage-graphics Developer Manual](https://docs.depage.net/depage-graphics/)
+- [depage-xmldb Developer Manual](https://docs.depage.net/depage-xmldb/)
 

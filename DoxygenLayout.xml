@@ -14,6 +14,7 @@
     <tab type="user" url="https://docs.depage.net/depage-forms/" title="depage-forms"/>
     <tab type="user" url="https://docs.depage.net/depage-fs/" title="depage-fs"/>
     <tab type="user" url="https://docs.depage.net/depage-graphics/" title="depage-graphics"/>
+    <tab type="user" url="https://docs.depage.net/depage-xmldb/" title="depage-xmldb"/>
   </navindex>
 
   <!-- Layout definition for a class page -->
