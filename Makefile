@@ -15,7 +15,7 @@ doc: min
 
 all: min
 
-min: sass
+min: sass www/depage-docu.js
 
 $(CSSDIR)depage-docu.js: \
     $(DOXYAWESOME_DIR)doxygen-awesome-darkmode-toggle.js \
